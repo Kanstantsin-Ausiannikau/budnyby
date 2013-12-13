@@ -1,0 +1,320 @@
+.NewsTwoPatternBoxWraper {
+  border: 1px solid #dddddd;
+  padding: 3px;
+  margin: 20px 1px;
+}
+
+.NewsTwoContainer ol {
+  margin: 0 0 16px 16px;
+  padding-left: 16px;
+}
+.NewsTwoContainer ol li {
+  font: 12px Arial;
+}
+.NewsTwoContainer ol li ol {
+  padding: 3px 0;
+}
+.NewsTwoContainer ul {
+  margin: 0 0 16px 16px;
+  padding-left: 16px;
+}
+.NewsTwoContainer ul ul {
+  padding: 3px 0;
+}
+.NewsTwoContainer p {
+  line-height: 15px;
+  font: 12px Arial;
+  padding-bottom: 16px;
+}
+.NewsTwoContainer a {
+  color: #5e9700;
+  text-decoration: none;
+}
+.NewsTwoContainer a:hover {
+  text-decoration: underline;
+}
+.NewsTwoContainer h1, .NewsTwoContainer h2, .NewsTwoContainer h3, .NewsTwoContainer h4 {
+  font-family: "Francois One", Arial, serif;
+  font-size: 24px;
+  margin: 16px 0 15px 0;
+  color: #121212;
+  font-weight: normal;
+  line-height: 28px;
+  letter-spacing: normal;
+}
+.NewsTwoContainer h2 {
+  font-size: 20px;
+  margin: 0px 0 15px 0;
+  line-height: 28px;
+}
+.NewsTwoContainer h3 {
+  font-size: 17px;
+  margin: 0px 0 10px 0;
+  line-height: 21px;
+}
+.NewsTwoContainer h4 {
+  font-size: 14px;
+  margin: 0px 0 5px 0;
+  line-height: 18x;
+}
+.NewsTwoContainer img {
+  max-width: 100%;
+  height: auto;
+}
+.NewsTwoContainer.GreyFooterBox > h2 {
+  border: solid 1px #dadada;
+  padding: 2px 3px;
+  border-radius: 18px;
+  margin-bottom: 15px;
+  font-weight: normal;
+  background: white;
+}
+.NewsTwoContainer.GreyFooterBox > h2 span {
+  background: #ebebeb;
+  padding: 4px 9px 3px 9px;
+  display: block;
+  border-radius: 15px;
+  font-size: 18px;
+  color: #2f2f2f;
+  font-family: "Francois One", Arial, serif;
+  font-weight: normal;
+}
+.NewsTwoContainer.GreyFooterBox > h2 span.Head {
+  margin: 0;
+  border: none;
+}
+.NewsTwoContainer.GreyFooterBox .DNNModuleContent {
+  padding: 0 15px;
+}
+.NewsTwoContainer.GreyFooterBox .DNNModuleContent .Normal {
+  color: #2f2f2f;
+}
+.NewsTwoContainer.GreyBorderBox {
+  border: solid 2px #ebebeb;
+}
+.NewsTwoContainer.GreyBorderBox > h2 {
+  background: #ebebeb;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.NewsTwoContainer.GreyBorderBox > h2 span {
+  background: #ebebeb;
+  font-size: 20px;
+  color: #2f2f2f;
+  font-family: "Francois One", Arial, serif;
+  font-weight: normal;
+  padding: 5px 9px 7px 9px;
+}
+.NewsTwoContainer.GreyBorderBox > h2 span.Head {
+  margin: 0;
+  border: none;
+}
+.NewsTwoContainer.GreyBorderBox .DNNModuleContent {
+  padding: 15px;
+}
+.NewsTwoContainer.GreyBorderBox .DNNModuleContent .Normal {
+  color: #2f2f2f;
+}
+.NewsTwoContainer.DarkGreyBox {
+  border: solid 2px #2f2f2f;
+}
+.NewsTwoContainer.DarkGreyBox > h2 {
+  margin: 0;
+  background-color: #2f2f2f;
+  padding: 3px 8px 8px 8px !important;
+  margin: 0 !important;
+}
+.NewsTwoContainer.DarkGreyBox > h2 span {
+  color: white;
+  font-size: 20px;
+  font-family: "Francois One", Arial, serif;
+  margin: 0;
+  padding: 0;
+}
+.NewsTwoContainer.DarkGreyBox > h2 span.Head {
+  margin: 0;
+  border: none;
+}
+.NewsTwoContainer.DarkGreyBox .DNNModuleContent {
+  padding: 10px;
+}
+.NewsTwoContainer.DarkGreyBox .DNNModuleContent .Normal {
+  color: #2f2f2f;
+}
+.NewsTwoContainer.DarkBoxPatternBackground {
+  background: url(images/DarkBoxPatternBackground.png);
+  color: white !important;
+  font-size: 12px;
+  padding: 7px 12px;
+}
+.NewsTwoContainer.DarkBoxPatternBackground > h2 {
+  margin: 0 0 7px 0 !important;
+  padding: 0;
+}
+.NewsTwoContainer.DarkBoxPatternBackground > h2 span {
+  color: white;
+  font-size: 28px;
+  font-family: "Francois One", Arial, serif;
+}
+.NewsTwoContainer.DarkBoxPatternBackground > h2 span.Head {
+  margin: 0;
+  border: none;
+}
+.NewsTwoContainer.DarkBoxPatternBackground p {
+  font-size: 12px;
+  margin: 0 0 15px 0 !important;
+}
+.NewsTwoContainer.DarkBoxPatternBackground .DNNModuleContent {
+  padding: 0;
+}
+.NewsTwoContainer.DarkBoxPatternBackground .DNNModuleContent .Normal {
+  color: white;
+}
+.NewsTwoContainer.GreyBoxPatternBackground {
+  background: url(images/GreyBoxPatternBackground.png);
+  color: white !important;
+  font-size: 12px;
+  padding: 7px 12px;
+}
+.NewsTwoContainer.GreyBoxPatternBackground > h2 {
+  margin: 0 0 7px 0 !important;
+  padding: 0;
+}
+.NewsTwoContainer.GreyBoxPatternBackground > h2 span {
+  color: white;
+  font-size: 28px;
+  font-family: "Francois One", Arial, serif;
+}
+.NewsTwoContainer.GreyBoxPatternBackground > h2 span.Head {
+  margin: 0;
+  border: none;
+}
+.NewsTwoContainer.GreyBoxPatternBackground p {
+  font-size: 12px;
+  margin: 0 0 15px 0 !important;
+}
+.NewsTwoContainer.GreyBoxPatternBackground .DNNModuleContent {
+  padding: 0;
+}
+.NewsTwoContainer.GreyBoxPatternBackground .DNNModuleContent .Normal {
+  color: white;
+}
+.NewsTwoContainer.PinkBoxPatternBackground {
+  background: url(images/PinkBoxPatternBackground.png);
+  color: white !important;
+  font-size: 12px;
+  padding: 7px 12px;
+}
+.NewsTwoContainer.PinkBoxPatternBackground > h2 {
+  margin: 0 0 7px 0 !important;
+  padding: 0;
+}
+.NewsTwoContainer.PinkBoxPatternBackground > h2 span {
+  color: white;
+  font-size: 28px;
+  font-family: "Francois One", Arial, serif;
+}
+.NewsTwoContainer.PinkBoxPatternBackground > h2 span.Head {
+  margin: 0;
+  border: none;
+}
+.NewsTwoContainer.PinkBoxPatternBackground p {
+  font-size: 12px;
+  margin: 0 0 15px 0 !important;
+}
+.NewsTwoContainer.PinkBoxPatternBackground .DNNModuleContent {
+  padding: 0;
+}
+.NewsTwoContainer.PinkBoxPatternBackground .DNNModuleContent .Normal {
+  color: white;
+}
+.NewsTwoContainer.RedBoxPatternBackground {
+  background: url(images/RedBoxPatternBackground.png);
+  color: white !important;
+  font-size: 12px;
+  padding: 7px 12px;
+}
+.NewsTwoContainer.RedBoxPatternBackground > h2 {
+  margin: 0 0 7px 0 !important;
+  padding: 0;
+}
+.NewsTwoContainer.RedBoxPatternBackground > h2 span {
+  color: white;
+  font-size: 28px;
+  font-family: "Francois One", Arial, serif;
+}
+.NewsTwoContainer.RedBoxPatternBackground > h2 span.Head {
+  margin: 0;
+  border: none;
+}
+.NewsTwoContainer.RedBoxPatternBackground p {
+  font-size: 12px;
+  margin: 0 0 15px 0 !important;
+}
+.NewsTwoContainer.RedBoxPatternBackground .DNNModuleContent {
+  padding: 0;
+}
+.NewsTwoContainer.RedBoxPatternBackground .DNNModuleContent .Normal {
+  color: white;
+}
+.NewsTwoContainer.GreenBoxPatternBackground {
+  background: url(images/GreenBoxPatternBackground.png);
+  color: white !important;
+  font-size: 12px;
+  padding: 7px 12px;
+}
+.NewsTwoContainer.GreenBoxPatternBackground > h2 {
+  margin: 0 0 7px 0 !important;
+  padding: 0;
+}
+.NewsTwoContainer.GreenBoxPatternBackground > h2 span {
+  color: white;
+  font-size: 28px;
+  font-family: "Francois One", Arial, serif;
+}
+.NewsTwoContainer.GreenBoxPatternBackground > h2 span.Head {
+  margin: 0;
+  border: none;
+}
+.NewsTwoContainer.GreenBoxPatternBackground p {
+  font-size: 12px;
+  margin: 0 0 15px 0 !important;
+}
+.NewsTwoContainer.GreenBoxPatternBackground .DNNModuleContent {
+  padding: 0;
+}
+.NewsTwoContainer.GreenBoxPatternBackground .DNNModuleContent .Normal {
+  color: white;
+}
+.NewsTwoContainer.BlueBoxPatternBackground {
+  background: url(images/BlueBoxPatternBackground.png);
+  color: white !important;
+  font-size: 12px;
+  padding: 7px 12px;
+}
+.NewsTwoContainer.BlueBoxPatternBackground > h2 {
+  margin: 0 0 7px 0 !important;
+  padding: 0;
+}
+.NewsTwoContainer.BlueBoxPatternBackground > h2 span {
+  color: white;
+  font-size: 28px;
+  font-family: "Francois One", Arial, serif;
+}
+.NewsTwoContainer.BlueBoxPatternBackground > h2 span.Head {
+  margin: 0;
+  border: none;
+}
+.NewsTwoContainer.BlueBoxPatternBackground p {
+  font-size: 12px;
+  margin: 0 0 15px 0 !important;
+}
+.NewsTwoContainer.BlueBoxPatternBackground .DNNModuleContent {
+  padding: 0;
+}
+.NewsTwoContainer.BlueBoxPatternBackground .DNNModuleContent .Normal {
+  color: white;
+}
+
+
+

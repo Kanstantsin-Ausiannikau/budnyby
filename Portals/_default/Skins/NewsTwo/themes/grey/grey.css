@@ -1,0 +1,108 @@
+#Body {
+  background-image: url(images/news-two-background-grey.png);
+  background-color: #848484;
+}
+
+.NewsTwoMain .header {
+  border-bottom: solid 1px #353535;
+}
+.NewsTwoMain .header .main-menu {
+  background-color: #353535;
+}
+.NewsTwoMain .header .main-menu ul > li:hover > a {
+  text-shadow: -1px -1px 0px #403f3f;
+  background-color: #5e5e5e;
+}
+@media handheld, only screen and (max-width: 768px), only screen and (max-device-width: 768px) {
+  .NewsTwoMain .header .main-menu ul > li:hover {
+    background-color: #5e5e5e;
+  }
+}
+.NewsTwoMain .header .main-menu ul > li > a {
+  text-shadow: -1px -1px 0px #272727;
+}
+@media handheld, only screen and (max-width: 768px), only screen and (max-device-width: 768px) {
+  .NewsTwoMain .header .main-menu ul > li > a:hover {
+    background-color: transparent;
+  }
+}
+@media handheld, only screen and (max-width: 768px), only screen and (max-device-width: 768px) {
+  .NewsTwoMain .header .main-menu ul > li.active {
+    background-color: #e20303;
+    text-shadow: -1px -1px 0px #9f0104;
+  }
+}
+.NewsTwoMain .header .main-menu ul > li.active > a {
+  background-color: #e20303;
+  text-shadow: -1px -1px 0px #9f0104;
+}
+@media handheld, only screen and (max-width: 768px), only screen and (max-device-width: 768px) {
+  .NewsTwoMain .header .main-menu ul > li.active > a {
+    background: transparent;
+  }
+}
+.NewsTwoMain .header .main-menu ul > li.disabled > span {
+  text-shadow: -1px -1px 0px #272727;
+}
+.NewsTwoMain .header .main-menu ul > li > ul li:hover > a {
+  color: #cc0000;
+}
+.NewsTwoMain .header .main-menu ul > li > ul li a:hover {
+  color: #cc0000;
+}
+.NewsTwoMain .header .main-menu ul > li > ul li.active > a {
+  color: #cc0000;
+}
+.NewsTwoMain .header .login-language-social-container #login ul li a span {
+  background-image: url(images/info-span-bg.png);
+}
+.NewsTwoMain .header .login-language-social-container #login ul li.userDisplayName a {
+  color: #707070;
+}
+.NewsTwoMain .header .login-language-social-container #login .registerGroup a, .NewsTwoMain .header .login-language-social-container #login .registerGroup * a, .NewsTwoMain .header .login-language-social-container #login .loginGroup a, .NewsTwoMain .header .login-language-social-container #login .loginGroup * a {
+  color: #707070;
+}
+.NewsTwoMain .header .login-language-social-container .language .language-object .Language.selected img {
+  border-color: #cd0c11;
+}
+.NewsTwoMain .header .login-language-social-container .social-links a {
+  background-image: url(images/skin-social-icons.png);
+}
+.NewsTwoMain .NewsTwoContent a {
+  color: #cc0000;
+}
+.NewsTwoMain .NewsTwoContent .NewsTwo-social .DnnModule-SocialGroups .dnnGroupDirectory .dgdMainContent .createGroup {
+  background-color: #656565;
+}
+.NewsTwoMain .NewsTwoContent .NewsTwo-social .dnnMemberDirectory #mdMemberList > li .mdHoverActions a {
+  color: #cc0000;
+}
+.NewsTwoMain .NewsTwoContent .NewsTwo-social .dnnForm .dnnAdminTabNav li a span {
+  background-image: url(images/info-span-bg.png);
+  text-shadow: 1px 1px 1px #b4080a;
+}
+.NewsTwoMain .NewsTwoContent .NewsTwo-social .dnnForm .messageControls .messageSelect ul li ul li a {
+  color: #cc0000;
+}
+.NewsTwoMain .NewsTwoContent .NewsTwo-social .DnnModule-ViewProfile .UserProfileControls ul li a {
+  color: #cc0000;
+}
+.NewsTwoMain .NewsTwoContent .NewsTwo-social .journalTools #journalEditor #tbar span {
+  background-image: url(images/journal-icons.png);
+}
+.NewsTwoMain .NewsTwoContent .NewsTwo-social .journalTools #btnShare {
+  background-color: #656565;
+}
+.NewsTwoMain .NewsTwoContent .NewsTwo-social #journalItems .likes .juser {
+  color: #cc0000;
+}
+.NewsTwoMain .NewsTwoContent .dnnCoreMessagingFooter .ComposeMessage {
+  background-color: #656565;
+}
+.NewsTwoMain .NewsTwoBottom .bottom-wraper a {
+  color: #707070;
+}
+.NewsTwoMain .NewsTwoBottom .bottom-wraper a:hover {
+  color: #cc0000;
+}
+
