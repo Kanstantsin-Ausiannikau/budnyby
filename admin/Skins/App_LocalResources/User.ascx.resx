@@ -118,39 +118,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheckMessages.Text" xml:space="preserve">
-    <value>Check Messages</value>
+    <value>Проверить Сообщения</value>
   </data>
   <data name="CheckNotifications.Text" xml:space="preserve">
-    <value>Check Notifications</value>
+    <value>Проверить Уведомления</value>
   </data>
   <data name="Messages.Text" xml:space="preserve">
-    <value>&lt;span&gt;{0}&lt;/span&gt;&lt;strong&gt; Messages&lt;/strong&gt;</value>
+    <value>&lt;span&gt;{0}&lt;/span&gt;&lt;strong&gt; Сообщения&lt;/strong&gt;</value>
   </data>
   <data name="NewMessages.Text" xml:space="preserve">
     <value> ({0})</value>
   </data>
   <data name="NoMessages.Text" xml:space="preserve">
-    <value>&lt;strong&gt; Messages&lt;/strong&gt;</value>
+    <value>&lt;strong&gt; Сообщения&lt;/strong&gt;</value>
   </data>
   <data name="NoNotifications.Text" xml:space="preserve">
-    <value>&lt;strong&gt; Notifications&lt;/strong&gt;</value>
+    <value>&lt;strong&gt; Уведомления&lt;/strong&gt;</value>
   </data>
   <data name="Notifications.Text" xml:space="preserve">
-    <value>&lt;span&gt;{0}&lt;/span&gt;&lt;strong&gt; Notifications&lt;/strong&gt;</value>
+    <value>&lt;span&gt;{0}&lt;/span&gt;&lt;strong&gt; Уведомления&lt;/strong&gt;</value>
   </data>
   <data name="ProfileAvatar.Text" xml:space="preserve">
-    <value>Profile Avatar</value>
+    <value>Аватарка</value>
   </data>
   <data name="Register.Text" xml:space="preserve">
-    <value>Register</value>
+    <value>Регистрация</value>
   </data>
   <data name="ToolTip.Text" xml:space="preserve">
-    <value>Click Here To Go Your Profile Page.</value>
+    <value>Нажмите здесь чтобы перейти на страницу профиля.</value>
   </data>
   <data name="ToolTipNewMessages.Text" xml:space="preserve">
-    <value>You have {0} New message(s). Click Here To Go Your Profile Page.</value>
+    <value>У Вас {0} новых сообщений. Нажмите здесь чтобы перейти на страницу профиля.</value>
   </data>
   <data name="VisitMyProfile.Text" xml:space="preserve">
-    <value>Visit My Profile</value>
+    <value>Посетить страницу профиля</value>
   </data>
 </root>

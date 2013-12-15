@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="cmdLogin.Text" xml:space="preserve">
-    <value>Login</value>
+    <value>Ок</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
     <value>Standard</value>
   </data>
   <data name="InvalidVerificationCode.Text" xml:space="preserve">
-    <value>Invalid verification code</value>
+    <value>Неправильный проверочный код</value>
   </data>
   <data name="UserAlreadyVerified.Text" xml:space="preserve">
-    <value>User already verified</value>
+    <value>Пользователь уже проверен</value>
   </data>
   <data name="UserDoesNotExist.Text" xml:space="preserve">
-    <value>User does not exist</value>
+    <value>Пользователь не найден</value>
   </data>
   <data name="Email.Text" xml:space="preserve">
-    <value>Email Address:</value>
+    <value>Е-маил:</value>
   </data>
   <data name="cmdPassword.Text" xml:space="preserve">
-    <value>Reset Password</value>
+    <value>Забыл пароль</value>
   </data>
   <data name="cmdRegister.Text" xml:space="preserve">
-    <value>Register</value>
+    <value>Регистрация</value>
   </data>
   <data name="Remember.Text" xml:space="preserve">
-    <value>Remember Login</value>
+    <value>Запомнить</value>
   </data>
 </root>
