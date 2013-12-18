@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Actions.Text" xml:space="preserve">
-    <value>Actions</value>
+    <value>Действия</value>
   </data>
   <data name="All.Text" xml:space="preserve">
-    <value>All</value>
+    <value>Все</value>
   </data>
   <data name="ArrangeConversation.Text" xml:space="preserve">
     <value>Conversation</value>
@@ -145,10 +145,10 @@
     <value>Browse From Site</value>
   </data>
   <data name="Cancel.Text" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Отменить</value>
   </data>
   <data name="ComposeNewMessage.Text" xml:space="preserve">
-    <value>Compose New Message</value>
+    <value>Написать новое сообщение</value>
   </data>
   <data name="DismissThis.Text" xml:space="preserve">
     <value>Dismiss this</value>
@@ -175,7 +175,7 @@
     <value>groups</value>
   </data>
   <data name="FilterUnread.Text" xml:space="preserve">
-    <value>unread</value>
+    <value>Непрочитанные</value>
   </data>
   <data name="FilterViewAll.Text" xml:space="preserve">
     <value>view All</value>
@@ -187,7 +187,7 @@
     <value>Load More</value>
   </data>
   <data name="MarkArchive.Text" xml:space="preserve">
-    <value>Archive</value>
+    <value>Архив</value>
   </data>
   <data name="MarkRead.Text" xml:space="preserve">
     <value>Mark as Read</value>
@@ -196,7 +196,7 @@
     <value>Mark as Unread</value>
   </data>
   <data name="Message.Text" xml:space="preserve">
-    <value>Your message</value>
+    <value>Ваше сообщение</value>
   </data>
   <data name="MessageSent.Text" xml:space="preserve">
     <value>Your message has been sent successfully.</value>
@@ -208,13 +208,13 @@
     <value>Name</value>
   </data>
   <data name="None.Text" xml:space="preserve">
-    <value>None</value>
+    <value>Ничего</value>
   </data>
   <data name="NoResults.Text" xml:space="preserve">
     <value>No results</value>
   </data>
   <data name="Read.Text" xml:space="preserve">
-    <value>Read</value>
+    <value>Прочитанные</value>
   </data>
   <data name="ReadStatusToggle.Text" xml:space="preserve">
     <value>Mark as Read or Unread</value>
@@ -229,28 +229,28 @@
     <value>Searching...</value>
   </data>
   <data name="Select.Text" xml:space="preserve">
-    <value>Select</value>
+    <value>Выбрать</value>
   </data>
   <data name="Send.Text" xml:space="preserve">
-    <value>Send</value>
+    <value>Отправить</value>
   </data>
   <data name="Subject.Text" xml:space="preserve">
-    <value>Subject</value>
+    <value>Тема</value>
   </data>
   <data name="Throttling.Text" xml:space="preserve">
     <value>Please wait before sending a new message.</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
-    <value>Compose Message</value>
+    <value>Написать сообщение</value>
   </data>
   <data name="To.Text" xml:space="preserve">
-    <value>Send to</value>
+    <value>Кому</value>
   </data>
   <data name="Type.Header" xml:space="preserve">
     <value>Type</value>
   </data>
   <data name="Unread.Text" xml:space="preserve">
-    <value>Unread</value>
+    <value>Непрочитанные</value>
   </data>
   <data name="UserFileManagerTitle.Text" xml:space="preserve">
     <value>Browse file to use</value>
@@ -259,16 +259,16 @@
     <value>Apply An Action To Your Messages</value>
   </data>
   <data name="Archived.Text" xml:space="preserve">
-    <value>Archived</value>
+    <value>Архив</value>
   </data>
   <data name="ArchivedMessages.Text" xml:space="preserve">
-    <value>Archived Messages</value>
+    <value>Заархивированные сообщения</value>
   </data>
   <data name="ArchiveMessages.Text" xml:space="preserve">
-    <value>Archive Message(s)</value>
+    <value>Сообщения в архиве</value>
   </data>
   <data name="BackToMessages.Text" xml:space="preserve">
-    <value>Back to Messages</value>
+    <value>Вернуться в Сообщения</value>
   </data>
   <data name="ConversationArchived.Text" xml:space="preserve">
     <value>The conversation has been archived.</value>
@@ -283,31 +283,31 @@
     <value>The conversation has been unarchived.</value>
   </data>
   <data name="Conversations.Text" xml:space="preserve">
-    <value>Conversations</value>
+    <value>Диалоги</value>
   </data>
   <data name="Loading.Text" xml:space="preserve">
-    <value>loading...</value>
+    <value>загрузка...</value>
   </data>
   <data name="LoadingContent.Text" xml:space="preserve">
-    <value>Loading Content...</value>
+    <value>Загрузка содержания...</value>
   </data>
   <data name="MarkUnarchive.Text" xml:space="preserve">
     <value>Unarchive</value>
   </data>
   <data name="Messages.Text" xml:space="preserve">
-    <value>Messages</value>
+    <value>Сообщения</value>
   </data>
   <data name="NewUnreadMessages.Text" xml:space="preserve">
-    <value> New unread messages</value>
+    <value> новых непрочитанных сообщений</value>
   </data>
   <data name="SelectMessages.Text" xml:space="preserve">
-    <value>Select Messages</value>
+    <value>Выберите сообщения</value>
   </data>
   <data name="Sent.Text" xml:space="preserve">
-    <value>Sent</value>
+    <value>Отправленные</value>
   </data>
   <data name="SentMessages.Text" xml:space="preserve">
-    <value>Sent Messages</value>
+    <value>Отправленные сообщения</value>
   </data>
   <data name="ShowPreviousReplies.Text" xml:space="preserve">
     <value>Show Previous Replies</value>
@@ -319,28 +319,28 @@
     <value>The content of this module cannot be visible by unauthenticated users. Please login in order to see its content.</value>
   </data>
   <data name="Notifications.Text" xml:space="preserve">
-    <value>Notifications</value>
+    <value>Уведомления</value>
   </data>
   <data name="Of.Text" xml:space="preserve">
-    <value> of </value>
+    <value> из </value>
   </data>
   <data name="TotalNotifications.Text" xml:space="preserve">
     <value> Total notifications</value>
   </data>
   <data name="From.Text" xml:space="preserve">
-    <value>From</value>
+    <value>От</value>
   </data>
   <data name="SentTo.Text" xml:space="preserve">
-    <value>Sent to</value>
+    <value>Кому отправить</value>
   </data>
   <data name="NotificationConfirmNo.Text" xml:space="preserve">
-    <value>No</value>
+    <value>Нет</value>
   </data>
   <data name="NotificationConfirmTitle.Text" xml:space="preserve">
     <value>Confirm</value>
   </data>
   <data name="NotificationConfirmYes.Text" xml:space="preserve">
-    <value>Yes</value>
+    <value>Да</value>
   </data>
   <data name="ActionNotPerformed.Text" xml:space="preserve">
     <value>An error occurred while performing the action. Please try again later.</value>
@@ -397,27 +397,27 @@
     <value>Email Delivery Schedule</value>
   </data>
   <data name="PrefSaved.Text" xml:space="preserve">
-    <value>Your preferences have been updated</value>
+    <value>Ваши настройки были обновлены</value>
   </data>
   <data name="SearchFilter.Text" xml:space="preserve">
-    <value>Search Filter</value>
+    <value>Фильтр поиска</value>
   </data>
   <data name="SubscriptionType.Text" xml:space="preserve">
-    <value>Subscription Type</value>
+    <value>Тип подписки</value>
   </data>
   <data name="Unsubscribe.Text" xml:space="preserve">
-    <value>Unsubscribe</value>
+    <value>Отписаться</value>
   </data>
   <data name="SubscribedDescription.Text" xml:space="preserve">
     <value>Item</value>
   </data>
   <data name="Unsubscribed.Text" xml:space="preserve">
-    <value>You have been successfully unsubscribed</value>
+    <value>Вы были успешно отписаны</value>
   </data>
   <data name="lblSubscriptions.Help" xml:space="preserve">
     <value>View and manage the items the user is subscribed to.</value>
   </data>
   <data name="lblSubscriptions.Text" xml:space="preserve">
-    <value>Subscriptions:</value>
+    <value>Подписчики:</value>
   </data>
 </root>

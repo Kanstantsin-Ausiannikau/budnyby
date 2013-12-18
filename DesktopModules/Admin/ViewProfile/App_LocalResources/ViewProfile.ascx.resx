@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,25 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>About Me</value>
+    <value>Обо мне</value>
   </data>
   <data name="EmptyAboutMe.Text" xml:space="preserve">
-    <value>There is no biography information from this user</value>
+    <value>Нет сведений о биографии этого пользователя</value>
   </data>
   <data name="EmptyLocation.Text" xml:space="preserve">
-    <value>There is no location information for this user</value>
+    <value>Нет сведений о местоположении этого пользователя</value>
   </data>
   <data name="EmptyGetInTouch.Text" xml:space="preserve">
     <value>There is no contact information from this user</value>
   </data>
   <data name="ControlTitle_viewprofile.Text" xml:space="preserve">
-    <value>View Profile</value>
+    <value>Смотреть профиль</value>
   </data>
   <data name="Edit.Text" xml:space="preserve">
-    <value>Edit Profile</value>
+    <value>Профиль</value>
   </data>
   <data name="Email.Text" xml:space="preserve">
-    <value>Email</value>
+    <value>Е-маил</value>
   </data>
   <data name="GetInTouch.Text" xml:space="preserve">
     <value>Ways To Get In Touch</value>
@@ -145,7 +145,7 @@
     <value>Location</value>
   </data>
   <data name="MyAccount.Text" xml:space="preserve">
-    <value>My Account</value>
+    <value>Аккаунт</value>
   </data>
   <data name="NoProperties.Text" xml:space="preserve">
     <value>This user has elected to hide his/her profile.</value>

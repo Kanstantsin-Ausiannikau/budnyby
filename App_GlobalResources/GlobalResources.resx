@@ -1250,22 +1250,22 @@ Sincerely,
     <value>Device Detection Management</value>
   </data>
   <data name="//ActivityFeed.String" xml:space="preserve">
-    <value>Activity Feed</value>
+    <value>Мой кабинет</value>
   </data>
   <data name="//ActivityFeed//Friends.String" xml:space="preserve">
-    <value>Friends</value>
+    <value>Друзья</value>
   </data>
   <data name="//ActivityFeed//Messages.String" xml:space="preserve">
-    <value>Messages</value>
+    <value>Сообщения</value>
   </data>
   <data name="//ActivityFeed//MyProfile.String" xml:space="preserve">
-    <value>My Profile</value>
+    <value>Мой профиль</value>
   </data>
   <data name="EMAIL_SUBJECT_FORMAT.Text" xml:space="preserve">
-    <value>New message from {0}</value>
+    <value>Новое сообщение от {0}</value>
   </data>
   <data name="EMAIL_BODY_FORMAT.Text" xml:space="preserve">
-    <value>Subject: {0}
+    <value>Тема: {0}
     
 {1}
 
