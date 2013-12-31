@@ -207,4 +207,7 @@
   <data name="Areyousure.Text" xml:space="preserve">
     <value>Are you sure?</value>
   </data>
+  <data name="ControlTitle_tageditor.Text" xml:space="preserve">
+    <value>Tag Editor</value>
+  </data>
 </root>

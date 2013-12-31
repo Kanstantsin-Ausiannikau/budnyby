@@ -2493,6 +2493,14 @@
       <name>jquery.edsFineUploader-1.js</name>
     </file>
     <file>
+      <path>images/</path>
+      <name>orange_section_box_title_arrow.png</name>
+    </file>
+    <file>
+      <path>images/</path>
+      <name>orange_section_box_title_bg.png</name>
+    </file>
+    <file>
       <path>Templates/_default/BlogOne/</path>
       <name>BlogOne.css</name>
     </file>
@@ -3153,6 +3161,30 @@
       <name>red.css</name>
     </file>
     <file>
+      <path>Templates/_default/BlogOne/StyleWizard/</path>
+      <name>meta.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/BlogOne/StyleWizard/styles/predefined/</path>
+      <name>blue.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/BlogOne/StyleWizard/styles/predefined/</path>
+      <name>default.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/BlogOne/StyleWizard/styles/predefined/</path>
+      <name>green.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/BlogOne/StyleWizard/styles/predefined/</path>
+      <name>red.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/BlogOne/StyleWizard/</path>
+      <name>themeBase.css</name>
+    </file>
+    <file>
       <path>Templates/_default/BlogOne/TagCloud/</path>
       <name>Tag_Cloud.htm</name>
     </file>
@@ -3725,6 +3757,26 @@
       <name>light.css</name>
     </file>
     <file>
+      <path>Templates/_default/BlogTwo/StyleWizard/</path>
+      <name>meta.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/BlogTwo/StyleWizard/styles/predefined/</path>
+      <name>default.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/BlogTwo/StyleWizard/styles/predefined/</path>
+      <name>light.css</name>
+    </file>
+    <file>
+      <path>Templates/_default/BlogTwo/StyleWizard/styles/predefined/</path>
+      <name>light.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/BlogTwo/StyleWizard/</path>
+      <name>themeBase.css</name>
+    </file>
+    <file>
       <path>Templates/_default/BlogTwo/TagCloud/</path>
       <name>Tag_Cloud.htm</name>
     </file>
@@ -4171,6 +4223,30 @@
     <file>
       <path>Templates/_default/NewsOne/StylesCSS/</path>
       <name>red.css</name>
+    </file>
+    <file>
+      <path>Templates/_default/NewsOne/StyleWizard/</path>
+      <name>meta.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/NewsOne/StyleWizard/styles/predefined/</path>
+      <name>blue.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/NewsOne/StyleWizard/styles/predefined/</path>
+      <name>default.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/NewsOne/StyleWizard/styles/predefined/</path>
+      <name>green.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/NewsOne/StyleWizard/styles/predefined/</path>
+      <name>red.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/NewsOne/StyleWizard/</path>
+      <name>themeBase.css</name>
     </file>
     <file>
       <path>Templates/_default/NewsOne/TagCloud/</path>
@@ -4695,6 +4771,34 @@
     <file>
       <path>Templates/_default/NewsTwo/StylesCSS/</path>
       <name>red.css</name>
+    </file>
+    <file>
+      <path>Templates/_default/NewsTwo/StyleWizard/</path>
+      <name>meta.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/NewsTwo/StyleWizard/styles/predefined/</path>
+      <name>blue.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/NewsTwo/StyleWizard/styles/predefined/</path>
+      <name>default.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/NewsTwo/StyleWizard/styles/predefined/</path>
+      <name>grey.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/NewsTwo/StyleWizard/styles/predefined/</path>
+      <name>pink.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/NewsTwo/StyleWizard/styles/predefined/</path>
+      <name>red.json</name>
+    </file>
+    <file>
+      <path>Templates/_default/NewsTwo/StyleWizard/</path>
+      <name>themeBase.css</name>
     </file>
     <file>
       <path>Templates/_default/NewsTwo/TagCloud/</path>

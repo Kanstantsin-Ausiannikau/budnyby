@@ -159,4 +159,7 @@
   <data name="CrossPortalsharing.Text" xml:space="preserve">
     <value>Cross Portal sharing</value>
   </data>
+  <data name="ControlTitle_crossportalsharing.Text" xml:space="preserve">
+    <value>Cross Portal Sharing</value>
+  </data>
 </root>

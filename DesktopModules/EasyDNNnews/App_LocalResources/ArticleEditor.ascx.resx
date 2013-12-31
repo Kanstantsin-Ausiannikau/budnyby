@@ -439,4 +439,7 @@
   <data name="cbFilterByGroupOrAuthor.Text" xml:space="preserve">
     <value>Group or Author</value>
   </data>
+  <data name="ControlTitle_articleeditor.Text" xml:space="preserve">
+    <value>Article Editor</value>
+  </data>
 </root>

@@ -297,4 +297,7 @@
   <data name="liiCalendar.Text" xml:space="preserve">
     <value>iCalndar Import</value>
   </data>
+  <data name="ControlTitle_rssimport.Text" xml:space="preserve">
+    <value>RSS Import</value>
+  </data>
 </root>

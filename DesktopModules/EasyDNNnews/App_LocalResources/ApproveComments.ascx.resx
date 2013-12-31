@@ -270,4 +270,7 @@
     <value>Please select action</value>
     <comment>Javascript alert</comment>
   </data>
+  <data name="ControlTitle_approvecomments.Text" xml:space="preserve">
+    <value>Approve Comments</value>
+  </data>
 </root>

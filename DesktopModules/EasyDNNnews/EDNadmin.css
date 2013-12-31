@@ -622,6 +622,9 @@
 #EDNadmin .main_content .grid_view_table.customfields tr td {
   font-size: 13px;
 }
+#EDNadmin .main_content .grid_view_table tr.row {
+  display: table-row;
+}
 #EDNadmin .main_content .grid_view_table tr.row:before, #EDNadmin .main_content .grid_view_table tr.row:after {
   content: none !important;
 }
@@ -828,6 +831,9 @@
 }
 #EDNadmin .main_content .grid_view_table.olive_green tr.header_row {
   background: url("images/olive_green_section_box_title_bg.png") top left repeat-x #479454;
+}
+#EDNadmin .main_content .grid_view_table.orange tr.header_row {
+  background: url("images/orange_section_box_title_bg.png") top left repeat-x #fd8a28;
 }
 #EDNadmin .main_content .text_input_set {
   margin: 20px 0 0;
@@ -1722,8 +1728,11 @@
   -webkit-box-shadow: 3px 3px 2px -3px black;
   -moz-box-shadow: 3px 3px 2px -3px black;
   border-radius: 3px 3px 3px 3px;
-  margin: 20px;
+  margin: 5px 20px 20px;
   padding: 10px;
+}
+#EDNadmin .main_content .section_box .content.document_upload .rounded3dBox {
+  margin: 20px;
 }
 #EDNadmin .main_content .section_box .content.document_upload .rounded3dBox .documents_fine_uploader > .uploader {
   display: none;
@@ -2291,6 +2300,13 @@
 #EDNadmin .main_content .section_box.olive_green .section_box_title span {
   background-image: url(images/olive_green_section_box_title_arrow.png);
 }
+#EDNadmin .main_content .section_box.orange .section_box_title {
+  background-image: url(images/orange_section_box_title_bg.png);
+  background-color: #479454;
+}
+#EDNadmin .main_content .section_box.orange .section_box_title span {
+  background-image: url(images/orange_section_box_title_arrow.png);
+}
 #EDNadmin .main_content .section_box.green_globe {
   background-image: url(images/icons/globe_map_big_green.png);
   background-repeat: no-repeat;
@@ -2331,7 +2347,7 @@
 #EDNadmin .main_content .settings_table tr td input {
   font-size: 12px;
   padding: 2px 4px;
-  margin: 2px 0 0;
+  margin: 0 2px 0 0;
   background: #f4f4f4;
   color: #464646;
   border: 1px solid #858585;
@@ -2356,7 +2372,7 @@
   background: none;
   border-radius: 0;
   box-shadow: none;
-  margin: 0;
+  margin: 0 4px 0 0;
   padding: 0;
 }
 #EDNadmin .main_content .settings_table tr td select {
@@ -2700,6 +2716,7 @@
 #EDNadmin .main_content.gridview_content_manager .content_wrapper .grid_view_table tr.row {
   background: #f2f2f2;
   border: 1px solid white;
+  display: table-row;
 }
 #EDNadmin .main_content.gridview_content_manager .content_wrapper .grid_view_table tr.row:before, #EDNadmin .main_content.gridview_content_manager .content_wrapper .grid_view_table tr.row:after {
   content: none !important;
@@ -2841,6 +2858,9 @@
 #EDNadmin .main_content.gridview_content_manager.approve_comments .grid_view_table tr.header_row th.article_title {
   width: 100px;
 }
+#EDNadmin .main_content.gridview_content_manager.approve_comments .grid_view_table tr.row {
+  display: table-row;
+}
 #EDNadmin .main_content.gridview_content_manager.approve_comments .grid_view_table tr.row:before, #EDNadmin .main_content.gridview_content_manager.approve_comments .grid_view_table tr.row:after {
   content: none !important;
 }
@@ -2881,6 +2901,9 @@
 #EDNadmin .main_content.gridview_content_manager.article_manager .content_wrapper .grid_view_table tr.header_row th.state_actions {
   text-align: center;
   padding-left: 0;
+}
+#EDNadmin .main_content.gridview_content_manager.article_manager .content_wrapper .grid_view_table tr.row {
+  display: table-row;
 }
 #EDNadmin .main_content.gridview_content_manager.article_manager .content_wrapper .grid_view_table tr.row:before, #EDNadmin .main_content.gridview_content_manager.article_manager .content_wrapper .grid_view_table tr.row:after {
   content: none !important;
@@ -3134,7 +3157,6 @@
   padding: 0;
   border: 0;
   position: relative;
-  top: 2px;
 }
 #EDNadmin .main_content .main_action_buttons .social_sharing_box p select {
   margin: 0;

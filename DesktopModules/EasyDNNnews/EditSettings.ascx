@@ -719,7 +719,7 @@
 								</asp:RadioButtonList>
 							</td>
 						</tr>
-						<tr runat="server" id="rowNormalPaginationOptions"  class="second">
+						<tr runat="server" id="rowNormalPaginationOptions" class="second">
 							<td class="left">
 								<dnn:Label ID="lblNumberOfPager" runat="server" Text="Number of pager links:" HelpText="Number of pager links:" HelpKey="lblNumberOfPager.HelpText" ResourceKey="lblNumberOfPager" />
 							</td>
@@ -908,54 +908,61 @@
 				</table>
 				<asp:UpdatePanel ID="upFilterPerArticle" runat="server" UpdateMode="Conditional">
 					<ContentTemplate>
-						<table class="settings_table" cellpadding="0" cellspacing="0" runat="server" id="tblPerArticleFilter" visible="false">
-							<tr>
-								<td class="left">
-									<dnn:Label ID="lblCategoryIDForFilterByArticle" runat="server" Text="Select category:" HelpText="Selected category will filter articles list in grid view." ResourceKey="lblCategoryIDForFilterByArticle" HelpKey="lblCategoryIDForFilterByArticle.HelpText" />
-								</td>
-								<td class="right">
-									<asp:DropDownList ID="ddlCategoryIDListFilterByArticle" runat="server" OnSelectedIndexChanged="ddlCategoryIDListFilterByArticle_SelectedIndexChanged" AutoPostBack="true" />
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2">
-									<div runat="server" id="divFilterByArticles" class="collapsible_box no_margin visible tag_collection">
-										<div class="content">
-											<asp:DataList ID="dlFilterPerArticle" runat="server" RepeatColumns="5" DataKeyField="ArticleID" RepeatDirection="Vertical" RepeatLayout="Flow" CssClass="existing_article_list">
-												<ItemTemplate>
-													<a class="articleid_link" href="#" data-eds-article-id='<%#Eval("ArticleID")%>'>
-														<%#Eval("Title")%>
-														(ID:<%#Eval("ArticleID") %>)<span class="addarticle"></span></a>
-												</ItemTemplate>
-											</asp:DataList>
-											<asp:Panel ID="pnlArticlePager" runat="server" CssClass="article_pager" EnableViewState="true">
-												<asp:LinkButton ID="ibArticlePagerFirst" CssClass="first" runat="server" Visible="False" OnClick="ibArticlePagerFirst_Click" Text="First" />
-												<asp:LinkButton ID="ibArticlePagerLeft" CssClass="prev" runat="server" Visible="False" OnClick="ibArticlePagerLeft_Click" Text="Previous" />
-												<asp:Repeater ID="repPaggeingFilterByArticle" runat="server" OnItemCommand="repPaggeingFilterByArticle_ItemCommand">
+						<div class="edn_admin_progress_overlay_container">
+							<asp:UpdateProgress ID="uppFilterPerArticle" runat="server" AssociatedUpdatePanelID="upFilterPerArticle" DisplayAfter="100" DynamicLayout="true">
+								<ProgressTemplate>
+									<div class="edn_admin_progress_overlay"></div>
+								</ProgressTemplate>
+							</asp:UpdateProgress>
+							<table class="settings_table" cellpadding="0" cellspacing="0" runat="server" id="tblPerArticleFilter" visible="false">
+								<tr>
+									<td class="left">
+										<dnn:Label ID="lblCategoryIDForFilterByArticle" runat="server" Text="Select category:" HelpText="Selected category will filter articles list in grid view." ResourceKey="lblCategoryIDForFilterByArticle" HelpKey="lblCategoryIDForFilterByArticle.HelpText" />
+									</td>
+									<td class="right">
+										<asp:DropDownList ID="ddlCategoryIDListFilterByArticle" runat="server" OnSelectedIndexChanged="ddlCategoryIDListFilterByArticle_SelectedIndexChanged" AutoPostBack="true" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<div runat="server" id="divFilterByArticles" class="collapsible_box no_margin visible tag_collection">
+											<div class="content">
+												<asp:DataList ID="dlFilterPerArticle" runat="server" RepeatColumns="5" DataKeyField="ArticleID" RepeatDirection="Vertical" RepeatLayout="Flow" CssClass="existing_article_list">
 													<ItemTemplate>
-														<asp:LinkButton ID="lbArticlePagerpage" runat="server" CssClass='<%# Eval("CssClass") %>' Text='<%#Eval("pagerIndex") %>' CommandArgument='<%#Eval("pagerIndex") %>' />
+														<a class="articleid_link" href="#" data-eds-article-id='<%#Eval("ArticleID")%>'>
+															<%#Eval("Title")%>
+														(ID:<%#Eval("ArticleID") %>)<span class="addarticle"></span></a>
 													</ItemTemplate>
-												</asp:Repeater>
-												<asp:LinkButton ID="ibArticlePagerRight" CssClass="next" runat="server" Visible="False" OnClick="ibArticlePagerRight_Click" Text="Next" />
-												<asp:LinkButton ID="ibArticlePagerLast" CssClass="last" runat="server" Visible="False" OnClick="ibArticlePagerLast_Click" Text="Last" />
-												<asp:HiddenField ID="hgPageIDFilterByArticleID" runat="server" Value="1" />
-											</asp:Panel>
-											<div class="tags_selection_wrapper article_list" id="filterContentByArticlesWrapper">
-												<p>
-													<strong>
-														<%=Selectedarticles %></strong>
-												</p>
-												<p id="filterContentByArticlesNoTagsMsg" runat="server" class="please_select_article">
-													<%=Selectarticles%>
-												</p>
-												<asp:Literal ID="ListOfselectedArticles" runat="server" />
+												</asp:DataList>
+												<asp:Panel ID="pnlArticlePager" runat="server" CssClass="article_pager" EnableViewState="true">
+													<asp:LinkButton ID="ibArticlePagerFirst" CssClass="first" runat="server" Visible="False" OnClick="ibArticlePagerFirst_Click" Text="First" />
+													<asp:LinkButton ID="ibArticlePagerLeft" CssClass="prev" runat="server" Visible="False" OnClick="ibArticlePagerLeft_Click" Text="Previous" />
+													<asp:Repeater ID="repPaggeingFilterByArticle" runat="server" OnItemCommand="repPaggeingFilterByArticle_ItemCommand">
+														<ItemTemplate>
+															<asp:LinkButton ID="lbArticlePagerpage" runat="server" CssClass='<%# Eval("CssClass") %>' Text='<%#Eval("pagerIndex") %>' CommandArgument='<%#Eval("pagerIndex") %>' />
+														</ItemTemplate>
+													</asp:Repeater>
+													<asp:LinkButton ID="ibArticlePagerRight" CssClass="next" runat="server" Visible="False" OnClick="ibArticlePagerRight_Click" Text="Next" />
+													<asp:LinkButton ID="ibArticlePagerLast" CssClass="last" runat="server" Visible="False" OnClick="ibArticlePagerLast_Click" Text="Last" />
+													<asp:HiddenField ID="hgPageIDFilterByArticleID" runat="server" Value="1" />
+												</asp:Panel>
+												<div class="tags_selection_wrapper article_list" id="filterContentByArticlesWrapper">
+													<p>
+														<strong>
+															<%=Selectedarticles %></strong>
+													</p>
+													<p id="filterContentByArticlesNoTagsMsg" runat="server" class="please_select_article">
+														<%=Selectarticles%>
+													</p>
+													<asp:Literal ID="ListOfselectedArticles" runat="server" />
+												</div>
+												<asp:HiddenField ID="hfSelectedArticles" runat="server" />
 											</div>
-											<asp:HiddenField ID="hfSelectedArticles" runat="server" />
 										</div>
-									</div>
-								</td>
-							</tr>
-						</table>
+									</td>
+								</tr>
+							</table>
+						</div>
 					</ContentTemplate>
 				</asp:UpdatePanel>
 				<table class="settings_table" cellpadding="0" cellspacing="0" runat="server" id="tblDefaultArticleFilter">
@@ -1039,16 +1046,14 @@
 							</table>
 						</td>
 					</tr>
-					<tr class="second">
-						<td class="left"></td>
-						<td class="right"></td>
-					</tr>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblShowOnlyEvents" runat="server" HelpText="Show only event articles:" Text="Show only event articles:" HelpKey="lblShowOnlyEvents.HelpText" ResourceKey="lblShowOnlyEvents" />
+							<%--<dnn:Label ID="lblShowOnlyEvents" runat="server" HelpText="Show only event articles:" Text="Show only event articles:" HelpKey="lblShowOnlyEvents.HelpText" ResourceKey="lblShowOnlyEvents" />--%>
+							<dnn:Label ID="lblSelectArticleEvents" runat="server" Text="Select articles and/or events:" HelpText="Select article and/or events to display." />
 						</td>
 						<td class="right">
-							<asp:CheckBox ID="cbShowOnlyEvents" runat="server" AutoPostBack="true" OnCheckedChanged="cbShowOnlyEvents_CheckedChanged" />
+							<asp:CheckBox ID="cbShowArticles" runat="server" Checked="True" Text="Articles" />
+							<asp:CheckBox ID="cbShowOnlyEvents" runat="server" Checked="True" Text="Events" AutoPostBack="true" OnCheckedChanged="cbShowOnlyEvents_CheckedChanged" />
 						</td>
 					</tr>
 					<tr class="second">
@@ -1057,10 +1062,10 @@
 						</td>
 						<td class="right">
 							<asp:RadioButtonList ID="rblLimitBackEvents" runat="server" Style="float: left" RepeatDirection="Horizontal">
-								<asp:ListItem Value="All" resourcekey="ListItemResource24">ShowAll</asp:ListItem>
-								<asp:ListItem Selected="True" Value="Limit" resourcekey="ListItemResource25">Limit to number of days:</asp:ListItem>
+								<asp:ListItem Value="All" Text="ShowAll" resourcekey="ListItemResource24" />
+								<asp:ListItem Value="Limit" Text="Limit to number of days:" resourcekey="ListItemResource25" Selected="True" />
 							</asp:RadioButtonList>
-							<asp:TextBox Style="float: left" ID="tbPastEventLimit" runat="server" Width="25px" resourcekey="tbPastEventLimitResource1">0</asp:TextBox>
+							<asp:TextBox Style="float: left" ID="tbPastEventLimit" runat="server" Width="25px" resourcekey="tbPastEventLimitResource1" Text="0" />
 							<asp:RequiredFieldValidator ID="rfvRhumbImageWidth2" runat="server" ControlToValidate="tbPastEventLimit" Display="Dynamic" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="vgSettings" resourcekey="rfvRhumbImageWidth2Resource1.ErrorMessage" />
 							<asp:CompareValidator ID="cvLightBoxGalleryNumberOfItems1" runat="server" ControlToValidate="tbPastEventLimit" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgTGSettings" resourcekey="cvLightBoxGalleryNumberOfItems1Resource1.ErrorMessage" />
 						</td>
@@ -1077,47 +1082,54 @@
 						<td colspan="2">
 							<asp:UpdatePanel ID="upArticleTags" runat="server" UpdateMode="Conditional">
 								<ContentTemplate>
-									<div class="collapsible_box no_margin visible" id="add_existing_tags_box">
-										<div class="content">
-											<div class="tag_collection">
-												<ul class="tag_selection_menu">
-													<li class="spaced">
-														<asp:LinkButton ID="lbAllAddedTags" runat="server" OnClick="lbAllAddedTags_Click"><%=AllTags%></asp:LinkButton></li>
-													<li class="spaced">
-														<asp:LinkButton ID="lbMostPopularTags" runat="server" OnClick="lbMostPopularTags_Click"><%=MostPopularFirst%></asp:LinkButton></li>
-													<li class="spaced">
-														<asp:LinkButton ID="lbLastAddedTags" runat="server" OnClick="lbLastAddedTags_Click"><%=LastAddedDirst%></asp:LinkButton></li>
-												</ul>
-												<asp:DataList ID="dlListOfExistingTags" runat="server" RepeatColumns="5" DataKeyField="TagID" RepeatDirection="Horizontal" CssClass="existing_tag_list" Style="margin-bottom: 10px;">
-													<ItemTemplate>
-														<a class="tag_link" href="#" data-eds-tag-id='<%#Eval("TagID")%>'>
-															<%#Eval("Name")%>
-															<span class="addtag"></span></a>
-													</ItemTemplate>
-												</asp:DataList>
-												<asp:Panel ID="pnlFilterByTagsPager" runat="server" CssClass="article_pager" EnableViewState="true">
-													<asp:LinkButton ID="ibFilterByTagsFirst" CssClass="first" runat="server" Visible="False" OnClick="ibFilterByTagsFirst_Click" Text="First" />
-													<asp:LinkButton ID="ibFilterByTagsLeft" CssClass="prev" runat="server" Visible="False" OnClick="ibFilterByTagsLeft_Click" Text="Previous" />
-													<asp:Repeater ID="repPaggeingFilterByTags" runat="server" OnItemCommand="repPaggeingFilterByTags_ItemCommand">
+									<div class="edn_admin_progress_overlay_container">
+										<asp:UpdateProgress ID="uppArticleTags" runat="server" AssociatedUpdatePanelID="upArticleTags" DisplayAfter="100" DynamicLayout="true">
+											<ProgressTemplate>
+												<div class="edn_admin_progress_overlay"></div>
+											</ProgressTemplate>
+										</asp:UpdateProgress>
+										<div class="collapsible_box no_margin visible" id="add_existing_tags_box">
+											<div class="content">
+												<div class="tag_collection">
+													<ul class="tag_selection_menu">
+														<li class="spaced">
+															<asp:LinkButton ID="lbAllAddedTags" runat="server" OnClick="lbAllAddedTags_Click"><%=AllTags%></asp:LinkButton></li>
+														<li class="spaced">
+															<asp:LinkButton ID="lbMostPopularTags" runat="server" OnClick="lbMostPopularTags_Click"><%=MostPopularFirst%></asp:LinkButton></li>
+														<li class="spaced">
+															<asp:LinkButton ID="lbLastAddedTags" runat="server" OnClick="lbLastAddedTags_Click"><%=LastAddedDirst%></asp:LinkButton></li>
+													</ul>
+													<asp:DataList ID="dlListOfExistingTags" runat="server" RepeatColumns="5" DataKeyField="TagID" RepeatDirection="Horizontal" CssClass="existing_tag_list" Style="margin-bottom: 10px;">
 														<ItemTemplate>
-															<asp:LinkButton ID="lbArticlePagerpage" runat="server" CssClass='<%# Eval("CssClass") %>' Text='<%#Eval("pagerValue") %>' CommandArgument='<%#Eval("pagerIndex") %>' />
+															<a class="tag_link" href="#" data-eds-tag-id='<%#Eval("TagID")%>'>
+																<%#Eval("Name")%>
+																<span class="addtag"></span></a>
 														</ItemTemplate>
-													</asp:Repeater>
-													<asp:LinkButton ID="ibFilterByTagsRight" CssClass="next" runat="server" Visible="False" OnClick="ibFilterByTagsRight_Click" Text="Next" />
-													<asp:LinkButton ID="ibFilterByTagsLast" CssClass="last" runat="server" Visible="False" OnClick="ibFilterByTagsLast_Click" Text="Last" />
-													<asp:HiddenField ID="hgPageIDFilterByTags" runat="server" Value="1" />
-												</asp:Panel>
-												<div class="tags_selection_wrapper" id="filterContentByTagsWrapper">
-													<p>
-														<strong>
-															<%=Selectedtags %></strong>
-													</p>
-													<p id="filterContentByTagsNoTagsMsg" runat="server" class="please_select_tags">
-														<%=Selecttagstofilterarticles%>
-													</p>
-													<asp:Literal ID="ListOfselectedTags" runat="server" />
+													</asp:DataList>
+													<asp:Panel ID="pnlFilterByTagsPager" runat="server" CssClass="article_pager" EnableViewState="true">
+														<asp:LinkButton ID="ibFilterByTagsFirst" CssClass="first" runat="server" Visible="False" OnClick="ibFilterByTagsFirst_Click" Text="First" />
+														<asp:LinkButton ID="ibFilterByTagsLeft" CssClass="prev" runat="server" Visible="False" OnClick="ibFilterByTagsLeft_Click" Text="Previous" />
+														<asp:Repeater ID="repPaggeingFilterByTags" runat="server" OnItemCommand="repPaggeingFilterByTags_ItemCommand">
+															<ItemTemplate>
+																<asp:LinkButton ID="lbArticlePagerpage" runat="server" CssClass='<%# Eval("CssClass") %>' Text='<%#Eval("pagerValue") %>' CommandArgument='<%#Eval("pagerIndex") %>' />
+															</ItemTemplate>
+														</asp:Repeater>
+														<asp:LinkButton ID="ibFilterByTagsRight" CssClass="next" runat="server" Visible="False" OnClick="ibFilterByTagsRight_Click" Text="Next" />
+														<asp:LinkButton ID="ibFilterByTagsLast" CssClass="last" runat="server" Visible="False" OnClick="ibFilterByTagsLast_Click" Text="Last" />
+														<asp:HiddenField ID="hgPageIDFilterByTags" runat="server" Value="1" />
+													</asp:Panel>
+													<div class="tags_selection_wrapper" id="filterContentByTagsWrapper">
+														<p>
+															<strong>
+																<%=Selectedtags %></strong>
+														</p>
+														<p id="filterContentByTagsNoTagsMsg" runat="server" class="please_select_tags">
+															<%=Selecttagstofilterarticles%>
+														</p>
+														<asp:Literal ID="ListOfselectedTags" runat="server" />
+													</div>
+													<asp:HiddenField ID="hfSelectedTags" runat="server" />
 												</div>
-												<asp:HiddenField ID="hfSelectedTags" runat="server" />
 											</div>
 										</div>
 									</div>
@@ -1194,81 +1206,83 @@
 			<asp:Panel ID="pnlThemeSettingsSourceTable" runat="server" CssClass="category_content">
 				<asp:UpdatePanel ID="upThemeSettings" runat="server">
 					<ContentTemplate>
-						<table cellpadding="0" cellspacing="0" class="settings_table">
-							<tr>
-								<td class="left">
-									<dnn:Label ID="lblArticleListTheme" runat="server" HelpText="Article list theme:" Text="Article list theme:" HelpKey="lblArticleListTheme.HelpText" ResourceKey="lblArticleListTheme" />
-								</td>
-								<td class="right">
-									<asp:DropDownList ID="ddlArticleListTheme" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlArticleListFolder_SelectedIndexChanged" />
-								</td>
-							</tr>
-							<tr class="second">
-								<td class="left">
-									<dnn:Label ID="lblArticleListTemplate" runat="server" HelpText="Article list template:" Text="Article list template:" HelpKey="lblArticleListTemplate.HelpText" ResourceKey="lblArticleListTemplate" />
-								</td>
-								<td class="right">
-									<asp:DropDownList ID="ddlArticleListTemplate" runat="server" />
-								</td>
-							</tr>
-							<tr class="second">
-								<td class="left">
-									<dnn:Label ID="lblArticleListDisplayStyle" runat="server" HelpText="Article list display style." Text="Article list display style:" />
-								</td>
-								<td class="right">
-									<asp:DropDownList ID="ddlArticleListDisplayStyle" runat="server" />
-								</td>
-							</tr>
-							<tr class="second">
-								<td class="left">
-									<dnn:Label ID="lblArticleDetailsTheme" runat="server" HelpText="Article details theme:" Text="Article details theme:" HelpKey="lblArticleDetailsTheme.HelpText" ResourceKey="lblArticleDetailsTheme" />
-								</td>
-								<td class="right">
-									<asp:DropDownList ID="ddlArticleDetailsTheme" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlArticleDetailsFolder_SelectedIndexChanged" />
-								</td>
-							</tr>
-							<tr>
-								<td class="left">
-									<dnn:Label ID="lblArticleDetailsTemplate" runat="server" HelpText="Article details template:" Text="Article details template:" HelpKey="lblArticleDetailsTemplate.HelpText" ResourceKey="lblArticleDetailsTemplate" />
-								</td>
-								<td class="right">
-									<asp:DropDownList ID="ddlArticleDetailsTemplate" runat="server" />
-									<asp:RequiredFieldValidator ID="rfvArticleDetails" runat="server" ControlToValidate="ddlArticleDetailsTemplate" Display="Dynamic" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="vgSettings" resourcekey="rfvArticleDetailsResource1" />
-								</td>
-							</tr>
-							<tr>
-								<td class="left">
-									<dnn:Label ID="lblArticleDetailsDisplayStyle" runat="server" HelpText="Article details display style." Text="Article details display style:" HelpKey="lblArticleCSSStyle.HelpText" ResourceKey="lblArticleCSSStyle" />
-								</td>
-								<td class="right">
-									<asp:DropDownList ID="ddlArticleDetailsDisplayStyle" runat="server" />
-								</td>
-							</tr>
-							<tr>
-								<td class="left">
-									<dnn:Label ID="lblArticleCommentsTemplate" runat="server" HelpText="Article comments template:" Text="Article comments template:" HelpKey="lblArticleCommentsTemplate.HelpText" ResourceKey="lblArticleCommentsTemplate" />
-								</td>
-								<td class="right">
-									<asp:DropDownList ID="ddlArticleCommentsTheme" runat="server" CausesValidation="True" ValidationGroup="vgSettings" />
-									<asp:RequiredFieldValidator ID="rfvCommentsTheme" runat="server" ControlToValidate="ddlArticleCommentsTheme" Display="Dynamic" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="vgSettings" resourcekey="rfvCommentsThemeResource1" />
-								</td>
-							</tr>
-							<tr class="second">
-								<td class="left">
-									<dnn:Label ID="lblThemeChangeing" runat="server" HelpText="Enable theme changing in article:" Text="Enable theme changing in article:" HelpKey="lblThemeChangeing.HelpText" ResourceKey="lblThemeChangeing" />
-								</td>
-								<td class="right">
-									<asp:CheckBox ID="cbThemeChanging" runat="server" />
-								</td>
-							</tr>
-						</table>
+						<div class="edn_admin_progress_overlay_container">
+							<asp:UpdateProgress ID="uppThemeSettings" runat="server" AssociatedUpdatePanelID="upThemeSettings" DisplayAfter="100" DynamicLayout="true">
+								<ProgressTemplate>
+									<div class="edn_admin_progress_overlay"></div>
+								</ProgressTemplate>
+							</asp:UpdateProgress>
+							<table cellpadding="0" cellspacing="0" class="settings_table">
+								<tr>
+									<td class="left">
+										<dnn:Label ID="lblArticleListTheme" runat="server" HelpText="Article list theme:" Text="Article list theme:" HelpKey="lblArticleListTheme.HelpText" ResourceKey="lblArticleListTheme" />
+									</td>
+									<td class="right">
+										<asp:DropDownList ID="ddlArticleListTheme" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlArticleListFolder_SelectedIndexChanged" />
+									</td>
+								</tr>
+								<tr class="second">
+									<td class="left">
+										<dnn:Label ID="lblArticleListTemplate" runat="server" HelpText="Article list template:" Text="Article list template:" HelpKey="lblArticleListTemplate.HelpText" ResourceKey="lblArticleListTemplate" />
+									</td>
+									<td class="right">
+										<asp:DropDownList ID="ddlArticleListTemplate" runat="server" />
+									</td>
+								</tr>
+								<tr class="second">
+									<td class="left">
+										<dnn:Label ID="lblArticleListDisplayStyle" runat="server" HelpText="Article list display style." Text="Article list display style:" />
+									</td>
+									<td class="right">
+										<asp:DropDownList ID="ddlArticleListDisplayStyle" runat="server" />
+									</td>
+								</tr>
+								<tr class="second">
+									<td class="left">
+										<dnn:Label ID="lblArticleDetailsTheme" runat="server" HelpText="Article details theme:" Text="Article details theme:" HelpKey="lblArticleDetailsTheme.HelpText" ResourceKey="lblArticleDetailsTheme" />
+									</td>
+									<td class="right">
+										<asp:DropDownList ID="ddlArticleDetailsTheme" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlArticleDetailsFolder_SelectedIndexChanged" />
+									</td>
+								</tr>
+								<tr>
+									<td class="left">
+										<dnn:Label ID="lblArticleDetailsTemplate" runat="server" HelpText="Article details template:" Text="Article details template:" HelpKey="lblArticleDetailsTemplate.HelpText" ResourceKey="lblArticleDetailsTemplate" />
+									</td>
+									<td class="right">
+										<asp:DropDownList ID="ddlArticleDetailsTemplate" runat="server" />
+										<asp:RequiredFieldValidator ID="rfvArticleDetails" runat="server" ControlToValidate="ddlArticleDetailsTemplate" Display="Dynamic" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="vgSettings" resourcekey="rfvArticleDetailsResource1" />
+									</td>
+								</tr>
+								<tr>
+									<td class="left">
+										<dnn:Label ID="lblArticleDetailsDisplayStyle" runat="server" HelpText="Article details display style." Text="Article details display style:" HelpKey="lblArticleCSSStyle.HelpText" ResourceKey="lblArticleCSSStyle" />
+									</td>
+									<td class="right">
+										<asp:DropDownList ID="ddlArticleDetailsDisplayStyle" runat="server" />
+									</td>
+								</tr>
+								<tr>
+									<td class="left">
+										<dnn:Label ID="lblArticleCommentsTemplate" runat="server" HelpText="Article comments template:" Text="Article comments template:" HelpKey="lblArticleCommentsTemplate.HelpText" ResourceKey="lblArticleCommentsTemplate" />
+									</td>
+									<td class="right">
+										<asp:DropDownList ID="ddlArticleCommentsTheme" runat="server" CausesValidation="True" ValidationGroup="vgSettings" />
+										<asp:RequiredFieldValidator ID="rfvCommentsTheme" runat="server" ControlToValidate="ddlArticleCommentsTheme" Display="Dynamic" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="vgSettings" resourcekey="rfvCommentsThemeResource1" />
+									</td>
+								</tr>
+								<tr class="second">
+									<td class="left">
+										<dnn:Label ID="lblThemeChangeing" runat="server" HelpText="Enable theme changing in article:" Text="Enable theme changing in article:" HelpKey="lblThemeChangeing.HelpText" ResourceKey="lblThemeChangeing" />
+									</td>
+									<td class="right">
+										<asp:CheckBox ID="cbThemeChanging" runat="server" />
+									</td>
+								</tr>
+							</table>
+						</div>
 					</ContentTemplate>
 				</asp:UpdatePanel>
-				<asp:UpdateProgress ID="uppThemeSettings" runat="server" AssociatedUpdatePanelID="upThemeSettings" DisplayAfter="100" DynamicLayout="true">
-					<ProgressTemplate>
-						<img src="<%=ModulePath%>images/settings/ajaxLoading.gif" alt="Loading..." />
-					</ProgressTemplate>
-				</asp:UpdateProgress>
 			</asp:Panel>
 		</asp:Panel>
 		<asp:Panel ID="pnlArticleImageSettingsSource" runat="server" CssClass="settings_category_container">
@@ -1436,281 +1450,283 @@
 						<%=Gallerysettings%></h3>
 					<asp:UpdatePanel ID="upGallerySettings" runat="server">
 						<ContentTemplate>
-							<table cellpadding="0" cellspacing="0" class="settings_table">
-								<tr>
-									<td class="left">
-										<dnn:Label ID="lblEnableGalleryIntegration" runat="server" HelpText="Enable gallery integration:" Text="Enable gallery integration:" HelpKey="lblEnableGalleryIntegration.HelpText" ResourceKey="lblEnableGalleryIntegration" />
-									</td>
-									<td class="right">
-										<asp:CheckBox ID="cbEnableGalleryIntegraton" runat="server" Checked="True" />
-									</td>
-								</tr>
-								<tr class="second">
-									<td class="left">
-										<dnn:Label ID="lblUseGalleryDefault" runat="server" HelpText="Force default settings on all articles:" Text="Force default settings on all articles:" HelpKey="lblUseGalleryDefault.HelpText" ResourceKey="lblUseGalleryDefault" />
-									</td>
-									<td class="right">
-										<asp:CheckBox ID="cbUseGalleryDefaultSettings" runat="server" />
-									</td>
-								</tr>
-								<tr>
-									<td class="left">
-										<dnn:Label ID="lblGalleryDisplayType" runat="server" HelpText="Gallery display type:" Text="Gallery display type:" HelpKey="lblGalleryDisplayType.HelpText" ResourceKey="lblGalleryDisplayType" />
-									</td>
-									<td class="right">
-										<asp:DropDownList ID="ddlGalleryDisplayType" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlGalleryDisplayType_SelectedIndexChanged">
-											<asp:ListItem Value="lightbox" resourcekey="ListItemResource36">Lightbox gallery</asp:ListItem>
-											<asp:ListItem Value="audio" resourcekey="ListItemResource37">Audio gallery</asp:ListItem>
-											<asp:ListItem Value="video" resourcekey="ListItemResource38">Video gallery</asp:ListItem>
-										</asp:DropDownList>
-									</td>
-								</tr>
-								<tr class="second">
-									<td class="left">
-										<dnn:Label ID="lblGalleryPosition" runat="server" HelpText="Gallery position:" Text="Gallery position:" HelpKey="lblGalleryPosition.HelpText" ResourceKey="lblGalleryPosition" />
-									</td>
-									<td class="right">
-										<asp:DropDownList ID="ddlGalleryPosition" runat="server">
-											<asp:ListItem Value="top" resourcekey="ListItemResource39">Top position</asp:ListItem>
-											<asp:ListItem Selected="True" Value="bottom" resourcekey="ListItemResource40">Boottom position</asp:ListItem>
-										</asp:DropDownList>
-									</td>
-								</tr>
-								<tr class="second">
-									<td class="left">
-										<dnn:Label ID="lblFixedResponsiveLayout" runat="server" HelpText="Fixed or responsive layout:" Text="Fixed or responsive layout:" HelpKey="lblFixedResponsiveLayout.HelpText" ResourceKey="lblFixedResponsiveLayout" />
-									</td>
-									<td class="right">
-										<asp:RadioButtonList ID="rblFixedResponsiveLayoutTypeSelect" runat="server" AutoPostBack="true" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblFixedResponsiveLayoutTypeSelect_SelectedIndexChanged">
-											<asp:ListItem resourcekey="liFixed" Selected="True" Value="fixed">Fixed Layout</asp:ListItem>
-											<asp:ListItem resourcekey="liResponsive" Value="responsive">Responsive Layout</asp:ListItem>
-										</asp:RadioButtonList>
-									</td>
-								</tr>
-							</table>
-							<asp:Panel ID="pnlChameleonGallery" runat="server" Visible="False">
+							<div class="edn_admin_progress_overlay_container">
+								<asp:UpdateProgress ID="uppGallerySettings" runat="server" AssociatedUpdatePanelID="upGallerySettings" DisplayAfter="100" DynamicLayout="true">
+									<ProgressTemplate>
+										<div class="edn_admin_progress_overlay"></div>
+									</ProgressTemplate>
+								</asp:UpdateProgress>
 								<table cellpadding="0" cellspacing="0" class="settings_table">
 									<tr>
 										<td class="left">
-											<dnn:Label ID="lblGalleryWidth" runat="server" HelpText="Gallery width:" Text="Gallery width:" HelpKey="lblGalleryWidth.HelpText" ResourceKey="lblGalleryWidth" Visible="True" />
+											<dnn:Label ID="lblEnableGalleryIntegration" runat="server" HelpText="Enable gallery integration:" Text="Enable gallery integration:" HelpKey="lblEnableGalleryIntegration.HelpText" ResourceKey="lblEnableGalleryIntegration" />
 										</td>
 										<td class="right">
-											<asp:TextBox ID="tbxGalleryWidth" runat="server" Width="50px" resourcekey="tbxGalleryWidthResource1">620</asp:TextBox>
-											<asp:Label ID="lblChamMainPanelWidthType" runat="server" Text="%" Visible="False" />
-											&nbsp;<asp:RequiredFieldValidator ID="rfvRhumbImageWidth0" runat="server" ControlToValidate="tbxGalleryWidth" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="vgSettings" resourcekey="rfvRhumbImageWidth0Resource1.ErrorMessage"
-												Display="Dynamic" />
-											<asp:CompareValidator ID="cvLightBoxGalleryNumberOfItems" runat="server" ControlToValidate="tbxGalleryWidth" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgTGSettings" resourcekey="cvLightBoxGalleryNumberOfItemsResource1.ErrorMessage" />
-											<asp:RangeValidator ID="rvChameleonWidthPerct" runat="server" ControlToValidate="tbxGalleryWidth" Display="Dynamic" Enabled="False" ErrorMessage="Enter value between 0-100." MaximumValue="100" MinimumValue="0" resourcekey="rvAGVolume0Resource1.ErrorMessage"
-												SetFocusOnError="True" Type="Integer" ValidationGroup="vgSettings" Visible="False" />
-										</td>
-									</tr>
-									<tr id="trChameleonResponsiveMainImageWidth" runat="server">
-										<td class="left">
-											<dnn:Label ID="lblChameleonResponsiveMainImageWidth" runat="server" HelpText="Max width used to generate main responsive image." Text="Main image width:" HelpKey="lblChameleonResponsiveMainImageWidth.HelpText" />
-										</td>
-										<td class="right">
-											<asp:TextBox ID="tbxChameleonResponsiveMainImageWidth" runat="server" Width="50px">600</asp:TextBox>
-											<asp:Label ID="lblChameleonResponsiveMainImageWidthPX" runat="server" Text="px" />
-											<asp:RequiredFieldValidator ID="rfvtbxChameleonResponsiveMainImageWidth" runat="server" ControlToValidate="tbxChameleonResponsiveMainImageWidth" Display="Dynamic" ErrorMessage="This filed is required." resourcekey="rfvRhumbImageWidth1Resource1.ErrorMessage"
-												SetFocusOnError="True" ValidationGroup="vgSettings" />
-											<asp:CompareValidator ID="cvChameleonResponsiveMainImageWidth" runat="server" ControlToValidate="tbxChameleonResponsiveMainImageWidth" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" resourcekey="cvLightBoxGalleryNumberOfItems0Resource1.ErrorMessage"
-												Type="Integer" ValidationGroup="vgTGSettings" />
+											<asp:CheckBox ID="cbEnableGalleryIntegraton" runat="server" Checked="True" />
 										</td>
 									</tr>
 									<tr class="second">
 										<td class="left">
-											<dnn:Label ID="lblGalleryHeight" runat="server" HelpText="Gallery height:" Text="Gallery height:" HelpKey="lblGalleryHeight.HelpText" ResourceKey="lblGalleryHeight" />
+											<dnn:Label ID="lblUseGalleryDefault" runat="server" HelpText="Force default settings on all articles:" Text="Force default settings on all articles:" HelpKey="lblUseGalleryDefault.HelpText" ResourceKey="lblUseGalleryDefault" />
 										</td>
 										<td class="right">
-											<asp:TextBox ID="tbxGalleryHeight" runat="server" Width="50px" resourcekey="tbxGalleryHeightResource1">500</asp:TextBox>
-											<asp:Label ID="lblChamMainPanelHeightType" runat="server" Text="px" Visible="False" />
-											<asp:RequiredFieldValidator ID="rfvRhumbImageWidth1" runat="server" ControlToValidate="tbxGalleryHeight" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="vgSettings" resourcekey="rfvRhumbImageWidth1Resource1.ErrorMessage"
-												Display="Dynamic" />
-											<asp:CompareValidator ID="cvLightBoxGalleryNumberOfItems0" runat="server" ControlToValidate="tbxGalleryHeight" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgTGSettings" resourcekey="cvLightBoxGalleryNumberOfItems0Resource1.ErrorMessage" />
+											<asp:CheckBox ID="cbUseGalleryDefaultSettings" runat="server" />
+										</td>
+									</tr>
+									<tr>
+										<td class="left">
+											<dnn:Label ID="lblGalleryDisplayType" runat="server" HelpText="Gallery display type:" Text="Gallery display type:" HelpKey="lblGalleryDisplayType.HelpText" ResourceKey="lblGalleryDisplayType" />
+										</td>
+										<td class="right">
+											<asp:DropDownList ID="ddlGalleryDisplayType" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlGalleryDisplayType_SelectedIndexChanged">
+												<asp:ListItem Value="lightbox" resourcekey="ListItemResource36">Lightbox gallery</asp:ListItem>
+												<asp:ListItem Value="audio" resourcekey="ListItemResource37">Audio gallery</asp:ListItem>
+												<asp:ListItem Value="video" resourcekey="ListItemResource38">Video gallery</asp:ListItem>
+											</asp:DropDownList>
 										</td>
 									</tr>
 									<tr class="second">
 										<td class="left">
-											<dnn:Label ID="lblChameleonResizeMethod" runat="server" HelpText="Select resize method to use when generating thumbnails for imaes." Text="Thumbnail creation resize method:" HelpKey="lblLightboxGalleryResizeMethod.HelpText" ResourceKey="lblLightboxGalleryResizeMethod" />
+											<dnn:Label ID="lblGalleryPosition" runat="server" HelpText="Gallery position:" Text="Gallery position:" HelpKey="lblGalleryPosition.HelpText" ResourceKey="lblGalleryPosition" />
 										</td>
 										<td class="right">
-											<asp:RadioButtonList ID="rblChameleonResizeMethod" runat="server" AutoPostBack="True" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblChameleonResizeMethod_SelectedIndexChanged">
-												<asp:ListItem resourcekey="liCrop" Selected="True" Value="Crop">Resize and crop</asp:ListItem>
-												<asp:ListItem resourcekey="liPropotional" Value="Proportional">Proportional resize</asp:ListItem>
-												<asp:ListItem resourcekey="liCropAndPropotional" Value="CropHorizontalProportionalVertical">Resize and crop horizontal, proportionally resize vertical images</asp:ListItem>
+											<asp:DropDownList ID="ddlGalleryPosition" runat="server">
+												<asp:ListItem Value="top" resourcekey="ListItemResource39">Top position</asp:ListItem>
+												<asp:ListItem Selected="True" Value="bottom" resourcekey="ListItemResource40">Boottom position</asp:ListItem>
+											</asp:DropDownList>
+										</td>
+									</tr>
+									<tr class="second">
+										<td class="left">
+											<dnn:Label ID="lblFixedResponsiveLayout" runat="server" HelpText="Fixed or responsive layout:" Text="Fixed or responsive layout:" HelpKey="lblFixedResponsiveLayout.HelpText" ResourceKey="lblFixedResponsiveLayout" />
+										</td>
+										<td class="right">
+											<asp:RadioButtonList ID="rblFixedResponsiveLayoutTypeSelect" runat="server" AutoPostBack="true" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblFixedResponsiveLayoutTypeSelect_SelectedIndexChanged">
+												<asp:ListItem resourcekey="liFixed" Selected="True" Value="fixed">Fixed Layout</asp:ListItem>
+												<asp:ListItem resourcekey="liResponsive" Value="responsive">Responsive Layout</asp:ListItem>
 											</asp:RadioButtonList>
 										</td>
 									</tr>
-									<tr>
-										<td class="left">
-											<dnn:Label ID="lblChameleonLayout" runat="server" HelpText="Gallery layout." Text="Layout:" HelpKey="lblChameleonLayout.HelpText" ResourceKey="lblChameleonLayout" />
-										</td>
-										<td class="right">
-											<asp:DropDownList ID="ddlChameleonLayout" runat="server" />
-										</td>
-									</tr>
-									<tr>
-										<td class="left">
-											<dnn:Label ID="lblChameleonLayoutTheme" runat="server" HelpText="Chameleon theme:" Text="Chameleon theme:" HelpKey="lblChameleonLayoutTheme.HelpText" ResourceKey="lblChameleonLayoutTheme" />
-										</td>
-										<td class="right">
-											<asp:DropDownList ID="ddlChameleonGalleryThemeSelect" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlChameleonGalleryThemeSelect_SelectedIndexChanged" />
-										</td>
-									</tr>
-									<tr>
-										<td class="left">
-											<dnn:Label ID="lblChameleonLayoutThemeStyle" runat="server" HelpText="Chameleon theme style:" Text="Chameleon theme style:" HelpKey="lblChameleonLayoutThemeStyle.HelpText" ResourceKey="lblChameleonLayoutThemeStyle" />
-										</td>
-										<td class="right">
-											<asp:DropDownList ID="ddlChameleonGalleryThemeSelectStyling" runat="server" DataTextField="Text" DataValueField="Value" />
-										</td>
-									</tr>
 								</table>
-							</asp:Panel>
-							<asp:Panel ID="pnlOldGallery" runat="server">
+								<asp:Panel ID="pnlChameleonGallery" runat="server" Visible="False">
+									<table cellpadding="0" cellspacing="0" class="settings_table">
+										<tr>
+											<td class="left">
+												<dnn:Label ID="lblGalleryWidth" runat="server" HelpText="Gallery width:" Text="Gallery width:" HelpKey="lblGalleryWidth.HelpText" ResourceKey="lblGalleryWidth" Visible="True" />
+											</td>
+											<td class="right">
+												<asp:TextBox ID="tbxGalleryWidth" runat="server" Width="50px" resourcekey="tbxGalleryWidthResource1">620</asp:TextBox>
+												<asp:Label ID="lblChamMainPanelWidthType" runat="server" Text="%" Visible="False" />
+												&nbsp;<asp:RequiredFieldValidator ID="rfvRhumbImageWidth0" runat="server" ControlToValidate="tbxGalleryWidth" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="vgSettings" resourcekey="rfvRhumbImageWidth0Resource1.ErrorMessage"
+													Display="Dynamic" />
+												<asp:CompareValidator ID="cvLightBoxGalleryNumberOfItems" runat="server" ControlToValidate="tbxGalleryWidth" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgTGSettings" resourcekey="cvLightBoxGalleryNumberOfItemsResource1.ErrorMessage" />
+												<asp:RangeValidator ID="rvChameleonWidthPerct" runat="server" ControlToValidate="tbxGalleryWidth" Display="Dynamic" Enabled="False" ErrorMessage="Enter value between 0-100." MaximumValue="100" MinimumValue="0" resourcekey="rvAGVolume0Resource1.ErrorMessage"
+													SetFocusOnError="True" Type="Integer" ValidationGroup="vgSettings" Visible="False" />
+											</td>
+										</tr>
+										<tr id="trChameleonResponsiveMainImageWidth" runat="server">
+											<td class="left">
+												<dnn:Label ID="lblChameleonResponsiveMainImageWidth" runat="server" HelpText="Max width used to generate main responsive image." Text="Main image width:" HelpKey="lblChameleonResponsiveMainImageWidth.HelpText" />
+											</td>
+											<td class="right">
+												<asp:TextBox ID="tbxChameleonResponsiveMainImageWidth" runat="server" Width="50px">600</asp:TextBox>
+												<asp:Label ID="lblChameleonResponsiveMainImageWidthPX" runat="server" Text="px" />
+												<asp:RequiredFieldValidator ID="rfvtbxChameleonResponsiveMainImageWidth" runat="server" ControlToValidate="tbxChameleonResponsiveMainImageWidth" Display="Dynamic" ErrorMessage="This filed is required." resourcekey="rfvRhumbImageWidth1Resource1.ErrorMessage"
+													SetFocusOnError="True" ValidationGroup="vgSettings" />
+												<asp:CompareValidator ID="cvChameleonResponsiveMainImageWidth" runat="server" ControlToValidate="tbxChameleonResponsiveMainImageWidth" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" resourcekey="cvLightBoxGalleryNumberOfItems0Resource1.ErrorMessage"
+													Type="Integer" ValidationGroup="vgTGSettings" />
+											</td>
+										</tr>
+										<tr class="second">
+											<td class="left">
+												<dnn:Label ID="lblGalleryHeight" runat="server" HelpText="Gallery height:" Text="Gallery height:" HelpKey="lblGalleryHeight.HelpText" ResourceKey="lblGalleryHeight" />
+											</td>
+											<td class="right">
+												<asp:TextBox ID="tbxGalleryHeight" runat="server" Width="50px" resourcekey="tbxGalleryHeightResource1">500</asp:TextBox>
+												<asp:Label ID="lblChamMainPanelHeightType" runat="server" Text="px" Visible="False" />
+												<asp:RequiredFieldValidator ID="rfvRhumbImageWidth1" runat="server" ControlToValidate="tbxGalleryHeight" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="vgSettings" resourcekey="rfvRhumbImageWidth1Resource1.ErrorMessage"
+													Display="Dynamic" />
+												<asp:CompareValidator ID="cvLightBoxGalleryNumberOfItems0" runat="server" ControlToValidate="tbxGalleryHeight" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgTGSettings" resourcekey="cvLightBoxGalleryNumberOfItems0Resource1.ErrorMessage" />
+											</td>
+										</tr>
+										<tr class="second">
+											<td class="left">
+												<dnn:Label ID="lblChameleonResizeMethod" runat="server" HelpText="Select resize method to use when generating thumbnails for imaes." Text="Thumbnail creation resize method:" HelpKey="lblLightboxGalleryResizeMethod.HelpText" ResourceKey="lblLightboxGalleryResizeMethod" />
+											</td>
+											<td class="right">
+												<asp:RadioButtonList ID="rblChameleonResizeMethod" runat="server" AutoPostBack="True" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblChameleonResizeMethod_SelectedIndexChanged">
+													<asp:ListItem resourcekey="liCrop" Selected="True" Value="Crop">Resize and crop</asp:ListItem>
+													<asp:ListItem resourcekey="liPropotional" Value="Proportional">Proportional resize</asp:ListItem>
+													<asp:ListItem resourcekey="liCropAndPropotional" Value="CropHorizontalProportionalVertical">Resize and crop horizontal, proportionally resize vertical images</asp:ListItem>
+												</asp:RadioButtonList>
+											</td>
+										</tr>
+										<tr>
+											<td class="left">
+												<dnn:Label ID="lblChameleonLayout" runat="server" HelpText="Gallery layout." Text="Layout:" HelpKey="lblChameleonLayout.HelpText" ResourceKey="lblChameleonLayout" />
+											</td>
+											<td class="right">
+												<asp:DropDownList ID="ddlChameleonLayout" runat="server" />
+											</td>
+										</tr>
+										<tr>
+											<td class="left">
+												<dnn:Label ID="lblChameleonLayoutTheme" runat="server" HelpText="Chameleon theme:" Text="Chameleon theme:" HelpKey="lblChameleonLayoutTheme.HelpText" ResourceKey="lblChameleonLayoutTheme" />
+											</td>
+											<td class="right">
+												<asp:DropDownList ID="ddlChameleonGalleryThemeSelect" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlChameleonGalleryThemeSelect_SelectedIndexChanged" />
+											</td>
+										</tr>
+										<tr>
+											<td class="left">
+												<dnn:Label ID="lblChameleonLayoutThemeStyle" runat="server" HelpText="Chameleon theme style:" Text="Chameleon theme style:" HelpKey="lblChameleonLayoutThemeStyle.HelpText" ResourceKey="lblChameleonLayoutThemeStyle" />
+											</td>
+											<td class="right">
+												<asp:DropDownList ID="ddlChameleonGalleryThemeSelectStyling" runat="server" DataTextField="Text" DataValueField="Value" />
+											</td>
+										</tr>
+									</table>
+								</asp:Panel>
+								<asp:Panel ID="pnlOldGallery" runat="server">
+									<table cellpadding="0" cellspacing="0" class="settings_table">
+										<tr>
+											<td class="left">
+												<dnn:Label ID="lblGalleryTheme" runat="server" HelpText="Gallery theme:" Text="Gallery theme:" HelpKey="lblGalleryTheme.HelpText" ResourceKey="lblGalleryTheme" />
+											</td>
+											<td class="right">
+												<asp:DropDownList ID="ddlGalleryTheme" runat="server" AppendDataBoundItems="True" />
+												<asp:Label ID="lblThemeError" runat="server" Enabled="False" ForeColor="Red" Text="Please select theme." Visible="False" resourcekey="lblThemeErrorResource1" />
+											</td>
+										</tr>
+										<tr class="second">
+											<td class="left">
+												<dnn:Label ID="lblLightBoxTheme" runat="server" HelpText="Lightbox theme:" Text="Lightbox theme:" HelpKey="lblLightBoxTheme.HelpText" ResourceKey="lblLightBoxTheme" />
+											</td>
+											<td class="right">
+												<asp:DropDownList ID="ddlLightBoxTheme" runat="server">
+													<asp:ListItem Value="light_rounded" resourcekey="ListItemResource41">Light rounded</asp:ListItem>
+													<asp:ListItem Value="light_square" resourcekey="ListItemResource42"> Light square</asp:ListItem>
+													<asp:ListItem Value="dark_rounded" resourcekey="ListItemResource43">Dark rounded</asp:ListItem>
+													<asp:ListItem Value="dark_square" resourcekey="ListItemResource44">Dark square</asp:ListItem>
+												</asp:DropDownList>
+											</td>
+										</tr>
+										<tr>
+											<td class="left">
+												<dnn:Label ID="lblGalleryThumbWidth" runat="server" HelpText="Gallery thumb width:" Text="Gallery thumb width:" HelpKey="lblGalleryThumbWidth.HelpText" ResourceKey="lblGalleryThumbWidth" />
+											</td>
+											<td class="right">
+												<asp:TextBox ID="tbGalleryThumbWidth" runat="server" Width="50px" resourcekey="tbGalleryThumbWidthResource1">100</asp:TextBox>
+											</td>
+										</tr>
+										<tr class="second">
+											<td class="left">
+												<dnn:Label ID="lblGalleryThumbHeight" runat="server" HelpText="Gallery thumb height:" Text="Gallery thumb height:" HelpKey="lblGalleryThumbHeight.HelpText" ResourceKey="lblGalleryThumbHeight" Visible="True" />
+											</td>
+											<td class="right">
+												<asp:TextBox ID="tbGalleryThumbHeight" runat="server" Width="50px" resourcekey="tbGalleryThumbHeightResource1">100</asp:TextBox>
+											</td>
+										</tr>
+										<tr>
+											<td class="left">
+												<dnn:Label ID="lblGalleryItemsPerPage" runat="server" HelpText="Items per page:" Text="Items per page:" HelpKey="lblGalleryItemsPerPage.HelpText" ResourceKey="lblGalleryItemsPerPage" />
+											</td>
+											<td class="right">
+												<asp:TextBox ID="tbGalleryItemsPerPage" runat="server" Width="50px" Text="12" resourcekey="tbGalleryItemsPerPageResource1" />
+											</td>
+										</tr>
+										<tr class="second">
+											<td class="left">
+												<dnn:Label ID="lblGalleryNumberOfColumns" runat="server" HelpText="Number of columns:" Text="Number of columns:" HelpKey="lblGalleryNumberOfColumns.HelpText" ResourceKey="lblGalleryNumberOfColumns" />
+											</td>
+											<td class="right">
+												<asp:TextBox ID="tbGalleryNuberOfColumns" runat="server" Width="50px" Text="4" resourcekey="tbGalleryNuberOfColumnsResource1" />
+											</td>
+										</tr>
+										<tr class="second">
+											<td class="left">
+												<dnn:Label ID="lblLightboxGalleryResizeMethod" runat="server" HelpText="Select resize method to use when generating thumbnails for imaes." Text="Thumbnail creation resize method:" HelpKey="lblLightboxGalleryResizeMethod.HelpText" ResourceKey="lblLightboxGalleryResizeMethod" />
+											</td>
+											<td class="right">
+												<asp:RadioButtonList ID="rblLightboxGalleryResizeMethod" runat="server" AutoPostBack="False" RepeatDirection="Horizontal">
+													<asp:ListItem resourcekey="liCrop" Selected="True" Value="Crop">Resize and crop</asp:ListItem>
+													<asp:ListItem resourcekey="liPropotional" Value="Proportional">Proportional resize</asp:ListItem>
+												</asp:RadioButtonList>
+											</td>
+										</tr>
+										<tr>
+											<td class="left">
+												<dnn:Label ID="lblGIDisplayItemTitleLightBOx" runat="server" HelpText="Display item title in Lightbox:" Text="Display item title in Lightbox:" HelpKey="lblGIDisplayItemTitleLightBOx.HelpText" ResourceKey="lblGIDisplayItemTitleLightBOx" />
+											</td>
+											<td class="right">
+												<asp:CheckBox ID="cbGIDisplayItemTitleLightBox" runat="server" />
+											</td>
+										</tr>
+										<tr class="second">
+											<td class="left">
+												<dnn:Label ID="lblGIDisplayItemDescriptionLightBox" runat="server" HelpText="Display item description in Lightbox:" Text="Display item description in Lightbox:" HelpKey="lblGIDisplayItemDescriptionLightBox.HelpText" ResourceKey="lblGIDisplayItemDescriptionLightBox" />
+											</td>
+											<td class="right">
+												<asp:CheckBox ID="cbGIDisplayItemDescriptionLightBox" runat="server" />
+											</td>
+										</tr>
+										<tr>
+											<td class="left">
+												<dnn:Label ID="lblGIDisplayItemTitle" runat="server" HelpText="Display item title:" Text="Display item title:" HelpKey="lblGIDisplayItemTitle.HelpText" ResourceKey="lblGIDisplayItemTitle" />
+											</td>
+											<td class="right">
+												<asp:CheckBox ID="cbItemTitle" runat="server" />
+											</td>
+										</tr>
+										<tr class="second">
+											<td class="left">
+												<dnn:Label ID="lblGIDisplayItemDescription" runat="server" HelpText="Display item description:" Text="Display item description:" HelpKey="lblGIDisplayItemDescription.HelpText" ResourceKey="lblGIDisplayItemDescription" />
+											</td>
+											<td class="right">
+												<asp:CheckBox ID="cbGIItemDescription" runat="server" />
+											</td>
+										</tr>
+										<tr>
+											<td class="left">
+												<dnn:Label ID="lblGIPagerStyle" runat="server" HelpText="Pager style:" Text="Pager style:" Visible="False" HelpKey="lblGIPagerStyle.HelpText" ResourceKey="lblGIPagerStyle" />
+											</td>
+											<td class="right">
+												<asp:DropDownList ID="ddlGIPagerStyle" runat="server" Visible="False">
+													<asp:ListItem resourcekey="ListItemResource45">Numeric</asp:ListItem>
+													<asp:ListItem Value="NextPrevious" resourcekey="ListItemResource46">Arrows (Next, Previous)</asp:ListItem>
+													<asp:ListItem Value="NextPreviousFirstLast" resourcekey="ListItemResource47">Arrows (Next, Previous, First, Last)</asp:ListItem>
+												</asp:DropDownList>
+											</td>
+										</tr>
+									</table>
+								</asp:Panel>
 								<table cellpadding="0" cellspacing="0" class="settings_table">
-									<tr>
-										<td class="left">
-											<dnn:Label ID="lblGalleryTheme" runat="server" HelpText="Gallery theme:" Text="Gallery theme:" HelpKey="lblGalleryTheme.HelpText" ResourceKey="lblGalleryTheme" />
-										</td>
-										<td class="right">
-											<asp:DropDownList ID="ddlGalleryTheme" runat="server" AppendDataBoundItems="True" />
-											<asp:Label ID="lblThemeError" runat="server" Enabled="False" ForeColor="Red" Text="Please select theme." Visible="False" resourcekey="lblThemeErrorResource1" />
-										</td>
-									</tr>
 									<tr class="second">
-										<td class="left">
-											<dnn:Label ID="lblLightBoxTheme" runat="server" HelpText="Lightbox theme:" Text="Lightbox theme:" HelpKey="lblLightBoxTheme.HelpText" ResourceKey="lblLightBoxTheme" />
+										<td class="left">&nbsp;
 										</td>
-										<td class="right">
-											<asp:DropDownList ID="ddlLightBoxTheme" runat="server">
-												<asp:ListItem Value="light_rounded" resourcekey="ListItemResource41">Light rounded</asp:ListItem>
-												<asp:ListItem Value="light_square" resourcekey="ListItemResource42"> Light square</asp:ListItem>
-												<asp:ListItem Value="dark_rounded" resourcekey="ListItemResource43">Dark rounded</asp:ListItem>
-												<asp:ListItem Value="dark_square" resourcekey="ListItemResource44">Dark square</asp:ListItem>
-											</asp:DropDownList>
+										<td class="right">&nbsp;
 										</td>
 									</tr>
 									<tr>
 										<td class="left">
-											<dnn:Label ID="lblGalleryThumbWidth" runat="server" HelpText="Gallery thumb width:" Text="Gallery thumb width:" HelpKey="lblGalleryThumbWidth.HelpText" ResourceKey="lblGalleryThumbWidth" />
+											<dnn:Label ID="lblUserCanSeeOnlyHisGalleries" runat="server" HelpText="User can see only their own galleries that they have created:" Text="User can see only their own galleries:" HelpKey="lblUserCanSeeOnlyHisGalleries.HelpText" ResourceKey="lblUserCanSeeOnlyHisGalleries.Text" />
 										</td>
 										<td class="right">
-											<asp:TextBox ID="tbGalleryThumbWidth" runat="server" Width="50px" resourcekey="tbGalleryThumbWidthResource1">100</asp:TextBox>
+											<asp:CheckBox ID="cbUserCanSeeOnlyTheirGalleries" runat="server" />
 										</td>
 									</tr>
 									<tr class="second">
 										<td class="left">
-											<dnn:Label ID="lblGalleryThumbHeight" runat="server" HelpText="Gallery thumb height:" Text="Gallery thumb height:" HelpKey="lblGalleryThumbHeight.HelpText" ResourceKey="lblGalleryThumbHeight" Visible="True" />
+											<dnn:Label ID="lblUserCanSeeOnlyHisImages" runat="server" HelpText="User can see only their own images in shared gallery:" Text="User can see only their own images:" HelpKey="lblUserCanSeeOnlyHisImages.HelpText" ResourceKey="lblUserCanSeeOnlyHisImages" />
 										</td>
 										<td class="right">
-											<asp:TextBox ID="tbGalleryThumbHeight" runat="server" Width="50px" resourcekey="tbGalleryThumbHeightResource1">100</asp:TextBox>
-										</td>
-									</tr>
-									<tr>
-										<td class="left">
-											<dnn:Label ID="lblGalleryItemsPerPage" runat="server" HelpText="Items per page:" Text="Items per page:" HelpKey="lblGalleryItemsPerPage.HelpText" ResourceKey="lblGalleryItemsPerPage" />
-										</td>
-										<td class="right">
-											<asp:TextBox ID="tbGalleryItemsPerPage" runat="server" Width="50px" Text="12" resourcekey="tbGalleryItemsPerPageResource1" />
-										</td>
-									</tr>
-									<tr class="second">
-										<td class="left">
-											<dnn:Label ID="lblGalleryNumberOfColumns" runat="server" HelpText="Number of columns:" Text="Number of columns:" HelpKey="lblGalleryNumberOfColumns.HelpText" ResourceKey="lblGalleryNumberOfColumns" />
-										</td>
-										<td class="right">
-											<asp:TextBox ID="tbGalleryNuberOfColumns" runat="server" Width="50px" Text="4" resourcekey="tbGalleryNuberOfColumnsResource1" />
-										</td>
-									</tr>
-									<tr class="second">
-										<td class="left">
-											<dnn:Label ID="lblLightboxGalleryResizeMethod" runat="server" HelpText="Select resize method to use when generating thumbnails for imaes." Text="Thumbnail creation resize method:" HelpKey="lblLightboxGalleryResizeMethod.HelpText" ResourceKey="lblLightboxGalleryResizeMethod" />
-										</td>
-										<td class="right">
-											<asp:RadioButtonList ID="rblLightboxGalleryResizeMethod" runat="server" AutoPostBack="False" RepeatDirection="Horizontal">
-												<asp:ListItem resourcekey="liCrop" Selected="True" Value="Crop">Resize and crop</asp:ListItem>
-												<asp:ListItem resourcekey="liPropotional" Value="Proportional">Proportional resize</asp:ListItem>
-											</asp:RadioButtonList>
-										</td>
-									</tr>
-									<tr>
-										<td class="left">
-											<dnn:Label ID="lblGIDisplayItemTitleLightBOx" runat="server" HelpText="Display item title in Lightbox:" Text="Display item title in Lightbox:" HelpKey="lblGIDisplayItemTitleLightBOx.HelpText" ResourceKey="lblGIDisplayItemTitleLightBOx" />
-										</td>
-										<td class="right">
-											<asp:CheckBox ID="cbGIDisplayItemTitleLightBox" runat="server" />
-										</td>
-									</tr>
-									<tr class="second">
-										<td class="left">
-											<dnn:Label ID="lblGIDisplayItemDescriptionLightBox" runat="server" HelpText="Display item description in Lightbox:" Text="Display item description in Lightbox:" HelpKey="lblGIDisplayItemDescriptionLightBox.HelpText" ResourceKey="lblGIDisplayItemDescriptionLightBox" />
-										</td>
-										<td class="right">
-											<asp:CheckBox ID="cbGIDisplayItemDescriptionLightBox" runat="server" />
-										</td>
-									</tr>
-									<tr>
-										<td class="left">
-											<dnn:Label ID="lblGIDisplayItemTitle" runat="server" HelpText="Display item title:" Text="Display item title:" HelpKey="lblGIDisplayItemTitle.HelpText" ResourceKey="lblGIDisplayItemTitle" />
-										</td>
-										<td class="right">
-											<asp:CheckBox ID="cbItemTitle" runat="server" />
-										</td>
-									</tr>
-									<tr class="second">
-										<td class="left">
-											<dnn:Label ID="lblGIDisplayItemDescription" runat="server" HelpText="Display item description:" Text="Display item description:" HelpKey="lblGIDisplayItemDescription.HelpText" ResourceKey="lblGIDisplayItemDescription" />
-										</td>
-										<td class="right">
-											<asp:CheckBox ID="cbGIItemDescription" runat="server" />
-										</td>
-									</tr>
-									<tr>
-										<td class="left">
-											<dnn:Label ID="lblGIPagerStyle" runat="server" HelpText="Pager style:" Text="Pager style:" Visible="False" HelpKey="lblGIPagerStyle.HelpText" ResourceKey="lblGIPagerStyle" />
-										</td>
-										<td class="right">
-											<asp:DropDownList ID="ddlGIPagerStyle" runat="server" Visible="False">
-												<asp:ListItem resourcekey="ListItemResource45">Numeric</asp:ListItem>
-												<asp:ListItem Value="NextPrevious" resourcekey="ListItemResource46">Arrows (Next, Previous)</asp:ListItem>
-												<asp:ListItem Value="NextPreviousFirstLast" resourcekey="ListItemResource47">Arrows (Next, Previous, First, Last)</asp:ListItem>
-											</asp:DropDownList>
+											<asp:CheckBox ID="cbUserCanOnlySeeTheirOwnImages" runat="server" />
 										</td>
 									</tr>
 								</table>
-							</asp:Panel>
-							<table cellpadding="0" cellspacing="0" class="settings_table">
-								<tr class="second">
-									<td class="left">&nbsp;
-									</td>
-									<td class="right">&nbsp;
-									</td>
-								</tr>
-								<tr>
-									<td class="left">
-										<dnn:Label ID="lblUserCanSeeOnlyHisGalleries" runat="server" HelpText="User can see only their own galleries that they have created:" Text="User can see only their own galleries:" HelpKey="lblUserCanSeeOnlyHisGalleries.HelpText" ResourceKey="lblUserCanSeeOnlyHisGalleries.Text" />
-									</td>
-									<td class="right">
-										<asp:CheckBox ID="cbUserCanSeeOnlyTheirGalleries" runat="server" />
-									</td>
-								</tr>
-								<tr class="second">
-									<td class="left">
-										<dnn:Label ID="lblUserCanSeeOnlyHisImages" runat="server" HelpText="User can see only their own images in shared gallery:" Text="User can see only their own images:" HelpKey="lblUserCanSeeOnlyHisImages.HelpText" ResourceKey="lblUserCanSeeOnlyHisImages" />
-									</td>
-									<td class="right">
-										<asp:CheckBox ID="cbUserCanOnlySeeTheirOwnImages" runat="server" />
-									</td>
-								</tr>
-							</table>
+							</div>
 						</ContentTemplate>
 					</asp:UpdatePanel>
-					<asp:UpdateProgress ID="uppGallerySettings" runat="server" AssociatedUpdatePanelID="upGallerySettings" DisplayAfter="100" DynamicLayout="true">
-						<ProgressTemplate>
-							<img src="<%=ModulePath%>images/settings/ajaxLoading.gif" alt="Loading..." />
-						</ProgressTemplate>
-					</asp:UpdateProgress>
 				</asp:Panel>
 			</asp:Panel>
 		</asp:Panel>
@@ -1792,81 +1808,83 @@
 					<%=subSectionTitleExpireDate%></h3>
 				<asp:UpdatePanel ID="upPublishExpireDateSettings" runat="server" UpdateMode="Conditional">
 					<ContentTemplate>
-						<table cellpadding="0" cellspacing="0" class="settings_table">
-							<tr class="second">
-								<td class="left">
-									<dnn:Label ID="lblPublishDateSettings" runat="server" ControlName="ddlPublishDateSettings" HelpText="Defines publish date default value on add form." Text="Publish date:" HelpKey="lblPublishDateSettings.HelpText" ResourceKey="lblPublishDateSettings" />
-								</td>
-								<td class="right">
-									<div class="publishdateselect">
-										<asp:DropDownList ID="ddlPublishDateSettings" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlPublishDateSettings_SelectedIndexChanged">
-											<asp:ListItem Value="0" resourcekey="liCurrentDateTime" Text="Current date time" />
-											<asp:ListItem Value="1" resourcekey="liDesiredDateTime" Text="Desired date time" />
-											<asp:ListItem Value="2" resourcekey="liNextMonday" Text="Next Monday" />
-											<asp:ListItem Value="3" resourcekey="liNextTuesday" Text="Next Tuesday" />
-											<asp:ListItem Value="4" resourcekey="liNextWednesday" Text="Next Wednesday" />
-											<asp:ListItem Value="5" resourcekey="liNextThursday" Text="Next Thursday" />
-											<asp:ListItem Value="6" resourcekey="liNextFriday" Text="Next Friday" />
-											<asp:ListItem Value="7" resourcekey="liNextSaturday" Text="Next Saturday" />
-											<asp:ListItem Value="8" resourcekey="liNextSunday" Text="Next Sunday" />
-										</asp:DropDownList>
-									</div>
-									<asp:Panel ID="pnlDesiredPublishDate" runat="server" Visible="false" CssClass="desPublishDate">
-										<asp:TextBox ID="tbxPublishDate" runat="server" CssClass="text_generic center" ValidationGroup="vgSettings" Width="90px" />
-										<asp:RequiredFieldValidator ID="rfvPublishDate" runat="server" ControlToValidate="tbxPublishDate" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Date required." ValidationGroup="vgSettings" resourcekey="rfvPublishDate.ErrorMessage" />
-										<asp:Label ID="lblPubDateError" ResourceKey="lblPubDateError" runat="server" ForeColor="Red" Text="Invalid date." Visible="false" />
-									</asp:Panel>
-									<asp:Panel ID="pnlDesiredPublishTime" runat="server" Visible="false" CssClass="desPublishTime">
-										<asp:TextBox ID="tbxPublishTime" runat="server" ValidationGroup="vgSettings" Width="50px" CssClass="text_generic center" Text="0:00" />
-										<asp:RequiredFieldValidator ID="rfvPublishTime" runat="server" ControlToValidate="tbxPublishTime" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Time required." ValidationGroup="vgSettings" resourcekey="rfvPublishTime.ErrorMessage" />
-										<asp:RegularExpressionValidator ID="revPublishTime" runat="server" ControlToValidate="tbxPublishTime" EnableClientScript="true" ErrorMessage="hh:mm" ValidationExpression="([0-1]?[0-9]|2[0-3]):([0-5][0-9])" ValidationGroup="vgSettings" />
-									</asp:Panel>
-								</td>
-							</tr>
-							<tr>
-								<td class="left">
-									<dnn:Label ID="lblExpireDateDaysToAdd" Visible="false" runat="server" ControlName="tbxExpireDateDaysToAdd" HelpText="Number of days to add to expire date in add form." Text="Number of days to add to expire date:" HelpKey="lblExpireDateDaysToAdd.HelpText"
-										ResourceKey="lblExpireDateDaysToAdd" />
-									<dnn:Label ID="lblExpirehDateSettings" runat="server" ControlName="ddlExpireDateSettings" HelpText="Defines expire date default value on add form according to selected publish date value." Text="Expire date:" HelpKey="lblExpirehDateSettings.HelpText"
-										ResourceKey="lblExpirehDateSettings" />
-								</td>
-								<td class="right">
-									<div class="publishdateselect">
-										<asp:DropDownList ID="ddlExpireDateSettings" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlExpireDateSettings_SelectedIndexChanged">
-											<asp:ListItem Value="0" resourcekey="liDays" Text="Days" />
-											<asp:ListItem Value="1" resourcekey="liWeeks" Text="Weeks" />
-											<asp:ListItem Value="2" resourcekey="liMonths" Text="Months" />
-											<asp:ListItem Value="3" resourcekey="liYears" Text="Years" />
-											<asp:ListItem Value="4" resourcekey="liDesiredDateTime" Text="Desired date time" />
-										</asp:DropDownList>
-									</div>
-									<asp:Panel ID="pnlExpireDateDaysToAdd" runat="server" Visible="false">
-										<asp:TextBox ID="tbxExpireDateDaysToAdd" runat="server" Width="50px" Text="365000" />
-										<asp:RequiredFieldValidator ID="rfvExpireDateDaysToAdd" runat="server" ControlToValidate="tbxExpireDateDaysToAdd" Display="Dynamic" ErrorMessage="This filed is required." resourcekey="rfvExpireDateDaysToAdd.ErrorMessage" ValidationGroup="vgSettings" />
-										<asp:RangeValidator ID="rvExpireDateDaysToAdd" runat="server" ControlToValidate="tbxExpireDateDaysToAdd" Display="Dynamic" ErrorMessage="Enter value between 1-1000000." MaximumValue="1000000" MinimumValue="1" resourcekey="rvExpireDateDaysToAdd.ErrorMessage"
-											SetFocusOnError="True" Type="Integer" ValidationGroup="vgSettings" />
-									</asp:Panel>
-									<asp:Panel ID="pnlDesiredExpireDate" runat="server" Visible="false" CssClass="desPublishDate">
-										<asp:TextBox ID="tbxExpireDate" runat="server" CssClass="text_generic center" ValidationGroup="vgSettings" Width="90px" />
-										<asp:RequiredFieldValidator ID="rfvPublishExpireDate" runat="server" ControlToValidate="tbxExpireDate" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Date required." ValidationGroup="vgSettings" resourcekey="rfvPublishDate.ErrorMessage" />
-										<asp:Label ID="lblExpireDateError" ResourceKey="lblPubDateError" runat="server" ForeColor="Red" Text="Invalid date." Visible="false" />
-									</asp:Panel>
-									<asp:Panel ID="pnlDesiredExpireTime" runat="server" Visible="false" CssClass="desPublishTime">
-										<asp:TextBox ID="tbxExpireTime" runat="server" ValidationGroup="vgSettings" Width="50px" CssClass="text_generic center" Text="0:00" />
-										<asp:RequiredFieldValidator ID="rfvPublishExpireTime" runat="server" ControlToValidate="tbxExpireTime" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Time required." ValidationGroup="vgSettings" resourcekey="rfvPublishTime.ErrorMessage" />
-										<asp:RegularExpressionValidator ID="revPublishExpireTime" runat="server" ControlToValidate="tbxExpireTime" EnableClientScript="true" ErrorMessage="hh:mm" ValidationExpression="([0-1]?[0-9]|2[0-3]):([0-5][0-9])" ValidationGroup="vgSettings" />
-									</asp:Panel>
-									<asp:Label ID="lblPublishExpireDateInfo" runat="server" ForeColor="Red" EnableViewState="false" Visible="false" />
-								</td>
-							</tr>
-						</table>
+						<div class="edn_admin_progress_overlay_container">
+							<asp:UpdateProgress ID="uppPublishExpireDateSettings" runat="server" AssociatedUpdatePanelID="upPublishExpireDateSettings" DisplayAfter="100" DynamicLayout="true">
+								<ProgressTemplate>
+									<div class="edn_admin_progress_overlay"></div>
+								</ProgressTemplate>
+							</asp:UpdateProgress>
+							<table cellpadding="0" cellspacing="0" class="settings_table">
+								<tr class="second">
+									<td class="left">
+										<dnn:Label ID="lblPublishDateSettings" runat="server" ControlName="ddlPublishDateSettings" HelpText="Defines publish date default value on add form." Text="Publish date:" HelpKey="lblPublishDateSettings.HelpText" ResourceKey="lblPublishDateSettings" />
+									</td>
+									<td class="right">
+										<div class="publishdateselect">
+											<asp:DropDownList ID="ddlPublishDateSettings" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlPublishDateSettings_SelectedIndexChanged">
+												<asp:ListItem Value="0" resourcekey="liCurrentDateTime" Text="Current date time" />
+												<asp:ListItem Value="1" resourcekey="liDesiredDateTime" Text="Desired date time" />
+												<asp:ListItem Value="2" resourcekey="liNextMonday" Text="Next Monday" />
+												<asp:ListItem Value="3" resourcekey="liNextTuesday" Text="Next Tuesday" />
+												<asp:ListItem Value="4" resourcekey="liNextWednesday" Text="Next Wednesday" />
+												<asp:ListItem Value="5" resourcekey="liNextThursday" Text="Next Thursday" />
+												<asp:ListItem Value="6" resourcekey="liNextFriday" Text="Next Friday" />
+												<asp:ListItem Value="7" resourcekey="liNextSaturday" Text="Next Saturday" />
+												<asp:ListItem Value="8" resourcekey="liNextSunday" Text="Next Sunday" />
+											</asp:DropDownList>
+										</div>
+										<asp:Panel ID="pnlDesiredPublishDate" runat="server" Visible="false" CssClass="desPublishDate">
+											<asp:TextBox ID="tbxPublishDate" runat="server" CssClass="text_generic center" ValidationGroup="vgSettings" Width="90px" />
+											<asp:RequiredFieldValidator ID="rfvPublishDate" runat="server" ControlToValidate="tbxPublishDate" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Date required." ValidationGroup="vgSettings" resourcekey="rfvPublishDate.ErrorMessage" />
+											<asp:Label ID="lblPubDateError" ResourceKey="lblPubDateError" runat="server" ForeColor="Red" Text="Invalid date." Visible="false" />
+										</asp:Panel>
+										<asp:Panel ID="pnlDesiredPublishTime" runat="server" Visible="false" CssClass="desPublishTime">
+											<asp:TextBox ID="tbxPublishTime" runat="server" ValidationGroup="vgSettings" Width="50px" CssClass="text_generic center" Text="0:00" />
+											<asp:RequiredFieldValidator ID="rfvPublishTime" runat="server" ControlToValidate="tbxPublishTime" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Time required." ValidationGroup="vgSettings" resourcekey="rfvPublishTime.ErrorMessage" />
+											<asp:RegularExpressionValidator ID="revPublishTime" runat="server" ControlToValidate="tbxPublishTime" EnableClientScript="true" ErrorMessage="hh:mm" ValidationExpression="([0-1]?[0-9]|2[0-3]):([0-5][0-9])" ValidationGroup="vgSettings" />
+										</asp:Panel>
+									</td>
+								</tr>
+								<tr>
+									<td class="left">
+										<dnn:Label ID="lblExpireDateDaysToAdd" Visible="false" runat="server" ControlName="tbxExpireDateDaysToAdd" HelpText="Number of days to add to expire date in add form." Text="Number of days to add to expire date:" HelpKey="lblExpireDateDaysToAdd.HelpText"
+											ResourceKey="lblExpireDateDaysToAdd" />
+										<dnn:Label ID="lblExpirehDateSettings" runat="server" ControlName="ddlExpireDateSettings" HelpText="Defines expire date default value on add form according to selected publish date value." Text="Expire date:" HelpKey="lblExpirehDateSettings.HelpText"
+											ResourceKey="lblExpirehDateSettings" />
+									</td>
+									<td class="right">
+										<div class="publishdateselect">
+											<asp:DropDownList ID="ddlExpireDateSettings" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlExpireDateSettings_SelectedIndexChanged">
+												<asp:ListItem Value="0" resourcekey="liDays" Text="Days" />
+												<asp:ListItem Value="1" resourcekey="liWeeks" Text="Weeks" />
+												<asp:ListItem Value="2" resourcekey="liMonths" Text="Months" />
+												<asp:ListItem Value="3" resourcekey="liYears" Text="Years" />
+												<asp:ListItem Value="4" resourcekey="liDesiredDateTime" Text="Desired date time" />
+											</asp:DropDownList>
+										</div>
+										<asp:Panel ID="pnlExpireDateDaysToAdd" runat="server" Visible="false">
+											<asp:TextBox ID="tbxExpireDateDaysToAdd" runat="server" Width="50px" Text="365000" />
+											<asp:RequiredFieldValidator ID="rfvExpireDateDaysToAdd" runat="server" ControlToValidate="tbxExpireDateDaysToAdd" Display="Dynamic" ErrorMessage="This filed is required." resourcekey="rfvExpireDateDaysToAdd.ErrorMessage" ValidationGroup="vgSettings" />
+											<asp:RangeValidator ID="rvExpireDateDaysToAdd" runat="server" ControlToValidate="tbxExpireDateDaysToAdd" Display="Dynamic" ErrorMessage="Enter value between 1-1000000." MaximumValue="1000000" MinimumValue="1" resourcekey="rvExpireDateDaysToAdd.ErrorMessage"
+												SetFocusOnError="True" Type="Integer" ValidationGroup="vgSettings" />
+										</asp:Panel>
+										<asp:Panel ID="pnlDesiredExpireDate" runat="server" Visible="false" CssClass="desPublishDate">
+											<asp:TextBox ID="tbxExpireDate" runat="server" CssClass="text_generic center" ValidationGroup="vgSettings" Width="90px" />
+											<asp:RequiredFieldValidator ID="rfvPublishExpireDate" runat="server" ControlToValidate="tbxExpireDate" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Date required." ValidationGroup="vgSettings" resourcekey="rfvPublishDate.ErrorMessage" />
+											<asp:Label ID="lblExpireDateError" ResourceKey="lblPubDateError" runat="server" ForeColor="Red" Text="Invalid date." Visible="false" />
+										</asp:Panel>
+										<asp:Panel ID="pnlDesiredExpireTime" runat="server" Visible="false" CssClass="desPublishTime">
+											<asp:TextBox ID="tbxExpireTime" runat="server" ValidationGroup="vgSettings" Width="50px" CssClass="text_generic center" Text="0:00" />
+											<asp:RequiredFieldValidator ID="rfvPublishExpireTime" runat="server" ControlToValidate="tbxExpireTime" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Time required." ValidationGroup="vgSettings" resourcekey="rfvPublishTime.ErrorMessage" />
+											<asp:RegularExpressionValidator ID="revPublishExpireTime" runat="server" ControlToValidate="tbxExpireTime" EnableClientScript="true" ErrorMessage="hh:mm" ValidationExpression="([0-1]?[0-9]|2[0-3]):([0-5][0-9])" ValidationGroup="vgSettings" />
+										</asp:Panel>
+										<asp:Label ID="lblPublishExpireDateInfo" runat="server" ForeColor="Red" EnableViewState="false" Visible="false" />
+									</td>
+								</tr>
+							</table>
+						</div>
 					</ContentTemplate>
 				</asp:UpdatePanel>
-				<asp:UpdateProgress ID="uppPublishExpireDateSettings" runat="server" AssociatedUpdatePanelID="upPublishExpireDateSettings" DisplayAfter="100" DynamicLayout="true">
-					<ProgressTemplate>
-						<img src="<%=ModulePath%>images/settings/ajaxLoading.gif" alt="Loading..." />
-					</ProgressTemplate>
-				</asp:UpdateProgress>
 				<h3 class="subsections">
 					<%=subSectionCategoriesInAddEdit%></h3>
 				<table cellpadding="0" cellspacing="0" class="settings_table">
@@ -1894,7 +1912,7 @@
 							</asp:RadioButtonList>
 						</td>
 					</tr>
-					</table>
+				</table>
 			</asp:Panel>
 		</asp:Panel>
 		<asp:Panel ID="pnlCommentSettings" runat="server" CssClass="settings_category_container">
@@ -1913,164 +1931,166 @@
 			<asp:Panel ID="pnlCommentsSettingsTable" runat="server" CssClass="category_content">
 				<asp:UpdatePanel ID="upCommentsSettings" runat="server">
 					<ContentTemplate>
-						<table class="settings_table" cellpadding="0" cellspacing="0">
-							<tr>
-								<td class="left">
-									<dnn:Label ID="lblAllowComments" runat="server" Text="Enable comments:" HelpText="Enable comments." HelpKey="lblAllowComments.HelpText" ResourceKey="lblAllowComments"></dnn:Label>
-								</td>
-								<td class="right">
-									<asp:CheckBox ID="cbAllowComments" runat="server" AutoPostBack="true" OnCheckedChanged="cbAllowComments_CheckedChanged" Checked="True" resourcekey="cbAllowCommentsResource1" />
-								</td>
-							</tr>
-							<tr class="second">
-								<td colspan="2" align="center">
-									<asp:RadioButtonList ID="rblCommensSource" runat="server" AutoPostBack="true" OnSelectedIndexChanged="rblCommensSource_SelectedIndexChanged" RepeatDirection="Horizontal">
-										<asp:ListItem Selected="True" Value="Standard" resourcekey="ListItemResource52">Standard comments</asp:ListItem>
-										<asp:ListItem Value="Facebook" resourcekey="ListItemResource53">Facebook comments</asp:ListItem>
-										<asp:ListItem Value="DISQUS" resourcekey="ListItemResource54">DISQUS Comments</asp:ListItem>
-									</asp:RadioButtonList>
-								</td>
-							</tr>
-						</table>
-						<asp:Panel ID="pnlFacebookCommentsOptions" runat="server">
+						<div class="edn_admin_progress_overlay_container">
+							<asp:UpdateProgress ID="uppCommentsSettings" runat="server" AssociatedUpdatePanelID="upCommentsSettings" DisplayAfter="100" DynamicLayout="true">
+								<ProgressTemplate>
+									<div class="edn_admin_progress_overlay"></div>
+								</ProgressTemplate>
+							</asp:UpdateProgress>
 							<table class="settings_table" cellpadding="0" cellspacing="0">
 								<tr>
 									<td class="left">
-										<dnn:Label ID="lblFacebookID" runat="server" Text="Facebook App ID:" HelpText="Enter Facebook App Id. If you do no thave one leve None." HelpKey="lblFacebookID.HelpText" ResourceKey="lblFacebookID" />
+										<dnn:Label ID="lblAllowComments" runat="server" Text="Enable comments:" HelpText="Enable comments." HelpKey="lblAllowComments.HelpText" ResourceKey="lblAllowComments"></dnn:Label>
 									</td>
 									<td class="right">
-										<asp:TextBox ID="tbFacebookAppID" runat="server" Width="140px" resourcekey="tbFacebookAppIDResource1">None</asp:TextBox>
+										<asp:CheckBox ID="cbAllowComments" runat="server" AutoPostBack="true" OnCheckedChanged="cbAllowComments_CheckedChanged" Checked="True" resourcekey="cbAllowCommentsResource1" />
 									</td>
 								</tr>
 								<tr class="second">
-									<td class="left">
-										<dnn:Label ID="lblFacebookUserID" runat="server" Text="Facebook User ID:" HelpText="Enter Facebook User Id. If you do no thave one leve None." HelpKey="lblFacebookUserID.HelpText" ResourceKey="lblFacebookUserID" />
-									</td>
-									<td class="right">
-										<asp:TextBox ID="tbFacebookUserID" runat="server" Width="140px" resourcekey="tbFacebookUserIDResource1">None</asp:TextBox>
-									</td>
-								</tr>
-								<tr>
-									<td class="left">
-										<dnn:Label ID="lblFacebookNumberOfComents" runat="server" Text="Facebook number of comments:" HelpText="Enter number of Facebook comments per page:" HelpKey="lblFacebookNumberOfComents.HelpText" ResourceKey="lblFacebookNumberOfComents" />
-									</td>
-									<td class="right">
-										<asp:TextBox ID="tbFacebookNumberOfComments" runat="server" Width="50px" resourcekey="tbFacebookNumberOfCommentsResource1">10</asp:TextBox>
-									</td>
-								</tr>
-								<tr class="second">
-									<td class="left">
-										<dnn:Label ID="lblFacebookCommentsTheme" runat="server" Text="Facebook comments theme:" HelpText="Select Facebook comments theme:" HelpKey="lblFacebookCommentsTheme.HelpText" ResourceKey="lblFacebookCommentsTheme" />
-									</td>
-									<td class="right">
-										<asp:DropDownList ID="ddlFacebookCommentsTheme" runat="server">
-											<asp:ListItem Value="light" resourcekey="ListItemResource55">Light theme</asp:ListItem>
-											<asp:ListItem Value="dark" resourcekey="ListItemResource56">Dark Theme</asp:ListItem>
-										</asp:DropDownList>
+									<td colspan="2" align="center">
+										<asp:RadioButtonList ID="rblCommensSource" runat="server" AutoPostBack="true" OnSelectedIndexChanged="rblCommensSource_SelectedIndexChanged" RepeatDirection="Horizontal">
+											<asp:ListItem Selected="True" Value="Standard" resourcekey="ListItemResource52">Standard comments</asp:ListItem>
+											<asp:ListItem Value="Facebook" resourcekey="ListItemResource53">Facebook comments</asp:ListItem>
+											<asp:ListItem Value="DISQUS" resourcekey="ListItemResource54">DISQUS Comments</asp:ListItem>
+										</asp:RadioButtonList>
 									</td>
 								</tr>
 							</table>
-						</asp:Panel>
-						<asp:Panel ID="pnlDisqUSOptions" runat="server">
-							<table class="settings_table" cellpadding="0" cellspacing="0">
-								<tr>
-									<td class="left">
-										<dnn:Label ID="lblDisqusID" runat="server" Text="Site Shortname:" HelpText="Enter the DISQUS id of the site. Your site(forum) shortname as registered on Disqus:" HelpKey="lblDisqusID.HelpText" ResourceKey="lblDisqusID" />
-									</td>
-									<td class="right">
-										<asp:TextBox ID="tbDisqusID" runat="server" Width="240px" resourcekey="tbDisqusIDResource1">None</asp:TextBox>
-									</td>
-								</tr>
-								<tr class="second">
-									<td class="left">
-										<dnn:Label ID="lblDisqusOnLine" runat="server" Text="Site online:" HelpText="Tells the Disqus service that you are testing the system on an inaccessible website, e.g. secured staging server or a local environment." HelpKey="lblDisqusOnLine.HelpText" ResourceKey="lblDisqusOnLine" />
-									</td>
-									<td class="right">
-										<asp:CheckBox ID="cbDisqusOnline" runat="server" Checked="True" />
-									</td>
-								</tr>
-							</table>
-						</asp:Panel>
-						<asp:Panel ID="pnlStandardComents" runat="server">
-							<asp:Panel ID="pnlStandardEnabledComments" runat="server">
+							<asp:Panel ID="pnlFacebookCommentsOptions" runat="server">
 								<table class="settings_table" cellpadding="0" cellspacing="0">
-									<tr class="second">
+									<tr>
 										<td class="left">
-											<dnn:Label ID="lblAllowArticleComments" runat="server" Text="Enable  turn on/off comments per article:" HelpText="Enable  turn on/off comments per article:" HelpKey="lblAllowArticleComments.HelpText" ResourceKey="lblAllowArticleComments" />
+											<dnn:Label ID="lblFacebookID" runat="server" Text="Facebook App ID:" HelpText="Enter Facebook App Id. If you do no thave one leve None." HelpKey="lblFacebookID.HelpText" ResourceKey="lblFacebookID" />
 										</td>
 										<td class="right">
-											<asp:CheckBox ID="cbAllowArticleComments" runat="server" />
+											<asp:TextBox ID="tbFacebookAppID" runat="server" Width="140px" resourcekey="tbFacebookAppIDResource1">None</asp:TextBox>
+										</td>
+									</tr>
+									<tr class="second">
+										<td class="left">
+											<dnn:Label ID="lblFacebookUserID" runat="server" Text="Facebook User ID:" HelpText="Enter Facebook User Id. If you do no thave one leve None." HelpKey="lblFacebookUserID.HelpText" ResourceKey="lblFacebookUserID" />
+										</td>
+										<td class="right">
+											<asp:TextBox ID="tbFacebookUserID" runat="server" Width="140px" resourcekey="tbFacebookUserIDResource1">None</asp:TextBox>
 										</td>
 									</tr>
 									<tr>
 										<td class="left">
-											<dnn:Label ID="lblEnableCAPTCA" runat="server" Text="Enable CAPTCHA:" HelpText="Enable CAPTCHA:" HelpKey="lblEnableCAPTCA.HelpText" ResourceKey="lblEnableCAPTCA" />
+											<dnn:Label ID="lblFacebookNumberOfComents" runat="server" Text="Facebook number of comments:" HelpText="Enter number of Facebook comments per page:" HelpKey="lblFacebookNumberOfComents.HelpText" ResourceKey="lblFacebookNumberOfComents" />
 										</td>
 										<td class="right">
-											<asp:CheckBox ID="cbEnableCAPTCHA" runat="server" />
+											<asp:TextBox ID="tbFacebookNumberOfComments" runat="server" Width="50px" resourcekey="tbFacebookNumberOfCommentsResource1">10</asp:TextBox>
 										</td>
 									</tr>
 									<tr class="second">
 										<td class="left">
-											<dnn:Label ID="lblCommentsMustBeApproved" runat="server" Text="Comments must be approved:" HelpText="Comments must be approved:" HelpKey="lblCommentsMustBeApproved.HelpText" ResourceKey="lblCommentsMustBeApproved" />
+											<dnn:Label ID="lblFacebookCommentsTheme" runat="server" Text="Facebook comments theme:" HelpText="Select Facebook comments theme:" HelpKey="lblFacebookCommentsTheme.HelpText" ResourceKey="lblFacebookCommentsTheme" />
 										</td>
 										<td class="right">
-											<asp:CheckBox ID="cbModerateComments" runat="server" />
+											<asp:DropDownList ID="ddlFacebookCommentsTheme" runat="server">
+												<asp:ListItem Value="light" resourcekey="ListItemResource55">Light theme</asp:ListItem>
+												<asp:ListItem Value="dark" resourcekey="ListItemResource56">Dark Theme</asp:ListItem>
+											</asp:DropDownList>
 										</td>
 									</tr>
 								</table>
 							</asp:Panel>
-							<asp:Panel ID="pnlStandardDisabledComments" runat="server">
-								<table class="settings_table" cellpadding="0" cellspacing="0">
-									<tr class="second">
-										<td class="left">
-											<dnn:Label ID="lblShowAlredyWrittenComments" runat="server" Text="Show already written comments:" HelpText="Show already written comments." HelpKey="lblShowAlredyWrittenComments.HelpText" ResourceKey="lblShowAlredyWrittenComments" />
-										</td>
-										<td class="right">
-											<asp:CheckBox ID="cbShowWrittenComments" runat="server" OnCheckedChanged="cbShowWrittenComments_CheckedChanged" AutoPostBack="true" />
-										</td>
-									</tr>
-								</table>
-							</asp:Panel>
-							<asp:Panel ID="pnlStandardGroupSettings" runat="server">
+							<asp:Panel ID="pnlDisqUSOptions" runat="server">
 								<table class="settings_table" cellpadding="0" cellspacing="0">
 									<tr>
 										<td class="left">
-											<dnn:Label ID="lblShowCommentsRAting" runat="server" Text="Show comments rating:" HelpText="Show comments rating:" HelpKey="lblShowCommentsRAting.HelpText" ResourceKey="lblShowCommentsRAting" />
+											<dnn:Label ID="lblDisqusID" runat="server" Text="Site Shortname:" HelpText="Enter the DISQUS id of the site. Your site(forum) shortname as registered on Disqus:" HelpKey="lblDisqusID.HelpText" ResourceKey="lblDisqusID" />
 										</td>
 										<td class="right">
-											<asp:CheckBox ID="cbShowCommentsRating" runat="server" Checked="True" />
+											<asp:TextBox ID="tbDisqusID" runat="server" Width="240px" resourcekey="tbDisqusIDResource1">None</asp:TextBox>
 										</td>
 									</tr>
 									<tr class="second">
 										<td class="left">
-											<dnn:Label ID="lblShowThreaedComments" runat="server" Text="Show threaded comments:" HelpText="Show threaded comments:" HelpKey="lblShowThreaedComments.HelpText" ResourceKey="lblShowThreaedComments" />
+											<dnn:Label ID="lblDisqusOnLine" runat="server" Text="Site online:" HelpText="Tells the Disqus service that you are testing the system on an inaccessible website, e.g. secured staging server or a local environment." HelpKey="lblDisqusOnLine.HelpText" ResourceKey="lblDisqusOnLine" />
 										</td>
 										<td class="right">
-											<asp:CheckBox ID="cbShowThreadedComments" runat="server" Checked="True" />
-										</td>
-									</tr>
-									<tr class="second" id="trCommentsAvatarSelection" runat="server">
-										<td class="left">
-											<dnn:Label ID="lblSelectCommentsAvatarSource" runat="server" Text="Select coment avatar source:" HelpText="Select provider for the comment avatars:" HelpKey="lblSelectCommentsAvatarSource.HelpText" ResourceKey="lblSelectCommentsAvatarSource" />
-										</td>
-										<td class="right">
-											<asp:RadioButtonList ID="rblCommentsAvatarSource" runat="server" RepeatDirection="Horizontal">
-												<asp:ListItem resourcekey="ligravatar" Value="gravatar" Selected="True">Gravatar</asp:ListItem>
-												<asp:ListItem resourcekey="lidnnprofile" Value="dnnprofile">DotNetNuke user profile</asp:ListItem>
-											</asp:RadioButtonList>
+											<asp:CheckBox ID="cbDisqusOnline" runat="server" Checked="True" />
 										</td>
 									</tr>
 								</table>
 							</asp:Panel>
-						</asp:Panel>
+							<asp:Panel ID="pnlStandardComents" runat="server">
+								<asp:Panel ID="pnlStandardEnabledComments" runat="server">
+									<table class="settings_table" cellpadding="0" cellspacing="0">
+										<tr class="second">
+											<td class="left">
+												<dnn:Label ID="lblAllowArticleComments" runat="server" Text="Enable  turn on/off comments per article:" HelpText="Enable  turn on/off comments per article:" HelpKey="lblAllowArticleComments.HelpText" ResourceKey="lblAllowArticleComments" />
+											</td>
+											<td class="right">
+												<asp:CheckBox ID="cbAllowArticleComments" runat="server" />
+											</td>
+										</tr>
+										<tr>
+											<td class="left">
+												<dnn:Label ID="lblEnableCAPTCA" runat="server" Text="Enable CAPTCHA:" HelpText="Enable CAPTCHA:" HelpKey="lblEnableCAPTCA.HelpText" ResourceKey="lblEnableCAPTCA" />
+											</td>
+											<td class="right">
+												<asp:CheckBox ID="cbEnableCAPTCHA" runat="server" />
+											</td>
+										</tr>
+										<tr class="second">
+											<td class="left">
+												<dnn:Label ID="lblCommentsMustBeApproved" runat="server" Text="Comments must be approved:" HelpText="Comments must be approved:" HelpKey="lblCommentsMustBeApproved.HelpText" ResourceKey="lblCommentsMustBeApproved" />
+											</td>
+											<td class="right">
+												<asp:CheckBox ID="cbModerateComments" runat="server" />
+											</td>
+										</tr>
+									</table>
+								</asp:Panel>
+								<asp:Panel ID="pnlStandardDisabledComments" runat="server">
+									<table class="settings_table" cellpadding="0" cellspacing="0">
+										<tr class="second">
+											<td class="left">
+												<dnn:Label ID="lblShowAlredyWrittenComments" runat="server" Text="Show already written comments:" HelpText="Show already written comments." HelpKey="lblShowAlredyWrittenComments.HelpText" ResourceKey="lblShowAlredyWrittenComments" />
+											</td>
+											<td class="right">
+												<asp:CheckBox ID="cbShowWrittenComments" runat="server" OnCheckedChanged="cbShowWrittenComments_CheckedChanged" AutoPostBack="true" />
+											</td>
+										</tr>
+									</table>
+								</asp:Panel>
+								<asp:Panel ID="pnlStandardGroupSettings" runat="server">
+									<table class="settings_table" cellpadding="0" cellspacing="0">
+										<tr>
+											<td class="left">
+												<dnn:Label ID="lblShowCommentsRAting" runat="server" Text="Show comments rating:" HelpText="Show comments rating:" HelpKey="lblShowCommentsRAting.HelpText" ResourceKey="lblShowCommentsRAting" />
+											</td>
+											<td class="right">
+												<asp:CheckBox ID="cbShowCommentsRating" runat="server" Checked="True" />
+											</td>
+										</tr>
+										<tr class="second">
+											<td class="left">
+												<dnn:Label ID="lblShowThreaedComments" runat="server" Text="Show threaded comments:" HelpText="Show threaded comments:" HelpKey="lblShowThreaedComments.HelpText" ResourceKey="lblShowThreaedComments" />
+											</td>
+											<td class="right">
+												<asp:CheckBox ID="cbShowThreadedComments" runat="server" Checked="True" />
+											</td>
+										</tr>
+										<tr class="second" id="trCommentsAvatarSelection" runat="server">
+											<td class="left">
+												<dnn:Label ID="lblSelectCommentsAvatarSource" runat="server" Text="Select coment avatar source:" HelpText="Select provider for the comment avatars:" HelpKey="lblSelectCommentsAvatarSource.HelpText" ResourceKey="lblSelectCommentsAvatarSource" />
+											</td>
+											<td class="right">
+												<asp:RadioButtonList ID="rblCommentsAvatarSource" runat="server" RepeatDirection="Horizontal">
+													<asp:ListItem resourcekey="ligravatar" Value="gravatar" Selected="True">Gravatar</asp:ListItem>
+													<asp:ListItem resourcekey="lidnnprofile" Value="dnnprofile">DotNetNuke user profile</asp:ListItem>
+												</asp:RadioButtonList>
+											</td>
+										</tr>
+									</table>
+								</asp:Panel>
+							</asp:Panel>
+						</div>
 					</ContentTemplate>
 				</asp:UpdatePanel>
-				<asp:UpdateProgress ID="uppCommentsSettings" runat="server" AssociatedUpdatePanelID="upCommentsSettings" DisplayAfter="100" DynamicLayout="true">
-					<ProgressTemplate>
-						<img src="<%=ModulePath%>images/settings/ajaxLoading.gif" alt="Loading..." />
-					</ProgressTemplate>
-				</asp:UpdateProgress>
 			</asp:Panel>
 		</asp:Panel>
 		<asp:Panel ID="pnlPaidContentSettings" runat="server" CssClass="settings_category_container">

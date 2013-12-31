@@ -105,7 +105,7 @@
 				});
 
 			});
-		} 
+		}
 	}
 
 
@@ -186,6 +186,29 @@
 								<asp:ListItem Selected="True" Value="CategoryMenu" resourcekey="ListItemResource4">Category menu</asp:ListItem>
 								<asp:ListItem Value="AuthorMenu" resourcekey="ListItemResource5">Author menu</asp:ListItem>
 							</asp:RadioButtonList>
+						</td>
+					</tr>
+					<tr class="second">
+						<td class="left">
+							<dnn:Label ID="lblSelectArticleEvents" runat="server" Text="Filter by:" HelpText="Filter and count displayed content by articles and/or events." />
+						</td>
+						<td class="right">
+							<asp:CheckBox ID="cbCountArticles" runat="server" Checked="True" Text="Articles" />
+							<asp:CheckBox ID="cbCountEvents" runat="server" Text="Events" Checked="True" AutoPostBack="true" OnCheckedChanged="cbShowOnlyEvents_CheckedChanged" />
+						</td>
+					</tr>
+					<tr class="second">
+						<td class="left">
+							<dnn:Label ID="lblShowOnlyEventsLimit" runat="server" HelpText="Specify display of past events. Limit to 0 - displays events from current date:" Text="Specify display of past events:" HelpKey="lblShowOnlyEventsLimit.HelpText" ResourceKey="lblShowOnlyEventsLimit" />
+						</td>
+						<td class="right">
+							<asp:RadioButtonList ID="rblLimitBackEvents" runat="server" Style="float: left" RepeatDirection="Horizontal">
+								<asp:ListItem Value="0" Text="ShowAll" />
+								<asp:ListItem Value="1" Text="Limit to number of days:" Selected="True" />
+							</asp:RadioButtonList>
+							<asp:TextBox Style="float: left" ID="tbPastEventLimit" runat="server" Width="25px" Text="0" />
+							<asp:RequiredFieldValidator ID="rfvRhumbImageWidth2" runat="server" ControlToValidate="tbPastEventLimit" Display="Dynamic" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="vgCatMenuSettings" />
+							<asp:CompareValidator ID="cvLightBoxGalleryNumberOfItems1" runat="server" ControlToValidate="tbPastEventLimit" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgCatMenuSettings" />
 						</td>
 					</tr>
 					<tr class="second">

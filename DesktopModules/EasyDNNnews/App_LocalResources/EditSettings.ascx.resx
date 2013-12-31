@@ -2129,4 +2129,7 @@ Hint: You can also turn off displaying languages on the default language. For ar
   <data name="lblEnableFacebook.Help" xml:space="preserve">
     <value>Enable posting to Facebook.</value>
   </data>
+  <data name="ControlTitle_editsettings.Text" xml:space="preserve">
+    <value>Edit Settings</value>
+  </data>
 </root>

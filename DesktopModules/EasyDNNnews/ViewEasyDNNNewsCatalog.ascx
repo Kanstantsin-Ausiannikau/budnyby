@@ -40,7 +40,7 @@
 				<asp:HyperLink ID="hlEditThisArticle" CssClass="admin_action edit" runat="server" Visible='<%#(PortalSharing==PortalId)&&Convert.ToBoolean(Eval("CanEdit"))%>' NavigateUrl='<%#EditArticleUrl(Eval("ArticleID"))%>'><%=strEditArticle%></asp:HyperLink>
 				<asp:LinkButton ID="btnApprove" runat="server" Visible='<%#Convert.ToBoolean(Eval("Approve"))%>' CommandArgument='<%#Eval("ArticleID")%>' CommandName="Approve" Text="Approve" CssClass="admin_action publish_article"><%=strApproveArticle%></asp:LinkButton>
 				<asp:LinkButton ID="btnPublish" runat="server" Visible='<%#Convert.ToBoolean(Eval("Published"))%>' CommandArgument='<%#Eval("ArticleID")%>' CommandName="Publish" Text="Publish" CssClass="admin_action publish_article"><%=strPublishArticle%></asp:LinkButton>
-				<%#DisplayArticles(Eval("ArticleID"), Eval("Article"), Eval("UserID"), Eval("Title"), Eval("SubTitle"), Eval("Summary"), Eval("PublishDate"), Eval("ArticleImage"), Eval("TitleLink"), Eval("DetailType"), Eval("DetailTypeData"), Eval("ShowMainImageFront"), Eval("ArticleImageFolder"), Eval("NumberOfViews"), Eval("NumberOfComments"), Container.ItemIndex, Eval("DetailTarget"), Eval("Active"), Eval("ArticleFromRSS"), Eval("CatToShow"), Eval("CanEdit"), Eval("Published"), Eval("AuthorAliasName"), Eval("EventArticle"), Eval("RatingValue"), Eval("MainImageTitle"), Eval("MainImageDescription"), Eval("Featured"), Eval("CFGroupeID"))%>
+				<%#DisplayArticles(Eval("ArticleID"), Eval("Article"), Eval("UserID"), Eval("Title"), Eval("SubTitle"), Eval("Summary"), Eval("PublishDate"), Eval("ArticleImage"), Eval("TitleLink"), Eval("DetailType"), Eval("DetailTypeData"), Eval("ShowMainImageFront"), Eval("ArticleImageFolder"), Eval("NumberOfViews"), Eval("NumberOfComments"), Container.ItemIndex, Eval("DetailTarget"), Eval("Active"), Eval("ArticleFromRSS"), Eval("CatToShow"), Eval("CanEdit"), Eval("Published"), Eval("AuthorAliasName"), Eval("EventArticle"), Eval("RatingValue"), Eval("MainImageTitle"), Eval("MainImageDescription"), Eval("Featured"),Eval("RecurringID"), Eval("CFGroupeID"))%>
 			</ItemTemplate>
 		</asp:DataList>
 		<%=DisplayAfterMulti()%>
@@ -52,7 +52,7 @@
 			<asp:LinkButton ID="ibLast" CssClass="last" runat="server" OnClick="ibLast_Click" Visible="False"><%=Localization.GetString("Last.Text", this.LocalResourceFile + "ViewEasyDNNNews.ascx.resx")%></asp:LinkButton>
 		</asp:Panel>
 	</asp:Panel>
-	<asp:Literal id="liDynamicScrollingMarkup" runat="server" Visible="false" />
+	<asp:Literal ID="liDynamicScrollingMarkup" runat="server" Visible="false" />
 	<asp:Panel ID="pnlViewArticle" runat="server">
 		<p class="bread_crumbs">
 			<%=generateArticleBreadCrumbs()%>
@@ -114,24 +114,24 @@
 			eds1_8(document).ready(function ($) {
 				var $rate_it = $("#<%=MainDivID%> .EDN_article_rateit");
 				$rate_it.bind('rated reset', function (e) {
-						var ri = $(this);
-						var value = ri.rateit('value');
-						var articleid = <%=publicOpenArticleID%>;
-						$rate_it.rateit('readonly', true);
-						ri.rateit('readonly', true);
-						$.cookie("<%=EDNViewArticleID%>", "true");
+					var ri = $(this);
+					var value = ri.rateit('value');
+					var articleid = <%=publicOpenArticleID%>;
+					$rate_it.rateit('readonly', true);
+					ri.rateit('readonly', true);
+					$.cookie("<%=EDNViewArticleID%>", "true");
 						document.getElementById("<%=hfRate.ClientID %>").value= value;
-						$.ajax(
+					$.ajax(
+					{
+						url: "<%=ModulePath %>Rater.aspx",
+						type: "POST",
+						data: {artid: articleid, rating: value},
+						success: function (data)
 						{
-							url: "<%=ModulePath %>Rater.aspx",
-							type: "POST",
-							data: {artid: articleid, rating: value},
-							success: function (data)
-							{
-								ri.siblings('.current_rating').text(data);
-							}
-						});
-					})
+							ri.siblings('.current_rating').text(data);
+						}
+					});
+				})
 					.rateit('value', document.getElementById("<%=hfRate.ClientID %>").value)
 					.rateit('readonly', $.cookie("<%=EDNViewArticleID%>"))
 					.rateit('step',1);
@@ -139,7 +139,7 @@
 		</script>
 		<asp:HiddenField ID="hfRate" runat="server" />
 		<script type="text/javascript">
-		// <![CDATA[
+			// <![CDATA[
 			eds1_8(function ($) {
 				$('#<%=upPanelComments.ClientID %>').on('click', '#<%=lbAddComment.ClientID %>', function () {
 					var $lbAddComment = $('#<%=lbAddComment.ClientID %>'),
@@ -200,7 +200,7 @@
 						return false;
 				});
 			});
-		//*/ ]]>
+			//*/ ]]>
 		</script>
 		<asp:UpdatePanel ID="upPanelComments" runat="server">
 			<ContentTemplate>
@@ -282,8 +282,7 @@
 							<asp:Panel ID="pnlCaptcha" runat="server" Visible="False">
 								<table cellspacing="0" cellpadding="0">
 									<tr>
-										<td class="left">
-										</td>
+										<td class="left"></td>
 										<td class="right">
 											<dnnCTRL:CaptchaControl ID="ctlCaptcha" runat="server" CaptchaHeight="50px" CaptchaLength="5" CaptchaWidth="300px" CssClass="Normal" Enabled="true" ErrorStyle-CssClass="NormalRed" Expiration="600" BorderColor="Black" />
 											<asp:Label ID="lblCaptchaError" runat="server" ForeColor="Red" Text="The typed code must match the image, please try again" Visible="False" />
@@ -293,8 +292,7 @@
 							</asp:Panel>
 							<table cellspacing="0" cellpadding="0">
 								<tr>
-									<td class="left">
-									</td>
+									<td class="left"></td>
 									<td class="right bottom">
 										<asp:LinkButton ID="lbAddComment" runat="server" OnClick="lbAddComment_Click" resourcekey="lbAddComentResource" CssClass="submit" ValidationGroup="vgAddArtComment"><span><%=AddComment%></span></asp:LinkButton>
 									</td>

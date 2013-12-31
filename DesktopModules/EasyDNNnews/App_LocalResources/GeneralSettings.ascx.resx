@@ -228,4 +228,7 @@
   <data name="lblSelectedRoles.Text" xml:space="preserve">
     <value>Selected Security Roles:</value>
   </data>
+  <data name="ControlTitle_generalsettings.Text" xml:space="preserve">
+    <value>General Settings</value>
+  </data>
 </root>

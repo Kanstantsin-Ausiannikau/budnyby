@@ -369,4 +369,7 @@
   <data name="liNone.Text" xml:space="preserve">
     <value>None</value>
   </data>
+  <data name="ControlTitle_authorprofiles.Text" xml:space="preserve">
+    <value>Author Profiles</value>
+  </data>
 </root>

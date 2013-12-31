@@ -220,7 +220,10 @@
     <value>Edit Settings</value>
   </data>
   <data name="InfiniteButtonAction.Text" xml:space="preserve">
-    <value>Load next {1} articles ({0} left)</value>
+    <value>Load next {1} article(s) ({0} left)</value>
+  </data>
+  <data name="LastPageInfiniteButtonAction.Text" xml:space="preserve">
+    <value>Load last {0} article(s)</value>
   </data>
   <data name="InfiniteButtonLoadingOverlay.Text" xml:space="preserve">
     <value>Loading...</value>

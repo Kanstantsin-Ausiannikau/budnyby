@@ -333,4 +333,7 @@
   <data name="lbUpdateCategory.ToolTip" xml:space="preserve">
     <value>Update category</value>
   </data>
+  <data name="ControlTitle_categoryeditor.Text" xml:space="preserve">
+    <value>Category Editor</value>
+  </data>
 </root>

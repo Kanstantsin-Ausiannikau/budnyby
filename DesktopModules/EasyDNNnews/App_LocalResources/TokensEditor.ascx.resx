@@ -225,4 +225,7 @@
   <data name="lbSaveSettings.ToolTip" xml:space="preserve">
     <value>Save token</value>
   </data>
+  <data name="ControlTitle_tokeneditor.Text" xml:space="preserve">
+    <value>Token Editor</value>
+  </data>
 </root>

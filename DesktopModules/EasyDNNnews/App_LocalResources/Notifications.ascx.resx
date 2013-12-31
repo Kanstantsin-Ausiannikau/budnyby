@@ -180,4 +180,7 @@
   <data name="Users.HeaderText" xml:space="preserve">
     <value>Users</value>
   </data>
+  <data name="ControlTitle_notifications.Text" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
 </root>

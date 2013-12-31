@@ -1335,4 +1335,7 @@
   <data name="Target.HeaderText" xml:space="preserve">
     <value>Target</value>
   </data>
+  <data name="ControlTitle_addnewarticle.Text" xml:space="preserve">
+    <value>Add new article</value>
+  </data>
 </root>

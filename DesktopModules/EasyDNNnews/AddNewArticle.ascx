@@ -3,25 +3,25 @@
 <%@ Register TagPrefix="dnn" TagName="TextEditor" Src="~/controls/TextEditor.ascx" %>
 <%@ Register TagPrefix="Portal" TagName="URL" Src="~/controls/URLControl.ascx" %>
 <script type="text/javascript">
-/*<![CDATA[*/
-function showGalleryAjaxOverlay()
-{
-	document.getElementById('edn_gallery_inProgressOverlay').style.display = 'block';
-}
-function ddlOnSelectedIndexChange(ControlClientID, cfid) {
-	if (document.getElementById('<%=hfParenSelectedValue.ClientID%>') != null) {
-			var e = document.getElementById(ControlClientID);
-			var ParentElementID = e.options[e.selectedIndex].value;
-			var hfValue = document.getElementById('<%=hfParenSelectedValue.ClientID%>').value;
-		if (hfValue.length != 0) {
-			var indexOd = hfValue.indexOf(ControlClientID + ';')
-			if (indexOd != -1){
-				var pocetak = hfValue.substring(indexOd + ControlClientID.length + 1); // cut
-				var indexOdBroja = pocetak.indexOf('|');
-				var kraj = pocetak.substring(0, indexOdBroja);
-				hfValue = hfValue.replace(ControlClientID + ';' + kraj + '|', ''); // remove existing value
-			}
-			document.getElementById('<%=hfParenSelectedValue.ClientID%>').value = hfValue + ControlClientID + ';' + ParentElementID + '|';
+	/*<![CDATA[*/
+	function showGalleryAjaxOverlay()
+	{
+		document.getElementById('edn_gallery_inProgressOverlay').style.display = 'block';
+	}
+	function ddlOnSelectedIndexChange(ControlClientID, cfid) {
+		if (document.getElementById('<%=hfParenSelectedValue.ClientID%>') != null) {
+		var e = document.getElementById(ControlClientID);
+		var ParentElementID = e.options[e.selectedIndex].value;
+		var hfValue = document.getElementById('<%=hfParenSelectedValue.ClientID%>').value;
+			if (hfValue.length != 0) {
+				var indexOd = hfValue.indexOf(ControlClientID + ';')
+				if (indexOd != -1){
+					var pocetak = hfValue.substring(indexOd + ControlClientID.length + 1); // cut
+					var indexOdBroja = pocetak.indexOf('|');
+					var kraj = pocetak.substring(0, indexOdBroja);
+					hfValue = hfValue.replace(ControlClientID + ';' + kraj + '|', ''); // remove existing value
+				}
+				document.getElementById('<%=hfParenSelectedValue.ClientID%>').value = hfValue + ControlClientID + ';' + ParentElementID + '|';
 			document.getElementById('<%=hfLastSelectedIndexChanged.ClientID%>').value = cfid;
 		}
 		else {
@@ -132,9 +132,8 @@ documentsFineUploaderSettings = function () {
 		hfUploadedDocs = document.getElementById('<%=hfUploadedDocs.ClientID%>');
 
 	return {
-		endpoint: '<%=ModulePath%>htmldocumentuploader.ashx',
+		endpoint: '<%=ModulePath%>htmldocumentuploader.ashx?portalid=<%=PortalId%>',
 		params: {
-			portalid:'<%=PortalId%>',
 			articleid:'0',
 			moduleId:'<%=ModuleId%>',
 			jsonResponse: true
@@ -168,7 +167,7 @@ if ('<%=jQueryPrefix%>'=='jQuery')
 		else if (source.id.indexOf("Custom")!=-1)
 		{
 			textBox = document.getElementById("<%=tbCustomEmbedVideoURL.ClientID %>");
-	}
+		}
 
 	var s = textBox.value;
 	if((s.indexOf("youtube.com") != -1 && s.indexOf("v=") != -1)||(s.indexOf("youtu.be/") != -1)||(s.indexOf("vimeo.com") != -1))
@@ -572,8 +571,8 @@ function initializeUploadify (inputId, galleryId) {
 				$('#<%=hfSharedGalID.ClientID%>').val()
 			);
 
-				initializeUploadify(
-					'<%=GalfileInput.ClientID%>',
+					initializeUploadify(
+						'<%=GalfileInput.ClientID%>',
 				'1'
 			);
 			}
@@ -641,18 +640,20 @@ function initializeUploadify (inputId, galleryId) {
 					<div class="content category_selection">
 						<asp:UpdatePanel ID="upCategorySelection" runat="server" UpdateMode="Conditional">
 							<ContentTemplate>
-								<asp:Label ID="lblCategorySelectError" runat="server" resourcekey="lblCategorySelectError" ForeColor="Red" Text="Please select a category." Visible="false" EnableViewState="false" />
-								<p class="expand_collapse_container">
-									<asp:LinkButton ID="lblCategorySelectionExpandAll" runat="server" Text="Expand all" OnClick="lblCategorySelectionExpandAll_Click" resourcekey="lblCategorySelectionExpandAll" />
-									| 
+								<div class="edn_admin_progress_overlay_container">
+									<asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="upCategorySelection" DisplayAfter="100" DynamicLayout="true">
+										<ProgressTemplate>
+											<div class="edn_admin_progress_overlay"></div>
+										</ProgressTemplate>
+									</asp:UpdateProgress>
+									<asp:Label ID="lblCategorySelectError" runat="server" resourcekey="lblCategorySelectError" ForeColor="Red" Text="Please select a category." Visible="false" EnableViewState="false" />
+									<p class="expand_collapse_container">
+										<asp:LinkButton ID="lblCategorySelectionExpandAll" runat="server" Text="Expand all" OnClick="lblCategorySelectionExpandAll_Click" resourcekey="lblCategorySelectionExpandAll" />
+										|
 									<asp:LinkButton ID="lblCategorySelectionCollapseAll" runat="server" Text="Collapse all" OnClick="lblCategorySelectionCollapseAll_Click" resourcekey="lblCategorySelectionCollapseAll" />
-								</p>
-								<asp:UpdateProgress ID="uppCategorySelection" runat="server" AssociatedUpdatePanelID="upCategorySelection" DisplayAfter="100" DynamicLayout="true">
-									<ProgressTemplate>
-										<img src="<%=ModulePath%>images/settings/ajaxLoading.gif" alt="loading..." />
-									</ProgressTemplate>
-								</asp:UpdateProgress>
-								<asp:TreeView ID="tvCatAndSubCat" runat="server" EnableViewState="true" ForeColor="Black" NodeWrap="True" ShowCheckBoxes="All" ShowLines="True" CssClass="category_tree_view" NodeStyle-CssClass="category_node" />
+									</p>
+									<asp:TreeView ID="tvCatAndSubCat" runat="server" EnableViewState="true" ForeColor="Black" NodeWrap="True" ShowCheckBoxes="All" ShowLines="True" CssClass="category_tree_view" NodeStyle-CssClass="category_node" />
+								</div>
 							</ContentTemplate>
 						</asp:UpdatePanel>
 					</div>
@@ -700,34 +701,41 @@ function initializeUploadify (inputId, galleryId) {
 				</div>
 				<asp:UpdatePanel ID="upArticleTags" runat="server" UpdateMode="Conditional">
 					<ContentTemplate>
-						<div class="text_input_set">
-							<dnn:Label ID="lblArticleTags" runat="server" HelpText="Article tags separated by comma ( , ):" Text="Article tags:" ControlName="tbTags" ResourceKey="lblArticleTags" HelpKey="lblArticleTags.HelpText" />
-							<asp:TextBox ID="tbTags" runat="server" CssClass="text" />
-						</div>
-						<div class="collapsible_box no_margin visible" id="add_existing_tags_box">
-							<h1 class="collapsible_box_title close">
-								<%=AddExistingTags%></h1>
-							<div class="content">
-								<div class="tag_collection">
-									<ul class="tag_selection_menu">
-										<li class="spaced">
-											<asp:LinkButton ID="lbAllAddedTags" ResourceKey="lbAllAddedTags.Text" runat="server" OnClick="lbAllAddedTags_Click">ALL TAGS</asp:LinkButton></li>
-										<li class="spaced">
-											<asp:LinkButton ID="lbMostPopularTags" ResourceKey="lbMostPopularTags.Text" runat="server" OnClick="lbMostPopularTags_Click">MOST POPULAR FIRST</asp:LinkButton></li>
-										<li class="spaced">
-											<asp:LinkButton ID="lbLastAddedTags" ResourceKey="lbLastAddedTags.Text" runat="server" OnClick="lbLastAddedTags_Click">LAST ADDED FIRST</asp:LinkButton></li>
-									</ul>
-									<asp:DataList ID="dlListOfExistingTags" runat="server" RepeatColumns="5" OnItemCommand="dlListOfExistingTags_ItemCommand" RepeatDirection="Vertical" CssClass="existing_tag_list">
-										<ItemTemplate>
-											<asp:LinkButton ID="lbAddTag" runat="server" CommandName="AddTag" CommandArgument='<%#Eval("Name")%>' CssClass="tag_link"><%#Eval("Name")%><span class="addtag"></span></asp:LinkButton>
-										</ItemTemplate>
-									</asp:DataList>
-									<asp:GridView ID="gvTagsPaging" runat="server" AllowPaging="True" AutoGenerateColumns="false" CellPadding="0" CssClass="existing_tag_list_pagination article_pager" DataKeyNames="TagID" DataSourceID="odsGetTagsByName" EnableModelValidation="True" GridLines="None"
-										OnPageIndexChanged="gvTagsPaging_PageIndexChanged" ShowHeader="false" OnPageIndexChanging="gvTagsPaging_PageIndexChanging1" PageSize="50">
-										<Columns>
-											<asp:BoundField DataField="Name" Visible="false" />
-										</Columns>
-									</asp:GridView>
+						<div class="edn_admin_progress_overlay_container">
+							<asp:UpdateProgress ID="uppArticleTags" runat="server" AssociatedUpdatePanelID="upArticleTags" DisplayAfter="100" DynamicLayout="true">
+								<ProgressTemplate>
+									<div class="edn_admin_progress_overlay"></div>
+								</ProgressTemplate>
+							</asp:UpdateProgress>
+							<div class="text_input_set">
+								<dnn:Label ID="lblArticleTags" runat="server" HelpText="Article tags separated by comma ( , ):" Text="Article tags:" ControlName="tbTags" ResourceKey="lblArticleTags" HelpKey="lblArticleTags.HelpText" />
+								<asp:TextBox ID="tbTags" runat="server" CssClass="text" />
+							</div>
+							<div class="collapsible_box no_margin visible" id="add_existing_tags_box">
+								<h1 class="collapsible_box_title close">
+									<%=AddExistingTags%></h1>
+								<div class="content">
+									<div class="tag_collection">
+										<ul class="tag_selection_menu">
+											<li class="spaced">
+												<asp:LinkButton ID="lbAllAddedTags" ResourceKey="lbAllAddedTags.Text" runat="server" OnClick="lbAllAddedTags_Click">ALL TAGS</asp:LinkButton></li>
+											<li class="spaced">
+												<asp:LinkButton ID="lbMostPopularTags" ResourceKey="lbMostPopularTags.Text" runat="server" OnClick="lbMostPopularTags_Click">MOST POPULAR FIRST</asp:LinkButton></li>
+											<li class="spaced">
+												<asp:LinkButton ID="lbLastAddedTags" ResourceKey="lbLastAddedTags.Text" runat="server" OnClick="lbLastAddedTags_Click">LAST ADDED FIRST</asp:LinkButton></li>
+										</ul>
+										<asp:DataList ID="dlListOfExistingTags" runat="server" RepeatColumns="5" OnItemCommand="dlListOfExistingTags_ItemCommand" RepeatDirection="Vertical" CssClass="existing_tag_list">
+											<ItemTemplate>
+												<asp:LinkButton ID="lbAddTag" runat="server" CommandName="AddTag" CommandArgument='<%#Eval("Name")%>' CssClass="tag_link"><%#Eval("Name")%><span class="addtag"></span></asp:LinkButton>
+											</ItemTemplate>
+										</asp:DataList>
+										<asp:GridView ID="gvTagsPaging" runat="server" AllowPaging="True" AutoGenerateColumns="false" CellPadding="0" CssClass="existing_tag_list_pagination article_pager" DataKeyNames="TagID" DataSourceID="odsGetTagsByName" EnableModelValidation="True" GridLines="None"
+											OnPageIndexChanged="gvTagsPaging_PageIndexChanged" ShowHeader="false" OnPageIndexChanging="gvTagsPaging_PageIndexChanging1" PageSize="50">
+											<Columns>
+												<asp:BoundField DataField="Name" Visible="false" />
+											</Columns>
+										</asp:GridView>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -1372,8 +1380,12 @@ function initializeUploadify (inputId, galleryId) {
 									</div>
 								</div>
 							</asp:Panel>
-							<div id="edn_gallery_inProgressOverlay" class="edn_admin_progress_overlay" style="display: none">
-							</div>
+							<asp:UpdateProgress ID="upArticleImagesProgress" runat="server" AssociatedUpdatePanelID="upArticleImages" DisplayAfter="200" DynamicLayout="true">
+								<ProgressTemplate>
+									<div class="edn_admin_progress_overlay" />
+									</div>
+								</ProgressTemplate>
+							</asp:UpdateProgress>
 						</div>
 					</ContentTemplate>
 				</asp:UpdatePanel>
@@ -1424,18 +1436,24 @@ function initializeUploadify (inputId, galleryId) {
 								<div class="messages">
 									<asp:Label runat="server" ID="lblAddDocumentInfo" EnableViewState="false" Visible="false" CssClass="error" />
 									<p>
-										<asp:RequiredFieldValidator ID="rfvExistingDocumentID" resourcekey="rfvExistingDocumentID.ErrorMessage" runat="server" ControlToValidate="tbxExistingDocumentID" ErrorMessage="Document ID must be set" ValidationGroup="vgDocumentLinks" Display="Dynamic" CssClass="error" />
+										<asp:RequiredFieldValidator ID="rfvExistingDocumentID" resourcekey="rfvExistingDocumentID.ErrorMessage" runat="server" ControlToValidate="tbxExistingDocumentID" ErrorMessage="Document ID must be set" ValidationGroup="vgDocumentLinks" Display="Dynamic"
+											CssClass="error" />
 									</p>
 									<p>
-										<asp:CompareValidator ID="cvExistingDocumentID" resourcekey="cvExistingDocumentID.ErrorMessage" runat="server" ControlToValidate="tbxExistingDocumentID" ErrorMessage="Document ID must be an integer" Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgDocumentLinks" Display="Dynamic" CssClass="error" />
+										<asp:CompareValidator ID="cvExistingDocumentID" resourcekey="cvExistingDocumentID.ErrorMessage" runat="server" ControlToValidate="tbxExistingDocumentID" ErrorMessage="Document ID must be an integer" Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgDocumentLinks"
+											Display="Dynamic" CssClass="error" />
 									</p>
 								</div>
 								<div class="search_by_document_title">
-									<p><%=Searchdocuments%></p>
+									<p>
+										<%=Searchdocuments%>
+									</p>
 									<asp:TextBox ID="tbxDocumentText" runat="server" AutoCompleteType="Search" CausesValidation="False" EnableViewState="false" CssClass="rounded_text_box" />
 								</div>
 								<div class="search_by_document_id">
-									<p><%=Documentid%></p>
+									<p>
+										<%=Documentid%>
+									</p>
 									<asp:TextBox ID="tbxExistingDocumentID" runat="server" CausesValidation="False" EnableViewState="false" CssClass="rounded_text_box grey" />
 								</div>
 								<asp:LinkButton ID="btnAddExistingDocument" runat="server" OnClick="lbAddExistingDocument_Click" ValidationGroup="vgDocumentLinks" CssClass="add_button rounded_button gradient icon orange_plus"><span><%=Add%></span></asp:LinkButton>
@@ -1549,11 +1567,14 @@ function initializeUploadify (inputId, galleryId) {
 							<div class="edn_admin_progress_overlay_container">
 								<asp:UpdateProgress ID="uppLinksIncluded" runat="server" AssociatedUpdatePanelID="upLinksIncluded" DisplayAfter="100" DynamicLayout="true">
 									<ProgressTemplate>
-										<div class="edn_admin_progress_overlay"></div>
+										<div class="edn_admin_progress_overlay">
+										</div>
 									</ProgressTemplate>
 								</asp:UpdateProgress>
 								<asp:PlaceHolder ID="phincludeAutoComplete" runat="server" />
-								<h1 class="section_box_title"><span><%=Links%></span></h1>
+								<h1 class="section_box_title">
+									<span>
+										<%=Links%></span></h1>
 								<asp:RadioButtonList ID="rblCreateLinkType" CssClass="radio_button_list" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblCreateLinkType_SelectedIndexChanged">
 									<asp:ListItem Value="0" resourcekey="liCustomlink" Text="External link" Selected="True" />
 									<asp:ListItem Value="1" resourcekey="liPage" Text="Page link" />
@@ -1565,8 +1586,10 @@ function initializeUploadify (inputId, galleryId) {
 										<asp:Label ID="lblLinksInfo" runat="server" EnableViewState="false" />
 										<asp:RequiredFieldValidator ID="rfvtbxCustomLink" resourcekey="rfvtbxCustomLink.ErrorMessage" runat="server" ControlToValidate="tbxCustomLink" ErrorMessage="Please enter a URL." ValidationGroup="vgArticleLinks" Display="Dynamic" Visible="true" />
 										<asp:RequiredFieldValidator ID="rfvNewsArticleID" resourcekey="rfvNewsArticleID.ErrorMessage" runat="server" ControlToValidate="tbxExistingArticleID" ErrorMessage="Please select a news article." ValidationGroup="vgArticleLinks" Display="Dynamic" Visible="false" />
-										<asp:RequiredFieldValidator ID="rfvExistingLinksID" resourcekey="rfvExistingLinksID.ErrorMessage" runat="server" ControlToValidate="tbxExistingLinksID" ErrorMessage="Please specify an existing document ID." ValidationGroup="vgArticleLinks" Display="Dynamic" Visible="false" />
-										<asp:CompareValidator ID="cvExistingLinksID" runat="server" resourcekey="cvExistingLinksID.ErrorMessage" ControlToValidate="tbxExistingLinksID" ErrorMessage="The existing link ID must be an integer." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgArticleLinks" Display="Dynamic" Visible="false" />
+										<asp:RequiredFieldValidator ID="rfvExistingLinksID" resourcekey="rfvExistingLinksID.ErrorMessage" runat="server" ControlToValidate="tbxExistingLinksID" ErrorMessage="Please specify an existing document ID." ValidationGroup="vgArticleLinks" Display="Dynamic"
+											Visible="false" />
+										<asp:CompareValidator ID="cvExistingLinksID" runat="server" resourcekey="cvExistingLinksID.ErrorMessage" ControlToValidate="tbxExistingLinksID" ErrorMessage="The existing link ID must be an integer." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgArticleLinks"
+											Display="Dynamic" Visible="false" />
 									</p>
 									<div class="rounded3dBox">
 										<div class="new_link_settings">
@@ -1591,7 +1614,8 @@ function initializeUploadify (inputId, galleryId) {
 													<asp:Label ID="lblLinkDescription" resourcekey="lblLinkDescription" AssociatedControlID="tbxLinkDescription" runat="server" Text="Link description:" />
 													<asp:TextBox ID="tbxLinkDescription" runat="server" />
 												</div>
-												<div style="clear: both;"></div>
+												<div style="clear: both;">
+												</div>
 											</asp:Panel>
 											<asp:Panel ID="pnlLinksAddExistingLink" runat="server" Visible="false" CssClass="existing_link">
 												<div class="field">
@@ -1602,14 +1626,17 @@ function initializeUploadify (inputId, galleryId) {
 													<asp:Label ID="lblExistingLinksID" resourcekey="lblExistingLinksID" AssociatedControlID="tbxExistingLinksID" runat="server" Text="Link id:" />
 													<asp:TextBox ID="tbxExistingLinksID" runat="server" CausesValidation="true" EnableViewState="false" />
 												</div>
-												<div style="clear: both;"></div>
+												<div style="clear: both;">
+												</div>
 											</asp:Panel>
 										</div>
 										<asp:LinkButton ID="lbAddLink" runat="server" ValidationGroup="vgArticleLinks" OnClick="lbAddLink_Click" CausesValidation="true" CssClass="rounded_button gradient olive_green icon orange_plus"><span><%=Add%></span></asp:LinkButton>
-										<div style="clear: both;"></div>
+										<div style="clear: both;">
+										</div>
 									</div>
 									<asp:GridView ID="gvArticleLinks" runat="server" AutoGenerateColumns="false" CellPadding="0" CssClass="grid_view_table olive_green" DataKeyNames="Position" EnableModelValidation="True" GridLines="None" OnRowCancelingEdit="gvArticleLinks_RowCancelingEdit"
-										OnRowCommand="gvArticleLinks_RowCommand" OnRowEditing="gvArticleLinks_RowEditing" OnRowUpdating="gvArticleLinks_RowUpdating" OnRowUpdated="gvArticleLinks_RowUpdated" OnRowDeleting="gvArticleLinks_RowDeleting" OnRowDataBound="gvArticleLinks_RowDataBound" OnPreRender="gvArticleLinks_PreRender">
+										OnRowCommand="gvArticleLinks_RowCommand" OnRowEditing="gvArticleLinks_RowEditing" OnRowUpdating="gvArticleLinks_RowUpdating" OnRowUpdated="gvArticleLinks_RowUpdated" OnRowDeleting="gvArticleLinks_RowDeleting" OnRowDataBound="gvArticleLinks_RowDataBound"
+										OnPreRender="gvArticleLinks_PreRender">
 										<Columns>
 											<asp:TemplateField HeaderText="Actions">
 												<EditItemTemplate>
@@ -1638,10 +1665,13 @@ function initializeUploadify (inputId, galleryId) {
 											<asp:TemplateField HeaderText="Link">
 												<EditItemTemplate>
 													<asp:TextBox ID="tbxLink" runat="server" Text='<%# GetGeneratedLinkForEdit(Eval("Type"),Eval("URL"),Eval("Protocol"),Eval("ArticleID"),Eval("TabID"),Eval("ExistingArticleData")) %>' Visible="false" CssClass="light" />
-													<Portal:URL ID="urlLinksIncluded" runat="server" Width="250" ShowNewWindow="false" ShowUsers="false" ShowFiles="false" ShowLog="false" ShowSecure="false" ShowTabs="false" ShowTrack="false" ShowUpLoad="false" ShowUrls="false" ShowDatabase="false" UrlType="U" Visible="false" />
+													<Portal:URL ID="urlLinksIncluded" runat="server" Width="250" ShowNewWindow="false" ShowUsers="false" ShowFiles="false" ShowLog="false" ShowSecure="false" ShowTabs="false" ShowTrack="false" ShowUpLoad="false" ShowUrls="false" ShowDatabase="false" UrlType="U"
+														Visible="false" />
 												</EditItemTemplate>
 												<ItemTemplate>
-													<p class="link <%# PrintAlreadyInUseClass((bool) Eval("InUseByOther")) %>"><%# GetGeneratedLink(Eval("Type"),Eval("URL"),Eval("Protocol"),Eval("ArticleID"),Eval("TabID"),Eval("ExistingArticleData")) %></p>
+													<p class="link <%# PrintAlreadyInUseClass((bool) Eval("InUseByOther")) %>">
+														<%# GetGeneratedLink(Eval("Type"),Eval("URL"),Eval("Protocol"),Eval("ArticleID"),Eval("TabID"),Eval("ExistingArticleData")) %>
+													</p>
 												</ItemTemplate>
 												<HeaderStyle CssClass="link" />
 												<ItemStyle CssClass="link" />
@@ -1738,161 +1768,343 @@ function initializeUploadify (inputId, galleryId) {
 						<div class="content">
 							<asp:UpdatePanel ID="upAdvancedSettings" runat="server">
 								<ContentTemplate>
-									<asp:Panel ID="pnlChangeOwner" runat="server" Visible="false">
-										<table class="settings_table w700">
-											<tr>
-												<td class="left">
-													<asp:Label ID="lblowner" ResourceKey="lblowner" runat="server" Text="Article Owner:" />
-												</td>
-												<td class="right">
-													<asp:Label ID="tbArticleAuthorName" runat="server" />
-												</td>
-											</tr>
-											<tr id="trEnableAuthorProfile" runat="server" visible="false">
-												<td class="left">
-													<dnn:Label ID="lblAuthorAlias" ResourceKey="lblAuthorAlias" runat="server" HelpText="Author alias:" Text="Author alias:" HelpKey="lblAuthorAlias.HelpText" />
-												</td>
-												<td class="right">
-													<asp:TextBox ID="tbAuthorAliasName" runat="server" MaxLength="100" Width="200px" />
-												</td>
-											</tr>
-											<tr>
-												<td class="left">
-													<asp:Label ID="lblChOwner" ResourceKey="lblChOwner" runat="server" Text="Change Owner:" />
-												</td>
-												<td class="right">
-													<asp:DropDownList ID="ddlRoles" runat="server" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="ddlRoles_SelectedIndexChanged" Visible="false" CssClass="ddlgeneral">
-														<asp:ListItem ResourceKey="liSelectRole" Value="-1">Select role</asp:ListItem>
-													</asp:DropDownList>
-													<asp:DropDownList ID="ddlAuthors" runat="server" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="ddlAuthors_SelectedIndexChanged" Visible="false" CssClass="ddlgeneral">
-														<asp:ListItem ResourceKey="liSelectAuthor" Value="-1">Select author</asp:ListItem>
-													</asp:DropDownList>
-												</td>
-											</tr>
-										</table>
-									</asp:Panel>
-									<div id="divDefaultTemplate" runat="server">
-										<table class="settings_table w700">
-											<tr>
-												<td class="left">
-													<dnn:Label ID="lblUseDefaultTemplate" runat="server" ControlName="cbUseDefaultTemplate" HelpText="Use default template:" Text="Use default template:" HelpKey="lblUseDefaultTemplate.HelpText" ResourceKey="lblUseDefaultTemplate" />
-												</td>
-												<td class="right">
-													<asp:CheckBox ID="cbUseDefaultTemplate" runat="server" AutoPostBack="True" Checked="True" OnCheckedChanged="cbUseDefaultTemplate_CheckedChanged" />
-												</td>
-											</tr>
-										</table>
-										<asp:Panel ID="pnlSelectThemes" runat="server" Visible="false">
+									<div class="edn_admin_progress_overlay_container">
+										<asp:UpdateProgress ID="uppAdvancedSettings" runat="server" AssociatedUpdatePanelID="upAdvancedSettings" DisplayAfter="100" DynamicLayout="true">
+											<ProgressTemplate>
+												<div class="edn_admin_progress_overlay"></div>
+											</ProgressTemplate>
+										</asp:UpdateProgress>
+										<asp:Panel ID="pnlChangeOwner" runat="server" Visible="false">
 											<table class="settings_table w700">
 												<tr>
 													<td class="left">
-														<dnn:Label ID="lblArticleDetailsTheme" runat="server" ControlName="ddlArticleDetailsTheme" HelpText="Article details theme:" Text="Article details theme:" HelpKey="lblArticleDetailsTheme.HelpText" ResourceKey="lblArticleDetailsTheme" />
+														<asp:Label ID="lblowner" ResourceKey="lblowner" runat="server" Text="Article Owner:" />
 													</td>
 													<td class="right">
-														<asp:DropDownList ID="ddlArticleDetailsTheme" runat="server" AutoPostBack="True" CausesValidation="True" CssClass="ddlgeneral" OnSelectedIndexChanged="ddlArticleDetailsFolder_SelectedIndexChanged" />
+														<asp:Label ID="tbArticleAuthorName" runat="server" />
+													</td>
+												</tr>
+												<tr id="trEnableAuthorProfile" runat="server" visible="false">
+													<td class="left">
+														<dnn:Label ID="lblAuthorAlias" ResourceKey="lblAuthorAlias" runat="server" HelpText="Author alias:" Text="Author alias:" HelpKey="lblAuthorAlias.HelpText" />
+													</td>
+													<td class="right">
+														<asp:TextBox ID="tbAuthorAliasName" runat="server" MaxLength="100" Width="200px" />
 													</td>
 												</tr>
 												<tr>
 													<td class="left">
-														<dnn:Label ID="lblArticleDetailsTemplate" runat="server" ControlName="ddlArticleDetailsTemplate" HelpText="Article details template:" Text="Article details template:" HelpKey="lblArticleDetailsTemplate.HelpText" ResourceKey="lblArticleDetailsTemplate" />
+														<asp:Label ID="lblChOwner" ResourceKey="lblChOwner" runat="server" Text="Change Owner:" />
 													</td>
 													<td class="right">
-														<asp:DropDownList ID="ddlArticleDetailsTemplate" runat="server" CssClass="ddlgeneral" />
-													</td>
-												</tr>
-												<tr>
-													<td class="left">
-														<dnn:Label ID="lblArticleCommentsTemplate" runat="server" ControlName="ddlCommentsTemplate" HelpText="Article comments template:" Text="Article comments template:" HelpKey="lblArticleCommentsTemplate.HelpText" ResourceKey="lblArticleCommentsTemplate" />
-													</td>
-													<td class="right">
-														<asp:DropDownList ID="ddlCommentsTemplate" runat="server" CssClass="ddlgeneral" />
-													</td>
-												</tr>
-												<tr>
-													<td class="left">
-														<dnn:Label ID="lblArticleCSSStyle" runat="server" ControlName="ddlDisplayStyle" HelpText="Display style:" Text="Display style:" HelpKey="lblArticleCSSStyle.HelpText" ResourceKey="lblArticleCSSStyle" />
-													</td>
-													<td class="right">
-														<asp:DropDownList ID="ddlDisplayStyle" runat="server" />
+														<asp:DropDownList ID="ddlRoles" runat="server" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="ddlRoles_SelectedIndexChanged" Visible="false" CssClass="ddlgeneral">
+															<asp:ListItem ResourceKey="liSelectRole" Value="-1">Select role</asp:ListItem>
+														</asp:DropDownList>
+														<asp:DropDownList ID="ddlAuthors" runat="server" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="ddlAuthors_SelectedIndexChanged" Visible="false" CssClass="ddlgeneral">
+															<asp:ListItem ResourceKey="liSelectAuthor" Value="-1">Select author</asp:ListItem>
+														</asp:DropDownList>
 													</td>
 												</tr>
 											</table>
 										</asp:Panel>
+										<div id="divDefaultTemplate" runat="server">
+											<table class="settings_table w700">
+												<tr>
+													<td class="left">
+														<dnn:Label ID="lblUseDefaultTemplate" runat="server" ControlName="cbUseDefaultTemplate" HelpText="Use default template:" Text="Use default template:" HelpKey="lblUseDefaultTemplate.HelpText" ResourceKey="lblUseDefaultTemplate" />
+													</td>
+													<td class="right">
+														<asp:CheckBox ID="cbUseDefaultTemplate" runat="server" AutoPostBack="True" Checked="True" OnCheckedChanged="cbUseDefaultTemplate_CheckedChanged" />
+													</td>
+												</tr>
+											</table>
+											<asp:Panel ID="pnlSelectThemes" runat="server" Visible="false">
+												<table class="settings_table w700">
+													<tr>
+														<td class="left">
+															<dnn:Label ID="lblArticleDetailsTheme" runat="server" ControlName="ddlArticleDetailsTheme" HelpText="Article details theme:" Text="Article details theme:" HelpKey="lblArticleDetailsTheme.HelpText" ResourceKey="lblArticleDetailsTheme" />
+														</td>
+														<td class="right">
+															<asp:DropDownList ID="ddlArticleDetailsTheme" runat="server" AutoPostBack="True" CausesValidation="True" CssClass="ddlgeneral" OnSelectedIndexChanged="ddlArticleDetailsFolder_SelectedIndexChanged" />
+														</td>
+													</tr>
+													<tr>
+														<td class="left">
+															<dnn:Label ID="lblArticleDetailsTemplate" runat="server" ControlName="ddlArticleDetailsTemplate" HelpText="Article details template:" Text="Article details template:" HelpKey="lblArticleDetailsTemplate.HelpText" ResourceKey="lblArticleDetailsTemplate" />
+														</td>
+														<td class="right">
+															<asp:DropDownList ID="ddlArticleDetailsTemplate" runat="server" CssClass="ddlgeneral" />
+														</td>
+													</tr>
+													<tr>
+														<td class="left">
+															<dnn:Label ID="lblArticleCommentsTemplate" runat="server" ControlName="ddlCommentsTemplate" HelpText="Article comments template:" Text="Article comments template:" HelpKey="lblArticleCommentsTemplate.HelpText" ResourceKey="lblArticleCommentsTemplate" />
+														</td>
+														<td class="right">
+															<asp:DropDownList ID="ddlCommentsTemplate" runat="server" CssClass="ddlgeneral" />
+														</td>
+													</tr>
+													<tr>
+														<td class="left">
+															<dnn:Label ID="lblArticleCSSStyle" runat="server" ControlName="ddlDisplayStyle" HelpText="Display style:" Text="Display style:" HelpKey="lblArticleCSSStyle.HelpText" ResourceKey="lblArticleCSSStyle" />
+														</td>
+														<td class="right">
+															<asp:DropDownList ID="ddlDisplayStyle" runat="server" />
+														</td>
+													</tr>
+												</table>
+											</asp:Panel>
+										</div>
 									</div>
 								</ContentTemplate>
 							</asp:UpdatePanel>
 						</div>
 					</div>
-					<asp:Panel runat="server" ID="pnlEventManager">
+					<asp:Panel runat="server" ID="pnlEventManager" CssClass="section_box white_border_1 dark_grey orange">
 						<asp:UpdatePanel ID="upEventManager" runat="server" UpdateMode="Conditional">
 							<ContentTemplate>
-								<table class="settings_table w700" runat="server" id="tblIsArticleEvent">
-									<tr>
-										<td class="left">
-											<img src="<%=ModulePath%>images/icons/analog_clock.png" alt="" style="position: relative; top: 4px;" />
-											<asp:Label ID="lblIsArticleEvent" resourcekey="lblIsArticleEvent" runat="server" Text="Add as event:" Style="font-weight: bold;" />
-										</td>
-										<td class="right">
-											<asp:CheckBox ID="cbIsArticleEvent" runat="server" AutoPostBack="True" OnCheckedChanged="cbIsArticleEvent_CheckedChanged" />
-										</td>
-									</tr>
-								</table>
-								<asp:Panel ID="pnlEventsData" runat="server" Visible="false">
-									<table class="settings_table w700 no_margin">
-										<tr>
-											<td colspan="3" style="text-align: center;">
-												<asp:Label ID="lblEventDateError" resourcekey="lblEventDateError" runat="server" ForeColor="Red" Text="End date is smaller than start date." Visible="false" />
-											</td>
-										</tr>
-										<tr>
-											<td class="left" style="vertical-align: top; padding-top: 2px;">
-												<dnn:Label ID="lblEventStartDateTime" runat="server" HelpText="Start date:" Text="Start date:" ResourceKey="lblEventStartDateTime" HelpKey="lblEventStartDateTime.HelpText" />
-											</td>
-											<td class="right" style="width: 215px;">
-												<asp:TextBox ID="tbEventStartDate" runat="server" CssClass="text_generic center" ValidationGroup="vgAddArticle" Width="90px" />
-												<img src="<%=ModulePath%>images/icons/calendar.png" alt="" style="position: relative; top: 2px" />
-												<asp:RequiredFieldValidator ID="rfvEventStartDate" resourcekey="rfvEventStartDate.ErrorMessage" runat="server" ControlToValidate="tbEventStartDate" CssClass="NormalRed" Display="Dynamic" Enabled="false" ErrorMessage="Date required." ValidationGroup="vgAddArticle" />
-												<asp:Label ID="lblEvStartDateError" runat="server" ForeColor="Red" resourcekey="lblPubDateErrorResource1" Text="Invalid date." Visible="false" />
-												<asp:TextBox ID="tbEventStartTime" runat="server" CssClass="text_generic center" ValidationGroup="vgAddArticle" Width="65px" />
-												<asp:Image ID="tbEventStartTimeIcon" runat="server" ImageUrl="images/icons/analog_clock_1.png" alt="" Style="position: relative; top: 1px" />
-												<asp:RegularExpressionValidator ID="revEventStartTime" resourcekey="revEventStartTime.ErrorMessage" runat="server" ControlToValidate="tbEventStartTime" EnableClientScript="true" Enabled="false" ErrorMessage="hh:mm" ValidationExpression="([0-1]?[0-9]|2[0-3]):([0-5][0-9])"
-													ValidationGroup="vgEditArticle" Display="Dynamic" />
-												<asp:RequiredFieldValidator ID="rfvEventStartTime" resourcekey="rfvEventStartTime.ErrorMessage" runat="server" ControlToValidate="tbEventStartTime" CssClass="NormalRed" Display="Dynamic" Enabled="false" ErrorMessage="Time required." ValidationGroup="vgAddArticle" />
-											</td>
-											<td rowspan="2">
-												<p style="position: relative; top: -1px">
-													<asp:CheckBox ID="cbAllDayEvent" resourcekey="cbAllDayEventResource1" runat="server" AutoPostBack="True" OnCheckedChanged="cbAllDayEvent_CheckedChanged" Text="All day event" />
-												</p>
-												<p style="position: relative; top: -1px">
-													<asp:CheckBox ID="cbShowEndDate" resourcekey="cbShowEndDate" runat="server" Checked="True" Text="Show end date" />
-												</p>
-											</td>
-										</tr>
-										<tr>
-											<td class="left" style="vertical-align: top; padding-top: 2px;">
-												<dnn:Label ID="lblEventEndDateTime" runat="server" HelpText="End date:" Text="End date:" HelpKey="lblEventEndDateTime.HelpText" ResourceKey="lblEventEndDateTime" />
-											</td>
-											<td class="right">
-												<asp:TextBox ID="tbEventEndDate" runat="server" CssClass="text_generic center" ValidationGroup="vgAddArticle" Width="90px" />
-												<img src="<%=ModulePath%>images/icons/calendar.png" alt="" style="position: relative; top: 2px" />
-												<asp:RequiredFieldValidator ID="rfvEventEndDate" resourcekey="rfvEventEndDate.ErrorMessage" runat="server" ControlToValidate="tbEventStartDate" CssClass="NormalRed" Display="Dynamic" Enabled="false" ErrorMessage="Date required." ValidationGroup="vgAddArticle" />
-												<asp:Label ID="lblEvEndDateError" runat="server" ForeColor="Red" resourcekey="lblExpireDateErrorResource1" Text="Invalid date." Visible="false" />
-												<asp:TextBox ID="tbEventEndTime" runat="server" CssClass="text_generic center" ValidationGroup="vgAddArticle" Width="65px" />
-												<asp:Image ID="tbEventEndTimeIcon" runat="server" ImageUrl="images/icons/analog_clock_1.png" alt="" Style="position: relative; top: 1px" />
-												<asp:RegularExpressionValidator ID="revEventEndTIme" resourcekey="revEventEndTIme.ErrorMessage" runat="server" ControlToValidate="tbEventEndTime" EnableClientScript="true" Enabled="false" ErrorMessage="hh:mm" ValidationExpression="([0-1]?[0-9]|2[0-3]):([0-5][0-9])"
-													ValidationGroup="vgAddArticle" Display="Dynamic" />
-												<asp:RequiredFieldValidator ID="rfvEventEnd" resourcekey="rfvEventEnd.ErrorMessage" runat="server" ControlToValidate="tbEventEndTime" CssClass="NormalRed" Display="Dynamic" Enabled="false" ErrorMessage="Time required." ValidationGroup="vgAddArticle" />
-											</td>
-										</tr>
-									</table>
-								</asp:Panel>
+								<div class="edn_admin_progress_overlay_container">
+									<asp:UpdateProgress ID="uppEventManager" runat="server" AssociatedUpdatePanelID="upEventManager" DisplayAfter="100" DynamicLayout="true">
+										<ProgressTemplate>
+											<div class="edn_admin_progress_overlay">
+											</div>
+										</ProgressTemplate>
+									</asp:UpdateProgress>
+									<h1 class="section_box_title">
+										<asp:Label ID="lblIsArticleEvent" runat="server" Text="Add as event:" resourcekey="lblIsArticleEventResource1" /></h1>
+									<div id="tblIsArticleEvent" runat="server" style="padding-top: 8px;">
+										<asp:CheckBox ID="cbIsArticleEvent" runat="server" Style="padding-top: 10px; padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="cbIsArticleEvent_CheckedChanged" />
+									</div>
+									<asp:Panel ID="pnlEventsData" runat="server" Visible="false" CssClass="content links_manager">
+										<table class="settings_table w700 no_margin">
+											<tr>
+												<td colspan="3" style="text-align: center;">
+													<asp:Label ID="lblEventDateError" resourcekey="lblEventDateError" runat="server" ForeColor="Red" Text="End date is smaller than start date." Visible="false" />
+												</td>
+											</tr>
+											<tr>
+												<td class="left" style="vertical-align: top; padding-top: 2px;">
+													<dnn:Label ID="lblEventStartDateTime" runat="server" HelpText="Start date:" Text="Start date:" ResourceKey="lblEventStartDateTime" HelpKey="lblEventStartDateTime.HelpText" />
+												</td>
+												<td class="right" style="width: 225px;">
+													<asp:TextBox ID="tbEventStartDate" runat="server" CssClass="text_generic center" ValidationGroup="vgAddArticle" Width="90px" />
+													<img src="<%=ModulePath%>images/icons/calendar.png" alt="" style="position: relative; top: 2px" />
+													<asp:RequiredFieldValidator ID="rfvEventStartDate" resourcekey="rfvEventStartDate.ErrorMessage" runat="server" ControlToValidate="tbEventStartDate" CssClass="NormalRed" Display="Dynamic" Enabled="false" ErrorMessage="Date required." ValidationGroup="vgAddArticle" />
+													<asp:Label ID="lblEvStartDateError" runat="server" ForeColor="Red" resourcekey="lblPubDateErrorResource1" Text="Invalid date." Visible="false" />
+													<asp:TextBox ID="tbEventStartTime" runat="server" CssClass="text_generic center" ValidationGroup="vgAddArticle" Width="65px" />
+													<asp:Image ID="tbEventStartTimeIcon" runat="server" ImageUrl="images/icons/analog_clock_1.png" alt="" Style="position: relative; top: 1px" />
+													<asp:RegularExpressionValidator ID="revEventStartTime" resourcekey="revEventStartTime.ErrorMessage" runat="server" ControlToValidate="tbEventStartTime" EnableClientScript="true" Enabled="false" ErrorMessage="hh:mm" ValidationExpression="([0-1]?[0-9]|2[0-3]):([0-5][0-9])"
+														ValidationGroup="vgEditArticle" Display="Dynamic" />
+													<asp:RequiredFieldValidator ID="rfvEventStartTime" resourcekey="rfvEventStartTime.ErrorMessage" runat="server" ControlToValidate="tbEventStartTime" CssClass="NormalRed" Display="Dynamic" Enabled="false" ErrorMessage="Time required." ValidationGroup="vgAddArticle" />
+												</td>
+												<td rowspan="2">
+													<p style="position: relative; top: -1px">
+														<asp:CheckBox ID="cbAllDayEvent" resourcekey="cbAllDayEventResource1" runat="server" AutoPostBack="True" OnCheckedChanged="cbAllDayEvent_CheckedChanged" Text="All day event" />
+													</p>
+													<p style="position: relative; top: -1px">
+														<asp:CheckBox ID="cbShowEndDate" resourcekey="cbShowEndDate" runat="server" Checked="True" Text="Show end date" />
+													</p>
+												</td>
+											</tr>
+											<tr>
+												<td class="left" style="vertical-align: top; padding-top: 2px;">
+													<dnn:Label ID="lblEventEndDateTime" runat="server" HelpText="End date:" Text="End date:" HelpKey="lblEventEndDateTime.HelpText" ResourceKey="lblEventEndDateTime" />
+												</td>
+												<td class="right">
+													<asp:TextBox ID="tbEventEndDate" runat="server" CssClass="text_generic center" ValidationGroup="vgAddArticle" Width="90px" />
+													<img src="<%=ModulePath%>images/icons/calendar.png" alt="" style="position: relative; top: 2px" />
+													<asp:RequiredFieldValidator ID="rfvEventEndDate" resourcekey="rfvEventEndDate.ErrorMessage" runat="server" ControlToValidate="tbEventStartDate" CssClass="NormalRed" Display="Dynamic" Enabled="false" ErrorMessage="Date required." ValidationGroup="vgAddArticle" />
+													<asp:Label ID="lblEvEndDateError" runat="server" ForeColor="Red" resourcekey="lblExpireDateErrorResource1" Text="Invalid date." Visible="false" />
+													<asp:TextBox ID="tbEventEndTime" runat="server" CssClass="text_generic center" ValidationGroup="vgAddArticle" Width="65px" />
+													<asp:Image ID="tbEventEndTimeIcon" runat="server" ImageUrl="images/icons/analog_clock_1.png" alt="" Style="position: relative; top: 1px" />
+													<asp:RegularExpressionValidator ID="revEventEndTIme" resourcekey="revEventEndTIme.ErrorMessage" runat="server" ControlToValidate="tbEventEndTime" EnableClientScript="true" Enabled="false" ErrorMessage="hh:mm" ValidationExpression="([0-1]?[0-9]|2[0-3]):([0-5][0-9])"
+														ValidationGroup="vgAddArticle" Display="Dynamic" />
+													<asp:RequiredFieldValidator ID="rfvEventEnd" resourcekey="rfvEventEnd.ErrorMessage" runat="server" ControlToValidate="tbEventEndTime" CssClass="NormalRed" Display="Dynamic" Enabled="false" ErrorMessage="Time required." ValidationGroup="vgAddArticle" />
+												</td>
+											</tr>
+										</table>
+										<table runat="server" id="recurringEvent" class="settings_table w700 no_margin">
+											<tr>
+												<td class="left">
+													<dnn:Label ID="lblrecurringEvent" runat="server" Text="Recurrence:" HelpText="Create recurring event." />
+												</td>
+												<td class="right">
+													<asp:CheckBox ID="cbRecurringEvent" runat="server" AutoPostBack="True" OnCheckedChanged="cbRecurringEvent_CheckedChanged" />
+												</td>
+											</tr>
+										</table>
+										<asp:Panel runat="server" ID="pnlRecurringEvent" Visible="false">
+											<div class="rounded3dBox">
+												<table class="settings_table w700 no_margin">
+													<tr>
+														<td class="left">
+															<dnn:Label ID="lblRecurrenceType" runat="server" Text="Recurrence type:" HelpText="Select type of recurrence." />
+														</td>
+														<td class="right">
+															<asp:RadioButtonList ID="rblRecurringEventType" runat="server" OnSelectedIndexChanged="rblRecurringEventType_SelectedIndexChanged" AutoPostBack="true" RepeatDirection="Horizontal">
+																<asp:ListItem Value="0" Text="Daily" Selected="True" />
+																<asp:ListItem Value="1" Text="Weekly" />
+																<asp:ListItem Value="2" Text="Monthly" />
+																<asp:ListItem Value="3" Text="Yearly" />
+															</asp:RadioButtonList>
+														</td>
+													</tr>
+													<tr>
+														<td class="left"></td>
+														<td class="right">
+															<asp:Panel runat="server" ID="pnlDailyRecurringEvent" Visible="false">
+																<asp:Label ID="Label1" runat="server" Text="Every:" />
+																<asp:TextBox ID="tbxDailyRecurringEventDays" runat="server" Width="30px" Text="2" />
+																<asp:Label ID="Label2" runat="server" Text="day(s)" />
+																<asp:RequiredFieldValidator ID="rfvDailyRecurringEventDays" runat="server" ControlToValidate="tbxDailyRecurringEventDays" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Days required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																<asp:CompareValidator ID="cvDailyRecurringEventDays" runat="server" ControlToValidate="tbxDailyRecurringEventDays" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+															</asp:Panel>
+															<asp:Panel runat="server" ID="pnlWeeklyRecurringEvent" Visible="false">
+																<asp:Label ID="Label3" runat="server" Text="Recur every:" />
+																<asp:TextBox ID="tbxWeeklyRecurringEventWeeks" runat="server" Width="30px" Text="1" />
+																<asp:RequiredFieldValidator ID="rfvWeeklyRecurringEventWeeks" runat="server" ControlToValidate="tbxWeeklyRecurringEventWeeks" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Week required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																<asp:CompareValidator ID="cvWeeklyRecurringEventWeeks" runat="server" ControlToValidate="tbxWeeklyRecurringEventWeeks" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																<asp:Label ID="Label5" runat="server" Text="weeks(s) on" />
+																<asp:CheckBoxList ID="cblWeeklyRecurringEvent" runat="server">
+																	<asp:ListItem Value="1" Text="Monday" />
+																	<asp:ListItem Value="2" Text="Thuesday" />
+																	<asp:ListItem Value="3" Text="Wednesday" />
+																	<asp:ListItem Value="4" Text="Thursday" />
+																	<asp:ListItem Value="5" Text="Friday" />
+																	<asp:ListItem Value="6" Text="Saturday" />
+																	<asp:ListItem Value="7" Text="Sunday" />
+																</asp:CheckBoxList>
+															</asp:Panel>
+															<asp:Panel runat="server" ID="pnlMonthlyRecurringEvent" Visible="false">
+																<asp:RadioButtonList ID="rblMonthlyRecurringEventType" RepeatDirection="Horizontal" runat="server" OnSelectedIndexChanged="rblMonthlyRecurringEventType_SelectedIndexChanged" AutoPostBack="true">
+																	<asp:ListItem Value="0" Text="Repeated on:" Selected="True" />
+																	<asp:ListItem Value="1" Text="Repeated on day:" />
+																</asp:RadioButtonList>
+																<div style="float: left;">
+																	<asp:Panel runat="server" ID="pnlRepeatedOn" Visible="true">
+																		<asp:DropDownList ID="ddlRepeatedOnEvery" runat="server">
+																			<asp:ListItem Value="1" Text="First" Selected="True" />
+																			<asp:ListItem Value="2" Text="Second" />
+																			<asp:ListItem Value="3" Text="Third" />
+																			<asp:ListItem Value="4" Text="Fourth" />
+																			<asp:ListItem Value="5" Text="Last" />
+																		</asp:DropDownList>
+																		<asp:DropDownList ID="ddlRepeatedOnDay" runat="server">
+																			<asp:ListItem Value="1" Text="Monday" />
+																			<asp:ListItem Value="2" Text="Thuesday" />
+																			<asp:ListItem Value="3" Text="Wednesday" />
+																			<asp:ListItem Value="4" Text="Thursday" />
+																			<asp:ListItem Value="5" Text="Friday" />
+																			<asp:ListItem Value="6" Text="Saturday" />
+																			<asp:ListItem Value="7" Text="Sunday" />
+																		</asp:DropDownList>
+																	</asp:Panel>
+																	<asp:Panel runat="server" ID="pnlRepeatedOnDay" Visible="false" Style="margin-top: 3px">
+																		<asp:TextBox ID="tbxRepeatedOnDay" runat="server" Width="30px" Text="1" />
+																		<asp:RequiredFieldValidator ID="rfvRepeatedOnDay" runat="server" ControlToValidate="tbxRepeatedOnDay" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Day required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																		<asp:CompareValidator ID="cvtbxRepeatedOnDay" runat="server" ControlToValidate="tbxRepeatedOnDay" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																		<asp:RangeValidator ID="rvRepeatedOnDay" runat="server" MinimumValue="1" MaximumValue="31" ControlToValidate="tbxRepeatedOnDay" Display="Dynamic" ErrorMessage="Please enter number between 1-31." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																	</asp:Panel>
+																</div>
+																<div style="margin-top: 2px">
+																	<asp:Label ID="Label7" runat="server" Text="of every:" Style="margin-left: 5px;" />
+																	<asp:TextBox ID="tbxOfEveryMonth" runat="server" Width="30px" Text="1" />
+																	<asp:Label ID="Label8" runat="server" Text=" month(s)" />
+																</div>
+																<asp:RequiredFieldValidator ID="rfvOfEveryMonth" runat="server" ControlToValidate="tbxOfEveryMonth" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Day required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																<asp:CompareValidator ID="cvOfEveryMonth" runat="server" ControlToValidate="tbxOfEveryMonth" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+															</asp:Panel>
+															<asp:Panel runat="server" ID="pnlYearlyRecurringEvent" Visible="false">
+																<asp:RadioButtonList ID="rblYearlyRecurringEventType" RepeatDirection="Horizontal" runat="server" OnSelectedIndexChanged="rblYearlyRecurringEventType_SelectedIndexChanged" AutoPostBack="true">
+																	<asp:ListItem Value="0" Text="Every:" Selected="True" />
+																	<asp:ListItem Value="1" Text="The:" />
+																</asp:RadioButtonList>
+																<asp:Panel runat="server" ID="pnlYearlyRecurringEventSimple" Visible="true">
+																	<asp:DropDownList ID="ddlSimpleMonthOfYear" runat="server">
+																		<asp:ListItem Value="1" Text="January" Selected="True" />
+																		<asp:ListItem Value="2" Text="February" />
+																		<asp:ListItem Value="3" Text="March" />
+																		<asp:ListItem Value="4" Text="April" />
+																		<asp:ListItem Value="5" Text="May" />
+																		<asp:ListItem Value="6" Text="June" />
+																		<asp:ListItem Value="7" Text="July" />
+																		<asp:ListItem Value="8" Text="August" />
+																		<asp:ListItem Value="9" Text="September" />
+																		<asp:ListItem Value="10" Text="October" />
+																		<asp:ListItem Value="11" Text="November" />
+																		<asp:ListItem Value="12" Text="December" />
+																	</asp:DropDownList>
+																	<asp:TextBox ID="tbxYearlyDayOfMonth" runat="server" Width="30px" Text="1" />
+																	<asp:RequiredFieldValidator ID="rfvDayOfMonth" runat="server" ControlToValidate="tbxYearlyDayOfMonth" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Day required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																	<asp:CompareValidator ID="cvDayOfMonth" runat="server" ControlToValidate="tbxYearlyDayOfMonth" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																	<asp:RangeValidator ID="rvDayOfMonth" runat="server" MinimumValue="1" MaximumValue="31" ControlToValidate="tbxYearlyDayOfMonth" Display="Dynamic" ErrorMessage="Please enter number between 1-31." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																</asp:Panel>
+																<asp:Panel runat="server" ID="pnlYearlyRecurringEventComplex" Visible="false">
+																	<asp:DropDownList ID="ddlYearlyRepeatedOnEvery" runat="server">
+																		<asp:ListItem Value="1" Text="First" Selected="True" />
+																		<asp:ListItem Value="2" Text="Second" />
+																		<asp:ListItem Value="3" Text="Third" />
+																		<asp:ListItem Value="4" Text="Fourth" />
+																		<asp:ListItem Value="5" Text="Last" />
+																	</asp:DropDownList>
+																	<asp:DropDownList ID="ddlYearlyRepeatedOnDay" runat="server">
+																		<asp:ListItem Value="1" Text="Monday" />
+																		<asp:ListItem Value="2" Text="Thuesday" />
+																		<asp:ListItem Value="3" Text="Wednesday" />
+																		<asp:ListItem Value="4" Text="Thursday" />
+																		<asp:ListItem Value="5" Text="Friday" />
+																		<asp:ListItem Value="6" Text="Saturday" />
+																		<asp:ListItem Value="7" Text="Sunday" />
+																	</asp:DropDownList>
+																	of
+																<asp:DropDownList ID="ddlComplexMonthOfYear" runat="server">
+																	<asp:ListItem Value="1" Text="January" Selected="True" />
+																	<asp:ListItem Value="2" Text="February" />
+																	<asp:ListItem Value="3" Text="March" />
+																	<asp:ListItem Value="4" Text="April" />
+																	<asp:ListItem Value="5" Text="May" />
+																	<asp:ListItem Value="6" Text="June" />
+																	<asp:ListItem Value="7" Text="July" />
+																	<asp:ListItem Value="8" Text="August" />
+																	<asp:ListItem Value="9" Text="September" />
+																	<asp:ListItem Value="10" Text="October" />
+																	<asp:ListItem Value="11" Text="November" />
+																	<asp:ListItem Value="12" Text="December" />
+																</asp:DropDownList>
+																</asp:Panel>
+															</asp:Panel>
+															<asp:Panel runat="server" ID="pnlUpcomingOccurrences" Style="clear: both; margin-top: 10px; margin-bottom: 10px;">
+																<asp:TextBox ID="tbxUpcomingOccurrences" runat="server" Width="30px" Text="1" />
+																<asp:Label ID="lblUpcomingOccurrences" runat="server" Text="Display upcoming occurrences" />
+																<asp:RequiredFieldValidator ID="rfvUpcomingOccurrences" runat="server" ControlToValidate="tbxUpcomingOccurrences" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Upcoming occurrences required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																<asp:CompareValidator ID="cvUpcomingOccurrences" runat="server" ControlToValidate="tbxUpcomingOccurrences" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																<asp:RegularExpressionValidator ID="revUpcomingOccurrences" runat="server" ErrorMessage="Only positive numbers. Zero is not allowed." ValidationExpression="^[1-9]([0-9]+)?" ControlToValidate="tbxUpcomingOccurrences" Display="Dynamic" ValidationGroup="vgEditArticle" SetFocusOnError="True" ForeColor="Red" />
+															</asp:Panel>
+															<asp:Panel runat="server" ID="pnlRecurringEndType">
+																<asp:RadioButtonList ID="rblRecurringEndType" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblRecurringEndType_SelectedIndexChanged">
+																	<asp:ListItem Value="1" Text="Ends after ocurrences" Selected="True" />
+																	<asp:ListItem Value="2" Text="End by date" />
+																</asp:RadioButtonList>
+																<asp:Panel runat="server" ID="pnlRecurringEndsAfterOcurrences">
+																	<asp:TextBox ID="tbxEndsAfterOcurrences" runat="server" Width="30px" Text="5" />
+																	<asp:RequiredFieldValidator ID="rfvEndsAfterOcurrences" runat="server" ControlToValidate="tbxEndsAfterOcurrences" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Occurrences required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																	<asp:CompareValidator ID="cvEndsAfterOcurrences" runat="server" ControlToValidate="tbxEndsAfterOcurrences" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																	<asp:RegularExpressionValidator ID="revEndsAfterOcurrences" runat="server" ErrorMessage="Only positive numbers. Zero is not allowed." ValidationExpression="^[1-9]([0-9]+)?" ControlToValidate="tbxEndsAfterOcurrences" Display="Dynamic" ValidationGroup="vgEditArticle" SetFocusOnError="True" ForeColor="Red" />
+																</asp:Panel>
+																<asp:Panel runat="server" ID="pnlRecurringEndByDate" Visible="false">
+																	<asp:TextBox ID="tbxRecurringEndByDate" runat="server" CssClass="text_generic center" ValidationGroup="vgEditArticle" Width="90px" />
+																	<asp:RequiredFieldValidator ID="rfvRecurringEndByDate" runat="server" ControlToValidate="tbxRecurringEndByDate" CssClass="NormalRed" Display="Dynamic" Enabled="false" ErrorMessage="Date required." ValidationGroup="vgEditArticle" />
+																</asp:Panel>
+															</asp:Panel>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</asp:Panel>
+									</asp:Panel>
+								</div>
 							</ContentTemplate>
 						</asp:UpdatePanel>
-						<asp:UpdateProgress ID="uppEventManager" runat="server" AssociatedUpdatePanelID="upEventManager" DisplayAfter="100" DynamicLayout="true">
-							<ProgressTemplate>
-								<img src="<%=ModulePath%>images/settings/ajaxLoading.gif" alt="loading..." />
-							</ProgressTemplate>
-						</asp:UpdateProgress>
 					</asp:Panel>
 					<table class="settings_table w700">
 						<tr id="rowAllowComents" runat="server">
@@ -1947,154 +2159,160 @@ function initializeUploadify (inputId, galleryId) {
 					<asp:Panel ID="pnlCustomFieldsSelect" runat="server" Visible="false">
 						<asp:UpdatePanel ID="upCustomFieldsSelect" runat="server">
 							<ContentTemplate>
-								<table class="settings_table w700" runat="server" id="tblShowHideCustomFields" visible="false">
-									<tr>
-										<td class="left">
-											<img src="<%=ModulePath%>images/icons/customfields_small.png" alt="" style="position: relative; top: 4px;" />
-											<asp:Label ID="lblShowCustomFields" runat="server" Text="Custom fields:" ResourceKey="lblShowCustomFields" Style="font-weight: bold;" />
-										</td>
-										<td class="right">
-											<asp:CheckBox ID="cbShowCustomFields" runat="server" AutoPostBack="True" OnCheckedChanged="cbShowCustomFields_CheckedChanged" />
-										</td>
-									</tr>
-								</table>
-								<asp:Panel ID="pnlCustomFieldsDisplay" runat="server" Visible="false">
-									<table runat="server" id="tblCFGroupSelection" visible="false" class="customfields-group">
+								<div class="edn_admin_progress_overlay_container">
+									<asp:UpdateProgress ID="uppCustomFieldsSelect" runat="server" AssociatedUpdatePanelID="upCustomFieldsSelect" DisplayAfter="100" DynamicLayout="true">
+										<ProgressTemplate>
+											<div class="edn_admin_progress_overlay">
+											</div>
+										</ProgressTemplate>
+									</asp:UpdateProgress>
+									<table class="settings_table w700" runat="server" id="tblShowHideCustomFields" visible="false">
 										<tr>
-											<td class="leftcol">
-												<dnn:Label ID="lblCFGroupSelection" runat="server" Text="Custom fields group:" Style="font-weight: bold;" HelpText="Select custom fields group. Only one group per article can be selected and saved." HelpKey="lblCFGroupSelection.HelpText" ResourceKey="lblCFGroupSelection" />
+											<td class="left">
+												<img src="<%=ModulePath%>images/icons/customfields_small.png" alt="" style="position: relative; top: 4px;" />
+												<asp:Label ID="lblShowCustomFields" runat="server" Text="Custom fields:" ResourceKey="lblShowCustomFields" Style="font-weight: bold;" />
 											</td>
-											<td class="rightcol">
-												<asp:DropDownList ID="ddlCFgroup" runat="server" AutoPostBack="true" />
+											<td class="right">
+												<asp:CheckBox ID="cbShowCustomFields" runat="server" AutoPostBack="True" OnCheckedChanged="cbShowCustomFields_CheckedChanged" />
 											</td>
 										</tr>
 									</table>
-									<asp:PlaceHolder ID="phCustomFields" runat="server" Visible="false">
-										<asp:HiddenField runat="server" ID="hfParenSelectedValue" />
-										<asp:HiddenField runat="server" ID="hfLastSelectedIndexChanged" />
-										<asp:HiddenField runat="server" ID="hfCFLastTriggerdByList" />
-										<asp:HiddenField runat="server" ID="hfPreviousCFTemplateID" />
-									</asp:PlaceHolder>
-								</asp:Panel>
+									<asp:Panel ID="pnlCustomFieldsDisplay" runat="server" Visible="false">
+										<table runat="server" id="tblCFGroupSelection" visible="false" class="customfields-group">
+											<tr>
+												<td class="leftcol">
+													<dnn:Label ID="lblCFGroupSelection" runat="server" Text="Custom fields group:" Style="font-weight: bold;" HelpText="Select custom fields group. Only one group per article can be selected and saved." HelpKey="lblCFGroupSelection.HelpText" ResourceKey="lblCFGroupSelection" />
+												</td>
+												<td class="rightcol">
+													<asp:DropDownList ID="ddlCFgroup" runat="server" AutoPostBack="true" />
+												</td>
+											</tr>
+										</table>
+										<asp:PlaceHolder ID="phCustomFields" runat="server" Visible="false">
+											<asp:HiddenField runat="server" ID="hfParenSelectedValue" />
+											<asp:HiddenField runat="server" ID="hfLastSelectedIndexChanged" />
+											<asp:HiddenField runat="server" ID="hfCFLastTriggerdByList" />
+											<asp:HiddenField runat="server" ID="hfPreviousCFTemplateID" />
+										</asp:PlaceHolder>
+									</asp:Panel>
+								</div>
 							</ContentTemplate>
 						</asp:UpdatePanel>
-						<asp:UpdateProgress ID="uppCustomFieldsSelect" runat="server" AssociatedUpdatePanelID="upCustomFieldsSelect" DisplayAfter="100" DynamicLayout="true">
-							<ProgressTemplate>
-								<img src="<%=ModulePath%>images/settings/ajaxLoading.gif" alt="loading..." />
-							</ProgressTemplate>
-						</asp:UpdateProgress>
 					</asp:Panel>
 					<asp:Panel ID="pnlPerArticlePermissions" runat="server" Visible="false">
 						<asp:UpdatePanel ID="upPerArticlePermissions" runat="server" UpdateMode="Conditional">
 							<ContentTemplate>
-								<p style="margin: 0 0 3px;">
-									<img src="<%=ModulePath%>images/icons/lock.png" alt="" style="position: relative; top: 4px; margin: 0 3px 0 0" />
-									<asp:Label ID="lblAddPerArticlePermission" resourcekey="lblAddPerArticlePermission" runat="server" Text="Permissions per article:" Style="font-size: 13px; line-height: 16px; font-weight: bold;" />
-									<asp:CheckBox ID="cbAddPerArticlePermissions" runat="server" AutoPostBack="true" OnCheckedChanged="cbAddPerArticlePermissions_CheckedChanged" />
-								</p>
-								<asp:Panel ID="pnlAddPerArticlePermissions" runat="server" Visible="false" CssClass="rounded_box grey per_article_permissions">
-									<p class="permission_warning">
-										<%=Permissionsperarticleoverride%>
+								<div class="edn_admin_progress_overlay_container">
+									<asp:UpdateProgress ID="uppPerArticlePermissions" runat="server" AssociatedUpdatePanelID="upPerArticlePermissions" DisplayAfter="100" DynamicLayout="true">
+										<ProgressTemplate>
+											<div class="edn_admin_progress_overlay">
+											</div>
+										</ProgressTemplate>
+									</asp:UpdateProgress>
+									<p style="margin: 0 0 3px;">
+										<img src="<%=ModulePath%>images/icons/lock.png" alt="" style="position: relative; top: 4px; margin: 0 3px 0 0" />
+										<asp:Label ID="lblAddPerArticlePermission" resourcekey="lblAddPerArticlePermission" runat="server" Text="Permissions per article:" Style="font-size: 13px; line-height: 16px; font-weight: bold;" />
+										<asp:CheckBox ID="cbAddPerArticlePermissions" runat="server" AutoPostBack="true" OnCheckedChanged="cbAddPerArticlePermissions_CheckedChanged" />
 									</p>
-									<asp:GridView ID="gvPermissionDefault" runat="server" AutoGenerateColumns="false" CellPadding="0" CellSpacing="0" CssClass="permissions_table" EnableModelValidation="True" GridLines="None">
-										<AlternatingRowStyle CssClass="second" />
-										<Columns>
-											<asp:TemplateField HeaderStyle-CssClass="subject" HeaderText="Roles" ItemStyle-CssClass="subject">
-												<ItemTemplate>
-													<asp:Label ID="lblRoleName" runat="server" Text='<%#Eval("Name")%>' />:
-												</ItemTemplate>
-											</asp:TemplateField>
-											<asp:TemplateField HeaderText="View article">
-												<ItemTemplate>
-													<asp:HiddenField ID="hfRoleID" runat="server" Value='<%#Eval("RoleID")%>' />
-													<asp:CheckBox ID="cbShowArticle" runat="server" Checked='<%#Eval("Show")%>' Enabled="false" />
-												</ItemTemplate>
-											</asp:TemplateField>
-											<asp:TemplateField HeaderText="Edit article">
-												<ItemTemplate>
-													<asp:CheckBox ID="cbEditArticle" runat="server" Checked='<%#Eval("Edit")%>' Enabled="false" />
-												</ItemTemplate>
-											</asp:TemplateField>
-										</Columns>
-									</asp:GridView>
-									<asp:GridView ID="gvRolePremissions" runat="server" AutoGenerateColumns="false" CellPadding="0" CellSpacing="0" CssClass="permissions_table" EnableModelValidation="True" GridLines="None">
-										<AlternatingRowStyle CssClass="second" />
-										<Columns>
-											<asp:TemplateField HeaderStyle-CssClass="subject" ItemStyle-CssClass="subject">
-												<ItemTemplate>
-													<asp:Label ID="lblRoleName" runat="server" Text='<%#Eval("Name")%>' />:
-												</ItemTemplate>
-											</asp:TemplateField>
-											<asp:TemplateField>
-												<ItemTemplate>
-													<asp:HiddenField ID="hfRoleID" runat="server" Value='<%#Eval("RoleID")%>' />
-													<asp:CheckBox ID="cbShowArticle" runat="server" Checked='<%#Eval("Show")%>' />
-												</ItemTemplate>
-											</asp:TemplateField>
-											<asp:TemplateField>
-												<ItemTemplate>
-													<asp:CheckBox ID="cbEditArticle" runat="server" Checked='<%#Eval("Edit")%>' />
-												</ItemTemplate>
-											</asp:TemplateField>
-										</Columns>
-									</asp:GridView>
-									<table class="permissions_table" style="position: relative; left: -2px; margin-bottom: 15px;">
-										<tr>
-											<td class="subject">
-												<asp:Label ID="lblShowToUnauthorizedUser" resourcekey="lblShowToUnauthorizedUser" runat="server" Text="Unauthorized users:" />
-											</td>
-											<td>
-												<asp:CheckBox ID="cbShowToUnauthorizedUser" runat="server" Style="position: relative; left: -2px;" />
-											</td>
-										</tr>
-									</table>
-									<asp:GridView ID="gvUserPermissions" runat="server" AutoGenerateColumns="false" CellPadding="0" CssClass="permissions_table" EnableModelValidation="True" GridLines="None" OnRowCommand="gvUserPermissions_RowCommand">
-										<AlternatingRowStyle CssClass="second" />
-										<Columns>
-											<asp:TemplateField HeaderStyle-CssClass="subject" HeaderText="Users" ItemStyle-CssClass="subject">
-												<ItemTemplate>
-													<asp:Label ID="lblUserName" runat="server" Text='<%#Eval("Name")%>' />:
-												</ItemTemplate>
-											</asp:TemplateField>
-											<asp:TemplateField HeaderText="View article">
-												<ItemTemplate>
-													<asp:HiddenField ID="hfUserID" runat="server" Value='<%#Eval("UserID")%>' />
-													<asp:CheckBox ID="cbShowArticle" runat="server" Checked='<%#Eval("Show")%>' />
-												</ItemTemplate>
-											</asp:TemplateField>
-											<asp:TemplateField HeaderText="Edit article">
-												<ItemTemplate>
-													<asp:CheckBox ID="cbEditArticle" runat="server" Checked='<%#Eval("Edit")%>' />
-												</ItemTemplate>
-											</asp:TemplateField>
-											<asp:TemplateField HeaderText="">
-												<ItemTemplate>
-													<asp:LinkButton ID="lbUserPremissionRemove" resourcekey="lbUserPremissionRemove" runat="server" CausesValidation="false" CommandArgument='<%#Eval("UserID")%>' CommandName="Remove" OnClientClick="return confirm('Are you sure you want to remove this user permissions?');"
-														Text="Remove"></asp:LinkButton>
-												</ItemTemplate>
-											</asp:TemplateField>
-										</Columns>
-									</asp:GridView>
-									<asp:Label ID="lblAdduserMessage" runat="server" EnableViewState="false" ForeColor="Red" />
-									<table class="permissions_table">
-										<tr>
-											<td class="subject">
-												<asp:Label ID="lblUsernameToAdd" resourcekey="lblUsernameToAdd" runat="server" Text="Add user by username:" />
-											</td>
-											<td style="width: 150px; text-align: left;">
-												<asp:TextBox ID="tbUserNameToAdd" runat="server" />
-												<asp:LinkButton ID="lbUsernameAdd" resourcekey="lbUsernameAdd" runat="server" OnClick="lbUsernameAdd_Click" Text="Add" />
-											</td>
-										</tr>
-									</table>
-								</asp:Panel>
+									<asp:Panel ID="pnlAddPerArticlePermissions" runat="server" Visible="false" CssClass="rounded_box grey per_article_permissions">
+										<p class="permission_warning">
+											<%=Permissionsperarticleoverride%>
+										</p>
+										<asp:GridView ID="gvPermissionDefault" runat="server" AutoGenerateColumns="false" CellPadding="0" CellSpacing="0" CssClass="permissions_table" EnableModelValidation="True" GridLines="None">
+											<AlternatingRowStyle CssClass="second" />
+											<Columns>
+												<asp:TemplateField HeaderStyle-CssClass="subject" HeaderText="Roles" ItemStyle-CssClass="subject">
+													<ItemTemplate>
+														<asp:Label ID="lblRoleName" runat="server" Text='<%#Eval("Name")%>' />:
+													</ItemTemplate>
+												</asp:TemplateField>
+												<asp:TemplateField HeaderText="View article">
+													<ItemTemplate>
+														<asp:HiddenField ID="hfRoleID" runat="server" Value='<%#Eval("RoleID")%>' />
+														<asp:CheckBox ID="cbShowArticle" runat="server" Checked='<%#Eval("Show")%>' Enabled="false" />
+													</ItemTemplate>
+												</asp:TemplateField>
+												<asp:TemplateField HeaderText="Edit article">
+													<ItemTemplate>
+														<asp:CheckBox ID="cbEditArticle" runat="server" Checked='<%#Eval("Edit")%>' Enabled="false" />
+													</ItemTemplate>
+												</asp:TemplateField>
+											</Columns>
+										</asp:GridView>
+										<asp:GridView ID="gvRolePremissions" runat="server" AutoGenerateColumns="false" CellPadding="0" CellSpacing="0" CssClass="permissions_table" EnableModelValidation="True" GridLines="None">
+											<AlternatingRowStyle CssClass="second" />
+											<Columns>
+												<asp:TemplateField HeaderStyle-CssClass="subject" ItemStyle-CssClass="subject">
+													<ItemTemplate>
+														<asp:Label ID="lblRoleName" runat="server" Text='<%#Eval("Name")%>' />:
+													</ItemTemplate>
+												</asp:TemplateField>
+												<asp:TemplateField>
+													<ItemTemplate>
+														<asp:HiddenField ID="hfRoleID" runat="server" Value='<%#Eval("RoleID")%>' />
+														<asp:CheckBox ID="cbShowArticle" runat="server" Checked='<%#Eval("Show")%>' />
+													</ItemTemplate>
+												</asp:TemplateField>
+												<asp:TemplateField>
+													<ItemTemplate>
+														<asp:CheckBox ID="cbEditArticle" runat="server" Checked='<%#Eval("Edit")%>' />
+													</ItemTemplate>
+												</asp:TemplateField>
+											</Columns>
+										</asp:GridView>
+										<table class="permissions_table" style="position: relative; left: -2px; margin-bottom: 15px;">
+											<tr>
+												<td class="subject">
+													<asp:Label ID="lblShowToUnauthorizedUser" resourcekey="lblShowToUnauthorizedUser" runat="server" Text="Unauthorized users:" />
+												</td>
+												<td>
+													<asp:CheckBox ID="cbShowToUnauthorizedUser" runat="server" Style="position: relative; left: -2px;" />
+												</td>
+											</tr>
+										</table>
+										<asp:GridView ID="gvUserPermissions" runat="server" AutoGenerateColumns="false" CellPadding="0" CssClass="permissions_table" EnableModelValidation="True" GridLines="None" OnRowCommand="gvUserPermissions_RowCommand">
+											<AlternatingRowStyle CssClass="second" />
+											<Columns>
+												<asp:TemplateField HeaderStyle-CssClass="subject" HeaderText="Users" ItemStyle-CssClass="subject">
+													<ItemTemplate>
+														<asp:Label ID="lblUserName" runat="server" Text='<%#Eval("Name")%>' />:
+													</ItemTemplate>
+												</asp:TemplateField>
+												<asp:TemplateField HeaderText="View article">
+													<ItemTemplate>
+														<asp:HiddenField ID="hfUserID" runat="server" Value='<%#Eval("UserID")%>' />
+														<asp:CheckBox ID="cbShowArticle" runat="server" Checked='<%#Eval("Show")%>' />
+													</ItemTemplate>
+												</asp:TemplateField>
+												<asp:TemplateField HeaderText="Edit article">
+													<ItemTemplate>
+														<asp:CheckBox ID="cbEditArticle" runat="server" Checked='<%#Eval("Edit")%>' />
+													</ItemTemplate>
+												</asp:TemplateField>
+												<asp:TemplateField HeaderText="">
+													<ItemTemplate>
+														<asp:LinkButton ID="lbUserPremissionRemove" resourcekey="lbUserPremissionRemove" runat="server" CausesValidation="false" CommandArgument='<%#Eval("UserID")%>' CommandName="Remove" OnClientClick="return confirm('Are you sure you want to remove this user permissions?');"
+															Text="Remove"></asp:LinkButton>
+													</ItemTemplate>
+												</asp:TemplateField>
+											</Columns>
+										</asp:GridView>
+										<asp:Label ID="lblAdduserMessage" runat="server" EnableViewState="false" ForeColor="Red" />
+										<table class="permissions_table">
+											<tr>
+												<td class="subject">
+													<asp:Label ID="lblUsernameToAdd" resourcekey="lblUsernameToAdd" runat="server" Text="Add user by username:" />
+												</td>
+												<td style="width: 150px; text-align: left;">
+													<asp:TextBox ID="tbUserNameToAdd" runat="server" />
+													<asp:LinkButton ID="lbUsernameAdd" resourcekey="lbUsernameAdd" runat="server" OnClick="lbUsernameAdd_Click" Text="Add" />
+												</td>
+											</tr>
+										</table>
+									</asp:Panel>
+								</div>
 							</ContentTemplate>
 						</asp:UpdatePanel>
-						<asp:UpdateProgress ID="uppPerArticlePermissions" runat="server" AssociatedUpdatePanelID="upPerArticlePermissions" DisplayAfter="100" DynamicLayout="true">
-							<ProgressTemplate>
-								<img src="<%=ModulePath%>images/settings/ajaxLoading.gif" alt="loading..." />
-							</ProgressTemplate>
-						</asp:UpdateProgress>
 					</asp:Panel>
 					<div class="main_action_buttons">
 						<div id="pnlSocialSharing" class="social_sharing_box" runat="server" visible="false" style="display: none; bottom: 70px;">

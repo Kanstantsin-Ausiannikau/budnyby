@@ -190,4 +190,7 @@
   <data name="TwitterAPIConnection.Text" xml:space="preserve">
     <value>Twitter API Connection</value>
   </data>
+  <data name="ControlTitle_apiconnection.Text" xml:space="preserve">
+    <value>Api Connection</value>
+  </data>
 </root>

@@ -3,57 +3,10 @@
   font-size: 12px;
   font-family: Arial;
 }
-.eds_news_NewsTwo h1, .eds_news_NewsTwo h2, .eds_news_NewsTwo h3, .eds_news_NewsTwo h4 {
-  font-family: "Francois One", Arial, serif;
-  font-size: 24px;
-  margin: 16px 0 15px 0;
-  padding: 0;
-  color: #121212;
+.eds_news_NewsTwo h1, .eds_news_NewsTwo h2, .eds_news_NewsTwo h3 {
   font-weight: normal;
-  line-height: 28px;
   letter-spacing: normal;
   text-transform: none;
-}
-.eds_news_NewsTwo h1 > span, .eds_news_NewsTwo h1 .Head, .eds_news_NewsTwo h2 > span, .eds_news_NewsTwo h2 .Head, .eds_news_NewsTwo h3 > span, .eds_news_NewsTwo h3 .Head, .eds_news_NewsTwo h4 > span, .eds_news_NewsTwo h4 .Head {
-  font-family: "Francois One", Arial, serif;
-  font-size: 24px;
-  margin: 0;
-  padding: 0;
-  color: #121212;
-  font-weight: normal;
-  line-height: 28px;
-  letter-spacing: normal;
-  text-transform: none;
-}
-.eds_news_NewsTwo h2 {
-  font-size: 20px;
-  margin: 0px 0 15px 0;
-  line-height: 24px;
-}
-.eds_news_NewsTwo h2 > span, .eds_news_NewsTwo h2 .Head {
-  font-size: 20px;
-  margin: 0px 0 15px 0;
-  line-height: 24px;
-}
-.eds_news_NewsTwo h3 {
-  font-size: 17px;
-  margin: 0px 0 10px 0;
-  line-height: 21px;
-}
-.eds_news_NewsTwo h3 > span, .eds_news_NewsTwo h3 .Head {
-  font-size: 20px;
-  margin: 0px 0 15px 0;
-  line-height: 24px;
-}
-.eds_news_NewsTwo h4 {
-  font-size: 14px;
-  margin: 0px 0 5px 0;
-  line-height: 18px;
-}
-.eds_news_NewsTwo h4 > span, .eds_news_NewsTwo h4 .Head {
-  font-size: 20px;
-  margin: 0px 0 15px 0;
-  line-height: 24px;
 }
 .eds_news_NewsTwo p {
   line-height: 20px;
@@ -1084,6 +1037,7 @@
   font-size: 11px;
   font-style: italic;
 }
+.eds_news_NewsTwo.eds_subCollection_news a,
 .eds_news_NewsTwo.eds_subCollection_news a:link,
 .eds_news_NewsTwo.eds_subCollection_news a:visited,
 .eds_news_NewsTwo.eds_subCollection_news a:active,
@@ -1092,6 +1046,7 @@
   text-decoration: none;
   color: #5e9700;
 }
+.eds_news_NewsTwo.eds_subCollection_news a:hover,
 .eds_news_NewsTwo.eds_subCollection_news a:link:hover,
 .eds_news_NewsTwo.eds_subCollection_news a:visited:hover,
 .eds_news_NewsTwo.eds_subCollection_news a:active:hover,
@@ -1172,31 +1127,6 @@
   font: 12px Arial;
   padding: 0 0 16px 0;
   margin: 0;
-}
-.eds_news_NewsTwo.eds_subCollection_news .article-details .EDN_article_content h1, .eds_news_NewsTwo.eds_subCollection_news .article-details .EDN_article_content h2, .eds_news_NewsTwo.eds_subCollection_news .article-details .EDN_article_content h3, .eds_news_NewsTwo.eds_subCollection_news .article-details .EDN_article_content h4, .eds_news_NewsTwo.eds_subCollection_news .article-details .EDN_article_content h5, .eds_news_NewsTwo.eds_subCollection_news .article-details .EDN_article_content h6 {
-  font-family: "Francois One", Arial, serif;
-  font-size: 24px;
-  margin: 16px 0 15px 0;
-  color: #121212;
-  font-weight: normal;
-  line-height: 28px;
-  letter-spacing: normal;
-  padding: 0;
-}
-.eds_news_NewsTwo.eds_subCollection_news .article-details .EDN_article_content h2 {
-  font-size: 20px;
-  margin: 0px 0 15px 0;
-  line-height: 23px;
-}
-.eds_news_NewsTwo.eds_subCollection_news .article-details .EDN_article_content h3 {
-  font-size: 17px;
-  margin: 0px 0 10px 0;
-  line-height: 20px;
-}
-.eds_news_NewsTwo.eds_subCollection_news .article-details .EDN_article_content h4 {
-  font-size: 14px;
-  margin: 0px 0 5px 0;
-  line-height: 16px;
 }
 .eds_news_NewsTwo.eds_subCollection_news .article-details .featured {
   position: relative;
@@ -1857,7 +1787,7 @@
   width: 16px;
   height: 16px;
   margin: -3px 7px 0 0;
-  border: none;
+  border: none !important;
 }
 .eds_news_NewsTwo.eds_subCollection_news .edn_article_links ul {
   padding: 9px 16px 14px 15px;
