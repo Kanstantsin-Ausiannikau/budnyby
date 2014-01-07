@@ -61,7 +61,7 @@ p,
 
 .NewsTwoMain {
   background: white;
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
@@ -175,7 +175,7 @@ p,
 }
 .NewsTwoMain .header {
   border-bottom: solid 1px #c5dba0;
-  max-width: 920px;
+  max-width: 1160px;
   margin: 0 auto 0 auto;
   padding-top: 28px;
   padding-bottom: 1px;
@@ -982,7 +982,7 @@ p,
   }
 }
 .NewsTwoMain .NewsTwoContent .three-column-sidebar-left {
-  width: 28%;
+  width: 20%;
   float: left;
 }
 @media handheld, only screen and (max-width: 768px), only screen and (max-device-width: 768px) {
@@ -994,18 +994,18 @@ p,
 }
 .NewsTwoMain .NewsTwoContent .three-column-content {
   float: left;
-  width: 39%;
-  margin: 0 2%;
+  width: 57%;
+  margin: 0 1%;
 }
 @media handheld, only screen and (max-width: 768px), only screen and (max-device-width: 768px) {
   .NewsTwoMain .NewsTwoContent .three-column-content {
     float: none;
     width: auto;
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
   }
 }
 .NewsTwoMain .NewsTwoContent .three-column-sidebar-right {
-  width: 28%;
+  width: 20%;
   float: left;
 }
 @media handheld, only screen and (max-width: 768px), only screen and (max-device-width: 768px) {

@@ -1,0 +1,4 @@
+﻿<h3>EasyDNNnews URL Provider</h3>
+<div>
+	This is URL provider extension for DNN version 7.1.0 and higher and EasyDNNnews version 6.0.0 and higher. It rewrites URLs from EasyDNNnews modules.
+</div>
