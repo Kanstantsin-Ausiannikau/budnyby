@@ -30,15 +30,15 @@
 .eds_news_NewsTwo.eds_style_custom_sj6pui3gno6 .edn_module_box > .edn_module_title .export,
 .eds_news_NewsTwo.eds_style_custom_sj6pui3gno6 .archive_list > .edn_module_title .export
 {
-	background-image: url("../images/rssEventsExportIcons/predefined/blue_actions.png");
+	background-image: none;
 }
 
 .eds_news_NewsTwo.eds_style_custom_sj6pui3gno6.eds_subCollection_news.eds_templateGroup_newsListDefault .article h2 a,
 .eds_news_NewsTwo.eds_style_custom_sj6pui3gno6.eds_subCollection_news.eds_templateGroup_newsListCatalogDefault .article h2 a
 {
-	font-family: "Francois One";
+	font-family: "Times New Roman";
 	color: #000eff;
-	font-size: 14px;
+	font-size: 13px;
 }
 
 .eds_news_NewsTwo.eds_style_custom_sj6pui3gno6.eds_subCollection_news.eds_templateGroup_newsListDefault .article h2 a:hover,

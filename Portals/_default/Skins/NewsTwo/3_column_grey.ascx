@@ -23,6 +23,12 @@ jQuery(function($){
 //]]>
 </script>
 
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?105"></script>
+
+<script type="text/javascript">
+VK.Widgets.Group("vk_groups", {mode: 0, width: "200", height: "400", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 63231901);
+</script>
+
 <div class="EasyDNNSkin_NewsTwo">
 <div class="NewsTwoBackgroundGradient">
 <div class="NewsTwoMain">

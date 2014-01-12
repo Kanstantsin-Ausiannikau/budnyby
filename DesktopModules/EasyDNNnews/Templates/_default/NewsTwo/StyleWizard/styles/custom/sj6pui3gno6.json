@@ -1,7 +1,7 @@
 {
   "templateGroups": {
     "default": {
-      "name": "Blue Copy",
+      "name": "Blue Copy1",
       "colors": [
         "#36aede"
       ]
@@ -45,13 +45,7 @@
       },
       "rssEventsExportIcons": {
         "default": {
-          "values": {
-            "image": {
-              "completeUrl": "_-StyleAssetsClientRoot-_images/rssEventsExportIcons/predefined/blue_actions.png",
-              "file": "blue_actions.png",
-              "type": "predefined"
-            }
-          }
+          "values": {}
         }
       },
       "title": {
@@ -68,9 +62,9 @@
               "show": false,
               "list": []
             },
-            "fontFamily": "Francois One",
+            "fontFamily": "Times New Roman",
             "size": {
-              "value": 14,
+              "value": 13,
               "unit": "px"
             },
             "style": "normal",
@@ -92,7 +86,9 @@
               "list": []
             },
             "decorations": {
-              "underline": false
+              "underline": false,
+              "overline": false,
+              "lineThrough": false
             }
           }
         }
