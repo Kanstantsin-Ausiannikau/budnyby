@@ -2074,6 +2074,14 @@
 												<asp:CheckBox ID="cbShowThreadedComments" runat="server" Checked="True" />
 											</td>
 										</tr>
+										<tr>
+											<td class="left">
+												<dnn:Label ID="lblShowCommentsFromAllPortals" runat="server" Text="Show comments from all portals:" HelpText="Show comments from all portals or show comments that where added on current portal:" />
+											</td>
+											<td class="right">
+												<asp:CheckBox ID="cbShowCommentsFromAllPortals" runat="server" Checked="True" />
+											</td>
+										</tr>
 										<tr class="second" id="trCommentsAvatarSelection" runat="server">
 											<td class="left">
 												<dnn:Label ID="lblSelectCommentsAvatarSource" runat="server" Text="Select coment avatar source:" HelpText="Select provider for the comment avatars:" HelpKey="lblSelectCommentsAvatarSource.HelpText" ResourceKey="lblSelectCommentsAvatarSource" />
@@ -2788,7 +2796,7 @@
 							</asp:RadioButtonList>
 						</td>
 					</tr>
-					<tr>
+					<tr class="second">
 						<td class="left">
 							<dnn:Label ID="lblCFSelectedGroup" runat="server" ControlName="ddlCFSelectedGroup" Text="Select default Custom field group:" HelpText="Here you can select the Custom fields group where data will be added." HelpKey="lblCFSelectedGroup.HelpText" ResourceKey="lblCFSelectedGroup" />
 						</td>
@@ -2803,6 +2811,14 @@
 						</td>
 						<td class="right">
 							<asp:CheckBox ID="cbCFEnableGroupSelection" runat="server" Checked="true" />
+						</td>
+					</tr>
+					<tr class="second">
+						<td class="left">
+							<dnn:Label ID="lblCFShowOnlyFilledItems" runat="server" ControlName="cbCFShowOnlyFilledItems" Text="Display only custom fileds that have filled in value:" HelpText="Display only custom fileds that have filled in value when using [EDNcf:ShowAll] token." />
+						</td>
+						<td class="right">
+							<asp:CheckBox ID="cbCFShowOnlyFilledItems" runat="server" Checked="false" />
 						</td>
 					</tr>
 				</table>

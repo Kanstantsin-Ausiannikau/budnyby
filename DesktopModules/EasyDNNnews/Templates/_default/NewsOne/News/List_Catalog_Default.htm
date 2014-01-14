@@ -31,8 +31,6 @@
 <!--CatalogArticleTemplate-->
 <!--ArticleTemplate-->
 <div class="article in_list span">
-<div class="box_list_container clear_bottom">
-</div>
 	<div class="content">
 		[EasyDNNnews:IfExists:Image]
 		<a class="article_image" href="[EasyDNNnews:ReadMore]" target="[EasyDNNnews:DetailTarget]"><img alt="[EasyDNNnews:Title]" src="[EasyDNNnews:Image]" /></a>
@@ -45,7 +43,7 @@
 	</div>
 	<div class="meta_text">[EasyDNNnews:IfNotExists:Event][EasyDNNnews:PublishDate][EasyDNNnews:EndIf:Event][EasyDNNnews:IfExists:Event][EasyDNNnews:EventDate][EasyDNNnews:EndIf:Event]<span class="separator">/</span>[EasyDNNnewsLocalizedText:Author]: [EasyDNNnews:Author:Link]<span class="separator">/</span>[EasyDNNnewsLocalizedText:Numberofviews] ([EasyDNNnews:NumberOfViews])<span class="separator">/</span>[EasyDNNnewsLocalizedText:Comments] ([EasyDNNnews:Comments])<span class="separator">/</span>[EasyDNNnews:ArticleRating]</div>
 	<div class="box_list_container clear_bottom">[EasyDNNnewsLocalizedText:Categories]: [EasyDNNnews:Categories separator=""]</div>
-	<div class="box_list_container clear_bottom">[EasyDNNnewsLocalizedText:Tags]: [EasyDNNnews:Tags separator=""]</div>
+	<div class="box_list_container">[EasyDNNnewsLocalizedText:Tags]: [EasyDNNnews:Tags separator=""]</div>
 </div>
 <!--ArticleEnd-->
 <!--CatalogArticleEnd-->

@@ -818,6 +818,10 @@
 .eds_news_NewsTwo.eds_subCollection_calendar .callendar_table_container .calendar_table td.has_events > a {
   background-color: #ffea00;
 }
+.eds_news_NewsTwo.eds_subCollection_calendar .callendar_table_container .calendar_table td.has_events.today > a {
+  font-weight: bold;
+  color: black;
+}
 .eds_news_NewsTwo.eds_subCollection_calendar .callendar_table_container .calendar_table td.has_events.other_month > a {
   background-color: #fff8d5 !important;
   color: #b2b2b2 !important;

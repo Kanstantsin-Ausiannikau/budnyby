@@ -2132,4 +2132,16 @@ Hint: You can also turn off displaying languages on the default language. For ar
   <data name="ControlTitle_editsettings.Text" xml:space="preserve">
     <value>Edit Settings</value>
   </data>
+  <data name="lblCFShowOnlyFilledItems.Help" xml:space="preserve">
+    <value>Display only custom fileds that have filled in value when using [EDNcf:ShowAll] token.</value>
+  </data>
+  <data name="lblCFShowOnlyFilledItems.Text" xml:space="preserve">
+    <value>Display only custom fileds that have filled in value:</value>
+  </data>
+  <data name="lblShowCommentsFromAllPortals.Help" xml:space="preserve">
+    <value>Show comments from all portals or show comments that where added on current portal:</value>
+  </data>
+  <data name="lblShowCommentsFromAllPortals.Text" xml:space="preserve">
+    <value>Show comments from all portals:</value>
+  </data>
 </root>

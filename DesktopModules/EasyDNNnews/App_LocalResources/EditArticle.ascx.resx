@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BoundFieldResource2.HeaderText" xml:space="preserve">
     <value>Date</value>
@@ -1431,5 +1431,197 @@ Hint: You can also turn off showing articles on German language if it is not loc
   </data>
   <data name="liDefaultPortalLanguage.Text" xml:space="preserve">
     <value>Default</value>
+  </data>
+  <data name="cvDailyRecurringEventDays.ErrorMessage" xml:space="preserve">
+    <value>Please enter number only.</value>
+  </data>
+  <data name="cvDayOfMonth.ErrorMessage" xml:space="preserve">
+    <value>Please enter number only.</value>
+  </data>
+  <data name="cvEndsAfterOcurrences.ErrorMessage" xml:space="preserve">
+    <value>Please enter number only.</value>
+  </data>
+  <data name="cvOfEveryMonth.ErrorMessage" xml:space="preserve">
+    <value>Please enter number only.</value>
+  </data>
+  <data name="cvtbxRepeatedOnDay.ErrorMessage" xml:space="preserve">
+    <value>Please enter number only.</value>
+  </data>
+  <data name="cvUpcomingOccurrences.ErrorMessage" xml:space="preserve">
+    <value>Please enter number only.</value>
+  </data>
+  <data name="cvWeeklyRecurringEventWeeks.ErrorMessage" xml:space="preserve">
+    <value>Please enter number only.</value>
+  </data>
+  <data name="lblRecurrenceType.Help" xml:space="preserve">
+    <value>Select type of recurrence.</value>
+  </data>
+  <data name="lblRecurrenceType.Text" xml:space="preserve">
+    <value>Recurrence type:</value>
+  </data>
+  <data name="lblRecurringDays.Text" xml:space="preserve">
+    <value>day(s)</value>
+  </data>
+  <data name="lblrecurringEvent.Help" xml:space="preserve">
+    <value>Create recurring event.</value>
+  </data>
+  <data name="lblrecurringEvent.Text" xml:space="preserve">
+    <value>Recurrence:</value>
+  </data>
+  <data name="lblRecurringEvery.Text" xml:space="preserve">
+    <value>Every</value>
+  </data>
+  <data name="lblRecurringMonth.Text" xml:space="preserve">
+    <value>month(s)</value>
+  </data>
+  <data name="lblRecurringMonthEvery.Text" xml:space="preserve">
+    <value>of every:</value>
+  </data>
+  <data name="lblRecurringWeeks.Text" xml:space="preserve">
+    <value>weeks(s) on</value>
+  </data>
+  <data name="lblUpcomingOccurrences.Text" xml:space="preserve">
+    <value>Display upcoming occurrences</value>
+  </data>
+  <data name="lblWeeklyRecurringEvery.Text" xml:space="preserve">
+    <value>Recur every:</value>
+  </data>
+  <data name="liApril.Text" xml:space="preserve">
+    <value>April</value>
+  </data>
+  <data name="liAugust.Text" xml:space="preserve">
+    <value>August</value>
+  </data>
+  <data name="liDaily.Text" xml:space="preserve">
+    <value>Daily</value>
+  </data>
+  <data name="liDecember.Text" xml:space="preserve">
+    <value>December</value>
+  </data>
+  <data name="liEndbydate.Text" xml:space="preserve">
+    <value>End by date</value>
+  </data>
+  <data name="liEndsafterocurrences.Text" xml:space="preserve">
+    <value>Ends after ocurrences</value>
+  </data>
+  <data name="liEvery.Text" xml:space="preserve">
+    <value>Every:</value>
+  </data>
+  <data name="liFebruary.Text" xml:space="preserve">
+    <value>February</value>
+  </data>
+  <data name="liFirst.Text" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="liFourth.Text" xml:space="preserve">
+    <value>Fourth</value>
+  </data>
+  <data name="liFriday.Text" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="liJanuary.Text" xml:space="preserve">
+    <value>January</value>
+  </data>
+  <data name="liJuly.Text" xml:space="preserve">
+    <value>July</value>
+  </data>
+  <data name="liJune.Text" xml:space="preserve">
+    <value>June</value>
+  </data>
+  <data name="liLast.Text" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="liMarch.Text" xml:space="preserve">
+    <value>March</value>
+  </data>
+  <data name="liMay.Text" xml:space="preserve">
+    <value>May</value>
+  </data>
+  <data name="liMonday.Text" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="liMonthly.Text" xml:space="preserve">
+    <value>Monthly</value>
+  </data>
+  <data name="liNovember.Text" xml:space="preserve">
+    <value>November</value>
+  </data>
+  <data name="liOctober.Text" xml:space="preserve">
+    <value>October</value>
+  </data>
+  <data name="liRepeatedon.Text" xml:space="preserve">
+    <value>Repeated on:</value>
+  </data>
+  <data name="liRepeatedonday.Text" xml:space="preserve">
+    <value>Repeated on day:</value>
+  </data>
+  <data name="liSaturday.Text" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="liSecond.Text" xml:space="preserve">
+    <value>Second</value>
+  </data>
+  <data name="liSeptember.Text" xml:space="preserve">
+    <value>September</value>
+  </data>
+  <data name="liSunday.Text" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="liThe.Text" xml:space="preserve">
+    <value>The:</value>
+  </data>
+  <data name="liThird.Text" xml:space="preserve">
+    <value>Third</value>
+  </data>
+  <data name="liThuesday.Text" xml:space="preserve">
+    <value>Thuesday</value>
+  </data>
+  <data name="liThursday.Text" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="liWednesday.Text" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="liWeekly.Text" xml:space="preserve">
+    <value>Weekly</value>
+  </data>
+  <data name="liYearly.Text" xml:space="preserve">
+    <value>Yearly</value>
+  </data>
+  <data name="revEndsAfterOcurrences.ErrorMessage" xml:space="preserve">
+    <value>Only positive numbers. Zero is not allowed.</value>
+  </data>
+  <data name="revUpcomingOccurrences.ErrorMessage" xml:space="preserve">
+    <value>Only positive numbers. Zero is not allowed.</value>
+  </data>
+  <data name="rfvDailyRecurringEventDays.ErrorMessage" xml:space="preserve">
+    <value>Days required.</value>
+  </data>
+  <data name="rfvDayOfMonth.ErrorMessage" xml:space="preserve">
+    <value>Day required.</value>
+  </data>
+  <data name="rfvEndsAfterOcurrences.ErrorMessage" xml:space="preserve">
+    <value>Occurrences required.</value>
+  </data>
+  <data name="rfvOfEveryMonth.ErrorMessage" xml:space="preserve">
+    <value>Day required.</value>
+  </data>
+  <data name="rfvRecurringEndByDate.ErrorMessage" xml:space="preserve">
+    <value>Date required.</value>
+  </data>
+  <data name="rfvRepeatedOnDay.ErrorMessage" xml:space="preserve">
+    <value>Day required.</value>
+  </data>
+  <data name="rfvUpcomingOccurrences.ErrorMessage" xml:space="preserve">
+    <value>Upcoming occurrences required.</value>
+  </data>
+  <data name="rfvWeeklyRecurringEventWeeks.ErrorMessage" xml:space="preserve">
+    <value>Week required.</value>
+  </data>
+  <data name="rvDayOfMonth.ErrorMessage" xml:space="preserve">
+    <value>Please enter number between 1-31.</value>
+  </data>
+  <data name="rvRepeatedOnDay.ErrorMessage" xml:space="preserve">
+    <value>Please enter number between 1-31.</value>
   </data>
 </root>

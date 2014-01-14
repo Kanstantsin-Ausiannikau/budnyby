@@ -1,7 +1,7 @@
 ﻿<%@ control language="C#" inherits="EasyDNN.Modules.EasyDNNNewsCalendar.EditEasyDNNNewsCalendar, App_Web_editeasydnnnewscalendar.ascx.3e42803b" autoeventwireup="true" %>
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/LabelControl.ascx" %>
 <script type="text/javascript">
-/* <![CDATA[ */
+	/* <![CDATA[ */
 	jQuery().ready(function ($) {
 		$('#<%=tvCatAndSubCat.ClientID %>').EDS_TreeViewSelector({
 			state_checkbox: $('#<%=cbAutoAddCatChilds.ClientID %>')
@@ -9,45 +9,120 @@
 		$('#<%=cbShowCalendarArchive.ClientID%>, #<%=cbShowMonthlyArchive.ClientID%>, #<%=cbShowEventArchive.ClientID%>, #<%=cbDisplayHeaderEvents.ClientID%>, #<%=cbShowEvents.ClientID%>, #<%=cbIsTooltipEnabled.ClientID%>, #<%=cbUpcomingEventsToolTip.ClientID%> ').change(function () {
 			var $target = $('.collapsable_container.' + this.id);
 
-			if( this.id == '<%=cbShowEvents.ClientID %>')
-			{
-				if(this.checked){
+			if (this.id == '<%=cbShowEvents.ClientID %>') {
+				if (this.checked) {
 					var myVal = document.getElementById('<%=rfvPastEventLimit.ClientID %>'); ValidatorEnable(myVal, true);
-					var myVal2 = document.getElementById('<%=cvPastEventLimit.ClientID %>'); ValidatorEnable(myVal2, true);
-				}
-				else{
-					var myVal = document.getElementById('<%=rfvPastEventLimit.ClientID %>'); ValidatorEnable(myVal, false);
-					var myVal2 = document.getElementById('<%=cvPastEventLimit.ClientID %>'); ValidatorEnable(myVal2, false);
-				}
+				var myVal2 = document.getElementById('<%=cvPastEventLimit.ClientID %>'); ValidatorEnable(myVal2, true);
 			}
-			else if( this.id == '<%=cbIsTooltipEnabled.ClientID %>')
-			{
-				if(this.checked){
+			else {
+				var myVal = document.getElementById('<%=rfvPastEventLimit.ClientID %>'); ValidatorEnable(myVal, false);
+				var myVal2 = document.getElementById('<%=cvPastEventLimit.ClientID %>'); ValidatorEnable(myVal2, false);
+			}
+		}
+		else if (this.id == '<%=cbIsTooltipEnabled.ClientID %>') {
+				if (this.checked) {
 					var myVal = document.getElementById('<%=rfvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal, true);
-					var myVal2 = document.getElementById('<%=rvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, true);
-				}
-				else{
-					var myVal = document.getElementById('<%=rfvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal, false);
-					var myVal2 = document.getElementById('<%=rvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, false);
-				}
+				var myVal2 = document.getElementById('<%=rvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, true);
 			}
-			else if( this.id == '<%=cbUpcomingEventsToolTip.ClientID %>')
-			{
-				if(this.checked){
-					var myVal = document.getElementById('<%=rfvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal, true);
-					var myVal2 = document.getElementById('<%=rvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, true);
-				}
-				else{
-					var myVal = document.getElementById('<%=rfvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal, false);
-					var myVal2 = document.getElementById('<%=rvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, false);
-				}
+			else {
+				var myVal = document.getElementById('<%=rfvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal, false);
+				var myVal2 = document.getElementById('<%=rvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, false);
 			}
+		}
+		else if (this.id == '<%=cbUpcomingEventsToolTip.ClientID %>') {
+			if (this.checked) {
+				var myVal = document.getElementById('<%=rfvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal, true);
+				var myVal2 = document.getElementById('<%=rvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, true);
+			}
+			else {
+				var myVal = document.getElementById('<%=rfvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal, false);
+				var myVal2 = document.getElementById('<%=rvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, false);
+			}
+		}
 			if (this.checked)
 				$target.slideDown(200);
 			else
 				$target.slideUp(200);
 		});
 	});
+function ClientValidate(source, arguments) {
+	var treeView = document.getElementById("<%= tvCatAndSubCat.ClientID %>");
+	var checkBoxes = treeView.getElementsByTagName("input");
+	var checkedCount = 0;
+	for (var i = 0; i < checkBoxes.length; i++) {
+		if (checkBoxes[i].checked) {
+			checkedCount++;
+			break;
+		}
+	}
+	if (checkedCount > 0) {
+		arguments.IsValid = true;
+	} else {
+		arguments.IsValid = false;
+	}
+}
+
+function ClientValidateAuthors(source, arguments) {
+	var treeView = document.getElementById("<%= tvAuthorAndGroupSelection.ClientID %>");
+	var checkBoxes = treeView.getElementsByTagName("input");
+	var checkedCount = 0;
+	for (var i = 0; i < checkBoxes.length; i++) {
+		if (checkBoxes[i].checked) {
+			checkedCount++;
+			break;
+		}
+	}
+	if (checkedCount > 0) {
+		arguments.IsValid = true;
+	} else {
+		arguments.IsValid = false;
+	}
+}
+function pageLoad(sender, args) {
+	if (args.get_isPartialLoad()) {
+		jQuery().ready(function ($) {
+			$('#<%=tvCatAndSubCat.ClientID %>').EDS_TreeViewSelector({
+				state_checkbox: $('#<%=cbAutoAddCatChilds.ClientID %>')
+			});
+			$('#<%=cbShowCalendarArchive.ClientID%>, #<%=cbShowMonthlyArchive.ClientID%>, #<%=cbShowEventArchive.ClientID%>, #<%=cbDisplayHeaderEvents.ClientID%>, #<%=cbShowEvents.ClientID%>, #<%=cbIsTooltipEnabled.ClientID%>, #<%=cbUpcomingEventsToolTip.ClientID%> ').change(function () {
+				var $target = $('.collapsable_container.' + this.id);
+
+				if (this.id == '<%=cbShowEvents.ClientID %>') {
+					if (this.checked) {
+						var myVal = document.getElementById('<%=rfvPastEventLimit.ClientID %>'); ValidatorEnable(myVal, true);
+						var myVal2 = document.getElementById('<%=cvPastEventLimit.ClientID %>'); ValidatorEnable(myVal2, true);
+					}
+					else {
+						var myVal = document.getElementById('<%=rfvPastEventLimit.ClientID %>'); ValidatorEnable(myVal, false);
+						var myVal2 = document.getElementById('<%=cvPastEventLimit.ClientID %>'); ValidatorEnable(myVal2, false);
+					}
+				}
+				else if (this.id == '<%=cbIsTooltipEnabled.ClientID %>') {
+					if (this.checked) {
+						var myVal = document.getElementById('<%=rfvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal, true);
+						var myVal2 = document.getElementById('<%=rvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, true);
+					}
+					else {
+						var myVal = document.getElementById('<%=rfvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal, false);
+						var myVal2 = document.getElementById('<%=rvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, false);
+					}
+				}
+				else if (this.id == '<%=cbUpcomingEventsToolTip.ClientID %>') {
+					if (this.checked) {
+						var myVal = document.getElementById('<%=rfvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal, true);
+						var myVal2 = document.getElementById('<%=rvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, true);
+					}
+					else {
+						var myVal = document.getElementById('<%=rfvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal, false);
+						var myVal2 = document.getElementById('<%=rvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, false);
+					}
+				}
+				if (this.checked)
+					$target.slideDown(200);
+				else
+					$target.slideUp(200);
+			});
+		});
 	function ClientValidate(source, arguments) {
 		var treeView = document.getElementById("<%= tvCatAndSubCat.ClientID %>");
 		var checkBoxes = treeView.getElementsByTagName("input");
@@ -81,89 +156,8 @@
 			arguments.IsValid = false;
 		}
 	}
-		function pageLoad(sender, args) {
-			if (args.get_isPartialLoad()) {
-			jQuery().ready(function ($) {
-		$('#<%=tvCatAndSubCat.ClientID %>').EDS_TreeViewSelector({
-			state_checkbox: $('#<%=cbAutoAddCatChilds.ClientID %>')
-		});
-		$('#<%=cbShowCalendarArchive.ClientID%>, #<%=cbShowMonthlyArchive.ClientID%>, #<%=cbShowEventArchive.ClientID%>, #<%=cbDisplayHeaderEvents.ClientID%>, #<%=cbShowEvents.ClientID%>, #<%=cbIsTooltipEnabled.ClientID%>, #<%=cbUpcomingEventsToolTip.ClientID%> ').change(function () {
-			var $target = $('.collapsable_container.' + this.id);
-
-			if( this.id == '<%=cbShowEvents.ClientID %>')
-			{
-				if(this.checked){
-					var myVal = document.getElementById('<%=rfvPastEventLimit.ClientID %>'); ValidatorEnable(myVal, true);
-					var myVal2 = document.getElementById('<%=cvPastEventLimit.ClientID %>'); ValidatorEnable(myVal2, true);
-				}
-				else{
-					var myVal = document.getElementById('<%=rfvPastEventLimit.ClientID %>'); ValidatorEnable(myVal, false);
-					var myVal2 = document.getElementById('<%=cvPastEventLimit.ClientID %>'); ValidatorEnable(myVal2, false);
-				}
-			}
-			else if( this.id == '<%=cbIsTooltipEnabled.ClientID %>')
-			{
-				if(this.checked){
-					var myVal = document.getElementById('<%=rfvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal, true);
-					var myVal2 = document.getElementById('<%=rvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, true);
-				}
-				else{
-					var myVal = document.getElementById('<%=rfvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal, false);
-					var myVal2 = document.getElementById('<%=rvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, false);
-				}
-			}
-			else if( this.id == '<%=cbUpcomingEventsToolTip.ClientID %>')
-			{
-				if(this.checked){
-					var myVal = document.getElementById('<%=rfvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal, true);
-					var myVal2 = document.getElementById('<%=rvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, true);
-				}
-				else{
-					var myVal = document.getElementById('<%=rfvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal, false);
-					var myVal2 = document.getElementById('<%=rvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, false);
-				}
-			}
-			if (this.checked)
-				$target.slideDown(200);
-			else
-				$target.slideUp(200);
-		});
-	});
-	function ClientValidate(source, arguments) {
-		var treeView = document.getElementById("<%= tvCatAndSubCat.ClientID %>");
-		var checkBoxes = treeView.getElementsByTagName("input");
-		var checkedCount = 0;
-		for (var i = 0; i < checkBoxes.length; i++) {
-			if (checkBoxes[i].checked) {
-				checkedCount++;
-				break;
-			}
-		}
-		if (checkedCount > 0) {
-			arguments.IsValid = true;
-		} else {
-			arguments.IsValid = false;
-		}
 	}
-
-	function ClientValidateAuthors(source, arguments) {
-		var treeView = document.getElementById("<%= tvAuthorAndGroupSelection.ClientID %>");
-		var checkBoxes = treeView.getElementsByTagName("input");
-		var checkedCount = 0;
-		for (var i = 0; i < checkBoxes.length; i++) {
-			if (checkBoxes[i].checked) {
-				checkedCount++;
-				break;
-			}
-		}
-		if (checkedCount > 0) {
-			arguments.IsValid = true;
-		} else {
-			arguments.IsValid = false;
-		}
-	}
-			}
-		}
+}
 /* ]]> */
 </script>
 <div id="EDNadmin">
@@ -179,7 +173,8 @@
 						<tr id="Tr1" runat="server" style="background: #D1EBFA;">
 							<td class="left" style="border: 1px solid #AAD6F1; border-right: 0;">
 								<dnn:Label ID="lblIsSocialInstance" runat="server" Text="Community mode:" HelpText="Displays user's and group's articles on the Activity feed. The articles are filtered by the UserID or GroupID querystring. If this option is enabled and the querystring
-				UserID or GroupID is missing, then the articles won't show up." ControlName="cbIsSocialInstance" ResourceKey="lblIsSocialInstance" HelpKey="lblIsSocialInstance.HelpText" EnableViewState="True" />
+				UserID or GroupID is missing, then the articles won't show up."
+									ControlName="cbIsSocialInstance" ResourceKey="lblIsSocialInstance" HelpKey="lblIsSocialInstance.HelpText" EnableViewState="True" />
 							</td>
 							<td class="right" style="border: 1px solid #AAD6F1; border-left: 0;">
 								<asp:CheckBox ID="cbIsSocialInstance" runat="server" Checked="false" OnCheckedChanged="cbIsSocialInstance_CheckedChanged" AutoPostBack="true" />
@@ -197,7 +192,7 @@
 							</td>
 							<td class="right">
 								<asp:DropDownList ID="ddlPortalSharing" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataTextField="PortalName" DataValueField="PortalIDFrom" CssClass="ddlcategorysettings" OnSelectedIndexChanged="ddlPortalSharing_SelectedIndexChanged">
-									<asp:ListItem resourcekey="liCurrentPortal" Value="-1">Current portal</asp:ListItem>
+									<asp:ListItem Value="-1" Text="Current portal" resourcekey="liCurrentPortal" />
 								</asp:DropDownList>
 							</td>
 						</tr>
@@ -207,29 +202,33 @@
 					<%=Permissions%></h3>
 				<asp:UpdatePanel ID="upPermissionSettings" runat="server">
 					<ContentTemplate>
-						<table class="settings_table" cellpadding="0" cellspacing="0">
-							<tr class="second">
-								<td class="left">
-									<dnn:Label ID="lblPermissionSource" runat="server" Text="Select permission source:" HelpText="Category menu will inherit permission from selected source. Articles from allow categories will be shown in module." HelpKey="lblPermissionSource" ResourceKey="lblPermissionSource" />
-								</td>
-								<td class="right">
-									<asp:RadioButtonList ID="rblCategoryPermissionSource" runat="server" OnSelectedIndexChanged="rblCategoryPermissionSource_SelectedIndexChanged" AutoPostBack="True" RepeatDirection="Horizontal">
-										<asp:ListItem Selected="True" Text="None" Value="0" resourcekey="ListItemResource1"></asp:ListItem>
-										<asp:ListItem Text="Portal" Value="1" resourcekey="ListItemResource2"></asp:ListItem>
-										<asp:ListItem Text="Module" Value="2" resourcekey="ListItemResource3"></asp:ListItem>
-									</asp:RadioButtonList>
-									<asp:Panel ID="pnlCategoryModuleInherite" runat="server" Visible="False">
-										<asp:DropDownList ID="ddlPermFromModuleInstance" runat="server" />
-									</asp:Panel>
-								</td>
-							</tr>
-						</table>
+						<div class="edn_admin_progress_overlay_container">
+							<asp:UpdateProgress ID="uppPermissionSettings" runat="server" AssociatedUpdatePanelID="upPermissionSettings" DisplayAfter="100" DynamicLayout="true">
+								<ProgressTemplate>
+									<div class="edn_admin_progress_overlay">
+									</div>
+								</ProgressTemplate>
+							</asp:UpdateProgress>
+							<table class="settings_table" cellpadding="0" cellspacing="0">
+								<tr class="second">
+									<td class="left">
+										<dnn:Label ID="lblPermissionSource" runat="server" Text="Select permission source:" HelpText="Category menu will inherit permission from selected source. Articles from allow categories will be shown in module." HelpKey="lblPermissionSource" ResourceKey="lblPermissionSource" />
+									</td>
+									<td class="right">
+										<asp:RadioButtonList ID="rblCategoryPermissionSource" runat="server" OnSelectedIndexChanged="rblCategoryPermissionSource_SelectedIndexChanged" AutoPostBack="True" RepeatDirection="Horizontal">
+											<asp:ListItem Text="None" Value="0" Selected="True" resourcekey="ListItemResource1" />
+											<asp:ListItem Text="Portal" Value="1" resourcekey="ListItemResource2" />
+											<asp:ListItem Text="Module" Value="2" resourcekey="ListItemResource3" />
+										</asp:RadioButtonList>
+										<asp:Panel ID="pnlCategoryModuleInherite" runat="server" Visible="False">
+											<asp:DropDownList ID="ddlPermFromModuleInstance" runat="server" />
+										</asp:Panel>
+									</td>
+								</tr>
+							</table>
+						</div>
 					</ContentTemplate>
 				</asp:UpdatePanel>
-				<asp:UpdateProgress ID="uppPermissionSettings" runat="server" AssociatedUpdatePanelID="upPermissionSettings" DisplayAfter="100" DynamicLayout="true">
-					<ProgressTemplate>
-						<img src="<%=ModulePath.Replace("EasyDNNNewsCalendar", "EasyDNNnews")%>images/settings/ajaxLoading.gif" /></ProgressTemplate>
-				</asp:UpdateProgress>
 				<h3 class="subsections">
 					<%=Modulespecificoptions%></h3>
 				<table class="settings_table" cellpadding="0" cellspacing="0">
@@ -359,14 +358,12 @@
 										</td>
 									</tr>
 									<tr style="display: none">
-										<td class="left">
-											&nbsp;
+										<td class="left">&nbsp;
 										</td>
 										<td class="right">
 											<asp:CheckBox ID="cbPage" runat="server" AutoPostBack="True" OnCheckedChanged="cbPage_CheckedChanged" Text="Page" resourcekey="cbPageResource1" />
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<asp:DropDownList ID="ddlPageOpenDetails" runat="server" resourcekey="ddlPageOpenDetailsResource1">
-											</asp:DropDownList>
+											<asp:DropDownList ID="ddlPageOpenDetails" runat="server" resourcekey="ddlPageOpenDetailsResource1" />
 											&nbsp;<asp:Label ID="lblPageError" runat="server" ForeColor="Red" Text="Please select." Visible="False" resourcekey="lblPageErrorResource1" />
 										</td>
 									</tr>
@@ -376,13 +373,13 @@
 										</td>
 										<td class="right">
 											<asp:DropDownList ID="ddlFirstDayOfTheWeek" runat="server">
-												<asp:ListItem resourcekey="liMonday" Value="Monday">Monday</asp:ListItem>
-												<asp:ListItem resourcekey="liTuesday" Value="Tuesday">Tuesday</asp:ListItem>
-												<asp:ListItem resourcekey="liWednesday" Value="Wednesday">Wednesday</asp:ListItem>
-												<asp:ListItem resourcekey="liThursday" Value="Thursday">Thursday</asp:ListItem>
-												<asp:ListItem resourcekey="liFriday" Value="Friday">Friday</asp:ListItem>
-												<asp:ListItem resourcekey="liSaturday" Value="Saturday">Saturday</asp:ListItem>
-												<asp:ListItem resourcekey="liSunday" Value="Sunday">Sunday</asp:ListItem>
+												<asp:ListItem resourcekey="liMonday" Value="Monday" Text="Monday" />
+												<asp:ListItem resourcekey="liTuesday" Value="Tuesday" Text="Tuesday" />
+												<asp:ListItem resourcekey="liWednesday" Value="Wednesday" Text="Wednesday" />
+												<asp:ListItem resourcekey="liThursday" Value="Thursday" Text="Thursday" />
+												<asp:ListItem resourcekey="liFriday" Value="Friday" Text="Friday" />
+												<asp:ListItem resourcekey="liSaturday" Value="Saturday" Text="Saturday" />
+												<asp:ListItem resourcekey="liSunday" Value="Sunday" Text="Sunday" />
 											</asp:DropDownList>
 										</td>
 									</tr>
@@ -404,47 +401,59 @@
 				<div id="tblCollapsable2" class="collapsable_container <%=cbShowMonthlyArchive.ClientID%>" style="border: 1px solid #717171; border-top: 0; margin-bottom: 10px; <%=cssTableStyleMonthlyArchive%>">
 					<asp:UpdatePanel ID="upArchiveType" runat="server" UpdateMode="Conditional">
 						<ContentTemplate>
-							<table class="settings_table" cellpadding="0" cellspacing="0">
-								<tr class="second">
-									<td class="left">
-										<dnn:Label ID="lblArchiveType" runat="server" Text="Type of view:" HelpText="Select type of view." ControlName="rblArchiveType" HelpKey="lblArchiveType.HelpText" ResourceKey="lblArchiveType" />
-									</td>
-									<td class="right">
-										<asp:RadioButtonList ID="rblArchiveType" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblArchiveType_SelectedIndexChanged" AutoPostBack="true">
-											<asp:ListItem resourcekey="liArchiveByMonth" Text="By month" Value="0" Selected="True" />
-											<asp:ListItem resourcekey="liArchiveByYear" Text="By year" Value="1" />
-										</asp:RadioButtonList>
-									</td>
-								</tr>
-								<tr id="trArchiveExpandMode" class="second" runat="server" visible="false">
-									<td class="left">
-										<dnn:Label ID="lblArchiveExpandMode" runat="server" Text="Expand mode:" HelpText="Select expand mode." ControlName="rblArchiveType" HelpKey="lblArchiveExpandMode.HelpText" ResourceKey="lblArchiveExpandMode" />
-									</td>
-									<td class="right">
-										<asp:RadioButtonList ID="rblArchiveExpandMode" runat="server" RepeatDirection="Vertical">
-											<asp:ListItem resourcekey="liArchiveCollapsAll" Text="Collapse all" Value="0" Selected="True" />
-											<asp:ListItem resourcekey="liArchiveExpandAll" Text="Expand all" Value="1" />
-											<asp:ListItem resourcekey="liArchiveExpandCurrentYear" Text="Expand current year" Value="2" />
-										</asp:RadioButtonList>
-									</td>
-								</tr>
-							</table>
+							<div class="edn_admin_progress_overlay_container">
+								<asp:UpdateProgress ID="uppArchiveType" runat="server" AssociatedUpdatePanelID="upArchiveType" DisplayAfter="100" DynamicLayout="true">
+									<ProgressTemplate>
+										<div class="edn_admin_progress_overlay">
+										</div>
+									</ProgressTemplate>
+								</asp:UpdateProgress>
+								<table class="settings_table" cellpadding="0" cellspacing="0">
+									<tr class="second">
+										<td class="left">
+											<dnn:Label ID="lblArchiveType" runat="server" Text="Type of view:" HelpText="Select type of view." ControlName="rblArchiveType" HelpKey="lblArchiveType.HelpText" ResourceKey="lblArchiveType" />
+										</td>
+										<td class="right">
+											<asp:RadioButtonList ID="rblArchiveType" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblArchiveType_SelectedIndexChanged" AutoPostBack="true">
+												<asp:ListItem resourcekey="liArchiveByMonth" Text="By month" Value="0" Selected="True" />
+												<asp:ListItem resourcekey="liArchiveByYear" Text="By year" Value="1" />
+											</asp:RadioButtonList>
+										</td>
+									</tr>
+									<tr id="trArchiveExpandMode" class="second" runat="server" visible="false">
+										<td class="left">
+											<dnn:Label ID="lblArchiveExpandMode" runat="server" Text="Expand mode:" HelpText="Select expand mode." ControlName="rblArchiveType" HelpKey="lblArchiveExpandMode.HelpText" ResourceKey="lblArchiveExpandMode" />
+										</td>
+										<td class="right">
+											<asp:RadioButtonList ID="rblArchiveExpandMode" runat="server" RepeatDirection="Vertical">
+												<asp:ListItem resourcekey="liArchiveCollapsAll" Text="Collapse all" Value="0" Selected="True" />
+												<asp:ListItem resourcekey="liArchiveExpandAll" Text="Expand all" Value="1" />
+												<asp:ListItem resourcekey="liArchiveExpandCurrentYear" Text="Expand current year" Value="2" />
+											</asp:RadioButtonList>
+										</td>
+									</tr>
+								</table>
+							</div>
 						</ContentTemplate>
 					</asp:UpdatePanel>
-					<asp:UpdateProgress ID="uppArchiveType" runat="server" AssociatedUpdatePanelID="upArchiveType" DisplayAfter="100" DynamicLayout="true">
-						<ProgressTemplate>
-							<img src="<%=ModulePath.Replace("EasyDNNNewsCalendar", "EasyDNNnews")%>images/settings/ajaxLoading.gif" /></ProgressTemplate>
-					</asp:UpdateProgress>
 					<asp:UpdatePanel ID="upArchivetemplate" runat="server" UpdateMode="Conditional">
 						<ContentTemplate>
 							<table class="settings_table" cellpadding="0" cellspacing="0">
+								<tr class="second">
+									<td class="left">
+										<dnn:Label ID="lblArchiveFilterBy" runat="server" Text="Filter by:" HelpText="Filter displayed content by articles and/or events." />
+									</td>
+									<td class="right">
+										<asp:CheckBox ID="cbArchiveOnlyArticles" runat="server" Checked="True" Text="Articles" />
+										<asp:CheckBox ID="cbArchiveOnlyEvents" runat="server" Text="Events" Checked="True" />
+									</td>
+								</tr>
 								<tr>
 									<td class="left">
 										<dnn:Label ID="lblArchiveTemplate" runat="server" Text="Template:" HelpText="Select template." ControlName="ddlArchiveTemplate" HelpKey="lblArchiveTemplate.HelpText" ResourceKey="lblArchiveTemplate" />
 									</td>
 									<td class="right">
-										<asp:DropDownList ID="ddlArchiveTemplate" runat="server">
-										</asp:DropDownList>
+										<asp:DropDownList ID="ddlArchiveTemplate" runat="server" />
 									</td>
 								</tr>
 							</table>
@@ -457,7 +466,7 @@
 							</td>
 							<td class="right">
 								<asp:DropDownList ID="ddlMonthlyArchiveOpenDetails" runat="server">
-									<asp:ListItem Value="0" resourcekey="ListItemResource5">Select</asp:ListItem>
+									<asp:ListItem Value="0" resourcekey="ListItemResource5" Text="Select" />
 								</asp:DropDownList>
 								<asp:Label ID="lblArchiveMonthlyModuleError" runat="server" ForeColor="Red" Text="Please select." Visible="False" resourcekey="lblArchiveMonthlyModuleErrorResource1" />
 							</td>
@@ -490,7 +499,7 @@
 							</td>
 							<td class="right">
 								<asp:DropDownList ID="ddlOpenDetailsEvents" runat="server">
-									<asp:ListItem Value="0" resourcekey="ListItemResource4">Select</asp:ListItem>
+									<asp:ListItem Value="0" resourcekey="ListItemResource4" Text="Select" />
 								</asp:DropDownList>
 							</td>
 						</tr>
@@ -499,7 +508,7 @@
 								<dnn:Label ID="lblNumberOfEvents" runat="server" Text="Number of upcoming events:" HelpText="Number of upcoming events:" HelpKey="lblNumberOfEvents.HelpText" ResourceKey="lblNumberOfEvents" />
 							</td>
 							<td class="right">
-								<asp:TextBox ID="tbNumberOfEvents" runat="server" Width="30px">5</asp:TextBox>
+								<asp:TextBox ID="tbNumberOfEvents" runat="server" Width="30px" Text="5" />
 								<asp:RequiredFieldValidator ID="rfvNumberOfPosts" runat="server" ForeColor="Red" ControlToValidate="tbNumberOfEvents" ErrorMessage="This filed is required." ValidationGroup="vgCalSettings" resourcekey="rfvNumberOfEventsResource1.ErrorMessage" Display="Dynamic" />
 								<asp:CompareValidator ID="cvLightBoxGalleryNumberOfItems2" runat="server" ForeColor="Red" ControlToValidate="tbNumberOfEvents" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" resourcekey="cvLightBoxGalleryNumberOfItemsResource1.ErrorMessage"
 									Type="Integer" ValidationGroup="vgCalSettings" />
@@ -547,109 +556,117 @@
 					<%=Theme%></h3>
 				<asp:UpdatePanel ID="upModuleTheme" runat="server">
 					<ContentTemplate>
-						<table class="settings_table" cellpadding="0" cellspacing="0">
-							<tr>
-								<td class="left">
-									<dnn:Label ID="lblModuleTheme" runat="server" Text="Module theme:" HelpText="Select theme." ControlName="ddlTheme" HelpKey="lblModuleTheme.HelpText" ResourceKey="lblModuleTheme" />
-								</td>
-								<td class="right">
-									<asp:DropDownList ID="ddlTheme" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlTemplates_SelectedIndexChanged" AppendDataBoundItems="True">
-									</asp:DropDownList>
-									<asp:CompareValidator ID="cvThemeSelect" runat="server" ForeColor="Red" ControlToValidate="ddlTheme" Display="Dynamic" ErrorMessage=" Please select theme" Operator="NotEqual" ValidationGroup="vgCalSettings" ValueToCompare="0" resourcekey="cvThemeSelectResource1.ErrorMessage" />
-								</td>
-							</tr>
-							<tr class="second">
-								<td class="left">
-									<dnn:Label ID="lblSelectDisplayStyle" runat="server" Text="Module display style:" HelpText="Select display style." ControlName="ddlDisplayStyle" HelpKey="lblSelectDisplayStyle.HelpText" ResourceKey="lblSelectDisplayStyle" />
-								</td>
-								<td class="right">
-									<asp:DropDownList ID="ddlDisplayStyle" runat="server" />
-									<asp:CompareValidator ID="cvdisplayStyleSelect" runat="server" ForeColor="Red" ControlToValidate="ddlDisplayStyle" Display="Dynamic" ErrorMessage=" Please select display style" Operator="NotEqual" ValidationGroup="vgCalSettings" ValueToCompare="0" resourcekey="cvdisplayStyleSelectResource1.ErrorMessage" />
-								</td>
-							</tr>
-						</table>
+						<div class="edn_admin_progress_overlay_container">
+							<asp:UpdateProgress ID="uppModuleTheme" runat="server" AssociatedUpdatePanelID="upModuleTheme" DisplayAfter="100" DynamicLayout="true">
+								<ProgressTemplate>
+									<div class="edn_admin_progress_overlay">
+									</div>
+								</ProgressTemplate>
+							</asp:UpdateProgress>
+							<table class="settings_table" cellpadding="0" cellspacing="0">
+								<tr>
+									<td class="left">
+										<dnn:Label ID="lblModuleTheme" runat="server" Text="Module theme:" HelpText="Select theme." ControlName="ddlTheme" HelpKey="lblModuleTheme.HelpText" ResourceKey="lblModuleTheme" />
+									</td>
+									<td class="right">
+										<asp:DropDownList ID="ddlTheme" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlTemplates_SelectedIndexChanged" AppendDataBoundItems="True" />
+										<asp:CompareValidator ID="cvThemeSelect" runat="server" ForeColor="Red" ControlToValidate="ddlTheme" Display="Dynamic" ErrorMessage=" Please select theme" Operator="NotEqual" ValidationGroup="vgCalSettings" ValueToCompare="0" resourcekey="cvThemeSelectResource1.ErrorMessage" />
+									</td>
+								</tr>
+								<tr class="second">
+									<td class="left">
+										<dnn:Label ID="lblSelectDisplayStyle" runat="server" Text="Module display style:" HelpText="Select display style." ControlName="ddlDisplayStyle" HelpKey="lblSelectDisplayStyle.HelpText" ResourceKey="lblSelectDisplayStyle" />
+									</td>
+									<td class="right">
+										<asp:DropDownList ID="ddlDisplayStyle" runat="server" />
+										<asp:CompareValidator ID="cvdisplayStyleSelect" runat="server" ForeColor="Red" ControlToValidate="ddlDisplayStyle" Display="Dynamic" ErrorMessage=" Please select display style" Operator="NotEqual" ValidationGroup="vgCalSettings" ValueToCompare="0" resourcekey="cvdisplayStyleSelectResource1.ErrorMessage" />
+									</td>
+								</tr>
+							</table>
+						</div>
 					</ContentTemplate>
 				</asp:UpdatePanel>
-				<asp:UpdateProgress ID="uppTheme" runat="server" AssociatedUpdatePanelID="upModuleTheme" DisplayAfter="100" DynamicLayout="true">
-					<ProgressTemplate>
-						<img src="<%=ModulePath.Replace("EasyDNNNewsCalendar", "EasyDNNnews")%>images/settings/ajaxLoading.gif" /></ProgressTemplate>
-				</asp:UpdateProgress>
 				<h3 class="subsections">
 					<%=Filter%></h3>
 				<asp:UpdatePanel ID="upCategoriesfilter" runat="server">
 					<ContentTemplate>
-						<table class="settings_table" cellpadding="0" cellspacing="0">
-							<tr>
-								<td class="left">
-									<dnn:Label ID="lblSelectCategories" runat="server" Text="Select categories to display articles from:" ControlName="cbdisplayallcats" HelpText="Show
-			all categories or make category selection in the tree view selection list." HelpKey="lblSelectCategories.HelpText" ResourceKey="lblSelectCategories" />
-								</td>
-								<td class="right">
-									<asp:CheckBox ID="cbdisplayallcats" runat="server" AutoPostBack="True" Checked="True" OnCheckedChanged="cbdisplayallcats_CheckedChanged" Text="Display all categories and subcategories" resourcekey="cbdisplayallcatsResource1" />
-								</td>
-							</tr>
-						</table>
-						<table id="tblSelectCategories" runat="server" visible="false" class="settings_table" cellpadding="0" cellspacing="0" style="margin-left: auto; margin-right: auto;">
-							<tr class="second">
-								<td class="left">
-								</td>
-								<td class="right">
-									<asp:CheckBox ID="cbAutoAddCatChilds" runat="server" Text="Auto select all child categories." resourcekey="cbAutoAddCatChildsResource1" />
-								</td>
-							</tr>
-							<tr>
-								<td class="left">
-								</td>
-								<td class="right">
-									<asp:TreeView ID="tvCatAndSubCat" runat="server" ForeColor="Black" ShowCheckBoxes="All" ShowExpandCollapse="False" ShowLines="True" />
-									<asp:CustomValidator ID="cvCategoriesTreeview" runat="server" ForeColor="Red" ClientValidationFunction="ClientValidate" ErrorMessage="Please select at least one category." Display="Dynamic" Enabled="False" resourcekey="cvCategoriesTreeview.ErrorMessage"
-										ValidationGroup="vgCalSettings" />
-								</td>
-							</tr>
-						</table>
-						</table>
+						<div class="edn_admin_progress_overlay_container">
+							<asp:UpdateProgress ID="uppCategoriesfilter" runat="server" AssociatedUpdatePanelID="upCategoriesfilter" DisplayAfter="100" DynamicLayout="true">
+								<ProgressTemplate>
+									<div class="edn_admin_progress_overlay">
+									</div>
+								</ProgressTemplate>
+							</asp:UpdateProgress>
+							<table class="settings_table" cellpadding="0" cellspacing="0">
+								<tr>
+									<td class="left">
+										<dnn:Label ID="lblSelectCategories" runat="server" Text="Select categories to display articles from:" ControlName="cbdisplayallcats" HelpText="Show
+			all categories or make category selection in the tree view selection list."
+											HelpKey="lblSelectCategories.HelpText" ResourceKey="lblSelectCategories" />
+									</td>
+									<td class="right">
+										<asp:CheckBox ID="cbdisplayallcats" runat="server" AutoPostBack="True" Checked="True" OnCheckedChanged="cbdisplayallcats_CheckedChanged" Text="Display all categories and subcategories" resourcekey="cbdisplayallcatsResource1" />
+									</td>
+								</tr>
+							</table>
+							<table id="tblSelectCategories" runat="server" visible="false" class="settings_table" cellpadding="0" cellspacing="0" style="margin-left: auto; margin-right: auto;">
+								<tr class="second">
+									<td class="left"></td>
+									<td class="right">
+										<asp:CheckBox ID="cbAutoAddCatChilds" runat="server" Text="Auto select all child categories." resourcekey="cbAutoAddCatChildsResource1" />
+									</td>
+								</tr>
+								<tr>
+									<td class="left"></td>
+									<td class="right">
+										<asp:TreeView ID="tvCatAndSubCat" runat="server" ForeColor="Black" ShowCheckBoxes="All" ShowExpandCollapse="False" ShowLines="True" />
+										<asp:CustomValidator ID="cvCategoriesTreeview" runat="server" ForeColor="Red" ClientValidationFunction="ClientValidate" ErrorMessage="Please select at least one category." Display="Dynamic" Enabled="False" resourcekey="cvCategoriesTreeview.ErrorMessage"
+											ValidationGroup="vgCalSettings" />
+									</td>
+								</tr>
+							</table>
+						</div>
 					</ContentTemplate>
 				</asp:UpdatePanel>
-				<asp:UpdateProgress ID="uppCategoriesfilter" runat="server" AssociatedUpdatePanelID="upCategoriesfilter" DisplayAfter="100" DynamicLayout="true">
-					<ProgressTemplate>
-						<img src="<%=ModulePath.Replace("EasyDNNNewsCalendar", "EasyDNNnews")%>images/settings/ajaxLoading.gif" /></ProgressTemplate>
-				</asp:UpdateProgress>
 				<asp:UpdatePanel ID="upAuthorsFilter" runat="server">
 					<ContentTemplate>
-						<table class="settings_table" cellpadding="0" cellspacing="0">
-							<tr class="second">
-								<td class="left">
-									<dnn:Label ID="lblFilterAuthors" runat="server" Text="Display articles from all authors in the portal:" HelpText="Display articles from all authors in the portal." ControlName="cbFilterCategories" HelpKey="lblFilterAuthors.HelpText" ResourceKey="lblFilterAuthors" />
-								</td>
-								<td>
-									<asp:CheckBox ID="cbDisplayAllAuthors" runat="server" AutoPostBack="True" OnCheckedChanged="cbDisplayAllAuthors_CheckedChanged" Checked="True" resourcekey="cbDisplayAllAuthorsResource1" />
-								</td>
-							</tr>
-							<tr>
-								<td class="left">
-								</td>
-								<td class="right">
-									<asp:TreeView ID="tvAuthorAndGroupSelection" runat="server" ForeColor="Black" ImageSet="Contacts" ShowCheckBoxes="All" NodeIndent="25" Visible="false">
-										<HoverNodeStyle Font-Underline="False" />
-										<NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
-										<ParentNodeStyle Font-Bold="True" ForeColor="#5555DD" />
-										<SelectedNodeStyle Font-Underline="True" HorizontalPadding="0px" VerticalPadding="0px" />
-									</asp:TreeView>
-									<asp:CustomValidator ID="cvAuthorsTreeview" runat="server" ForeColor="Red" ClientValidationFunction="ClientValidateAuthors" Display="Dynamic" Enabled="False" ErrorMessage="Please select at least one author." ValidationGroup="vgCalSettings" resourcekey="cvAuthorsTreeview" />
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2" style="text-align: center; color: Red;">
-									<asp:Label ID="lblCalendarInfo" runat="server" EnableViewState="False" resourcekey="lblCalendarInfoResource1" />
-								</td>
-							</tr>
-						</table>
+						<div class="edn_admin_progress_overlay_container">
+							<asp:UpdateProgress ID="uppAuthorsFilter" runat="server" AssociatedUpdatePanelID="upAuthorsFilter" DisplayAfter="100" DynamicLayout="true">
+								<ProgressTemplate>
+									<div class="edn_admin_progress_overlay">
+									</div>
+								</ProgressTemplate>
+							</asp:UpdateProgress>
+							<table class="settings_table" cellpadding="0" cellspacing="0">
+								<tr class="second">
+									<td class="left">
+										<dnn:Label ID="lblFilterAuthors" runat="server" Text="Display articles from all authors in the portal:" HelpText="Display articles from all authors in the portal." ControlName="cbFilterCategories" HelpKey="lblFilterAuthors.HelpText" ResourceKey="lblFilterAuthors" />
+									</td>
+									<td>
+										<asp:CheckBox ID="cbDisplayAllAuthors" runat="server" AutoPostBack="True" OnCheckedChanged="cbDisplayAllAuthors_CheckedChanged" Checked="True" resourcekey="cbDisplayAllAuthorsResource1" />
+									</td>
+								</tr>
+								<tr>
+									<td class="left"></td>
+									<td class="right">
+										<asp:TreeView ID="tvAuthorAndGroupSelection" runat="server" ForeColor="Black" ImageSet="Contacts" ShowCheckBoxes="All" NodeIndent="25" Visible="false">
+											<HoverNodeStyle Font-Underline="False" />
+											<NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
+											<ParentNodeStyle Font-Bold="True" ForeColor="#5555DD" />
+											<SelectedNodeStyle Font-Underline="True" HorizontalPadding="0px" VerticalPadding="0px" />
+										</asp:TreeView>
+										<asp:CustomValidator ID="cvAuthorsTreeview" runat="server" ForeColor="Red" ClientValidationFunction="ClientValidateAuthors" Display="Dynamic" Enabled="False" ErrorMessage="Please select at least one author." ValidationGroup="vgCalSettings" resourcekey="cvAuthorsTreeview" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2" style="text-align: center; color: Red;">
+										<asp:Label ID="lblCalendarInfo" runat="server" EnableViewState="False" resourcekey="lblCalendarInfoResource1" />
+									</td>
+								</tr>
+							</table>
+						</div>
 					</ContentTemplate>
 				</asp:UpdatePanel>
-				<asp:UpdateProgress ID="uppAuthorsFilter" runat="server" AssociatedUpdatePanelID="upAuthorsFilter" DisplayAfter="100" DynamicLayout="true">
-					<ProgressTemplate>
-						<img src="<%=ModulePath.Replace("EasyDNNNewsCalendar", "EasyDNNnews")%>images/settings/ajaxLoading.gif" /></ProgressTemplate>
-				</asp:UpdateProgress>
 				<asp:Panel ID="pnlLocalization" runat="server" Visible="false">
 					<h3 class="subsections">
 						<%=LocalizationText%></h3>
@@ -668,7 +685,8 @@
 		</div>
 		<div class="main_actions">
 			<p>
-				<asp:Label ID="lblMainMessage" runat="server" EnableViewState="false" /></p>
+				<asp:Label ID="lblMainMessage" runat="server" EnableViewState="false" />
+			</p>
 			<div class="buttons">
 				<asp:Button ID="btnSaveSettings" runat="server" OnClick="btnSaveSettings_Click" Text="Save" ValidationGroup="vgCalSettings" resourcekey="btnSaveSettingsResource1" />
 				<asp:Button ID="btnSaveClose" runat="server" OnClick="btnSaveClose_Click" Text="Save &amp; Close" ValidationGroup="vgCalSettings" resourcekey="btnSaveCloseResource1" />

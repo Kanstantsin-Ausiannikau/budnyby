@@ -1338,4 +1338,55 @@
   <data name="ControlTitle_addnewarticle.Text" xml:space="preserve">
     <value>Add new article</value>
   </data>
+  <data name="liApril.Text" xml:space="preserve">
+    <value>April</value>
+  </data>
+  <data name="liAugust.Text" xml:space="preserve">
+    <value>August</value>
+  </data>
+  <data name="liDecember.Text" xml:space="preserve">
+    <value>December</value>
+  </data>
+  <data name="liFebruary.Text" xml:space="preserve">
+    <value>February</value>
+  </data>
+  <data name="liFirst.Text" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="liFourth.Text" xml:space="preserve">
+    <value>Fourth</value>
+  </data>
+  <data name="liJanuary.Text" xml:space="preserve">
+    <value>January</value>
+  </data>
+  <data name="liJuly.Text" xml:space="preserve">
+    <value>July</value>
+  </data>
+  <data name="liJune.Text" xml:space="preserve">
+    <value>June</value>
+  </data>
+  <data name="liLast.Text" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="liMarch.Text" xml:space="preserve">
+    <value>March</value>
+  </data>
+  <data name="liMay.Text" xml:space="preserve">
+    <value>May</value>
+  </data>
+  <data name="liNovember.Text" xml:space="preserve">
+    <value>November</value>
+  </data>
+  <data name="liOctober.Text" xml:space="preserve">
+    <value>October</value>
+  </data>
+  <data name="liSecond.Text" xml:space="preserve">
+    <value>Second</value>
+  </data>
+  <data name="liSeptember.Text" xml:space="preserve">
+    <value>September</value>
+  </data>
+  <data name="liThird.Text" xml:space="preserve">
+    <value>Third</value>
+  </data>
 </root>

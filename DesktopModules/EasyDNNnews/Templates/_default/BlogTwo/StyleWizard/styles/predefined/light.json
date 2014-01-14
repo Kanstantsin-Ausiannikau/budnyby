@@ -4845,23 +4845,19 @@
           "backgroundColor": {
             "default": {
               "values": {
-                "color": "#151515"
+                "color": "#f6f6f6"
               }
             }
           },
           "border": {
             "default": {
-              "disabled": [
-                "width",
-                "style"
-              ],
               "values": {
                 "width": {
-                  "value": 2,
+                  "value": 1,
                   "unit": "px"
                 },
                 "style": "solid",
-                "color": "#000000"
+                "color": "#cdcdcd"
               }
             }
           },
@@ -4876,7 +4872,7 @@
               ],
               "values": {
                 "fontFamily": "Arial",
-                "color": "#ffffff",
+                "color": "#333333",
                 "size": {
                   "value": 14,
                   "unit": "px"
@@ -4903,7 +4899,7 @@
                 "weight"
               ],
               "values": {
-                "color": "#ffffff",
+                "color": "#333333",
                 "shadows": {
                   "show": false,
                   "list": []
@@ -4927,7 +4923,7 @@
               ],
               "values": {
                 "fontFamily": "Arial",
-                "color": "#ffffff",
+                "color": "#333333",
                 "size": {
                   "value": 12,
                   "unit": "px"
@@ -4954,7 +4950,7 @@
                 "weight"
               ],
               "values": {
-                "color": "#ffffff",
+                "color": "#333333",
                 "shadows": {
                   "show": false,
                   "list": []
@@ -5006,7 +5002,7 @@
               ],
               "values": {
                 "fontFamily": "Arial",
-                "color": "#f5f5f5",
+                "color": "#111111",
                 "size": {
                   "value": 12,
                   "unit": "px"
@@ -5036,7 +5032,7 @@
               ],
               "values": {
                 "fontFamily": "Arial",
-                "color": "#b2b2b2",
+                "color": "#333333",
                 "size": {
                   "value": 12,
                   "unit": "px"
@@ -5063,7 +5059,7 @@
                 "weight"
               ],
               "values": {
-                "color": "#b2b2b2",
+                "color": "#333333",
                 "shadows": {
                   "show": false,
                   "list": []
@@ -5082,14 +5078,14 @@
               "backgroundColor": {
                 "default": {
                   "values": {
-                    "color": "#010101"
+                    "color": "#fefefe"
                   }
                 }
               },
               "bottomborderColor": {
                 "default": {
                   "values": {
-                    "color": "#111111"
+                    "color": "#cdcdcd"
                   }
                 }
               },
@@ -5104,7 +5100,7 @@
                   ],
                   "values": {
                     "fontFamily": "Arial",
-                    "color": "#c9c9c9",
+                    "color": "#111111",
                     "size": {
                       "value": 12,
                       "unit": "px"
@@ -5125,7 +5121,7 @@
                     "shadows"
                   ],
                   "values": {
-                    "color": "#c9c9c9",
+                    "color": "#111111",
                     "shadows": {
                       "show": false,
                       "list": []

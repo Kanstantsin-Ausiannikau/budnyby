@@ -1983,11 +1983,11 @@ function initializeUploadify (inputId, galleryId) {
 																<div style="float: left;">
 																	<asp:Panel runat="server" ID="pnlRepeatedOn" Visible="true">
 																		<asp:DropDownList ID="ddlRepeatedOnEvery" runat="server">
-																			<asp:ListItem Value="1" Text="First" Selected="True" />
-																			<asp:ListItem Value="2" Text="Second" />
-																			<asp:ListItem Value="3" Text="Third" />
-																			<asp:ListItem Value="4" Text="Fourth" />
-																			<asp:ListItem Value="5" Text="Last" />
+																		<asp:ListItem resourcekey="liFirst" Value="1" Text="First" Selected="True" />
+																		<asp:ListItem resourcekey="liSecond" Value="2" Text="Second" />
+																		<asp:ListItem resourcekey="liThird" Value="3" Text="Third" />
+																		<asp:ListItem resourcekey="liFourth" Value="4" Text="Fourth" />
+																		<asp:ListItem resourcekey="liLast" Value="5" Text="Last" />
 																		</asp:DropDownList>
 																		<asp:DropDownList ID="ddlRepeatedOnDay" runat="server">
 																			<asp:ListItem Value="1" Text="Monday" />
@@ -2021,18 +2021,18 @@ function initializeUploadify (inputId, galleryId) {
 																</asp:RadioButtonList>
 																<asp:Panel runat="server" ID="pnlYearlyRecurringEventSimple" Visible="true">
 																	<asp:DropDownList ID="ddlSimpleMonthOfYear" runat="server">
-																		<asp:ListItem Value="1" Text="January" Selected="True" />
-																		<asp:ListItem Value="2" Text="February" />
-																		<asp:ListItem Value="3" Text="March" />
-																		<asp:ListItem Value="4" Text="April" />
-																		<asp:ListItem Value="5" Text="May" />
-																		<asp:ListItem Value="6" Text="June" />
-																		<asp:ListItem Value="7" Text="July" />
-																		<asp:ListItem Value="8" Text="August" />
-																		<asp:ListItem Value="9" Text="September" />
-																		<asp:ListItem Value="10" Text="October" />
-																		<asp:ListItem Value="11" Text="November" />
-																		<asp:ListItem Value="12" Text="December" />
+																	<asp:ListItem resourcekey="liJanuary" Value="1" Text="January" Selected="True" />
+																	<asp:ListItem resourcekey="liFebruary" Value="2" Text="February" />
+																	<asp:ListItem resourcekey="liMarch" Value="3" Text="March" />
+																	<asp:ListItem resourcekey="liApril" Value="4" Text="April" />
+																	<asp:ListItem resourcekey="liMay" Value="5" Text="May" />
+																	<asp:ListItem resourcekey="liJune" Value="6" Text="June" />
+																	<asp:ListItem resourcekey="liJuly" Value="7" Text="July" />
+																	<asp:ListItem resourcekey="liAugust" Value="8" Text="August" />
+																	<asp:ListItem resourcekey="liSeptember" Value="9" Text="September" />
+																	<asp:ListItem resourcekey="liOctober" Value="10" Text="October" />
+																	<asp:ListItem resourcekey="liNovember" Value="11" Text="November" />
+																	<asp:ListItem resourcekey="liDecember" Value="12" Text="December" />
 																	</asp:DropDownList>
 																	<asp:TextBox ID="tbxYearlyDayOfMonth" runat="server" Width="30px" Text="1" />
 																	<asp:RequiredFieldValidator ID="rfvDayOfMonth" runat="server" ControlToValidate="tbxYearlyDayOfMonth" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Day required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
@@ -2041,11 +2041,11 @@ function initializeUploadify (inputId, galleryId) {
 																</asp:Panel>
 																<asp:Panel runat="server" ID="pnlYearlyRecurringEventComplex" Visible="false">
 																	<asp:DropDownList ID="ddlYearlyRepeatedOnEvery" runat="server">
-																		<asp:ListItem Value="1" Text="First" Selected="True" />
-																		<asp:ListItem Value="2" Text="Second" />
-																		<asp:ListItem Value="3" Text="Third" />
-																		<asp:ListItem Value="4" Text="Fourth" />
-																		<asp:ListItem Value="5" Text="Last" />
+																		<asp:ListItem resourcekey="liFirst" Value="1" Text="First" Selected="True" />
+																		<asp:ListItem resourcekey="liSecond" Value="2" Text="Second" />
+																		<asp:ListItem resourcekey="liThird" Value="3" Text="Third" />
+																		<asp:ListItem resourcekey="liFourth" Value="4" Text="Fourth" />
+																		<asp:ListItem resourcekey="liLast" Value="5" Text="Last" />
 																	</asp:DropDownList>
 																	<asp:DropDownList ID="ddlYearlyRepeatedOnDay" runat="server">
 																		<asp:ListItem Value="1" Text="Monday" />
@@ -2058,18 +2058,18 @@ function initializeUploadify (inputId, galleryId) {
 																	</asp:DropDownList>
 																	of
 																<asp:DropDownList ID="ddlComplexMonthOfYear" runat="server">
-																	<asp:ListItem Value="1" Text="January" Selected="True" />
-																	<asp:ListItem Value="2" Text="February" />
-																	<asp:ListItem Value="3" Text="March" />
-																	<asp:ListItem Value="4" Text="April" />
-																	<asp:ListItem Value="5" Text="May" />
-																	<asp:ListItem Value="6" Text="June" />
-																	<asp:ListItem Value="7" Text="July" />
-																	<asp:ListItem Value="8" Text="August" />
-																	<asp:ListItem Value="9" Text="September" />
-																	<asp:ListItem Value="10" Text="October" />
-																	<asp:ListItem Value="11" Text="November" />
-																	<asp:ListItem Value="12" Text="December" />
+																	<asp:ListItem resourcekey="liJanuary" Value="1" Text="January" Selected="True" />
+																	<asp:ListItem resourcekey="liFebruary" Value="2" Text="February" />
+																	<asp:ListItem resourcekey="liMarch" Value="3" Text="March" />
+																	<asp:ListItem resourcekey="liApril" Value="4" Text="April" />
+																	<asp:ListItem resourcekey="liMay" Value="5" Text="May" />
+																	<asp:ListItem resourcekey="liJune" Value="6" Text="June" />
+																	<asp:ListItem resourcekey="liJuly" Value="7" Text="July" />
+																	<asp:ListItem resourcekey="liAugust" Value="8" Text="August" />
+																	<asp:ListItem resourcekey="liSeptember" Value="9" Text="September" />
+																	<asp:ListItem resourcekey="liOctober" Value="10" Text="October" />
+																	<asp:ListItem resourcekey="liNovember" Value="11" Text="November" />
+																	<asp:ListItem resourcekey="liDecember" Value="12" Text="December" />
 																</asp:DropDownList>
 																</asp:Panel>
 															</asp:Panel>

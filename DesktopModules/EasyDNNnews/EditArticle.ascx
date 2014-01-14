@@ -3,7 +3,8 @@
 <%@ Register TagPrefix="dnn" TagName="TextEditor" Src="~/controls/TextEditor.ascx" %>
 <%@ Register TagPrefix="Portal" TagName="URL" Src="~/controls/URLControl.ascx" %>
 <style type="text/css">
-	.styleDisplayNone {
+	.styleDisplayNone
+	{
 		display: none;
 	}
 </style>
@@ -18,7 +19,8 @@
 		<div id="EDNadmin">
 			<div class="module_action_title_box">
 				<asp:PlaceHolder ID="phAdminNavigation" runat="server"></asp:PlaceHolder>
-				<h1><%=EditArticleTitle%></h1>
+				<h1>
+					<%=EditArticleTitle%></h1>
 			</div>
 			<asp:Panel ID="pnlImagelocalization" CssClass="main_content" runat="server" Visible="false">
 				<asp:HiddenField ID="hfImageLocaPicID" runat="server" />
@@ -117,14 +119,16 @@
 					<asp:TextBox ID="tbCLArticleSubtitle" runat="server" CssClass="text" resourcekey="tbCLArticleSubtitleResource1" />
 				</div>
 				<div class="collapsible_box">
-					<h1 class="collapsible_box_title"><%=SEOsettings%></h1>
+					<h1 class="collapsible_box_title">
+						<%=SEOsettings%></h1>
 					<div id="collapsible_CLseo_box_content" class="content">
 						<div class="text_input_set">
 							<div>
 								<dnn:Label ID="lblCLArticleURL" runat="server" ControlName="tbxCLArticleURL" HelpKey="lblArticleURL.HelpText" HelpText="Article URL" ResourceKey="lblArticleURL" Text="Article URL" />
 							</div>
 							<asp:TextBox ID="tbxCLArticleURL" runat="server" CssClass="text narrow left" resourcekey="tbArticleURLResource1" />
-							<a id="EDN_btnCLReGenerateURL" class="reset_url_btn main_action_button grey" href="#"><span><%=ResetarticleURL%></span></a>
+							<a id="EDN_btnCLReGenerateURL" class="reset_url_btn main_action_button grey" href="#"><span>
+								<%=ResetarticleURL%></span></a>
 						</div>
 						<div class="text_input_set">
 							<label>
@@ -228,15 +232,16 @@
 								<div class="edn_admin_progress_overlay_container">
 									<asp:UpdateProgress ID="uppCategorySelection" runat="server" AssociatedUpdatePanelID="upCategorySelection" DisplayAfter="100" DynamicLayout="true">
 										<ProgressTemplate>
-											<div class="edn_admin_progress_overlay"></div>
+											<div class="edn_admin_progress_overlay">
+											</div>
 										</ProgressTemplate>
 									</asp:UpdateProgress>
 									<asp:Label ID="lblCategoryPermissionsInfo" runat="server" ForeColor="Red" Visible="false" resourcekey="lblCategoryPermissionsInfoResource1" />
 									<asp:Label ID="lblCategorySelectError" runat="server" ForeColor="Red" Text="Please select category." Visible="false" resourcekey="lblCategorySelectErrorResource1" />
 									<p class="expand_collapse_container">
 										<asp:LinkButton ID="lblCategorySelectionExpandAll" runat="server" Text="Expand all" OnClick="lblCategorySelectionExpandAll_Click" resourcekey="lblCategorySelectionExpandAll" />
-										| 
-									<asp:LinkButton ID="lblCategorySelectionCollapseAll" runat="server" Text="Collapse all" OnClick="lblCategorySelectionCollapseAll_Click" resourcekey="lblCategorySelectionCollapseAll" />
+										|
+										<asp:LinkButton ID="lblCategorySelectionCollapseAll" runat="server" Text="Collapse all" OnClick="lblCategorySelectionCollapseAll_Click" resourcekey="lblCategorySelectionCollapseAll" />
 									</p>
 									<asp:TreeView ID="tvCatAndSubCat" runat="server" EnableViewState="true" ForeColor="Black" NodeWrap="True" ShowCheckBoxes="All" ShowLines="True" CssClass="category_tree_view" />
 								</div>
@@ -289,7 +294,8 @@
 						<div class="edn_admin_progress_overlay_container">
 							<asp:UpdateProgress ID="uppArticleTags" runat="server" AssociatedUpdatePanelID="upArticleTags" DisplayAfter="100" DynamicLayout="true">
 								<ProgressTemplate>
-									<div class="edn_admin_progress_overlay"></div>
+									<div class="edn_admin_progress_overlay">
+									</div>
 								</ProgressTemplate>
 							</asp:UpdateProgress>
 							<div class="text_input_set">
@@ -686,17 +692,16 @@
 												</div>
 											</div>
 											<div id="galleryFineUploaderContainer" class="EDS_simpleFineUploader galleryFineUploader" visible="false" runat="server">
-												<div class="uploader"></div>
+												<div class="uploader">
+												</div>
 												<div class="uploadControls">
 													<div class="actions">
 														<span class="action fileSelection">
 															<asp:Label ID="galleryFineUploaderSelectFiles" runat="server" resourcekey="fineUploaderSelectFiles" Text="Select images" />
 															<span class="dnnInputFileWrapper">
-																<input type="file" value="" multiple="multiple" /></span>
-														</span>
-														<span class="action upload">
-															<asp:Label ID="galleryFineUploaderStartUpload" runat="server" resourcekey="fineUploaderStartUpload" Text="Start upload" />
-														</span>
+																<input type="file" value="" multiple="multiple" /></span> </span><span class="action upload">
+																	<asp:Label ID="galleryFineUploaderStartUpload" runat="server" resourcekey="fineUploaderStartUpload" Text="Start upload" />
+																</span>
 													</div>
 													<div class="dndContainer">
 														<p>
@@ -705,7 +710,8 @@
 													</div>
 												</div>
 												<div class="uploadDetails">
-													<ol class="fileUploadList"></ol>
+													<ol class="fileUploadList">
+													</ol>
 												</div>
 											</div>
 											<div class="add_video_by_url">
@@ -752,17 +758,16 @@
 												</div>
 											</div>
 											<div id="articleFineUploaderContainer" class="EDS_simpleFineUploader galleryFineUploader" visible="false" runat="server">
-												<div class="uploader"></div>
+												<div class="uploader">
+												</div>
 												<div class="uploadControls">
 													<div class="actions">
 														<span class="action fileSelection">
 															<asp:Label ID="lblArticleFineUploaderSelectFiles" runat="server" resourcekey="fineUploaderSelectFiles" Text="Select images" />
 															<span class="dnnInputFileWrapper">
-																<input type="file" value="" multiple="multiple" /></span>
-														</span>
-														<span class="action upload">
-															<asp:Label ID="lblArticleFineUploaderStartUpload" runat="server" resourcekey="fineUploaderStartUpload" Text="Start upload" />
-														</span>
+																<input type="file" value="" multiple="multiple" /></span> </span><span class="action upload">
+																	<asp:Label ID="lblArticleFineUploaderStartUpload" runat="server" resourcekey="fineUploaderStartUpload" Text="Start upload" />
+																</span>
 													</div>
 													<div class="dndContainer">
 														<p>
@@ -771,7 +776,8 @@
 													</div>
 												</div>
 												<div class="uploadDetails">
-													<ol class="fileUploadList"></ol>
+													<ol class="fileUploadList">
+													</ol>
 												</div>
 											</div>
 											<div class="add_video_by_url">
@@ -798,17 +804,16 @@
 											</div>
 										</div>
 										<div id="sharedFineUploaderContainer" class="EDS_simpleFineUploader galleryFineUploader" visible="false" runat="server">
-											<div class="uploader"></div>
+											<div class="uploader">
+											</div>
 											<div class="uploadControls">
 												<div class="actions">
 													<span class="action fileSelection">
 														<asp:Label ID="sharedFineUploaderSelectFiles" runat="server" resourcekey="fineUploaderSelectFiles" Text="Select images" />
 														<span class="dnnInputFileWrapper">
-															<input type="file" value="" multiple="multiple" /></span>
-													</span>
-													<span class="action upload">
-														<asp:Label ID="sharedFineUploaderStartUpload" runat="server" resourcekey="fineUploaderStartUpload" Text="Start upload" />
-													</span>
+															<input type="file" value="" multiple="multiple" /></span> </span><span class="action upload">
+																<asp:Label ID="sharedFineUploaderStartUpload" runat="server" resourcekey="fineUploaderStartUpload" Text="Start upload" />
+															</span>
 												</div>
 												<div class="dndContainer">
 													<p>
@@ -817,7 +822,8 @@
 												</div>
 											</div>
 											<div class="uploadDetails">
-												<ol class="fileUploadList"></ol>
+												<ol class="fileUploadList">
+												</ol>
 											</div>
 										</div>
 										<div class="add_video_by_url">
@@ -865,14 +871,16 @@
 																<td class="header_field action">
 																	<%=Action %>
 																</td>
-																<td class="header_field image"></td>
+																<td class="header_field image">
+																</td>
 																<td class="header_field title">
 																	<%=Title%>
 																</td>
 																<td class="header_field description">
 																	<%=Description %>
 																</td>
-																<td class="header_field"></td>
+																<td class="header_field">
+																</td>
 															</tr>
 														</table>
 													</HeaderTemplate>
@@ -980,7 +988,9 @@
 					</ContentTemplate>
 				</asp:UpdatePanel>
 				<asp:Panel ID="pnlDocumentUpload" CssClass="section_box white_border_1 dark_grey" runat="server">
-					<h1 class="section_box_title"><span><%=DOCUMENTSincluded%></span></h1>
+					<h1 class="section_box_title">
+						<span>
+							<%=DOCUMENTSincluded%></span></h1>
 					<asp:RadioButtonList ID="rblAddDocumentType" CssClass="radio_button_list" runat="server" RepeatDirection="Horizontal" onclick="toogleDocumentPanels()">
 						<asp:ListItem Value="0" Text="Upload new documents" Selected="True" resourcekey="rblAddDocumentType-newDocument" />
 						<asp:ListItem Value="1" Text="Add existing document" resourcekey="rblAddDocumentType-existingDocument" />
@@ -989,18 +999,17 @@
 						<div class="rounded3dBox">
 							<asp:Panel ID="pnlAddDocument" runat="server">
 								<div id="divAddDocumentFineUploader" runat="server" visible="false" class="EDS_simpleFineUploader documents_fine_uploader">
-									<div class="uploader"></div>
+									<div class="uploader">
+									</div>
 									<div class="uploadControls">
 										<div class="actions">
 											<span class="action fileSelection rounded_button gradient icon document_in_folder">
 												<asp:Label ID="lblDocumentFineUploaderSelect" runat="server" resourcekey="fineUploaderSelectDocuments" Text="Select documents" />
 												<span class="dnnInputFileWrapper">
 													<input type="file" value="" multiple="multiple" />
+												</span></span><span class="action upload rounded_button gradient icon orange_plus">
+													<asp:Label ID="lblDocumentFineUploaderStart" runat="server" resourcekey="fineUploaderUpload" Text="Upload" />
 												</span>
-											</span>
-											<span class="action upload rounded_button gradient icon orange_plus">
-												<asp:Label ID="lblDocumentFineUploaderStart" runat="server" resourcekey="fineUploaderUpload" Text="Upload" />
-											</span>
 										</div>
 										<div class="dndContainer">
 											<p>
@@ -1009,7 +1018,8 @@
 										</div>
 									</div>
 									<div class="uploadDetails">
-										<ol class="fileUploadList"></ol>
+										<ol class="fileUploadList">
+										</ol>
 									</div>
 								</div>
 								<div id="divAddDocumentStandardUploader" runat="server" visible="true" class="documents_standard_uploader">
@@ -1024,26 +1034,31 @@
 								<div class="messages">
 									<asp:Label runat="server" ID="lblAddDocumentInfo" EnableViewState="false" Visible="false" CssClass="error" />
 									<p>
-										<asp:RequiredFieldValidator ID="rfvExistingDocumentID" resourcekey="rfvExistingDocumentID.ErrorMessage" runat="server" ControlToValidate="tbxExistingDocumentID" ErrorMessage="Document ID must be set" ValidationGroup="vgDocumentLinks" Display="Dynamic" CssClass="error" />
+										<asp:RequiredFieldValidator ID="rfvExistingDocumentID" resourcekey="rfvExistingDocumentID.ErrorMessage" runat="server" ControlToValidate="tbxExistingDocumentID" ErrorMessage="Document ID must be set" ValidationGroup="vgDocumentLinks" Display="Dynamic"
+											CssClass="error" />
 									</p>
 									<p>
-										<asp:CompareValidator ID="cvExistingDocumentID" resourcekey="cvExistingDocumentID.ErrorMessage" runat="server" ControlToValidate="tbxExistingDocumentID" ErrorMessage="Document ID must be an integer" Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgDocumentLinks" Display="Dynamic" CssClass="error" />
+										<asp:CompareValidator ID="cvExistingDocumentID" resourcekey="cvExistingDocumentID.ErrorMessage" runat="server" ControlToValidate="tbxExistingDocumentID" ErrorMessage="Document ID must be an integer" Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgDocumentLinks"
+											Display="Dynamic" CssClass="error" />
 									</p>
 								</div>
 								<div class="search_by_document_title">
-									<p><%=Searchdocuments%></p>
+									<p>
+										<%=Searchdocuments%></p>
 									<asp:TextBox ID="tbxDocumentText" runat="server" AutoCompleteType="Search" CausesValidation="False" EnableViewState="false" CssClass="rounded_text_box" />
 								</div>
 								<div class="search_by_document_id">
-									<p><%=Documentid%></p>
+									<p>
+										<%=Documentid%></p>
 									<asp:TextBox ID="tbxExistingDocumentID" runat="server" CausesValidation="False" EnableViewState="false" CssClass="rounded_text_box grey" />
 								</div>
 								<asp:LinkButton ID="btnAddExistingDocument" runat="server" OnClick="lbAddExistingDocument_Click" ValidationGroup="vgDocumentLinks" CssClass="add_button rounded_button gradient icon orange_plus"><span><%=Add%></span></asp:LinkButton>
-								<div class="clear_float"></div>
+								<div class="clear_float">
+								</div>
 							</asp:Panel>
 						</div>
-						<asp:GridView ID="gvArticleDocuments" runat="server" AutoGenerateColumns="false" CellPadding="0" CssClass="grid_view_table" DataKeyNames="DocEntryID" EnableModelValidation="True" GridLines="None" OnRowCommand="gvArticleDocuments_RowCommand"
-							OnRowEditing="gvArticleDocuments_RowEditing" OnRowCancelingEdit="gvArticleDocuments_RowCancelingEdit" OnRowUpdating="gvArticleDocuments_RowUpdating" OnRowUpdated="gvArticleDocuments_RowUpdated" OnRowDeleting="gvArticleDocuments_RowDeleting" OnRowDataBound="gvArticleDocuments_RowDataBound" OnPreRender="gvArticleDocuments_PreRender">
+						<asp:GridView ID="gvArticleDocuments" runat="server" AutoGenerateColumns="false" CellPadding="0" CssClass="grid_view_table" DataKeyNames="DocEntryID" EnableModelValidation="True" GridLines="None" OnRowCommand="gvArticleDocuments_RowCommand" OnRowEditing="gvArticleDocuments_RowEditing"
+							OnRowCancelingEdit="gvArticleDocuments_RowCancelingEdit" OnRowUpdating="gvArticleDocuments_RowUpdating" OnRowUpdated="gvArticleDocuments_RowUpdated" OnRowDeleting="gvArticleDocuments_RowDeleting" OnRowDataBound="gvArticleDocuments_RowDataBound" OnPreRender="gvArticleDocuments_PreRender">
 							<AlternatingRowStyle CssClass="second" />
 							<Columns>
 								<asp:TemplateField HeaderText="Actions">
@@ -1078,7 +1093,7 @@
 										</p>
 										<p>
 											<asp:Label ID="lblDateUploaded" runat="server" Text='<%# Convert.ToDateTime(Eval("DateUploaded")).ToShortDateString() %>' />
-											- 
+											-
 											<asp:Label ID="lblDocUploadAuthor" runat="server" Text='<%#Eval("DisplayName")%>' />
 										</p>
 										<p>
@@ -1154,11 +1169,14 @@
 							<div class="edn_admin_progress_overlay_container">
 								<asp:UpdateProgress ID="uppLinksIncluded" runat="server" AssociatedUpdatePanelID="upLinksIncluded" DisplayAfter="100" DynamicLayout="true">
 									<ProgressTemplate>
-										<div class="edn_admin_progress_overlay"></div>
+										<div class="edn_admin_progress_overlay">
+										</div>
 									</ProgressTemplate>
 								</asp:UpdateProgress>
 								<asp:PlaceHolder ID="phincludeAutoComplete" runat="server" />
-								<h1 class="section_box_title"><span><%=Links%></span></h1>
+								<h1 class="section_box_title">
+									<span>
+										<%=Links%></span></h1>
 								<asp:RadioButtonList ID="rblCreateLinkType" CssClass="radio_button_list" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblCreateLinkType_SelectedIndexChanged">
 									<asp:ListItem Value="0" resourcekey="liCustomlink" Text="External link" Selected="True" />
 									<asp:ListItem Value="1" resourcekey="liPage" Text="Page link" />
@@ -1170,8 +1188,10 @@
 										<asp:Label ID="lblLinksInfo" runat="server" EnableViewState="false" />
 										<asp:RequiredFieldValidator ID="rfvtbxCustomLink" resourcekey="rfvtbxCustomLink.ErrorMessage" runat="server" ControlToValidate="tbxCustomLink" ErrorMessage="Please enter a URL." ValidationGroup="vgArticleLinks" Display="Dynamic" Visible="true" />
 										<asp:RequiredFieldValidator ID="rfvNewsArticleID" resourcekey="rfvNewsArticleID.ErrorMessage" runat="server" ControlToValidate="tbxExistingArticleID" ErrorMessage="Please select a news article." ValidationGroup="vgArticleLinks" Display="Dynamic" Visible="false" />
-										<asp:RequiredFieldValidator ID="rfvExistingLinksID" resourcekey="rfvExistingLinksID.ErrorMessage" runat="server" ControlToValidate="tbxExistingLinksID" ErrorMessage="Please specify an existing document ID." ValidationGroup="vgArticleLinks" Display="Dynamic" Visible="false" />
-										<asp:CompareValidator ID="cvExistingLinksID" runat="server" resourcekey="cvExistingLinksID.ErrorMessage" ControlToValidate="tbxExistingLinksID" ErrorMessage="The existing link ID must be an integer." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgArticleLinks" Display="Dynamic" Visible="false" />
+										<asp:RequiredFieldValidator ID="rfvExistingLinksID" resourcekey="rfvExistingLinksID.ErrorMessage" runat="server" ControlToValidate="tbxExistingLinksID" ErrorMessage="Please specify an existing document ID." ValidationGroup="vgArticleLinks" Display="Dynamic"
+											Visible="false" />
+										<asp:CompareValidator ID="cvExistingLinksID" runat="server" resourcekey="cvExistingLinksID.ErrorMessage" ControlToValidate="tbxExistingLinksID" ErrorMessage="The existing link ID must be an integer." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgArticleLinks"
+											Display="Dynamic" Visible="false" />
 									</p>
 									<div class="rounded3dBox">
 										<div class="new_link_settings">
@@ -1196,7 +1216,8 @@
 													<asp:Label ID="lblLinkDescription" resourcekey="lblLinkDescription" AssociatedControlID="tbxLinkDescription" runat="server" Text="Link description:" />
 													<asp:TextBox ID="tbxLinkDescription" runat="server" />
 												</div>
-												<div style="clear: both;"></div>
+												<div style="clear: both;">
+												</div>
 											</asp:Panel>
 											<asp:Panel ID="pnlLinksAddExistingLink" runat="server" Visible="false" CssClass="existing_link">
 												<div class="field">
@@ -1207,14 +1228,17 @@
 													<asp:Label ID="lblExistingLinksID" resourcekey="lblExistingLinksID" AssociatedControlID="tbxExistingLinksID" runat="server" Text="Link id:" />
 													<asp:TextBox ID="tbxExistingLinksID" runat="server" CausesValidation="true" EnableViewState="false" />
 												</div>
-												<div style="clear: both;"></div>
+												<div style="clear: both;">
+												</div>
 											</asp:Panel>
 										</div>
 										<asp:LinkButton ID="lbAddLink" runat="server" ValidationGroup="vgArticleLinks" OnClick="lbAddLink_Click" CausesValidation="true" CssClass="rounded_button gradient olive_green icon orange_plus"><span><%=Add%></span></asp:LinkButton>
-										<div style="clear: both;"></div>
+										<div style="clear: both;">
+										</div>
 									</div>
 									<asp:GridView ID="gvArticleLinks" runat="server" AutoGenerateColumns="false" CellPadding="0" CssClass="grid_view_table olive_green" DataKeyNames="LinkID" EnableModelValidation="True" GridLines="None" OnRowCancelingEdit="gvArticleLinks_RowCancelingEdit"
-										OnRowCommand="gvArticleLinks_RowCommand" OnRowEditing="gvArticleLinks_RowEditing" OnRowUpdating="gvArticleLinks_RowUpdating" OnRowUpdated="gvArticleLinks_RowUpdated" OnRowDeleting="gvArticleLinks_RowDeleting" OnRowDataBound="gvArticleLinks_RowDataBound" OnPreRender="gvArticleLinks_PreRender">
+										OnRowCommand="gvArticleLinks_RowCommand" OnRowEditing="gvArticleLinks_RowEditing" OnRowUpdating="gvArticleLinks_RowUpdating" OnRowUpdated="gvArticleLinks_RowUpdated" OnRowDeleting="gvArticleLinks_RowDeleting" OnRowDataBound="gvArticleLinks_RowDataBound"
+										OnPreRender="gvArticleLinks_PreRender">
 										<Columns>
 											<asp:TemplateField HeaderText="Actions">
 												<EditItemTemplate>
@@ -1244,10 +1268,12 @@
 											<asp:TemplateField HeaderText="Link">
 												<EditItemTemplate>
 													<asp:TextBox ID="tbxLink" runat="server" Text='<%# GetGeneratedLinkForEdit(Eval("Type"),Eval("URL"),Eval("Protocol"),Eval("ArticleID"),Eval("TabID"),Eval("ExistingArticleData")) %>' Visible="false" CssClass="light" />
-													<Portal:URL ID="urlLinksIncluded" runat="server" Width="250" ShowNewWindow="false" ShowUsers="false" ShowFiles="false" ShowLog="false" ShowSecure="false" ShowTabs="false" ShowTrack="false" ShowUpLoad="false" ShowUrls="false" ShowDatabase="false" UrlType="U" Visible="false" />
+													<Portal:URL ID="urlLinksIncluded" runat="server" Width="250" ShowNewWindow="false" ShowUsers="false" ShowFiles="false" ShowLog="false" ShowSecure="false" ShowTabs="false" ShowTrack="false" ShowUpLoad="false" ShowUrls="false" ShowDatabase="false" UrlType="U"
+														Visible="false" />
 												</EditItemTemplate>
 												<ItemTemplate>
-													<p class="link <%# PrintAlreadyInUseClass((bool) Eval("InUseByOther")) %>"><%# GetGeneratedLink(Eval("Type"),Eval("URL"),Eval("Protocol"),Eval("ArticleID"),Eval("TabID"),Eval("ExistingArticleData")) %></p>
+													<p class="link <%# PrintAlreadyInUseClass((bool) Eval("InUseByOther")) %>">
+														<%# GetGeneratedLink(Eval("Type"),Eval("URL"),Eval("Protocol"),Eval("ArticleID"),Eval("TabID"),Eval("ExistingArticleData")) %></p>
 												</ItemTemplate>
 												<HeaderStyle CssClass="link" />
 												<ItemStyle CssClass="link" />
@@ -1335,7 +1361,6 @@
 						</div>
 					</div>
 				</asp:Panel>
-
 				<div id="divAdvancedSettings" runat="server" class="collapsible_box advanced_settings">
 					<h1 class="collapsible_box_title">
 						<%=AdvancedSettings %></h1>
@@ -1345,7 +1370,8 @@
 								<div class="edn_admin_progress_overlay_container">
 									<asp:UpdateProgress ID="uppAdvancedSettings" runat="server" AssociatedUpdatePanelID="upAdvancedSettings" DisplayAfter="100" DynamicLayout="true">
 										<ProgressTemplate>
-											<div class="edn_admin_progress_overlay"></div>
+											<div class="edn_admin_progress_overlay">
+											</div>
 										</ProgressTemplate>
 									</asp:UpdateProgress>
 									<asp:Panel ID="pnlChangeOwner" runat="server" Visible="false">
@@ -1440,7 +1466,8 @@
 							<div class="edn_admin_progress_overlay_container">
 								<asp:UpdateProgress ID="uppEventManager" runat="server" AssociatedUpdatePanelID="upEventManager" DisplayAfter="100" DynamicLayout="true">
 									<ProgressTemplate>
-										<div class="edn_admin_progress_overlay"></div>
+										<div class="edn_admin_progress_overlay">
+										</div>
 									</ProgressTemplate>
 								</asp:UpdateProgress>
 								<h1 class="section_box_title">
@@ -1515,158 +1542,165 @@
 													</td>
 													<td class="right">
 														<asp:RadioButtonList ID="rblRecurringEventType" runat="server" OnSelectedIndexChanged="rblRecurringEventType_SelectedIndexChanged" AutoPostBack="true" RepeatDirection="Horizontal">
-															<asp:ListItem Value="0" Text="Daily" Selected="True" />
-															<asp:ListItem Value="1" Text="Weekly" />
-															<asp:ListItem Value="2" Text="Monthly" />
-															<asp:ListItem Value="3" Text="Yearly" />
+															<asp:ListItem resourcekey="liDaily" Value="0" Text="Daily" Selected="True" />
+															<asp:ListItem resourcekey="liWeekly" Value="1" Text="Weekly" />
+															<asp:ListItem resourcekey="liMonthly" Value="2" Text="Monthly" />
+															<asp:ListItem resourcekey="liYearly" Value="3" Text="Yearly" />
 														</asp:RadioButtonList>
 													</td>
 												</tr>
 												<tr>
-													<td class="left"></td>
+													<td class="left">
+													</td>
 													<td class="right">
 														<asp:Panel runat="server" ID="pnlDailyRecurringEvent" Visible="false">
-															<asp:Label ID="Label1" runat="server" Text="Every:" />
+															<asp:Label ID="lblRecurringEvery" resourcekey="lblRecurringEvery" runat="server" Text="Every:" />
 															<asp:TextBox ID="tbxDailyRecurringEventDays" runat="server" Width="30px" Text="2" />
-															<asp:Label ID="Label2" runat="server" Text="day(s)" />
-															<asp:RequiredFieldValidator ID="rfvDailyRecurringEventDays" runat="server" ControlToValidate="tbxDailyRecurringEventDays" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Days required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-															<asp:CompareValidator ID="cvDailyRecurringEventDays" runat="server" ControlToValidate="tbxDailyRecurringEventDays" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+															<asp:Label ID="lblRecurringDays" resourcekey="lblRecurringDays" runat="server" Text="day(s)" />
+															<asp:RequiredFieldValidator ID="rfvDailyRecurringEventDays" runat="server" ControlToValidate="tbxDailyRecurringEventDays" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Days required." resourcekey="rfvDailyRecurringEventDays.ErrorMessage" ValidationGroup="vgEditArticle"
+																SetFocusOnError="True" />
+															<asp:CompareValidator ID="cvDailyRecurringEventDays" runat="server" ControlToValidate="tbxDailyRecurringEventDays" Display="Dynamic" resourcekey="cvDailyRecurringEventDays.ErrorMessage" ErrorMessage="Please enter number only." Operator="DataTypeCheck"
+																Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
 														</asp:Panel>
 														<asp:Panel runat="server" ID="pnlWeeklyRecurringEvent" Visible="false">
-															<asp:Label ID="Label3" runat="server" Text="Recur every:" />
+															<asp:Label ID="lblWeeklyRecurringEvery" resourcekey="lblWeeklyRecurringEvery" runat="server" Text="Recur every:" />
 															<asp:TextBox ID="tbxWeeklyRecurringEventWeeks" runat="server" Width="30px" Text="1" />
-															<asp:RequiredFieldValidator ID="rfvWeeklyRecurringEventWeeks" runat="server" ControlToValidate="tbxWeeklyRecurringEventWeeks" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Week required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-															<asp:CompareValidator ID="cvWeeklyRecurringEventWeeks" runat="server" ControlToValidate="tbxWeeklyRecurringEventWeeks" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-															<asp:Label ID="Label5" runat="server" Text="weeks(s) on" />
+															<asp:RequiredFieldValidator ID="rfvWeeklyRecurringEventWeeks" runat="server" resourcekey="rfvWeeklyRecurringEventWeeks.ErrorMessage" ControlToValidate="tbxWeeklyRecurringEventWeeks" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Week required."
+																ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+															<asp:CompareValidator ID="cvWeeklyRecurringEventWeeks" runat="server" resourcekey="cvWeeklyRecurringEventWeeks.ErrorMessage" ControlToValidate="tbxWeeklyRecurringEventWeeks" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck"
+																Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+															<asp:Label ID="lblRecurringWeeks" resourcekey="lblRecurringWeeks" runat="server" Text="weeks(s) on" />
 															<asp:CheckBoxList ID="cblWeeklyRecurringEvent" runat="server">
-																<asp:ListItem Value="1" Text="Monday" />
-																<asp:ListItem Value="2" Text="Thuesday" />
-																<asp:ListItem Value="3" Text="Wednesday" />
-																<asp:ListItem Value="4" Text="Thursday" />
-																<asp:ListItem Value="5" Text="Friday" />
-																<asp:ListItem Value="6" Text="Saturday" />
-																<asp:ListItem Value="7" Text="Sunday" />
+																<asp:ListItem resourcekey="liMonday" Value="1" Text="Monday" />
+																<asp:ListItem resourcekey="liThuesday" Value="2" Text="Thuesday" />
+																<asp:ListItem resourcekey="liWednesday" Value="3" Text="Wednesday" />
+																<asp:ListItem resourcekey="liThursday" Value="4" Text="Thursday" />
+																<asp:ListItem resourcekey="liFriday" Value="5" Text="Friday" />
+																<asp:ListItem resourcekey="liSaturday" Value="6" Text="Saturday" />
+																<asp:ListItem resourcekey="liSunday" Value="7" Text="Sunday" />
 															</asp:CheckBoxList>
 														</asp:Panel>
 														<asp:Panel runat="server" ID="pnlMonthlyRecurringEvent" Visible="false">
 															<asp:RadioButtonList ID="rblMonthlyRecurringEventType" RepeatDirection="Horizontal" runat="server" OnSelectedIndexChanged="rblMonthlyRecurringEventType_SelectedIndexChanged" AutoPostBack="true">
-																<asp:ListItem Value="0" Text="Repeated on:" Selected="True" />
-																<asp:ListItem Value="1" Text="Repeated on day:" />
+																<asp:ListItem resourcekey="liRepeatedon" Value="0" Text="Repeated on:" Selected="True" />
+																<asp:ListItem resourcekey="liRepeatedonday" Value="1" Text="Repeated on day:" />
 															</asp:RadioButtonList>
 															<div style="float: left;">
 																<asp:Panel runat="server" ID="pnlRepeatedOn" Visible="true">
 																	<asp:DropDownList ID="ddlRepeatedOnEvery" runat="server">
-																		<asp:ListItem Value="1" Text="First" Selected="True" />
-																		<asp:ListItem Value="2" Text="Second" />
-																		<asp:ListItem Value="3" Text="Third" />
-																		<asp:ListItem Value="4" Text="Fourth" />
-																		<asp:ListItem Value="5" Text="Last" />
+																		<asp:ListItem resourcekey="liFirst" Value="1" Text="First" Selected="True" />
+																		<asp:ListItem resourcekey="liSecond" Value="2" Text="Second" />
+																		<asp:ListItem resourcekey="liThird" Value="3" Text="Third" />
+																		<asp:ListItem resourcekey="liFourth" Value="4" Text="Fourth" />
+																		<asp:ListItem resourcekey="liLast" Value="5" Text="Last" />
 																	</asp:DropDownList>
 																	<asp:DropDownList ID="ddlRepeatedOnDay" runat="server">
-																		<asp:ListItem Value="1" Text="Monday" />
-																		<asp:ListItem Value="2" Text="Thuesday" />
-																		<asp:ListItem Value="3" Text="Wednesday" />
-																		<asp:ListItem Value="4" Text="Thursday" />
-																		<asp:ListItem Value="5" Text="Friday" />
-																		<asp:ListItem Value="6" Text="Saturday" />
-																		<asp:ListItem Value="7" Text="Sunday" />
+																		<asp:ListItem resourcekey="liMonday" Value="1" Text="Monday" />
+																		<asp:ListItem resourcekey="liThuesday" Value="2" Text="Thuesday" />
+																		<asp:ListItem resourcekey="liWednesday" Value="3" Text="Wednesday" />
+																		<asp:ListItem resourcekey="liThursday" Value="4" Text="Thursday" />
+																		<asp:ListItem resourcekey="liFriday" Value="5" Text="Friday" />
+																		<asp:ListItem resourcekey="liSaturday" Value="6" Text="Saturday" />
+																		<asp:ListItem resourcekey="liSunday" Value="7" Text="Sunday" />
 																	</asp:DropDownList>
 																</asp:Panel>
-																<asp:Panel runat="server" ID="pnlRepeatedOnDay" Visible="false" style="margin-top: 3px">
+																<asp:Panel runat="server" ID="pnlRepeatedOnDay" Visible="false" Style="margin-top: 3px">
 																	<asp:TextBox ID="tbxRepeatedOnDay" runat="server" Width="30px" Text="1" />
-																	<asp:RequiredFieldValidator ID="rfvRepeatedOnDay" runat="server" ControlToValidate="tbxRepeatedOnDay" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Day required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-																	<asp:CompareValidator ID="cvtbxRepeatedOnDay" runat="server" ControlToValidate="tbxRepeatedOnDay" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-																	<asp:RangeValidator ID="rvRepeatedOnDay" runat="server" MinimumValue="1" MaximumValue="31" ControlToValidate="tbxRepeatedOnDay" Display="Dynamic" ErrorMessage="Please enter number between 1-31." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																	<asp:RequiredFieldValidator ID="rfvRepeatedOnDay" resourcekey="rfvRepeatedOnDay.ErrorMessage"  runat="server" ControlToValidate="tbxRepeatedOnDay" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Day required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																	<asp:CompareValidator ID="cvtbxRepeatedOnDay" resourcekey="cvtbxRepeatedOnDay.ErrorMessage" runat="server" ControlToValidate="tbxRepeatedOnDay" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																	<asp:RangeValidator ID="rvRepeatedOnDay" resourcekey="rvRepeatedOnDay.ErrorMessage" runat="server" MinimumValue="1" MaximumValue="31" ControlToValidate="tbxRepeatedOnDay" Display="Dynamic" ErrorMessage="Please enter number between 1-31." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
 																</asp:Panel>
 															</div>
 															<div style="margin-top: 2px">
-																<asp:Label ID="Label7" runat="server" Text="of every:" Style="margin-left: 5px;" />
+																<asp:Label ID="lblRecurringMonthEvery" resourcekey="lblRecurringMonthEvery" runat="server" Text="of every:" Style="margin-left: 5px;" />
 																<asp:TextBox ID="tbxOfEveryMonth" runat="server" Width="30px" Text="1" />
-																<asp:Label ID="Label8" runat="server" Text=" month(s)" />
+																<asp:Label ID="lblRecurringMonth" resourcekey="lblRecurringMonth" runat="server" Text=" month(s)" />
 															</div>
-															<asp:RequiredFieldValidator ID="rfvOfEveryMonth" runat="server" ControlToValidate="tbxOfEveryMonth" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Day required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-															<asp:CompareValidator ID="cvOfEveryMonth" runat="server" ControlToValidate="tbxOfEveryMonth" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+															<asp:RequiredFieldValidator ID="rfvOfEveryMonth" resourcekey="rfvOfEveryMonth.ErrorMessage" runat="server" ControlToValidate="tbxOfEveryMonth" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Day required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+															<asp:CompareValidator ID="cvOfEveryMonth" resourcekey="cvOfEveryMonth.ErrorMessage" runat="server" ControlToValidate="tbxOfEveryMonth" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
 														</asp:Panel>
 														<asp:Panel runat="server" ID="pnlYearlyRecurringEvent" Visible="false">
 															<asp:RadioButtonList ID="rblYearlyRecurringEventType" RepeatDirection="Horizontal" runat="server" OnSelectedIndexChanged="rblYearlyRecurringEventType_SelectedIndexChanged" AutoPostBack="true">
-																<asp:ListItem Value="0" Text="Every:" Selected="True" />
-																<asp:ListItem Value="1" Text="The:" />
+																<asp:ListItem resourcekey="liEvery" Value="0" Text="Every:" Selected="True" />
+																<asp:ListItem resourcekey="liThe" Value="1" Text="The:" />
 															</asp:RadioButtonList>
 															<asp:Panel runat="server" ID="pnlYearlyRecurringEventSimple" Visible="true">
 																<asp:DropDownList ID="ddlSimpleMonthOfYear" runat="server">
-																	<asp:ListItem Value="1" Text="January" Selected="True" />
-																	<asp:ListItem Value="2" Text="February" />
-																	<asp:ListItem Value="3" Text="March" />
-																	<asp:ListItem Value="4" Text="April" />
-																	<asp:ListItem Value="5" Text="May" />
-																	<asp:ListItem Value="6" Text="June" />
-																	<asp:ListItem Value="7" Text="July" />
-																	<asp:ListItem Value="8" Text="August" />
-																	<asp:ListItem Value="9" Text="September" />
-																	<asp:ListItem Value="10" Text="October" />
-																	<asp:ListItem Value="11" Text="November" />
-																	<asp:ListItem Value="12" Text="December" />
+																	<asp:ListItem resourcekey="liJanuary" Value="1" Text="January" Selected="True" />
+																	<asp:ListItem resourcekey="liFebruary" Value="2" Text="February" />
+																	<asp:ListItem resourcekey="liMarch" Value="3" Text="March" />
+																	<asp:ListItem resourcekey="liApril" Value="4" Text="April" />
+																	<asp:ListItem resourcekey="liMay" Value="5" Text="May" />
+																	<asp:ListItem resourcekey="liJune" Value="6" Text="June" />
+																	<asp:ListItem resourcekey="liJuly" Value="7" Text="July" />
+																	<asp:ListItem resourcekey="liAugust" Value="8" Text="August" />
+																	<asp:ListItem resourcekey="liSeptember" Value="9" Text="September" />
+																	<asp:ListItem resourcekey="liOctober" Value="10" Text="October" />
+																	<asp:ListItem resourcekey="liNovember" Value="11" Text="November" />
+																	<asp:ListItem resourcekey="liDecember" Value="12" Text="December" />
 																</asp:DropDownList>
 																<asp:TextBox ID="tbxYearlyDayOfMonth" runat="server" Width="30px" Text="1" />
-																<asp:RequiredFieldValidator ID="rfvDayOfMonth" runat="server" ControlToValidate="tbxYearlyDayOfMonth" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Day required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-																<asp:CompareValidator ID="cvDayOfMonth" runat="server" ControlToValidate="tbxYearlyDayOfMonth" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-																<asp:RangeValidator ID="rvDayOfMonth" runat="server" MinimumValue="1" MaximumValue="31" ControlToValidate="tbxYearlyDayOfMonth" Display="Dynamic" ErrorMessage="Please enter number between 1-31." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																<asp:RequiredFieldValidator ID="rfvDayOfMonth" resourcekey="rfvDayOfMonth.ErrorMessage" runat="server" ControlToValidate="tbxYearlyDayOfMonth" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Day required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																<asp:CompareValidator ID="cvDayOfMonth" resourcekey="cvDayOfMonth.ErrorMessage" runat="server" ControlToValidate="tbxYearlyDayOfMonth" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																<asp:RangeValidator ID="rvDayOfMonth" resourcekey="rvDayOfMonth.ErrorMessage" runat="server" MinimumValue="1" MaximumValue="31" ControlToValidate="tbxYearlyDayOfMonth" Display="Dynamic" ErrorMessage="Please enter number between 1-31." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
 															</asp:Panel>
 															<asp:Panel runat="server" ID="pnlYearlyRecurringEventComplex" Visible="false">
 																<asp:DropDownList ID="ddlYearlyRepeatedOnEvery" runat="server">
-																	<asp:ListItem Value="1" Text="First" Selected="True" />
-																	<asp:ListItem Value="2" Text="Second" />
-																	<asp:ListItem Value="3" Text="Third" />
-																	<asp:ListItem Value="4" Text="Fourth" />
-																	<asp:ListItem Value="5" Text="Last" />
+																	<asp:ListItem resourcekey="liFirst" Value="1" Text="First" Selected="True" />
+																		<asp:ListItem resourcekey="liSecond" Value="2" Text="Second" />
+																		<asp:ListItem resourcekey="liThird" Value="3" Text="Third" />
+																		<asp:ListItem resourcekey="liFourth" Value="4" Text="Fourth" />
+																		<asp:ListItem resourcekey="liLast" Value="5" Text="Last" />
 																</asp:DropDownList>
 																<asp:DropDownList ID="ddlYearlyRepeatedOnDay" runat="server">
-																	<asp:ListItem Value="1" Text="Monday" />
-																	<asp:ListItem Value="2" Text="Thuesday" />
-																	<asp:ListItem Value="3" Text="Wednesday" />
-																	<asp:ListItem Value="4" Text="Thursday" />
-																	<asp:ListItem Value="5" Text="Friday" />
-																	<asp:ListItem Value="6" Text="Saturday" />
-																	<asp:ListItem Value="7" Text="Sunday" />
+																	<asp:ListItem resourcekey="liMonday" Value="1" Text="Monday" />
+																		<asp:ListItem resourcekey="liThuesday" Value="2" Text="Thuesday" />
+																		<asp:ListItem resourcekey="liWednesday" Value="3" Text="Wednesday" />
+																		<asp:ListItem resourcekey="liThursday" Value="4" Text="Thursday" />
+																		<asp:ListItem resourcekey="liFriday" Value="5" Text="Friday" />
+																		<asp:ListItem resourcekey="liSaturday" Value="6" Text="Saturday" />
+																		<asp:ListItem resourcekey="liSunday" Value="7" Text="Sunday" />
 																</asp:DropDownList>
 																of
 																<asp:DropDownList ID="ddlComplexMonthOfYear" runat="server">
-																	<asp:ListItem Value="1" Text="January" Selected="True" />
-																	<asp:ListItem Value="2" Text="February" />
-																	<asp:ListItem Value="3" Text="March" />
-																	<asp:ListItem Value="4" Text="April" />
-																	<asp:ListItem Value="5" Text="May" />
-																	<asp:ListItem Value="6" Text="June" />
-																	<asp:ListItem Value="7" Text="July" />
-																	<asp:ListItem Value="8" Text="August" />
-																	<asp:ListItem Value="9" Text="September" />
-																	<asp:ListItem Value="10" Text="October" />
-																	<asp:ListItem Value="11" Text="November" />
-																	<asp:ListItem Value="12" Text="December" />
+																	<asp:ListItem resourcekey="liJanuary" Value="1" Text="January" Selected="True" />
+																	<asp:ListItem resourcekey="liFebruary" Value="2" Text="February" />
+																	<asp:ListItem resourcekey="liMarch" Value="3" Text="March" />
+																	<asp:ListItem resourcekey="liApril" Value="4" Text="April" />
+																	<asp:ListItem resourcekey="liMay" Value="5" Text="May" />
+																	<asp:ListItem resourcekey="liJune" Value="6" Text="June" />
+																	<asp:ListItem resourcekey="liJuly" Value="7" Text="July" />
+																	<asp:ListItem resourcekey="liAugust" Value="8" Text="August" />
+																	<asp:ListItem resourcekey="liSeptember" Value="9" Text="September" />
+																	<asp:ListItem resourcekey="liOctober" Value="10" Text="October" />
+																	<asp:ListItem resourcekey="liNovember" Value="11" Text="November" />
+																	<asp:ListItem resourcekey="liDecember" Value="12" Text="December" />
 																</asp:DropDownList>
 															</asp:Panel>
 														</asp:Panel>
 														<asp:Panel runat="server" ID="pnlUpcomingOccurrences" Style="clear: both; margin-top: 10px; margin-bottom: 10px;">
 															<asp:TextBox ID="tbxUpcomingOccurrences" runat="server" Width="30px" Text="1" />
-															<asp:Label ID="lblUpcomingOccurrences" runat="server" Text="Display upcoming occurrences" />
-															<asp:RequiredFieldValidator ID="rfvUpcomingOccurrences" runat="server" ControlToValidate="tbxUpcomingOccurrences" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Upcoming occurrences required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-															<asp:CompareValidator ID="cvUpcomingOccurrences" runat="server" ControlToValidate="tbxUpcomingOccurrences" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-															<asp:RegularExpressionValidator ID="revUpcomingOccurrences" runat="server" ErrorMessage="Only positive numbers. Zero is not allowed." ValidationExpression="^[1-9]([0-9]+)?" ControlToValidate="tbxUpcomingOccurrences" Display="Dynamic" ValidationGroup="vgEditArticle" SetFocusOnError="True" ForeColor="Red" />
+															<asp:Label ID="lblUpcomingOccurrences" resourcekey="lblUpcomingOccurrences" runat="server" Text="Display upcoming occurrences" />
+															<asp:RequiredFieldValidator ID="rfvUpcomingOccurrences" resourcekey="rfvUpcomingOccurrences.ErrorMessage" runat="server" ControlToValidate="tbxUpcomingOccurrences" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Upcoming occurrences required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+															<asp:CompareValidator ID="cvUpcomingOccurrences" resourcekey="cvUpcomingOccurrences.ErrorMessage" runat="server" ControlToValidate="tbxUpcomingOccurrences" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+															<asp:RegularExpressionValidator ID="revUpcomingOccurrences" resourcekey="revUpcomingOccurrences.ErrorMessage" runat="server" ErrorMessage="Only positive numbers. Zero is not allowed." ValidationExpression="^[1-9]([0-9]+)?" ControlToValidate="tbxUpcomingOccurrences" Display="Dynamic" ValidationGroup="vgEditArticle"
+																SetFocusOnError="True" ForeColor="Red" />
 														</asp:Panel>
 														<asp:Panel runat="server" ID="pnlRecurringEndType">
 															<asp:RadioButtonList ID="rblRecurringEndType" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblRecurringEndType_SelectedIndexChanged">
-																<asp:ListItem Value="1" Text="Ends after ocurrences" Selected="True" />
-																<asp:ListItem Value="2" Text="End by date" />
+																<asp:ListItem resourcekey="liEndsafterocurrences" Value="1" Text="Ends after ocurrences" Selected="True" />
+																<asp:ListItem resourcekey="liEndbydate" Value="2" Text="End by date" />
 															</asp:RadioButtonList>
 															<asp:Panel runat="server" ID="pnlRecurringEndsAfterOcurrences">
 																<asp:TextBox ID="tbxEndsAfterOcurrences" runat="server" Width="30px" Text="5" />
-																<asp:RequiredFieldValidator ID="rfvEndsAfterOcurrences" runat="server" ControlToValidate="tbxEndsAfterOcurrences" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Occurrences required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-																<asp:CompareValidator ID="cvEndsAfterOcurrences" runat="server" ControlToValidate="tbxEndsAfterOcurrences" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-																<asp:RegularExpressionValidator ID="revEndsAfterOcurrences" runat="server" ErrorMessage="Only positive numbers. Zero is not allowed." ValidationExpression="^[1-9]([0-9]+)?" ControlToValidate="tbxEndsAfterOcurrences" Display="Dynamic" ValidationGroup="vgEditArticle" SetFocusOnError="True" ForeColor="Red" />
+																<asp:RequiredFieldValidator ID="rfvEndsAfterOcurrences" resourcekey="rfvEndsAfterOcurrences.ErrorMessage" runat="server" ControlToValidate="tbxEndsAfterOcurrences" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Occurrences required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																<asp:CompareValidator ID="cvEndsAfterOcurrences" resourcekey="cvEndsAfterOcurrences.ErrorMessage" runat="server" ControlToValidate="tbxEndsAfterOcurrences" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																<asp:RegularExpressionValidator ID="revEndsAfterOcurrences" resourcekey="revEndsAfterOcurrences.ErrorMessage" runat="server" ErrorMessage="Only positive numbers. Zero is not allowed." ValidationExpression="^[1-9]([0-9]+)?" ControlToValidate="tbxEndsAfterOcurrences" Display="Dynamic" ValidationGroup="vgEditArticle"
+																	SetFocusOnError="True" ForeColor="Red" />
 															</asp:Panel>
 															<asp:Panel runat="server" ID="pnlRecurringEndByDate" Visible="false">
 																<asp:TextBox ID="tbxRecurringEndByDate" runat="server" CssClass="text_generic center" ValidationGroup="vgEditArticle" Width="90px" />
-																<asp:RequiredFieldValidator ID="rfvRecurringEndByDate" runat="server" ControlToValidate="tbxRecurringEndByDate" CssClass="NormalRed" Display="Dynamic" Enabled="false" ErrorMessage="Date required." ValidationGroup="vgEditArticle" />
+																<asp:RequiredFieldValidator ID="rfvRecurringEndByDate" resourcekey="rfvRecurringEndByDate.ErrorMessage" runat="server" ControlToValidate="tbxRecurringEndByDate" CssClass="NormalRed" Display="Dynamic" Enabled="false" ErrorMessage="Date required." ValidationGroup="vgEditArticle" />
 															</asp:Panel>
 														</asp:Panel>
 													</td>
@@ -1738,7 +1772,8 @@
 							<div class="edn_admin_progress_overlay_container">
 								<asp:UpdateProgress ID="uppCustomFieldsSelect" runat="server" AssociatedUpdatePanelID="upCustomFieldsSelect" DisplayAfter="100" DynamicLayout="true">
 									<ProgressTemplate>
-										<div class="edn_admin_progress_overlay"></div>
+										<div class="edn_admin_progress_overlay">
+										</div>
 									</ProgressTemplate>
 								</asp:UpdateProgress>
 								<table class="settings_table w700" runat="server" id="tblShowHideCustomFields" visible="false">
@@ -1780,7 +1815,8 @@
 							<div class="edn_admin_progress_overlay_container">
 								<asp:UpdateProgress ID="uppPerArticlePermissions" runat="server" AssociatedUpdatePanelID="upPerArticlePermissions" DisplayAfter="100" DynamicLayout="true">
 									<ProgressTemplate>
-										<div class="edn_admin_progress_overlay"></div>
+										<div class="edn_admin_progress_overlay">
+										</div>
 									</ProgressTemplate>
 								</asp:UpdateProgress>
 								<p style="margin: 0 0 3px;">
@@ -1950,7 +1986,6 @@
 					<div style="clear: both;">
 					</div>
 				</div>
-
 			</asp:Panel>
 			<asp:Literal ID="containerSocialSharingHistory" runat="server" />
 			<asp:Panel ID="pnlPreviousVersions" runat="server" CssClass="collapsible_box top_margin_3">
