@@ -1,0 +1,37 @@
+﻿<!--TemplateGroup:newsListArticleDefault-->
+<!--ArticleTemplate-->
+<div class="article in_list span">
+	<div class="content_wrapper">
+		<h1><a href="[EasyDNNnews:Title:Link]" target="[EasyDNNnews:DetailTarget]">[EasyDNNnews:Title]</a></h1>
+		<div class="content">
+			[EasyDNNnews:IfExists:Image]
+			<a href="[EasyDNNnews:Title:Link]" target="[EasyDNNnews:DetailTarget]"><img class="article_image" alt="[EasyDNNnews:Title]" src="[EasyDNNnews:Image]" /></a>
+			[EasyDNNnews:EndIf:Image]
+			<div class="summary">
+				[EasyDNNnews:Summary]
+			</div>
+			<div style="clear: both"></div>
+		</div>
+		<div style="clear: both"></div>
+			<div>Город:<strong>[EDNcf:city]</strong>&nbsp</div>
+			<div style="float:left">Вуз:<strong>[EDNcf:vuz].&nbsp</strong></div><div>Факультет:<strong>[EDNcf:faculty].</strong></div>
+			<div>Проходной балл (дневное):<strong>[EDNcf:dnevnball]</strong></div>
+			<p>
+	</div>
+	<div class="meta_text">
+			<a href="[EasyDNNnews:ReadMore]">Подробнее о специальности</a>
+	</div>
+	<div class="shadow_box"></div>
+</div>
+<!--ArticleEnd-->
+
+<!--ArticleRepeat:Before:-->
+<!--RepeatEnd:Before:-->
+
+<!--ArticleRepeat:After:-->
+[EasyDNNnews:IfExists:RSS]
+<div class="article_rss_wrapper">
+	<a href="[EasyDNNnews:RSSLink]" target="_blank"><span></span>[EasyDNNnewsLocalizedText:RSSLinkText]</a>
+</div>
+[EasyDNNnews:EndIf:RSS]
+<!--RepeatEnd:After:-->
