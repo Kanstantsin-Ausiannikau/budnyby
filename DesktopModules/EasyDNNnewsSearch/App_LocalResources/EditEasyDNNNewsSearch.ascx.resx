@@ -318,4 +318,16 @@
   <data name="ControlTitle_editsettings.Text" xml:space="preserve">
     <value>Edit EasyDNNnews Search</value>
   </data>
+  <data name="lblSearchFilterBy.HelpText" xml:space="preserve">
+    <value>This option allows for searching articles only, or events only, or both.</value>
+  </data>
+  <data name="lblSearchFilterBy.Text" xml:space="preserve">
+    <value>Search articles and events</value>
+  </data>
+  <data name="lblShowOnlyEventsLimit.HelpText" xml:space="preserve">
+    <value>Set the criteria to search events whose start date has ended. The option 'Show all' will search all events, disregarding the fact that they have already ended. We can enter the number of days to be set in the past for past events in the field 'Limit to number of days in the past'. If the set value is 0, the criterion for the event's listing will be the current date. In that case, neither of the past events will be searched.</value>
+  </data>
+  <data name="lblShowOnlyEventsLimit.Text" xml:space="preserve">
+    <value>Searching of past events:</value>
+  </data>
 </root>

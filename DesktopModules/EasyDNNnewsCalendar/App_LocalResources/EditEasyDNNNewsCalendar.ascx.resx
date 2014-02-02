@@ -259,10 +259,10 @@
     <value>Open monthly archive articles in news module instance:</value>
   </data>
   <data name="lblShowMonthlyArchive.HelpText" xml:space="preserve">
-    <value>Displays articles by month:</value>
+    <value>Displays articles archive.</value>
   </data>
   <data name="lblShowMonthlyArchive.Text" xml:space="preserve">
-    <value>Display monthly archive:</value>
+    <value>Display archive:</value>
   </data>
   <data name="Calendarsettings.Text" xml:space="preserve">
     <value>Calendar settings</value>
@@ -298,10 +298,10 @@
     <value>Events (Start to end date)</value>
   </data>
   <data name="lblLimitBackwordsEvents.HelpText" xml:space="preserve">
-    <value>Specify display of past events:</value>
+    <value>Set the criteria to display events whose start date has ended. The option 'Show all' will display all events, disregarding the fact that they have already ended. We can enter the number of days to be set in the past for past events in the field 'Limit to number of days in the past'. If the set value is 0, the criterion for the event's listing will be the current date. In that case, neither of the past events will be displayed.</value>
   </data>
   <data name="lblLimitBackwordsEvents.Text" xml:space="preserve">
-    <value>Specify display of past events:</value>
+    <value>Displaying of past events:</value>
   </data>
   <data name="liLimitNumber.Text" xml:space="preserve">
     <value>Limit to a number of days</value>
@@ -358,10 +358,10 @@
     <value>Display link:</value>
   </data>
   <data name="lblSelectArticleEvents.HelpText" xml:space="preserve">
-    <value>Select to display article and/or eventcs archive:</value>
+    <value>This option allows for displaying articles only, or events only, or both.</value>
   </data>
   <data name="lblSelectArticleEvents.Text" xml:space="preserve">
-    <value>Display articles or events:</value>
+    <value>Display articles and events:</value>
   </data>
   <data name="lblShowListLink.HelpText" xml:space="preserve">
     <value>Display link to the news instance to list articles.</value>
@@ -541,5 +541,11 @@ Hint: You can also turn off displaying languages on the default language. For ar
   </data>
   <data name="liSimple.Text" xml:space="preserve">
     <value>Simple</value>
+  </data>
+  <data name="lblArchiveFilterBy.HelpText" xml:space="preserve">
+    <value>This option allows for displaying articles only, or events only, or both.</value>
+  </data>
+  <data name="lblArchiveFilterBy.Text" xml:space="preserve">
+    <value>Display articles and events:</value>
   </data>
 </root>

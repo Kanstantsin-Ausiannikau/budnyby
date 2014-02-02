@@ -12,33 +12,33 @@
 			if (this.id == '<%=cbShowEvents.ClientID %>') {
 				if (this.checked) {
 					var myVal = document.getElementById('<%=rfvPastEventLimit.ClientID %>'); ValidatorEnable(myVal, true);
-				var myVal2 = document.getElementById('<%=cvPastEventLimit.ClientID %>'); ValidatorEnable(myVal2, true);
+					var myVal2 = document.getElementById('<%=cvPastEventLimit.ClientID %>'); ValidatorEnable(myVal2, true);
+				}
+				else {
+					var myVal = document.getElementById('<%=rfvPastEventLimit.ClientID %>'); ValidatorEnable(myVal, false);
+					var myVal2 = document.getElementById('<%=cvPastEventLimit.ClientID %>'); ValidatorEnable(myVal2, false);
+				}
 			}
-			else {
-				var myVal = document.getElementById('<%=rfvPastEventLimit.ClientID %>'); ValidatorEnable(myVal, false);
-				var myVal2 = document.getElementById('<%=cvPastEventLimit.ClientID %>'); ValidatorEnable(myVal2, false);
-			}
-		}
-		else if (this.id == '<%=cbIsTooltipEnabled.ClientID %>') {
+			else if (this.id == '<%=cbIsTooltipEnabled.ClientID %>') {
 				if (this.checked) {
 					var myVal = document.getElementById('<%=rfvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal, true);
-				var myVal2 = document.getElementById('<%=rvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, true);
+					var myVal2 = document.getElementById('<%=rvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, true);
+				}
+				else {
+					var myVal = document.getElementById('<%=rfvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal, false);
+					var myVal2 = document.getElementById('<%=rvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, false);
+				}
 			}
-			else {
-				var myVal = document.getElementById('<%=rfvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal, false);
-				var myVal2 = document.getElementById('<%=rvCalendarTooltipSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, false);
+			else if (this.id == '<%=cbUpcomingEventsToolTip.ClientID %>') {
+				if (this.checked) {
+					var myVal = document.getElementById('<%=rfvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal, true);
+					var myVal2 = document.getElementById('<%=rvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, true);
+				}
+				else {
+					var myVal = document.getElementById('<%=rfvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal, false);
+					var myVal2 = document.getElementById('<%=rvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, false);
+				}
 			}
-		}
-		else if (this.id == '<%=cbUpcomingEventsToolTip.ClientID %>') {
-			if (this.checked) {
-				var myVal = document.getElementById('<%=rfvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal, true);
-				var myVal2 = document.getElementById('<%=rvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, true);
-			}
-			else {
-				var myVal = document.getElementById('<%=rfvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal, false);
-				var myVal2 = document.getElementById('<%=rvUpcomingEventsTTSummaryLenght.ClientID %>'); ValidatorEnable(myVal2, false);
-			}
-		}
 			if (this.checked)
 				$target.slideDown(200);
 			else
@@ -257,7 +257,7 @@ function pageLoad(sender, args) {
 									</tr>
 									<tr>
 										<td class="left">
-											<dnn:Label ID="lblSelectArticleEvents" runat="server" Text="Select article or events:" HelpText="Select article and/or events to show in calendar." ControlName="cbShowCalendarArchive" />
+											<dnn:Label ID="lblSelectArticleEvents" runat="server" Text="Display articles and events:" HelpText="This option allows for displaying articles only, or events only, or both." HelpKey="lblSelectArticleEvents.HelpText" ResourceKey="lblSelectArticleEvents" />
 										</td>
 										<td class="right">
 											<asp:CheckBox ID="cbShowArticles" runat="server" resourcekey="cbShowArticlesCalendarArchiveResource1" Checked="True" Text="Articles" AutoPostBack="True" OnCheckedChanged="cbShowArticles_CheckedChanged" />
@@ -267,7 +267,7 @@ function pageLoad(sender, args) {
 									</tr>
 									<tr runat="server" id="trLimitBackwordsEvents">
 										<td class="left">
-											<dnn:Label ID="lblLimitBackwordsEvents" runat="server" Text="Specify display of past events:" HelpText="Specify display of past events:" HelpKey="lblLimitBackwordsEvents.HelpText" ResourceKey="lblLimitBackwordsEvents" />
+											<dnn:Label ID="lblLimitBackwordsEvents" runat="server" Text="Displaying of past events:" HelpText="Set the criteria to display events whose start date has ended. The option 'Show all' will display all events, disregarding the fact that they have already ended. We can enter the number of days to be set in the past for past events in the field 'Limit to number of days in the past'. If the set value is 0, the criterion for the event's listing will be the current date. In that case, neither of the past events will be displayed." HelpKey="lblLimitBackwordsEvents.HelpText" ResourceKey="lblLimitBackwordsEvents" />
 										</td>
 										<td class="right">
 											<asp:RadioButtonList ID="rblLimitBackEvents" Style="float: left" runat="server" RepeatDirection="Horizontal">
@@ -391,7 +391,7 @@ function pageLoad(sender, args) {
 				<table class="settings_table" cellpadding="0" cellspacing="0">
 					<tr class="second" style="background: #D1EBFA;">
 						<td class="left" style="border: 1px solid #AAD6F1; border-right: 0;">
-							<dnn:Label ID="lblShowMonthlyArchive" runat="server" Text="Show monthly archive:" HelpText="Shows articles by month:" ControlName="cbShowMonthlyArchive" HelpKey="lblShowMonthlyArchive.HelpText" ResourceKey="lblShowMonthlyArchive" />
+							<dnn:Label ID="lblShowMonthlyArchive" runat="server" Text="Show archive:" HelpText="Displays articles archive." ControlName="cbShowMonthlyArchive" HelpKey="lblShowMonthlyArchive.HelpText" ResourceKey="lblShowMonthlyArchive" />
 						</td>
 						<td class="right" style="border: 1px solid #AAD6F1; border-left: 0;">
 							<asp:CheckBox ID="cbShowMonthlyArchive" runat="server" />
@@ -441,7 +441,7 @@ function pageLoad(sender, args) {
 							<table class="settings_table" cellpadding="0" cellspacing="0">
 								<tr class="second">
 									<td class="left">
-										<dnn:Label ID="lblArchiveFilterBy" runat="server" Text="Filter by:" HelpText="Filter displayed content by articles and/or events." />
+										<dnn:Label ID="lblArchiveFilterBy" runat="server" Text="Display articles and events:" HelpText="This option allows for displaying articles only, or events only, or both." HelpKey="lblArchiveFilterBy.HelpText" ResourceKey="lblArchiveFilterBy" />
 									</td>
 									<td class="right">
 										<asp:CheckBox ID="cbArchiveOnlyArticles" runat="server" Checked="True" Text="Articles" />

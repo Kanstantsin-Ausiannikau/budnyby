@@ -93,12 +93,41 @@
 					<%=SettingsTitle%></h2>
 			</div>
 			<div class="category_content">
+				<div id="pnlContentSelection" runat="server">
+					<h3 class="subsections">Content selection</h3>
+					<table class="settings_table" cellpadding="0" cellspacing="0">
+						<tr class="second">
+							<td class="left">
+								<dnn:Label ID="lblFilterBy2" runat="server" Text="Display articles and events:" HelpText="This option allows for displaying articles only, or events only, or both." HelpKey="lblFilterBy.HelpText" ResourceKey="lblFilterBy" />
+							</td>
+							<td class="right">
+								<asp:CheckBox ID="cbFilterByArticles2" runat="server" Text="Articles" Checked="True" />
+								<asp:CheckBox ID="cbFilterByEvents2" runat="server" Text="Events" Checked="True" AutoPostBack="true" OnCheckedChanged="cbFilterByEvents2_CheckedChanged" />
+							</td>
+						</tr>
+						<tr>
+							<td class="left">
+								<dnn:Label ID="lblFilterByEventsLimit2" runat="server" HelpText="Set the criteria to display events whose start date has ended. The option 'Show all' will display all events, disregarding the fact that they have already ended. We can enter the number of days to be set in the past for past events in the field 'Limit to number of days in the past'. If the set value is 0, the criterion for the event's listing will be the current date. In that case, neither of the past events will be displayed." Text="Displaying of past events:" HelpKey="lblShowOnlyEventsLimit.HelpText" ResourceKey="lblShowOnlyEventsLimit" />
+							</td>
+							<td class="right">
+								<asp:RadioButtonList ID="rblLimitBackEvents2" runat="server" Style="float: left" RepeatDirection="Horizontal">
+									<asp:ListItem Value="0" Text="ShowAll" />
+									<asp:ListItem Value="1" Text="Limit to number of days:" Selected="True" />
+								</asp:RadioButtonList>
+								<asp:TextBox Style="float: left" ID="tbPastEventLimit2" runat="server" Width="25px" Text="0" />
+								<asp:RequiredFieldValidator ID="rfvPastEventLimit2" runat="server" ControlToValidate="tbPastEventLimit2" Display="Dynamic" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="vgCatMenuSettings2" />
+								<asp:CompareValidator ID="cvPastEventLimit2" runat="server" ControlToValidate="tbPastEventLimit2" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgCatMenuSettings2" />
+							</td>
+						</tr>
+					</table>
+				</div>
 				<div id="pnlSocialInstance2" runat="server" style="display: none;">
+					<h3 class="subsections">Social settings</h3>
 					<table class="settings_table" cellpadding="0" cellspacing="0">
 						<tr id="Tr12" runat="server" style="background: #D1EBFA;">
 							<td class="left" style="border: 1px solid #AAD6F1; border-right: 0;">
 								<dnn:Label ID="lblIsSocialInstance2" runat="server" Text="Community mode:" HelpText="Displays user's and group's articles on the Activity feed. The articles are filtered by the UserID or GroupID querystring. If this option is enabled and the querystring UserID or GroupID is missing, then the articles won't show up."
-									ControlName="cbIsSocialInstance" ResourceKey="lblIsSocialInstance" />
+									ControlName="cbIsSocialInstance2" ResourceKey="lblIsSocialInstance" />
 							</td>
 							<td class="right" style="border: 1px solid #AAD6F1; border-left: 0;">
 								<asp:CheckBox ID="cbIsSocialInstance2" runat="server" Checked="false" OnCheckedChanged="cbIsSocialInstance_CheckedChanged" AutoPostBack="true" />
@@ -179,7 +208,8 @@
 				</asp:UpdatePanel>
 				<asp:UpdateProgress ID="uppTheme2" runat="server" AssociatedUpdatePanelID="upModuleTheme2" DisplayAfter="100" DynamicLayout="true">
 					<ProgressTemplate>
-						<img src="<%=ModulePath.Replace("EasyDNNnewsWidgets/Controls/FilterMenu/Settings", "EasyDNNnews")%>images/settings/ajaxLoading.gif" /></ProgressTemplate>
+						<img src="<%=ModulePath.Replace("EasyDNNnewsWidgets/Controls/FilterMenu/Settings", "EasyDNNnews")%>images/settings/ajaxLoading.gif" />
+					</ProgressTemplate>
 				</asp:UpdateProgress>
 				<h3 class="subsections">
 					<%=Filter%></h3>
@@ -188,7 +218,7 @@
 						<table class="settings_table" cellpadding="0" cellspacing="0">
 							<tr class="second">
 								<td class="left">
-									<dnn:Label ID="lblShowCategoryFilter2" resourcekey="lblShowCategoryFilter2" runat="server" Text="Show category filter:" ControlName="cbShowCategoryFilter2" HelpText="Show category filter." />
+									<dnn:Label ID="lblShowCategoryFilter2" ResourceKey="lblShowCategoryFilter2" runat="server" Text="Show category filter:" ControlName="cbShowCategoryFilter2" HelpText="Show category filter." />
 								</td>
 								<td class="right">
 									<asp:CheckBox ID="cbShowCategoryFilter2" runat="server" Checked="True" OnCheckedChanged="cbShowCategoryFilter2_CheckedChanged" AutoPostBack="true" />
@@ -198,7 +228,7 @@
 						<table class="settings_table" cellpadding="0" cellspacing="0" runat="server" id="tblCategoryFilter2">
 							<tr>
 								<td class="left">
-									<dnn:Label ID="lblExpandAllCategories2" resourcekey="lblExpandAllCategories2" runat="server" Text="Expand all categories:" ControlName="cbExpandAllCategories2" HelpText="All categories are expanded." />
+									<dnn:Label ID="lblExpandAllCategories2" ResourceKey="lblExpandAllCategories2" runat="server" Text="Expand all categories:" ControlName="cbExpandAllCategories2" HelpText="All categories are expanded." />
 								</td>
 								<td class="right">
 									<asp:CheckBox ID="cbExpandAllCategories2" runat="server" Checked="false" />
@@ -206,7 +236,7 @@
 							</tr>
 							<tr class="second">
 								<td class="left">
-									<dnn:Label ID="lblShowCategoryArticleCount2" resourcekey="lblShowCategoryArticleCount2" runat="server" Text="Show count:" HelpText="Show article count by author." ControlName="cbShowCategoryArticleCount2" />
+									<dnn:Label ID="lblShowCategoryArticleCount2" ResourceKey="lblShowCategoryArticleCount2" runat="server" Text="Show count:" HelpText="Show article count by author." ControlName="cbShowCategoryArticleCount2" />
 								</td>
 								<td class="right">
 									<asp:CheckBox ID="cbShowCategoryArticleCount2" runat="server" Checked="false" />
@@ -214,7 +244,7 @@
 							</tr>
 							<tr>
 								<td class="left">
-									<dnn:Label ID="lblSelectCats" runat="server" resourcekey="lblSelectCats" Text="Select categories to display:" ControlName="cbFilterMenudisplayallcats2" HelpText="Show all categories or make category selection in the tree view selection list." />
+									<dnn:Label ID="lblSelectCats" runat="server" ResourceKey="lblSelectCats" Text="Select categories to display:" ControlName="cbFilterMenudisplayallcats2" HelpText="Show all categories or make category selection in the tree view selection list." />
 								</td>
 								<td class="right">
 									<asp:CheckBox ID="cbFilterMenudisplayallcats2" resourcekey="cbdisplayallcats" runat="server" AutoPostBack="True" Checked="True" OnCheckedChanged="cbdisplayallcats_CheckedChanged" Text="Display all categories and subcategories" />
@@ -224,8 +254,7 @@
 								<td colspan="2">
 									<table class="settings_table" cellpadding="0" cellspacing="0" style="margin-left: auto; margin-right: auto;">
 										<tr class="second">
-											<td class="left">
-											</td>
+											<td class="left"></td>
 											<td class="right">
 												<asp:CheckBox ID="cbAutoAddCatChilds2" resourcekey="cbAutoAddCatChilds" runat="server" Text="Auto select all child categories." />
 											</td>
@@ -243,14 +272,15 @@
 				</asp:UpdatePanel>
 				<asp:UpdateProgress ID="uppCategoriesfilter2" runat="server" AssociatedUpdatePanelID="upCategoriesfilter2" DisplayAfter="100" DynamicLayout="true">
 					<ProgressTemplate>
-						<img src="<%=ModulePath.Replace("EasyDNNnewsWidgets/Controls/FilterMenu/Settings", "EasyDNNnews")%>images/settings/ajaxLoading.gif" /></ProgressTemplate>
+						<img src="<%=ModulePath.Replace("EasyDNNnewsWidgets/Controls/FilterMenu/Settings", "EasyDNNnews")%>images/settings/ajaxLoading.gif" />
+					</ProgressTemplate>
 				</asp:UpdateProgress>
 				<asp:UpdatePanel ID="upAuthorsFilter2" runat="server">
 					<ContentTemplate>
 						<table class="settings_table" cellpadding="0" cellspacing="0">
 							<tr class="second">
 								<td class="left">
-									<dnn:Label ID="lblShowAuthorFilter2" resourcekey="lblShowAuthorFilter2" runat="server" Text="Show author filter:" ControlName="cbShowAuthorFilter2" HelpText="Show author filter." />
+									<dnn:Label ID="lblShowAuthorFilter2" ResourceKey="lblShowAuthorFilter2" runat="server" Text="Show author filter:" ControlName="cbShowAuthorFilter2" HelpText="Show author filter." />
 								</td>
 								<td class="right">
 									<asp:CheckBox ID="cbShowAuthorFilter2" runat="server" Checked="True" OnCheckedChanged="cbShowAuthorFilter2_CheckedChanged" AutoPostBack="true" />
@@ -260,7 +290,7 @@
 						<table class="settings_table" cellpadding="0" cellspacing="0" runat="server" id="tblShowAuthorFilter2">
 							<tr>
 								<td class="left">
-									<dnn:Label ID="lblExpandAllAuthors2" resourcekey="lblExpandAllAuthors2" runat="server" Text="Expand all author groups:" ControlName="cbExpandAllAuthors2" HelpText="All author groups are expanded." />
+									<dnn:Label ID="lblExpandAllAuthors2" ResourceKey="lblExpandAllAuthors2" runat="server" Text="Expand all author groups:" ControlName="cbExpandAllAuthors2" HelpText="All author groups are expanded." />
 								</td>
 								<td class="right">
 									<asp:CheckBox ID="cbExpandAllAuthors2" runat="server" Checked="false" />
@@ -268,7 +298,7 @@
 							</tr>
 							<tr class="second">
 								<td class="left">
-									<dnn:Label ID="lblShowAuthorsArticleCount2" resourcekey="lblShowAuthorsArticleCount2" runat="server" Text="Show count:" HelpText="Show article count by category." ControlName="ShowAuthorsArticleCount2" />
+									<dnn:Label ID="lblShowAuthorsArticleCount2" ResourceKey="lblShowAuthorsArticleCount2" runat="server" Text="Show count:" HelpText="Show article count by category." ControlName="ShowAuthorsArticleCount2" />
 								</td>
 								<td class="right">
 									<asp:CheckBox ID="cbShowAuthorsArticleCount2" runat="server" Checked="false" />
@@ -276,15 +306,14 @@
 							</tr>
 							<tr>
 								<td class="left">
-									<dnn:Label ID="lblAuthorFilter" resourcekey="lblAuthorFilter" runat="server" Text="All Authors:" HelpText="Filter by author." ControlName="cbDisplayAllAuthors2" />
+									<dnn:Label ID="lblAuthorFilter" ResourceKey="lblAuthorFilter" runat="server" Text="All Authors:" HelpText="Filter by author." ControlName="cbDisplayAllAuthors2" />
 								</td>
 								<td>
 									<asp:CheckBox ID="cbDisplayAllAuthors2" runat="server" AutoPostBack="True" Checked="True" OnCheckedChanged="cbDisplayAllAuthors_CheckedChanged" />
 								</td>
 							</tr>
 							<tr class="second">
-								<td class="left">
-									&nbsp;
+								<td class="left">&nbsp;
 								</td>
 								<td class="right">
 									<asp:TreeView ID="tvAuthorAndGroupSelection2" runat="server" ForeColor="Black" ShowCheckBoxes="All" Visible="False" ImageSet="Contacts" NodeIndent="25">
@@ -302,7 +331,8 @@
 				</asp:UpdatePanel>
 				<asp:UpdateProgress ID="uppAuthorsFilter2" runat="server" AssociatedUpdatePanelID="upAuthorsFilter2" DisplayAfter="100" DynamicLayout="true">
 					<ProgressTemplate>
-						<img src="<%=ModulePath.Replace("EasyDNNnewsWidgets/Controls/FilterMenu/Settings", "EasyDNNnews")%>images/settings/ajaxLoading.gif" /></ProgressTemplate>
+						<img src="<%=ModulePath.Replace("EasyDNNnewsWidgets/Controls/FilterMenu/Settings", "EasyDNNnews")%>images/settings/ajaxLoading.gif" />
+					</ProgressTemplate>
 				</asp:UpdateProgress>
 				<table class="settings_table" cellpadding="0" cellspacing="0">
 					<%--					<tr class="second">
@@ -318,7 +348,7 @@
 					</tr>--%>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblPostBackType2" resourcekey="lblPostBackType2" runat="server" Text="Do postback on:" ControlName="rblPostBackType2" HelpText="Choose type of filter menu post back." />
+							<dnn:Label ID="lblPostBackType2" ResourceKey="lblPostBackType2" runat="server" Text="Do postback on:" ControlName="rblPostBackType2" HelpText="Choose type of filter menu post back." />
 						</td>
 						<td class="right">
 							<asp:RadioButtonList ID="rblPostBackType2" runat="server">
@@ -335,7 +365,7 @@
 						<table class="settings_table" cellpadding="0" cellspacing="0">
 							<tr class="second">
 								<td class="left">
-									<dnn:Label ID="lblOrderBySection2" resourcekey="lblOrderBySection2" runat="server" Text="Display order by section:" ControlName="cbOrderBySection2" HelpText="Display order by section only if template contains walid token." />
+									<dnn:Label ID="lblOrderBySection2" ResourceKey="lblOrderBySection2" runat="server" Text="Display order by section:" ControlName="cbOrderBySection2" HelpText="Display order by section only if template contains walid token." />
 								</td>
 								<td class="right">
 									<asp:CheckBox ID="cbOrderBySection2" runat="server" Checked="True" AutoPostBack="true" OnCheckedChanged="cbOrderBySection2_CheckedChanged" />
@@ -366,7 +396,8 @@
 				</asp:UpdatePanel>
 				<asp:UpdateProgress ID="uupOrderBySection2" runat="server" AssociatedUpdatePanelID="upOrderBySection2" DisplayAfter="100" DynamicLayout="true">
 					<ProgressTemplate>
-						<img src="<%=ModulePath.Replace("EasyDNNnewsWidgets/Controls/FilterMenu/Settings", "EasyDNNnews")%>images/settings/ajaxLoading.gif" /></ProgressTemplate>
+						<img src="<%=ModulePath.Replace("EasyDNNnewsWidgets/Controls/FilterMenu/Settings", "EasyDNNnews")%>images/settings/ajaxLoading.gif" />
+					</ProgressTemplate>
 				</asp:UpdateProgress>
 				<table class="settings_table" cellpadding="0" cellspacing="0">
 					<tr>

@@ -92,6 +92,7 @@
 					//settings.min = parseInt(slider.prop("value").split(";")[0], 10);
 					//settings.max = parseInt(slider.prop("value").split(";")[1], 10);
 				//}
+
 				if (typeof settings.from !== "number") {
 					settings.from = parseInt(slider.prop("value").split(";")[0], 10); //settings.min;
 				}
@@ -712,7 +713,7 @@
 							}
 						}
 
-						slider.attr("value", parseInt(numbers.fromNumber, 10) + ";" + parseInt(numbers.toNumber, 10));
+						slider.attr("value", parseFloat(numbers.fromNumber) + ";" + parseFloat(numbers.toNumber));
 
 					}
 

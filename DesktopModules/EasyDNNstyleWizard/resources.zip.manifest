@@ -80,5 +80,9 @@
       <path>static/tinyscrollbar/</path>
       <name>jquery.tinyscrollbar-1.81.min.js</name>
     </file>
+    <file>
+      <path>static/styleWizard/js/</path>
+      <name>styleWizard_1.1.1.js</name>
+    </file>
   </files>
 </dotnetnuke>

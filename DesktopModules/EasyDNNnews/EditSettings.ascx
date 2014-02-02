@@ -634,7 +634,7 @@
 				<table class="settings_table" cellpadding="0" cellspacing="0">
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblSelectArticleView" runat="server" Text="Select article display view:" HelpText="Select article display view:" HelpKey="lblSelectArticleView.HelpText" ResourceKey="lblSelectArticleView" />
+							<dnn:Label ID="lblSelectArticleView" runat="server" Text="Select article display type:" HelpText="Select article display type." HelpKey="lblSelectArticleView.HelpText" ResourceKey="lblSelectArticleView" />
 						</td>
 						<td class="right">
 							<asp:DropDownList ID="ddlSelectArticleDisplayView" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlSelectArticleDisplayView_SelectedIndexChanged">
@@ -645,7 +645,7 @@
 					</tr>
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblNumberOfPosts" runat="server" Text="Number of posts per page:" HelpText="Number of posts per page:" HelpKey="lblNumberOfPosts.HelpText" ResourceKey="lblNumberOfPosts" />
+							<dnn:Label ID="lblNumberOfPosts" runat="server" Text="Number of articles per page:" HelpText="Number of articles per page." HelpKey="lblNumberOfPosts.HelpText" ResourceKey="lblNumberOfPosts" />
 						</td>
 						<td class="right">
 							<asp:TextBox ID="tbNumberOfPosts" runat="server" Width="70px" Text="5" />
@@ -654,7 +654,7 @@
 					</tr>
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblRenderAsTable" runat="server" Text="Display layout as HTML table:" HelpText="Display article layout as HTML table:" HelpKey="lblRenderAsTable.HelpText" ResourceKey="lblRenderAsTable" />
+							<dnn:Label ID="lblRenderAsTable" runat="server" Text="Display article layout as HTML table:" HelpText="Display article layout as HTML table." HelpKey="lblRenderAsTable.HelpText" ResourceKey="lblRenderAsTable" />
 						</td>
 						<td class="right">
 							<asp:CheckBox ID="cbDispalayAsTable" Checked="false" runat="server" AutoPostBack="true" OnCheckedChanged="cbDispalayAsTable_CheckedChanged" />
@@ -676,7 +676,7 @@
 					</tr>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblNumberOfPostsToDisplay" runat="server" Text="Total number of posts to display:" HelpText="Total number of posts to display (0-display all posts):" HelpKey="lblNumberOfPostsToDisplay.HelpText" ResourceKey="lblNumberOfPostsToDisplay" />
+							<dnn:Label ID="lblNumberOfPostsToDisplay" runat="server" Text="Total number of articles to display:" HelpText="Total number of articles to display (0-display all posts)." HelpKey="lblNumberOfPostsToDisplay.HelpText" ResourceKey="lblNumberOfPostsToDisplay" />
 						</td>
 						<td class="right">
 							<asp:TextBox ID="tbTotalNumberOfPosts" runat="server" Width="70px" Text="0" />
@@ -685,7 +685,7 @@
 					</tr>
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblOpenInAnotherModule" runat="server" Text="Open details in another module instance:" HelpText="Open details in another module instance:" HelpKey="lblOpenInAnotherModule.HelpText" ResourceKey="lblOpenInAnotherModule" />
+							<dnn:Label ID="lblOpenInAnotherModule" runat="server" Text="Select module instance in which to open details of articles:" HelpText="Select module instance in which to open details of articles:" HelpKey="lblOpenInAnotherModule.HelpText" ResourceKey="lblOpenInAnotherModule" />
 						</td>
 						<td class="right">
 							<asp:DropDownList ID="ddlOpenDetails" runat="server">
@@ -776,7 +776,7 @@
 				<table cellpadding="0" cellspacing="0" class="settings_table">
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblNumberOfPostsToDisplayLab" runat="server" HelpText="Number of starting article:" Text="Number of starting article:" HelpKey="lblNumberOfPostsToDisplayLab.HelpText" ResourceKey="lblNumberOfPostsToDisplayLab" />
+							<dnn:Label ID="lblNumberOfPostsToDisplayLab" runat="server" HelpText="Number of starting article:" Text="Number of starting article." HelpKey="lblNumberOfPostsToDisplayLab.HelpText" ResourceKey="lblNumberOfPostsToDisplayLab" />
 						</td>
 						<td class="right">
 							<asp:TextBox ID="tbStartingArticleNumber" runat="server" Text="1" Width="70px" />
@@ -875,7 +875,9 @@
 			<asp:Panel ID="pnlArticleSettingsTable" runat="server" CssClass="category_content">
 				<table class="settings_table" cellpadding="0" cellspacing="0" runat="server">
 					<tr>
-						<td class="left"></td>
+						<td class="left">
+							<dnn:Label ID="lblDisplayingMethod" runat="server" Text="Displaying method:" HelpText="'Apply filters' - This option allows article filtering. 'Select specific articles' - This option allows for manual selection of articles that need to be displayed. If this option is switched on, only the selected articles are displayed." HelpKey="lblDisplayingMethod.HelpText" ResourceKey="lblDisplayingMethod" />
+						</td>
 						<td class="right">
 							<asp:RadioButtonList ID="rblFilterArticlesBy" runat="server" Style="float: left" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblFilterArticlesBy_SelectedIndexChanged" AutoPostBack="true">
 								<asp:ListItem resourcekey="liApplyFilters" Selected="True" Value="False" Text="Apply filters" />
@@ -885,7 +887,7 @@
 					</tr>
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblPostOrder" runat="server" Text="Order articles by:" HelpText="Order articles by:" HelpKey="lblPostOrder.HelpText" ResourceKey="lblPostOrder" />
+							<dnn:Label ID="lblPostOrder" runat="server" Text="Order articles by:" HelpText="This option allows for the choice of criteria to determine the order of articles, including Descending and Ascending." HelpKey="lblPostOrder.HelpText" ResourceKey="lblPostOrder" />
 						</td>
 						<td class="right">
 							<asp:DropDownList ID="ddlOrderPostsBy" runat="server">
@@ -968,7 +970,7 @@
 				<table class="settings_table" cellpadding="0" cellspacing="0" runat="server" id="tblDefaultArticleFilter">
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblCategoryDisplay" runat="server" Text="Categories to display:" HelpText="Categories to display:" HelpKey="lblCategoryDisplay.HelpText" ResourceKey="lblCategoryDisplay" />
+							<dnn:Label ID="lblCategoryDisplay" runat="server" Text="Categories to display:" HelpText="This option allows for the choice of categories articles will be selected from. If you uncheck 'Display all categories', you will be enabled to choose categories you wish articles to be displayed from." HelpKey="lblCategoryDisplay.HelpText" ResourceKey="lblCategoryDisplay" />
 						</td>
 						<td class="right">
 							<asp:CheckBox ID="cbCategoriesToDisplay" runat="server" AutoPostBack="true" Checked="True" OnCheckedChanged="cbCategoriesToDisplay_CheckedChanged" Text="Display all categories." resourcekey="cbCategoriesToDisplayResource1" />
@@ -980,7 +982,7 @@
 								<tr>
 									<td class="left"></td>
 									<td class="right">
-										<asp:CheckBox ID="cbAutoAddCatChilds" runat="server" Text="Auto select all child categories." resourcekey="cbAutoAddCatChildsResource1" /></p>
+										<asp:CheckBox ID="cbAutoAddCatChilds" runat="server" Text="Auto select all child categories." resourcekey="cbAutoAddCatChildsResource1" />
 									</td>
 								</tr>
 								<tr>
@@ -1003,10 +1005,10 @@
 					</tr>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblFilterPostsbyAuthor" runat="server" HelpText="Show all authors." Text="Show all authors:" HelpKey="lblFilterPostsbyAuthor.HelpText" ResourceKey="lblFilterPostsbyAuthor" />
+							<dnn:Label ID="lblFilterPostsbyAuthor" runat="server" HelpText="Show all authors." Text="This option allows for the articles written by selected authors to be displayed. If you uncheck 'Display all authors', you will be enabled to choose authors whose articles will be displayed." HelpKey="lblFilterPostsbyAuthor.HelpText" ResourceKey="lblFilterPostsbyAuthor" />
 						</td>
 						<td class="right">
-							<asp:CheckBox ID="cbShowAllAuthors" runat="server" AutoPostBack="true" OnCheckedChanged="cbShowAllAuthors_CheckedChanged" />
+							<asp:CheckBox ID="cbShowAllAuthors" runat="server" AutoPostBack="true" OnCheckedChanged="cbShowAllAuthors_CheckedChanged" Text="Display all authors." resourcekey="cbShowAllAuthors" />
 						</td>
 					</tr>
 					<tr>
@@ -1025,7 +1027,7 @@
 					</tr>
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblFeaturedArticles" runat="server" Text="Featured articles:" ResourceKey="lblFeaturedArticles" HelpKey="lblFeaturedArticles.HelpText" HelpText="Set the displaying of features articles" />
+							<dnn:Label ID="lblFeaturedArticles" runat="server" Text="Displaying of Featured articles:" ResourceKey="lblFeaturedArticles" HelpKey="lblFeaturedArticles.HelpText" HelpText="The option 'Show only featured articles' allows only the articles marked as featured to be displayed. The option 'Keep featured articles on top' allows for all the featured articles to be displayed before all other articles, disregarding the publish date." />
 						</td>
 						<td class="right">
 							<table>
@@ -1034,13 +1036,13 @@
 										<asp:CheckBox ID="cbFeaturedArticles" runat="server" resourcekey="cbFeaturedArticlesResource1" AutoPostBack="true" OnCheckedChanged="cbFeaturedArticles_CheckedChanged" />
 									</td>
 									<td>
-										<dnn:Label ID="lblShowOnlyFeatured" runat="server" Text="Show only featured articles" HelpText="Show only featured articles." HelpKey="lblShowOnlyFeatured.HelpText" ResourceKey="lblShowOnlyFeatured" />
+										<dnn:Label ID="lblShowOnlyFeatured" runat="server" Text="Show only featured articles" HelpText="The option 'Show only featured articles' allows only the articles marked as featured to be displayed." HelpKey="lblShowOnlyFeatured.HelpText" ResourceKey="lblShowOnlyFeatured" />
 									</td>
 									<td>
 										<asp:CheckBox ID="cbFeaturedOnTop" runat="server" AutoPostBack="true" OnCheckedChanged="cbFeaturedOnTop_CheckedChanged" />
 									</td>
 									<td>
-										<dnn:Label ID="lblFeaturedOnTop" runat="server" Text="Keep featured articles on top" HelpText="If this option is turned on, the featured articles are displayed before all other articles." HelpKey="lblFeaturedOnTop.HelpText" ResourceKey="lblFeaturedOnTop" />
+										<dnn:Label ID="lblFeaturedOnTop" runat="server" Text="Keep featured articles on top" HelpText="The option 'Keep featured articles on top' allows for all the featured articles to be displayed before all other articles, disregarding the publish date." HelpKey="lblFeaturedOnTop.HelpText" ResourceKey="lblFeaturedOnTop" />
 									</td>
 								</tr>
 							</table>
@@ -1048,8 +1050,7 @@
 					</tr>
 					<tr>
 						<td class="left">
-							<%--<dnn:Label ID="lblShowOnlyEvents" runat="server" HelpText="Show only event articles:" Text="Show only event articles:" HelpKey="lblShowOnlyEvents.HelpText" ResourceKey="lblShowOnlyEvents" />--%>
-							<dnn:Label ID="lblSelectArticleEvents" runat="server" Text="Select articles and/or events:" HelpText="Select article and/or events to display." />
+							<dnn:Label ID="lblSelectArticleEvents" runat="server" Text="Display articles and events:" HelpText="This option allows for displaying articles only, or events only, or both.." ResourceKey="lblSelectArticleEvents" HelpKey="lblSelectArticleEvents.HelpText" />
 						</td>
 						<td class="right">
 							<asp:CheckBox ID="cbShowArticles" runat="server" Checked="True" Text="Articles" />
@@ -1058,12 +1059,12 @@
 					</tr>
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblShowOnlyEventsLimit" runat="server" HelpText="Specify display of past events. Limit to 0 - displays events from current date:" Text="Specify display of past events:" HelpKey="lblShowOnlyEventsLimit.HelpText" ResourceKey="lblShowOnlyEventsLimit" />
+							<dnn:Label ID="lblShowOnlyEventsLimit" runat="server" HelpText="Set the criteria to display events whose start date has ended. The option 'Show all' will display all events, disregarding the fact that they have already ended. We can enter the number of days to be set in the past for past events in the field 'Limit to number of days in the past'. If the set value is 0, the criterion for the event's listing will be the current date. In that case, neither of the past events will be displayed." Text="Displaying of past events:" HelpKey="lblShowOnlyEventsLimit.HelpText" ResourceKey="lblShowOnlyEventsLimit" />
 						</td>
 						<td class="right">
 							<asp:RadioButtonList ID="rblLimitBackEvents" runat="server" Style="float: left" RepeatDirection="Horizontal">
 								<asp:ListItem Value="All" Text="ShowAll" resourcekey="ListItemResource24" />
-								<asp:ListItem Value="Limit" Text="Limit to number of days:" resourcekey="ListItemResource25" Selected="True" />
+								<asp:ListItem Value="Limit" Text="Limit to number of days in the past:" resourcekey="ListItemResource25" Selected="True" />
 							</asp:RadioButtonList>
 							<asp:TextBox Style="float: left" ID="tbPastEventLimit" runat="server" Width="25px" resourcekey="tbPastEventLimitResource1" Text="0" />
 							<asp:RequiredFieldValidator ID="rfvRhumbImageWidth2" runat="server" ControlToValidate="tbPastEventLimit" Display="Dynamic" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="vgSettings" resourcekey="rfvRhumbImageWidth2Resource1.ErrorMessage" />
@@ -1072,7 +1073,7 @@
 					</tr>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblFilterByTags" runat="server" HelpText="Filter articles by tags" Text="Filter articles by tags:" HelpKey="lblFilterByTags.HelpText" ResourceKey="lblFilterByTags" />
+							<dnn:Label ID="lblFilterByTags" runat="server" HelpText="This option provides selecting tags according to which articles will be displayed. For instance, if we select tags 'cars' and 'trucks', only those articles that contain tags 'cars' and 'trucks' will be displayed." Text="Filter articles by tags:" HelpKey="lblFilterByTags.HelpText" ResourceKey="lblFilterByTags" />
 						</td>
 						<td class="right">
 							<asp:CheckBox ID="cbFilterArticlesByTags" runat="server" AutoPostBack="true" OnCheckedChanged="cbFilterArticlesByTags_CheckedChanged" />

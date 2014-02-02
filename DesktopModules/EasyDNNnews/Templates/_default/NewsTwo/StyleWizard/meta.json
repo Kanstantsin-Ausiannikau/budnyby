@@ -286,6 +286,31 @@
 					}
 				]
 			},
+			"contentFont": {
+				"type": "text",
+				"name": "Content Font",
+				"subCollection": "news",
+				"hide": [
+					"newsListSidebar"
+				],
+				"states": [
+					{
+						"id": "default",
+						"selectors": [
+							" .article .summary",
+							" .article-details .EDN_article_content"
+						],
+						"name": "Normal",
+						"forbidden": [
+							"style",
+							"weight",
+							"transform",
+							"decorations",
+							"shadows"
+						]
+					}
+				]
+			},
 			"detailsArticleImageBorder": {
 				"type": "border",
 				"name": "Image Border",

@@ -319,4 +319,16 @@ Hint: You can also turn off displaying languages on the default language. For ar
   <data name="Themeandtemplate.Text" xml:space="preserve">
     <value>Theme and template:</value>
   </data>
+  <data name="lblFilterBy.HelpText" xml:space="preserve">
+    <value>This option allows for displaying articles only, or events only, or both.</value>
+  </data>
+  <data name="lblFilterBy.Text" xml:space="preserve">
+    <value>Display articles and events:</value>
+  </data>
+  <data name="lblShowOnlyEventsLimit.HelpText" xml:space="preserve">
+    <value>Set the criteria to display events whose start date has ended. The option 'Show all' will display all events, disregarding the fact that they have already ended. We can enter the number of days to be set in the past for past events in the field 'Limit to number of days in the past'. If the set value is 0, the criterion for the event's listing will be the current date. In that case, neither of the past events will be displayed.</value>
+  </data>
+  <data name="lblShowOnlyEventsLimit.Text" xml:space="preserve">
+    <value>Displaying of past events:</value>
+  </data>
 </root>

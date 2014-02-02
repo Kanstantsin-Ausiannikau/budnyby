@@ -1389,4 +1389,94 @@
   <data name="liThird.Text" xml:space="preserve">
     <value>Third</value>
   </data>
+  <data name="liFriday.Text" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="liMonday.Text" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="liSaturday.Text" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="liSunday.Text" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="liThuesday.Text" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="liThursday.Text" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="liWednesday.Text" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="cvDailyRecurringEventDays.ErrorMessage" xml:space="preserve">
+    <value>Please enter number only.</value>
+  </data>
+  <data name="lblRecurrenceType.Help" xml:space="preserve">
+    <value>Select type of recurrence.</value>
+  </data>
+  <data name="lblRecurrenceType.Text" xml:space="preserve">
+    <value>Recurrence type:</value>
+  </data>
+  <data name="lblRecurringDays.Text" xml:space="preserve">
+    <value>day(s)</value>
+  </data>
+  <data name="lblrecurringEvent.Help" xml:space="preserve">
+    <value>Create recurring event.</value>
+  </data>
+  <data name="lblrecurringEvent.Text" xml:space="preserve">
+    <value>Recurrence:</value>
+  </data>
+  <data name="lblRecurringEvery.Text" xml:space="preserve">
+    <value>Every:</value>
+  </data>
+  <data name="lblRecurringMonth.Text" xml:space="preserve">
+    <value>month(s)</value>
+  </data>
+  <data name="lblRecurringMonthEvery.Text" xml:space="preserve">
+    <value>of every:</value>
+  </data>
+  <data name="lblRecurringWeeks.Text" xml:space="preserve">
+    <value>weeks(s) on</value>
+  </data>
+  <data name="lblUpcomingOccurrences.Text" xml:space="preserve">
+    <value>Display upcoming occurrences</value>
+  </data>
+  <data name="lblWeeklyRecurringEvery.Text" xml:space="preserve">
+    <value>Recur every:</value>
+  </data>
+  <data name="liDaily.Text" xml:space="preserve">
+    <value>Daily</value>
+  </data>
+  <data name="liEndbydate.Text" xml:space="preserve">
+    <value>End by date</value>
+  </data>
+  <data name="liEndsafterocurrences.Text" xml:space="preserve">
+    <value>Ends after ocurrences</value>
+  </data>
+  <data name="liEvery.Text" xml:space="preserve">
+    <value>Every:</value>
+  </data>
+  <data name="liMonthly.Text" xml:space="preserve">
+    <value>Monthly</value>
+  </data>
+  <data name="liRepeatedon.Text" xml:space="preserve">
+    <value>Repeated on:</value>
+  </data>
+  <data name="liRepeatedonday.Text" xml:space="preserve">
+    <value>Repeated on day:</value>
+  </data>
+  <data name="liThe.Text" xml:space="preserve">
+    <value>The:</value>
+  </data>
+  <data name="liWeekly.Text" xml:space="preserve">
+    <value>Weekly</value>
+  </data>
+  <data name="liYearly.Text" xml:space="preserve">
+    <value>Yearly</value>
+  </data>
+  <data name="rfvDailyRecurringEventDays.ErrorMessage" xml:space="preserve">
+    <value>Days required.</value>
+  </data>
 </root>

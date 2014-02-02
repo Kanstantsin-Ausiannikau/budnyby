@@ -3,8 +3,7 @@
 <%@ Register TagPrefix="dnn" TagName="TextEditor" Src="~/controls/TextEditor.ascx" %>
 <%@ Register TagPrefix="Portal" TagName="URL" Src="~/controls/URLControl.ascx" %>
 <style type="text/css">
-	.styleDisplayNone
-	{
+	.styleDisplayNone {
 		display: none;
 	}
 </style>
@@ -321,7 +320,7 @@
 											</ItemTemplate>
 										</asp:DataList>
 										<asp:GridView ID="gvTagsPaging" runat="server" AllowPaging="True" AutoGenerateColumns="false" CellPadding="0" CssClass="existing_tag_list_pagination article_pager" DataSourceID="odsGetTagsByName" EnableModelValidation="True" GridLines="None" OnPageIndexChanged="gvTagsPaging_PageIndexChanged"
-											OnPageIndexChanging="gvTagsPaging_PageIndexChanging1" PageSize="50">
+											OnPageIndexChanging="gvTagsPaging_PageIndexChanging" PageSize="50">
 											<Columns>
 												<asp:BoundField DataField="Name" Visible="false" />
 											</Columns>
@@ -871,16 +870,14 @@
 																<td class="header_field action">
 																	<%=Action %>
 																</td>
-																<td class="header_field image">
-																</td>
+																<td class="header_field image"></td>
 																<td class="header_field title">
 																	<%=Title%>
 																</td>
 																<td class="header_field description">
 																	<%=Description %>
 																</td>
-																<td class="header_field">
-																</td>
+																<td class="header_field"></td>
 															</tr>
 														</table>
 													</HeaderTemplate>
@@ -1044,12 +1041,14 @@
 								</div>
 								<div class="search_by_document_title">
 									<p>
-										<%=Searchdocuments%></p>
+										<%=Searchdocuments%>
+									</p>
 									<asp:TextBox ID="tbxDocumentText" runat="server" AutoCompleteType="Search" CausesValidation="False" EnableViewState="false" CssClass="rounded_text_box" />
 								</div>
 								<div class="search_by_document_id">
 									<p>
-										<%=Documentid%></p>
+										<%=Documentid%>
+									</p>
 									<asp:TextBox ID="tbxExistingDocumentID" runat="server" CausesValidation="False" EnableViewState="false" CssClass="rounded_text_box grey" />
 								</div>
 								<asp:LinkButton ID="btnAddExistingDocument" runat="server" OnClick="lbAddExistingDocument_Click" ValidationGroup="vgDocumentLinks" CssClass="add_button rounded_button gradient icon orange_plus"><span><%=Add%></span></asp:LinkButton>
@@ -1058,7 +1057,7 @@
 							</asp:Panel>
 						</div>
 						<asp:GridView ID="gvArticleDocuments" runat="server" AutoGenerateColumns="false" CellPadding="0" CssClass="grid_view_table" DataKeyNames="DocEntryID" EnableModelValidation="True" GridLines="None" OnRowCommand="gvArticleDocuments_RowCommand" OnRowEditing="gvArticleDocuments_RowEditing"
-							OnRowCancelingEdit="gvArticleDocuments_RowCancelingEdit" OnRowUpdating="gvArticleDocuments_RowUpdating" OnRowUpdated="gvArticleDocuments_RowUpdated" OnRowDeleting="gvArticleDocuments_RowDeleting" OnRowDataBound="gvArticleDocuments_RowDataBound" OnPreRender="gvArticleDocuments_PreRender">
+							OnRowCancelingEdit="gvArticleDocuments_RowCancelingEdit" OnRowUpdating="gvArticleDocuments_RowUpdating" OnRowUpdated="gvArticleDocuments_RowUpdated" OnRowDeleting="gvArticleDocuments_RowDeleting" OnRowDataBound="gvArticleDocuments_RowDataBound" OnPreRender="gvArticleDocuments_PreRender" OnPageIndexChanged="gvArticleDocuments_PageIndexChanged" OnPageIndexChanging="gvArticleDocuments_PageIndexChanging">
 							<AlternatingRowStyle CssClass="second" />
 							<Columns>
 								<asp:TemplateField HeaderText="Actions">
@@ -1273,7 +1272,8 @@
 												</EditItemTemplate>
 												<ItemTemplate>
 													<p class="link <%# PrintAlreadyInUseClass((bool) Eval("InUseByOther")) %>">
-														<%# GetGeneratedLink(Eval("Type"),Eval("URL"),Eval("Protocol"),Eval("ArticleID"),Eval("TabID"),Eval("ExistingArticleData")) %></p>
+														<%# GetGeneratedLink(Eval("Type"),Eval("URL"),Eval("Protocol"),Eval("ArticleID"),Eval("TabID"),Eval("ExistingArticleData")) %>
+													</p>
 												</ItemTemplate>
 												<HeaderStyle CssClass="link" />
 												<ItemStyle CssClass="link" />
@@ -1550,8 +1550,7 @@
 													</td>
 												</tr>
 												<tr>
-													<td class="left">
-													</td>
+													<td class="left"></td>
 													<td class="right">
 														<asp:Panel runat="server" ID="pnlDailyRecurringEvent" Visible="false">
 															<asp:Label ID="lblRecurringEvery" resourcekey="lblRecurringEvery" runat="server" Text="Every:" />
@@ -1572,7 +1571,7 @@
 															<asp:Label ID="lblRecurringWeeks" resourcekey="lblRecurringWeeks" runat="server" Text="weeks(s) on" />
 															<asp:CheckBoxList ID="cblWeeklyRecurringEvent" runat="server">
 																<asp:ListItem resourcekey="liMonday" Value="1" Text="Monday" />
-																<asp:ListItem resourcekey="liThuesday" Value="2" Text="Thuesday" />
+																<asp:ListItem resourcekey="liThuesday" Value="2" Text="Tuesday" />
 																<asp:ListItem resourcekey="liWednesday" Value="3" Text="Wednesday" />
 																<asp:ListItem resourcekey="liThursday" Value="4" Text="Thursday" />
 																<asp:ListItem resourcekey="liFriday" Value="5" Text="Friday" />
@@ -1596,7 +1595,7 @@
 																	</asp:DropDownList>
 																	<asp:DropDownList ID="ddlRepeatedOnDay" runat="server">
 																		<asp:ListItem resourcekey="liMonday" Value="1" Text="Monday" />
-																		<asp:ListItem resourcekey="liThuesday" Value="2" Text="Thuesday" />
+																		<asp:ListItem resourcekey="liThuesday" Value="2" Text="Tuesday" />
 																		<asp:ListItem resourcekey="liWednesday" Value="3" Text="Wednesday" />
 																		<asp:ListItem resourcekey="liThursday" Value="4" Text="Thursday" />
 																		<asp:ListItem resourcekey="liFriday" Value="5" Text="Friday" />
@@ -1606,7 +1605,7 @@
 																</asp:Panel>
 																<asp:Panel runat="server" ID="pnlRepeatedOnDay" Visible="false" Style="margin-top: 3px">
 																	<asp:TextBox ID="tbxRepeatedOnDay" runat="server" Width="30px" Text="1" />
-																	<asp:RequiredFieldValidator ID="rfvRepeatedOnDay" resourcekey="rfvRepeatedOnDay.ErrorMessage"  runat="server" ControlToValidate="tbxRepeatedOnDay" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Day required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																	<asp:RequiredFieldValidator ID="rfvRepeatedOnDay" resourcekey="rfvRepeatedOnDay.ErrorMessage" runat="server" ControlToValidate="tbxRepeatedOnDay" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Day required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
 																	<asp:CompareValidator ID="cvtbxRepeatedOnDay" resourcekey="cvtbxRepeatedOnDay.ErrorMessage" runat="server" ControlToValidate="tbxRepeatedOnDay" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
 																	<asp:RangeValidator ID="rvRepeatedOnDay" resourcekey="rvRepeatedOnDay.ErrorMessage" runat="server" MinimumValue="1" MaximumValue="31" ControlToValidate="tbxRepeatedOnDay" Display="Dynamic" ErrorMessage="Please enter number between 1-31." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
 																</asp:Panel>
@@ -1647,19 +1646,19 @@
 															<asp:Panel runat="server" ID="pnlYearlyRecurringEventComplex" Visible="false">
 																<asp:DropDownList ID="ddlYearlyRepeatedOnEvery" runat="server">
 																	<asp:ListItem resourcekey="liFirst" Value="1" Text="First" Selected="True" />
-																		<asp:ListItem resourcekey="liSecond" Value="2" Text="Second" />
-																		<asp:ListItem resourcekey="liThird" Value="3" Text="Third" />
-																		<asp:ListItem resourcekey="liFourth" Value="4" Text="Fourth" />
-																		<asp:ListItem resourcekey="liLast" Value="5" Text="Last" />
+																	<asp:ListItem resourcekey="liSecond" Value="2" Text="Second" />
+																	<asp:ListItem resourcekey="liThird" Value="3" Text="Third" />
+																	<asp:ListItem resourcekey="liFourth" Value="4" Text="Fourth" />
+																	<asp:ListItem resourcekey="liLast" Value="5" Text="Last" />
 																</asp:DropDownList>
 																<asp:DropDownList ID="ddlYearlyRepeatedOnDay" runat="server">
 																	<asp:ListItem resourcekey="liMonday" Value="1" Text="Monday" />
-																		<asp:ListItem resourcekey="liThuesday" Value="2" Text="Thuesday" />
-																		<asp:ListItem resourcekey="liWednesday" Value="3" Text="Wednesday" />
-																		<asp:ListItem resourcekey="liThursday" Value="4" Text="Thursday" />
-																		<asp:ListItem resourcekey="liFriday" Value="5" Text="Friday" />
-																		<asp:ListItem resourcekey="liSaturday" Value="6" Text="Saturday" />
-																		<asp:ListItem resourcekey="liSunday" Value="7" Text="Sunday" />
+																	<asp:ListItem resourcekey="liThuesday" Value="2" Text="Tuesday" />
+																	<asp:ListItem resourcekey="liWednesday" Value="3" Text="Wednesday" />
+																	<asp:ListItem resourcekey="liThursday" Value="4" Text="Thursday" />
+																	<asp:ListItem resourcekey="liFriday" Value="5" Text="Friday" />
+																	<asp:ListItem resourcekey="liSaturday" Value="6" Text="Saturday" />
+																	<asp:ListItem resourcekey="liSunday" Value="7" Text="Sunday" />
 																</asp:DropDownList>
 																of
 																<asp:DropDownList ID="ddlComplexMonthOfYear" runat="server">
@@ -2589,11 +2588,11 @@ window.edn_module_root = '<%=ModulePath%>';
 	);
 
 	if (document.getElementById('<%=hfResize.ClientID%>') != null)
-		eds1_10('.galleryFineUploader').edsFineUploader(galleryFineUploaderSettings());
+		eds1_10('.galleryFineUploader').edsFineUploader_1_2(galleryFineUploaderSettings());
 
 	var $documentsFineUploader = eds1_10('.documents_fine_uploader');
 	if ($documentsFineUploader.length > 0)
-		$documentsFineUploader.edsFineUploader(documentsFineUploaderSettings());
+		$documentsFineUploader.edsFineUploader_1_2(documentsFineUploaderSettings());
 });
 
 eds1_8(function ($) {
@@ -2656,7 +2655,7 @@ eds1_8(function ($) {
 				}
 
 				if (document.getElementById('<%=hfResize.ClientID%>') != null)
-					eds1_10('.galleryFineUploader').edsFineUploader(galleryFineUploaderSettings());
+					eds1_10('.galleryFineUploader').edsFineUploader_1_2(galleryFineUploaderSettings());
 			})(<%=jQueryPrefix%>);
 		}
 	}

@@ -2,3 +2,7 @@
 <%@ Register TagPrefix="dnnweb" Namespace="DotNetNuke.Web.UI.WebControls" Assembly="DotNetNuke.Web" %>
 <asp:Label ID="lblSettingsInfo" runat="server" Visible="false" />
 <dnnweb:DnnTreeView ID="AdvancedTreeView" runat="server" EnableViewState="false" />
+<asp:GridView ID="GridView1" runat="server">
+</asp:GridView>
+<asp:GridView ID="GridView2" runat="server">
+</asp:GridView>

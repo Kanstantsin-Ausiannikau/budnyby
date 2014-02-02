@@ -292,6 +292,22 @@
           }
         }
       },
+      "contentFont": {
+        "default": {
+          "values": {
+            "fontFamily": "Arial",
+            "color": "#2F2F2F",
+            "size": {
+              "value": 12,
+              "unit": "px"
+            },
+            "lineHeight": {
+              "value": 20,
+              "unit": "px"
+            }
+          }
+        }
+      },
       "detailsArticleImageBorder": {
         "default": {
           "values": {

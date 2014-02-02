@@ -1759,8 +1759,8 @@
 										"id": "default",
 										"selectors": [
 											" .article_pager a",
-											" .article.details .main_content .article_pagination a",
-											" .article.details .main_content .article_pagination span"
+											" .article .details_container .main_content .article_pagination td a",
+											" .article .details_container .main_content .article_pagination td span"
 										],
 										"forbidden": [
 											"attachment"
@@ -1771,7 +1771,7 @@
 										"id": "hover",
 										"selectors": [
 											" .article_pager a:hover",
-											" .article.standalone .article_pagination table td a:hover"
+											" .article .details_container .main_content .article_pagination td a:hover",
 										],
 										"forbidden": [
 											"attachment"
@@ -1782,7 +1782,7 @@
 										"id": "active",
 										"selectors": [
 											" .article_pager a.active",
-											" .article.details .main_content .article_pagination span"
+											" .article .details_container .main_content .article_pagination td span"
 										],
 										"forbidden": [
 											"attachment"
@@ -1800,8 +1800,8 @@
 										"id": "default",
 										"selectors": [
 											" .article_pager a",
-											" .article.details .main_content .article_pagination a",
-											" .article.details .main_content .article_pagination span"
+											" .article .details_container .main_content .article_pagination td a",
+											" .article .details_container .main_content .article_pagination td span"
 										],
 										"name": "Normal"
 									},
@@ -1809,7 +1809,7 @@
 										"id": "hover",
 										"selectors": [
 											" .article_pager a:hover",
-											" .article.details .main_content .article_pagination a:hover"
+											" .article .details_container .main_content .article_pagination td a:hover"
 										],
 										"name": "Hover"
 									},
@@ -1817,7 +1817,7 @@
 										"id": "active",
 										"selectors": [
 											" .article_pager a.active",
-											" .article.details .main_content .article_pagination span"
+											" .article .details_container .main_content .article_pagination td span"
 										],
 										"name": "Active"
 									}
@@ -1832,8 +1832,8 @@
 										"id": "default",
 										"selectors": [
 											" .article_pager a",
-											" .article.details .main_content .article_pagination a",
-											" .article.details .main_content .article_pagination span"
+											" .article .details_container .main_content .article_pagination td a",
+											" .article .details_container .main_content .article_pagination td span"
 										],
 										"forbidden": [
 											"transform"
@@ -1844,7 +1844,7 @@
 										"id": "hover",
 										"selectors": [
 											" .article_pager a:hover",
-											" .article.details .main_content .article_pagination a:hover"
+											" .article .details_container .main_content .article_pagination td a:hover"
 										],
 										"forbidden": [
 											"fontFamily",
@@ -1860,7 +1860,7 @@
 										"id": "active",
 										"selectors": [
 											" .article_pager a.active",
-											" .article.details .main_content .article_pagination span",
+											" .article .details_container .main_content .article_pagination td span",
 											" .article_pager a.active:hover"
 										],
 										"forbidden": [
@@ -1883,8 +1883,8 @@
 										"id": "default",
 										"selectors": [
 											" .article_pager a",
-											" .article.details .main_content .article_pagination a",
-											" .article.details .main_content .article_pagination span"
+											" .article .details_container .main_content .article_pagination td a",
+											" .article .details_container .main_content .article_pagination td span"
 										],
 										"name": "Normal"
 									},
@@ -1892,7 +1892,7 @@
 										"id": "hover",
 										"selectors": [
 											" .article_pager a:hover",
-											" .article.details .main_content .article_pagination a:hover"
+											" .article .details_container .main_content .article_pagination td a:hover"
 										],
 										"name": "Hover",
 										"forbidden": [
@@ -1904,7 +1904,7 @@
 										"id": "active",
 										"selectors": [
 											" .article_pager a.active",
-											" .article.details .main_content .article_pagination span"
+											" .article .details_container .main_content .article_pagination td span"
 										],
 										"name": "Active",
 										"forbidden": [

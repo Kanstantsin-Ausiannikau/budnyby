@@ -93,7 +93,36 @@
 					<%=SettingsTitle%></h2>
 			</div>
 			<div class="category_content">
+				<div id="pnlContentSelection" runat="server">
+					<h3 class="subsections">Content selection</h3>
+					<table class="settings_table" cellpadding="0" cellspacing="0">
+						<tr class="second">
+							<td class="left">
+								<dnn:Label ID="lblFilterBy" runat="server" Text="Display articles and events:" HelpText="This option allows for displaying articles only, or events only, or both." HelpKey="lblFilterBy.HelpText" ResourceKey="lblFilterBy" />
+							</td>
+							<td class="right">
+								<asp:CheckBox ID="cbFilterByArticles" runat="server" Text="Articles" Checked="True" />
+								<asp:CheckBox ID="cbFilterByEvents" runat="server" Text="Events" Checked="True" AutoPostBack="true" OnCheckedChanged="cbFilterByEvents_CheckedChanged" />
+							</td>
+						</tr>
+						<tr>
+							<td class="left">
+								<dnn:Label ID="lblFilterByEventsLimit" runat="server" HelpText="Set the criteria to display events whose start date has ended. The option 'Show all' will display all events, disregarding the fact that they have already ended. We can enter the number of days to be set in the past for past events in the field 'Limit to number of days in the past'. If the set value is 0, the criterion for the event's listing will be the current date. In that case, neither of the past events will be displayed." Text="Displaying of past events:" HelpKey="lblShowOnlyEventsLimit.HelpText" ResourceKey="lblShowOnlyEventsLimit" />
+							</td>
+							<td class="right">
+								<asp:RadioButtonList ID="rblLimitBackEvents" runat="server" Style="float: left" RepeatDirection="Horizontal">
+									<asp:ListItem Value="0" Text="ShowAll" />
+									<asp:ListItem Value="1" Text="Limit to number of days:" Selected="True" />
+								</asp:RadioButtonList>
+								<asp:TextBox Style="float: left" ID="tbPastEventLimit" runat="server" Width="25px" Text="0" />
+								<asp:RequiredFieldValidator ID="rfvPastEventLimit" runat="server" ControlToValidate="tbPastEventLimit" Display="Dynamic" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="vgCatMenuSettings" />
+								<asp:CompareValidator ID="cvPastEventLimit" runat="server" ControlToValidate="tbPastEventLimit" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgCatMenuSettings" />
+							</td>
+						</tr>
+					</table>
+				</div>
 				<div id="pnlSocialInstance" runat="server" style="display: none;">
+					<h3 class="subsections">Social settings</h3>
 					<table class="settings_table" cellpadding="0" cellspacing="0">
 						<tr id="Tr1" runat="server" style="background: #D1EBFA;">
 							<td class="left" style="border: 1px solid #AAD6F1; border-right: 0;">
@@ -147,7 +176,8 @@
 				</asp:UpdatePanel>
 				<asp:UpdateProgress ID="uppPermissionSettings" runat="server" AssociatedUpdatePanelID="upPermissionSettings" DisplayAfter="100" DynamicLayout="true">
 					<ProgressTemplate>
-						<img src="<%=ModulePath.Replace("EasyDNNnewsWidgets/Controls/TreeView/Settings", "EasyDNNnews")%>images/settings/ajaxLoading.gif" /></ProgressTemplate>
+						<img src="<%=ModulePath.Replace("EasyDNNnewsWidgets/Controls/TreeView/Settings", "EasyDNNnews")%>images/settings/ajaxLoading.gif" />
+					</ProgressTemplate>
 				</asp:UpdateProgress>
 				<h3 class="subsections">
 					<%=Menuspecificoptions%></h3>
@@ -233,7 +263,8 @@
 				</asp:UpdatePanel>
 				<asp:UpdateProgress ID="uppTheme" runat="server" AssociatedUpdatePanelID="upModuleTheme" DisplayAfter="100" DynamicLayout="true">
 					<ProgressTemplate>
-						<img src="<%=ModulePath.Replace("EasyDNNnewsWidgets/Controls/TreeView/Settings", "EasyDNNnews")%>images/settings/ajaxLoading.gif" /></ProgressTemplate>
+						<img src="<%=ModulePath.Replace("EasyDNNnewsWidgets/Controls/TreeView/Settings", "EasyDNNnews")%>images/settings/ajaxLoading.gif" />
+					</ProgressTemplate>
 				</asp:UpdateProgress>
 				<h3 class="subsections">
 					<%=Filter%></h3>
@@ -252,8 +283,7 @@
 								<td colspan="2">
 									<table class="settings_table" cellpadding="0" cellspacing="0" style="margin-left: auto; margin-right: auto;">
 										<tr>
-											<td class="left">
-											</td>
+											<td class="left"></td>
 											<td class="right">
 												<asp:CheckBox ID="cbAutoAddCatChilds" resourcekey="cbAutoAddCatChilds" runat="server" Text="Auto select all child categories." />
 											</td>
@@ -271,7 +301,8 @@
 				</asp:UpdatePanel>
 				<asp:UpdateProgress ID="uppCategoriesfilter" runat="server" AssociatedUpdatePanelID="upCategoriesfilter" DisplayAfter="100" DynamicLayout="true">
 					<ProgressTemplate>
-						<img src="<%=ModulePath.Replace("EasyDNNnewsWidgets/Controls/TreeView/Settings", "EasyDNNnews")%>images/settings/ajaxLoading.gif" /></ProgressTemplate>
+						<img src="<%=ModulePath.Replace("EasyDNNnewsWidgets/Controls/TreeView/Settings", "EasyDNNnews")%>images/settings/ajaxLoading.gif" />
+					</ProgressTemplate>
 				</asp:UpdateProgress>
 				<asp:UpdatePanel ID="upAuthorsFilter" runat="server">
 					<ContentTemplate>
@@ -285,8 +316,7 @@
 								</td>
 							</tr>
 							<tr class="second">
-								<td class="left">
-									&nbsp;
+								<td class="left">&nbsp;
 								</td>
 								<td class="right">
 									<asp:TreeView ID="tvAuthorAndGroupSelection" runat="server" ForeColor="Black" ShowCheckBoxes="All" Visible="False" ImageSet="Contacts" NodeIndent="25">
@@ -304,7 +334,8 @@
 				</asp:UpdatePanel>
 				<asp:UpdateProgress ID="uppAuthorsFilter" runat="server" AssociatedUpdatePanelID="upAuthorsFilter" DisplayAfter="100" DynamicLayout="true">
 					<ProgressTemplate>
-						<img src="<%=ModulePath.Replace("EasyDNNnewsWidgets/Controls/TreeView/Settings", "EasyDNNnews")%>images/settings/ajaxLoading.gif" /></ProgressTemplate>
+						<img src="<%=ModulePath.Replace("EasyDNNnewsWidgets/Controls/TreeView/Settings", "EasyDNNnews")%>images/settings/ajaxLoading.gif" />
+					</ProgressTemplate>
 				</asp:UpdateProgress>
 				<table class="settings_table" cellpadding="0" cellspacing="0">
 					<tr>

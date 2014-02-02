@@ -190,7 +190,7 @@
 					</tr>
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblSelectArticleEvents" runat="server" Text="Filter by:" HelpText="Filter and count displayed content by articles and/or events." />
+							<dnn:Label ID="lblFilterBy" runat="server" Text="Display articles and events:" HelpText="This option allows for displaying articles only, or events only, or both." HelpKey="lblFilterBy.HelpText" ResourceKey="lblFilterBy" />
 						</td>
 						<td class="right">
 							<asp:CheckBox ID="cbCountArticles" runat="server" Checked="True" Text="Articles" />
@@ -199,7 +199,7 @@
 					</tr>
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblShowOnlyEventsLimit" runat="server" HelpText="Specify display of past events. Limit to 0 - displays events from current date:" Text="Specify display of past events:" HelpKey="lblShowOnlyEventsLimit.HelpText" ResourceKey="lblShowOnlyEventsLimit" />
+							<dnn:Label ID="lblShowOnlyEventsLimit" runat="server" HelpText="Set the criteria to display events whose start date has ended. The option 'Show all' will display all events, disregarding the fact that they have already ended. We can enter the number of days to be set in the past for past events in the field 'Limit to number of days in the past'. If the set value is 0, the criterion for the event's listing will be the current date. In that case, neither of the past events will be displayed." Text="Displaying of past events:" HelpKey="lblShowOnlyEventsLimit.HelpText" ResourceKey="lblShowOnlyEventsLimit" />
 						</td>
 						<td class="right">
 							<asp:RadioButtonList ID="rblLimitBackEvents" runat="server" Style="float: left" RepeatDirection="Horizontal">
@@ -207,8 +207,8 @@
 								<asp:ListItem Value="1" Text="Limit to number of days:" Selected="True" />
 							</asp:RadioButtonList>
 							<asp:TextBox Style="float: left" ID="tbPastEventLimit" runat="server" Width="25px" Text="0" />
-							<asp:RequiredFieldValidator ID="rfvRhumbImageWidth2" runat="server" ControlToValidate="tbPastEventLimit" Display="Dynamic" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="vgCatMenuSettings" />
-							<asp:CompareValidator ID="cvLightBoxGalleryNumberOfItems1" runat="server" ControlToValidate="tbPastEventLimit" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgCatMenuSettings" />
+							<asp:RequiredFieldValidator ID="rfvPastEventLimit" runat="server" ControlToValidate="tbPastEventLimit" Display="Dynamic" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="vgCatMenuSettings" />
+							<asp:CompareValidator ID="cvPastEventLimit" runat="server" ControlToValidate="tbPastEventLimit" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgCatMenuSettings" />
 						</td>
 					</tr>
 					<tr class="second">

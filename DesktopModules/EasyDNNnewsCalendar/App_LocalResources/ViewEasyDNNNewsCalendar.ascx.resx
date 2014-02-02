@@ -127,7 +127,7 @@
     <value>Edit Settings</value>
   </data>
   <data name="Event.Text" xml:space="preserve">
-    <value>Upcoming events</value>
+    <value>Ближайшие</value>
   </data>
   <data name="lblCalMessage.Text" xml:space="preserve">
     <value>Please edit and save settings.</value>

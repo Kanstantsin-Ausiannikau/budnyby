@@ -116,6 +116,15 @@
 	font-size: 14px;
 }
 
+.eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_news .article .summary,
+.eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_news .article-details .EDN_article_content
+{
+	font-family: "Arial";
+	color: #2F2F2F;
+	font-size: 12px;
+	line-height: 20px;
+}
+
 .eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_news.eds_templateGroup_newsDetailsDefault .article-details .featured img,
 .eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_news.eds_templateGroup_newsDetailsCatalogDefault .article-details .featured img
 {

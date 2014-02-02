@@ -16,7 +16,7 @@
 									<dnn:Label ID="lblSelectViewControl" runat="server" Text="Select widget:" HelpText="Select advanced control for viewing news module items." ResourceKey="lblSelectViewControl" />
 								</td>
 								<td class="right">
-									<asp:RadioButtonList ID="rblViewControls" runat="server" OnSelectedIndexChanged="rblViewControls_SelectedIndexChanged" AutoPostBack="true">
+									<asp:RadioButtonList ID="rblViewControls" runat="server" AutoPostBack="true">
 										<asp:ListItem ResourceKey="liTreeview" Text="Tree view menu" Selected="True" Value="1" />
 										<asp:ListItem ResourceKey="liFiltering" Text="Filter menu" Value="2" />
 									</asp:RadioButtonList>

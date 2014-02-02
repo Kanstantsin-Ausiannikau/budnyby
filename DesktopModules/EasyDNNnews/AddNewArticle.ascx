@@ -10,29 +10,29 @@
 	}
 	function ddlOnSelectedIndexChange(ControlClientID, cfid) {
 		if (document.getElementById('<%=hfParenSelectedValue.ClientID%>') != null) {
-		var e = document.getElementById(ControlClientID);
-		var ParentElementID = e.options[e.selectedIndex].value;
-		var hfValue = document.getElementById('<%=hfParenSelectedValue.ClientID%>').value;
-			if (hfValue.length != 0) {
-				var indexOd = hfValue.indexOf(ControlClientID + ';')
-				if (indexOd != -1){
-					var pocetak = hfValue.substring(indexOd + ControlClientID.length + 1); // cut
-					var indexOdBroja = pocetak.indexOf('|');
-					var kraj = pocetak.substring(0, indexOdBroja);
-					hfValue = hfValue.replace(ControlClientID + ';' + kraj + '|', ''); // remove existing value
-				}
-				document.getElementById('<%=hfParenSelectedValue.ClientID%>').value = hfValue + ControlClientID + ';' + ParentElementID + '|';
-			document.getElementById('<%=hfLastSelectedIndexChanged.ClientID%>').value = cfid;
-		}
-		else {
-			document.getElementById('<%=hfParenSelectedValue.ClientID%>').value = ControlClientID + ';' + ParentElementID + '|';
-			document.getElementById('<%=hfLastSelectedIndexChanged.ClientID%>').value = cfid;
+			var e = document.getElementById(ControlClientID);
+			var ParentElementID = e.options[e.selectedIndex].value;
+			var hfValue = document.getElementById('<%=hfParenSelectedValue.ClientID%>').value;
+		if (hfValue.length != 0) {
+			var indexOd = hfValue.indexOf(ControlClientID + ';')
+			if (indexOd != -1){
+				var pocetak = hfValue.substring(indexOd + ControlClientID.length + 1); // cut
+				var indexOdBroja = pocetak.indexOf('|');
+				var kraj = pocetak.substring(0, indexOdBroja);
+				hfValue = hfValue.replace(ControlClientID + ';' + kraj + '|', ''); // remove existing value
+			}
+			document.getElementById('<%=hfParenSelectedValue.ClientID%>').value = hfValue + ControlClientID + ';' + ParentElementID + '|';
+				document.getElementById('<%=hfLastSelectedIndexChanged.ClientID%>').value = cfid;
+			}
+			else {
+				document.getElementById('<%=hfParenSelectedValue.ClientID%>').value = ControlClientID + ';' + ParentElementID + '|';
+				document.getElementById('<%=hfLastSelectedIndexChanged.ClientID%>').value = cfid;
+			}
 		}
 	}
-}
 
-function cblOnSelectedIndexChange(ControlClientID, cfid) {
-	if (document.getElementById('<%=hfParenSelectedValue.ClientID%>') != null) {
+	function cblOnSelectedIndexChange(ControlClientID, cfid) {
+		if (document.getElementById('<%=hfParenSelectedValue.ClientID%>') != null) {
 		var chkBox = document.getElementById(ControlClientID);
 		var options = chkBox.getElementsByTagName('input');
 		var checkedValues = '';
@@ -509,11 +509,11 @@ function initializeUploadify (inputId, galleryId) {
 	);
 
 		if (document.getElementById('<%=hfResize.ClientID%>') != null)
-			eds1_10('.galleryFineUploader').edsFineUploader(galleryFineUploaderSettings());
+			eds1_10('.galleryFineUploader').edsFineUploader_1_2(galleryFineUploaderSettings());
 
 		var $documentsFineUploader = eds1_10('.documents_fine_uploader');
 		if ($documentsFineUploader.length > 0)
-			$documentsFineUploader.edsFineUploader(documentsFineUploaderSettings());
+			$documentsFineUploader.edsFineUploader_1_2(documentsFineUploaderSettings());
 
 
 	});
@@ -526,12 +526,13 @@ function initializeUploadify (inputId, galleryId) {
 			width: 106,
 			emptyText: '<span class="empty">None</span>'
 		});
+
+		<%=includeDocumentLanguageJS%>
+		<%=languageDropdownCheckboxGridViewJS%>
 	});
 
 	<%=languageDropdownCheckbox%>
-	<%=languageDropdownCheckboxGridViewJS%>
 	<%=includeLanguageListboxFunctions%>
-	<%=includeDocumentLanguageJS%>
 
 	function pageLoad(sender, args) {
 		if (args.get_isPartialLoad()) {
@@ -575,14 +576,14 @@ function initializeUploadify (inputId, galleryId) {
 						'<%=GalfileInput.ClientID%>',
 				'1'
 			);
-			}
+				}
 
 				if (document.getElementById('<%=hfResize.ClientID%>') != null)
-					eds1_10('.galleryFineUploader').edsFineUploader(galleryFineUploaderSettings());
+					eds1_10('.galleryFineUploader').edsFineUploader_1_2(galleryFineUploaderSettings());
 
 				var $documentsFineUploader = eds1_10('.documents_fine_uploader');
 				if ($documentsFineUploader.length > 0)
-					$documentsFineUploader.edsFineUploader(documentsFineUploaderSettings());
+					$documentsFineUploader.edsFineUploader_1_2(documentsFineUploaderSettings());
 			})(<%=jQueryPrefix%>);
 		}
 	}
@@ -643,14 +644,15 @@ function initializeUploadify (inputId, galleryId) {
 								<div class="edn_admin_progress_overlay_container">
 									<asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="upCategorySelection" DisplayAfter="100" DynamicLayout="true">
 										<ProgressTemplate>
-											<div class="edn_admin_progress_overlay"></div>
+											<div class="edn_admin_progress_overlay">
+											</div>
 										</ProgressTemplate>
 									</asp:UpdateProgress>
 									<asp:Label ID="lblCategorySelectError" runat="server" resourcekey="lblCategorySelectError" ForeColor="Red" Text="Please select a category." Visible="false" EnableViewState="false" />
 									<p class="expand_collapse_container">
 										<asp:LinkButton ID="lblCategorySelectionExpandAll" runat="server" Text="Expand all" OnClick="lblCategorySelectionExpandAll_Click" resourcekey="lblCategorySelectionExpandAll" />
 										|
-									<asp:LinkButton ID="lblCategorySelectionCollapseAll" runat="server" Text="Collapse all" OnClick="lblCategorySelectionCollapseAll_Click" resourcekey="lblCategorySelectionCollapseAll" />
+										<asp:LinkButton ID="lblCategorySelectionCollapseAll" runat="server" Text="Collapse all" OnClick="lblCategorySelectionCollapseAll_Click" resourcekey="lblCategorySelectionCollapseAll" />
 									</p>
 									<asp:TreeView ID="tvCatAndSubCat" runat="server" EnableViewState="true" ForeColor="Black" NodeWrap="True" ShowCheckBoxes="All" ShowLines="True" CssClass="category_tree_view" NodeStyle-CssClass="category_node" />
 								</div>
@@ -704,7 +706,8 @@ function initializeUploadify (inputId, galleryId) {
 						<div class="edn_admin_progress_overlay_container">
 							<asp:UpdateProgress ID="uppArticleTags" runat="server" AssociatedUpdatePanelID="upArticleTags" DisplayAfter="100" DynamicLayout="true">
 								<ProgressTemplate>
-									<div class="edn_admin_progress_overlay"></div>
+									<div class="edn_admin_progress_overlay">
+									</div>
 								</ProgressTemplate>
 							</asp:UpdateProgress>
 							<div class="text_input_set">
@@ -1276,14 +1279,16 @@ function initializeUploadify (inputId, galleryId) {
 																<td class="header_field action">
 																	<%=ActionText %>
 																</td>
-																<td class="header_field image"></td>
+																<td class="header_field image">
+																</td>
 																<td class="header_field title">
 																	<%=Title%>
 																</td>
 																<td class="header_field description">
 																	<%=Description%>
 																</td>
-																<td class="header_field"></td>
+																<td class="header_field">
+																</td>
 															</tr>
 														</table>
 													</HeaderTemplate>
@@ -1771,7 +1776,8 @@ function initializeUploadify (inputId, galleryId) {
 									<div class="edn_admin_progress_overlay_container">
 										<asp:UpdateProgress ID="uppAdvancedSettings" runat="server" AssociatedUpdatePanelID="upAdvancedSettings" DisplayAfter="100" DynamicLayout="true">
 											<ProgressTemplate>
-												<div class="edn_admin_progress_overlay"></div>
+												<div class="edn_admin_progress_overlay">
+												</div>
 											</ProgressTemplate>
 										</asp:UpdateProgress>
 										<asp:Panel ID="pnlChangeOwner" runat="server" Visible="false">
@@ -1871,7 +1877,7 @@ function initializeUploadify (inputId, galleryId) {
 										</ProgressTemplate>
 									</asp:UpdateProgress>
 									<h1 class="section_box_title">
-										<asp:Label ID="lblIsArticleEvent" runat="server" Text="Add as event:" resourcekey="lblIsArticleEventResource1" /></h1>
+										<asp:Label ID="lblIsArticleEvent" runat="server" Text="Add as event:" resourcekey="lblIsArticleEvent" /></h1>
 									<div id="tblIsArticleEvent" runat="server" style="padding-top: 8px;">
 										<asp:CheckBox ID="cbIsArticleEvent" runat="server" Style="padding-top: 10px; padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="cbIsArticleEvent_CheckedChanged" />
 									</div>
@@ -1942,61 +1948,63 @@ function initializeUploadify (inputId, galleryId) {
 														</td>
 														<td class="right">
 															<asp:RadioButtonList ID="rblRecurringEventType" runat="server" OnSelectedIndexChanged="rblRecurringEventType_SelectedIndexChanged" AutoPostBack="true" RepeatDirection="Horizontal">
-																<asp:ListItem Value="0" Text="Daily" Selected="True" />
-																<asp:ListItem Value="1" Text="Weekly" />
-																<asp:ListItem Value="2" Text="Monthly" />
-																<asp:ListItem Value="3" Text="Yearly" />
+																<asp:ListItem resourcekey="liDaily" Value="0" Text="Daily" Selected="True" />
+																<asp:ListItem resourcekey="liWeekly" Value="1" Text="Weekly" />
+																<asp:ListItem resourcekey="liMonthly" Value="2" Text="Monthly" />
+																<asp:ListItem resourcekey="liYearly" Value="3" Text="Yearly" />
 															</asp:RadioButtonList>
 														</td>
 													</tr>
 													<tr>
-														<td class="left"></td>
+														<td class="left">
+														</td>
 														<td class="right">
 															<asp:Panel runat="server" ID="pnlDailyRecurringEvent" Visible="false">
-																<asp:Label ID="Label1" runat="server" Text="Every:" />
+																<asp:Label ID="lblRecurringEvery" resourcekey="lblRecurringEvery" runat="server" Text="Every:" />
 																<asp:TextBox ID="tbxDailyRecurringEventDays" runat="server" Width="30px" Text="2" />
-																<asp:Label ID="Label2" runat="server" Text="day(s)" />
-																<asp:RequiredFieldValidator ID="rfvDailyRecurringEventDays" runat="server" ControlToValidate="tbxDailyRecurringEventDays" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Days required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-																<asp:CompareValidator ID="cvDailyRecurringEventDays" runat="server" ControlToValidate="tbxDailyRecurringEventDays" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																<asp:Label ID="lblRecurringDays" resourcekey="lblRecurringDays" runat="server" Text="day(s)" />
+																<asp:RequiredFieldValidator ID="rfvDailyRecurringEventDays" runat="server" ControlToValidate="tbxDailyRecurringEventDays" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Days required." ValidationGroup="vgEditArticle" SetFocusOnError="True" resourcekey="rfvDailyRecurringEventDays.ErrorMessage" />
+																<asp:CompareValidator ID="cvDailyRecurringEventDays" runat="server" ControlToValidate="tbxDailyRecurringEventDays" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True"
+																	resourcekey="cvDailyRecurringEventDays.ErrorMessage" />
 															</asp:Panel>
 															<asp:Panel runat="server" ID="pnlWeeklyRecurringEvent" Visible="false">
-																<asp:Label ID="Label3" runat="server" Text="Recur every:" />
+																<asp:Label ID="lblWeeklyRecurringEvery" resourcekey="lblWeeklyRecurringEvery" runat="server" Text="Recur every:" />
 																<asp:TextBox ID="tbxWeeklyRecurringEventWeeks" runat="server" Width="30px" Text="1" />
 																<asp:RequiredFieldValidator ID="rfvWeeklyRecurringEventWeeks" runat="server" ControlToValidate="tbxWeeklyRecurringEventWeeks" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Week required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
 																<asp:CompareValidator ID="cvWeeklyRecurringEventWeeks" runat="server" ControlToValidate="tbxWeeklyRecurringEventWeeks" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-																<asp:Label ID="Label5" runat="server" Text="weeks(s) on" />
+																<asp:Label ID="lblRecurringWeeks" resourcekey="lblRecurringWeeks" runat="server" Text="weeks(s) on" />
 																<asp:CheckBoxList ID="cblWeeklyRecurringEvent" runat="server">
-																	<asp:ListItem Value="1" Text="Monday" />
-																	<asp:ListItem Value="2" Text="Thuesday" />
-																	<asp:ListItem Value="3" Text="Wednesday" />
-																	<asp:ListItem Value="4" Text="Thursday" />
-																	<asp:ListItem Value="5" Text="Friday" />
-																	<asp:ListItem Value="6" Text="Saturday" />
-																	<asp:ListItem Value="7" Text="Sunday" />
+																	<asp:ListItem resourcekey="liMonday" Value="1" Text="Monday" />
+																	<asp:ListItem resourcekey="liThuesday" Value="2" Text="Tuesday" />
+																	<asp:ListItem resourcekey="liWednesday" Value="3" Text="Wednesday" />
+																	<asp:ListItem resourcekey="liThursday" Value="4" Text="Thursday" />
+																	<asp:ListItem resourcekey="liFriday" Value="5" Text="Friday" />
+																	<asp:ListItem resourcekey="liSaturday" Value="6" Text="Saturday" />
+																	<asp:ListItem resourcekey="liSunday" Value="7" Text="Sunday" />
 																</asp:CheckBoxList>
 															</asp:Panel>
 															<asp:Panel runat="server" ID="pnlMonthlyRecurringEvent" Visible="false">
 																<asp:RadioButtonList ID="rblMonthlyRecurringEventType" RepeatDirection="Horizontal" runat="server" OnSelectedIndexChanged="rblMonthlyRecurringEventType_SelectedIndexChanged" AutoPostBack="true">
-																	<asp:ListItem Value="0" Text="Repeated on:" Selected="True" />
-																	<asp:ListItem Value="1" Text="Repeated on day:" />
+																	<asp:ListItem resourcekey="liRepeatedon" Value="0" Text="Repeated on:" Selected="True" />
+																	<asp:ListItem resourcekey="liRepeatedonday" Value="1" Text="Repeated on day:" />
 																</asp:RadioButtonList>
 																<div style="float: left;">
 																	<asp:Panel runat="server" ID="pnlRepeatedOn" Visible="true">
 																		<asp:DropDownList ID="ddlRepeatedOnEvery" runat="server">
-																		<asp:ListItem resourcekey="liFirst" Value="1" Text="First" Selected="True" />
-																		<asp:ListItem resourcekey="liSecond" Value="2" Text="Second" />
-																		<asp:ListItem resourcekey="liThird" Value="3" Text="Third" />
-																		<asp:ListItem resourcekey="liFourth" Value="4" Text="Fourth" />
-																		<asp:ListItem resourcekey="liLast" Value="5" Text="Last" />
+																			<asp:ListItem resourcekey="liFirst" Value="1" Text="First" Selected="True" />
+																			<asp:ListItem resourcekey="liSecond" Value="2" Text="Second" />
+																			<asp:ListItem resourcekey="liThird" Value="3" Text="Third" />
+																			<asp:ListItem resourcekey="liFourth" Value="4" Text="Fourth" />
+																			<asp:ListItem resourcekey="liLast" Value="5" Text="Last" />
 																		</asp:DropDownList>
 																		<asp:DropDownList ID="ddlRepeatedOnDay" runat="server">
-																			<asp:ListItem Value="1" Text="Monday" />
-																			<asp:ListItem Value="2" Text="Thuesday" />
-																			<asp:ListItem Value="3" Text="Wednesday" />
-																			<asp:ListItem Value="4" Text="Thursday" />
-																			<asp:ListItem Value="5" Text="Friday" />
-																			<asp:ListItem Value="6" Text="Saturday" />
-																			<asp:ListItem Value="7" Text="Sunday" />
+																			<asp:ListItem resourcekey="liMonday" Value="1" Text="Monday" />
+																			<asp:ListItem resourcekey="liThuesday" Value="2" Text="Tuesday" />
+																			<asp:ListItem resourcekey="liWednesday" Value="3" Text="Wednesday" />
+																			<asp:ListItem resourcekey="liThursday" Value="4" Text="Thursday" />
+																			<asp:ListItem resourcekey="liFriday" Value="5" Text="Friday" />
+																			<asp:ListItem resourcekey="liSaturday" Value="6" Text="Saturday" />
+																			<asp:ListItem resourcekey="liSunday" Value="7" Text="Sunday" />
 																		</asp:DropDownList>
 																	</asp:Panel>
 																	<asp:Panel runat="server" ID="pnlRepeatedOnDay" Visible="false" Style="margin-top: 3px">
@@ -2007,32 +2015,32 @@ function initializeUploadify (inputId, galleryId) {
 																	</asp:Panel>
 																</div>
 																<div style="margin-top: 2px">
-																	<asp:Label ID="Label7" runat="server" Text="of every:" Style="margin-left: 5px;" />
+																	<asp:Label ID="lblRecurringMonthEvery" resourcekey="lblRecurringMonthEvery" runat="server" Text="of every:" Style="margin-left: 5px;" />
 																	<asp:TextBox ID="tbxOfEveryMonth" runat="server" Width="30px" Text="1" />
-																	<asp:Label ID="Label8" runat="server" Text=" month(s)" />
+																	<asp:Label ID="lblRecurringMonth" resourcekey="lblRecurringMonth" runat="server" Text=" month(s)" />
 																</div>
 																<asp:RequiredFieldValidator ID="rfvOfEveryMonth" runat="server" ControlToValidate="tbxOfEveryMonth" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Day required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
 																<asp:CompareValidator ID="cvOfEveryMonth" runat="server" ControlToValidate="tbxOfEveryMonth" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
 															</asp:Panel>
 															<asp:Panel runat="server" ID="pnlYearlyRecurringEvent" Visible="false">
 																<asp:RadioButtonList ID="rblYearlyRecurringEventType" RepeatDirection="Horizontal" runat="server" OnSelectedIndexChanged="rblYearlyRecurringEventType_SelectedIndexChanged" AutoPostBack="true">
-																	<asp:ListItem Value="0" Text="Every:" Selected="True" />
-																	<asp:ListItem Value="1" Text="The:" />
+																	<asp:ListItem resourcekey="liEvery" Value="0" Text="Every:" Selected="True" />
+																	<asp:ListItem resourcekey="liThe" Value="1" Text="The:" />
 																</asp:RadioButtonList>
 																<asp:Panel runat="server" ID="pnlYearlyRecurringEventSimple" Visible="true">
 																	<asp:DropDownList ID="ddlSimpleMonthOfYear" runat="server">
-																	<asp:ListItem resourcekey="liJanuary" Value="1" Text="January" Selected="True" />
-																	<asp:ListItem resourcekey="liFebruary" Value="2" Text="February" />
-																	<asp:ListItem resourcekey="liMarch" Value="3" Text="March" />
-																	<asp:ListItem resourcekey="liApril" Value="4" Text="April" />
-																	<asp:ListItem resourcekey="liMay" Value="5" Text="May" />
-																	<asp:ListItem resourcekey="liJune" Value="6" Text="June" />
-																	<asp:ListItem resourcekey="liJuly" Value="7" Text="July" />
-																	<asp:ListItem resourcekey="liAugust" Value="8" Text="August" />
-																	<asp:ListItem resourcekey="liSeptember" Value="9" Text="September" />
-																	<asp:ListItem resourcekey="liOctober" Value="10" Text="October" />
-																	<asp:ListItem resourcekey="liNovember" Value="11" Text="November" />
-																	<asp:ListItem resourcekey="liDecember" Value="12" Text="December" />
+																		<asp:ListItem resourcekey="liJanuary" Value="1" Text="January" Selected="True" />
+																		<asp:ListItem resourcekey="liFebruary" Value="2" Text="February" />
+																		<asp:ListItem resourcekey="liMarch" Value="3" Text="March" />
+																		<asp:ListItem resourcekey="liApril" Value="4" Text="April" />
+																		<asp:ListItem resourcekey="liMay" Value="5" Text="May" />
+																		<asp:ListItem resourcekey="liJune" Value="6" Text="June" />
+																		<asp:ListItem resourcekey="liJuly" Value="7" Text="July" />
+																		<asp:ListItem resourcekey="liAugust" Value="8" Text="August" />
+																		<asp:ListItem resourcekey="liSeptember" Value="9" Text="September" />
+																		<asp:ListItem resourcekey="liOctober" Value="10" Text="October" />
+																		<asp:ListItem resourcekey="liNovember" Value="11" Text="November" />
+																		<asp:ListItem resourcekey="liDecember" Value="12" Text="December" />
 																	</asp:DropDownList>
 																	<asp:TextBox ID="tbxYearlyDayOfMonth" runat="server" Width="30px" Text="1" />
 																	<asp:RequiredFieldValidator ID="rfvDayOfMonth" runat="server" ControlToValidate="tbxYearlyDayOfMonth" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Day required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
@@ -2048,48 +2056,50 @@ function initializeUploadify (inputId, galleryId) {
 																		<asp:ListItem resourcekey="liLast" Value="5" Text="Last" />
 																	</asp:DropDownList>
 																	<asp:DropDownList ID="ddlYearlyRepeatedOnDay" runat="server">
-																		<asp:ListItem Value="1" Text="Monday" />
-																		<asp:ListItem Value="2" Text="Thuesday" />
-																		<asp:ListItem Value="3" Text="Wednesday" />
-																		<asp:ListItem Value="4" Text="Thursday" />
-																		<asp:ListItem Value="5" Text="Friday" />
-																		<asp:ListItem Value="6" Text="Saturday" />
-																		<asp:ListItem Value="7" Text="Sunday" />
+																		<asp:ListItem resourcekey="liMonday" Value="1" Text="Monday" />
+																		<asp:ListItem resourcekey="liThuesday" Value="2" Text="Tuesday" />
+																		<asp:ListItem resourcekey="liWednesday" Value="3" Text="Wednesday" />
+																		<asp:ListItem resourcekey="liThursday" Value="4" Text="Thursday" />
+																		<asp:ListItem resourcekey="liFriday" Value="5" Text="Friday" />
+																		<asp:ListItem resourcekey="liSaturday" Value="6" Text="Saturday" />
+																		<asp:ListItem resourcekey="liSunday" Value="7" Text="Sunday" />
 																	</asp:DropDownList>
 																	of
-																<asp:DropDownList ID="ddlComplexMonthOfYear" runat="server">
-																	<asp:ListItem resourcekey="liJanuary" Value="1" Text="January" Selected="True" />
-																	<asp:ListItem resourcekey="liFebruary" Value="2" Text="February" />
-																	<asp:ListItem resourcekey="liMarch" Value="3" Text="March" />
-																	<asp:ListItem resourcekey="liApril" Value="4" Text="April" />
-																	<asp:ListItem resourcekey="liMay" Value="5" Text="May" />
-																	<asp:ListItem resourcekey="liJune" Value="6" Text="June" />
-																	<asp:ListItem resourcekey="liJuly" Value="7" Text="July" />
-																	<asp:ListItem resourcekey="liAugust" Value="8" Text="August" />
-																	<asp:ListItem resourcekey="liSeptember" Value="9" Text="September" />
-																	<asp:ListItem resourcekey="liOctober" Value="10" Text="October" />
-																	<asp:ListItem resourcekey="liNovember" Value="11" Text="November" />
-																	<asp:ListItem resourcekey="liDecember" Value="12" Text="December" />
-																</asp:DropDownList>
+																	<asp:DropDownList ID="ddlComplexMonthOfYear" runat="server">
+																		<asp:ListItem resourcekey="liJanuary" Value="1" Text="January" Selected="True" />
+																		<asp:ListItem resourcekey="liFebruary" Value="2" Text="February" />
+																		<asp:ListItem resourcekey="liMarch" Value="3" Text="March" />
+																		<asp:ListItem resourcekey="liApril" Value="4" Text="April" />
+																		<asp:ListItem resourcekey="liMay" Value="5" Text="May" />
+																		<asp:ListItem resourcekey="liJune" Value="6" Text="June" />
+																		<asp:ListItem resourcekey="liJuly" Value="7" Text="July" />
+																		<asp:ListItem resourcekey="liAugust" Value="8" Text="August" />
+																		<asp:ListItem resourcekey="liSeptember" Value="9" Text="September" />
+																		<asp:ListItem resourcekey="liOctober" Value="10" Text="October" />
+																		<asp:ListItem resourcekey="liNovember" Value="11" Text="November" />
+																		<asp:ListItem resourcekey="liDecember" Value="12" Text="December" />
+																	</asp:DropDownList>
 																</asp:Panel>
 															</asp:Panel>
 															<asp:Panel runat="server" ID="pnlUpcomingOccurrences" Style="clear: both; margin-top: 10px; margin-bottom: 10px;">
 																<asp:TextBox ID="tbxUpcomingOccurrences" runat="server" Width="30px" Text="1" />
-																<asp:Label ID="lblUpcomingOccurrences" runat="server" Text="Display upcoming occurrences" />
+																<asp:Label ID="lblUpcomingOccurrences" resourcekey="lblUpcomingOccurrences" runat="server" Text="Display upcoming occurrences" />
 																<asp:RequiredFieldValidator ID="rfvUpcomingOccurrences" runat="server" ControlToValidate="tbxUpcomingOccurrences" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Upcoming occurrences required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
 																<asp:CompareValidator ID="cvUpcomingOccurrences" runat="server" ControlToValidate="tbxUpcomingOccurrences" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-																<asp:RegularExpressionValidator ID="revUpcomingOccurrences" runat="server" ErrorMessage="Only positive numbers. Zero is not allowed." ValidationExpression="^[1-9]([0-9]+)?" ControlToValidate="tbxUpcomingOccurrences" Display="Dynamic" ValidationGroup="vgEditArticle" SetFocusOnError="True" ForeColor="Red" />
+																<asp:RegularExpressionValidator ID="revUpcomingOccurrences" runat="server" ErrorMessage="Only positive numbers. Zero is not allowed." ValidationExpression="^[1-9]([0-9]+)?" ControlToValidate="tbxUpcomingOccurrences" Display="Dynamic" ValidationGroup="vgEditArticle"
+																	SetFocusOnError="True" ForeColor="Red" />
 															</asp:Panel>
 															<asp:Panel runat="server" ID="pnlRecurringEndType">
 																<asp:RadioButtonList ID="rblRecurringEndType" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblRecurringEndType_SelectedIndexChanged">
-																	<asp:ListItem Value="1" Text="Ends after ocurrences" Selected="True" />
-																	<asp:ListItem Value="2" Text="End by date" />
+																	<asp:ListItem resourcekey="liEndsafterocurrences" Value="1" Text="Ends after ocurrences" Selected="True" />
+																	<asp:ListItem resourcekey="liEndbydate" Value="2" Text="End by date" />
 																</asp:RadioButtonList>
 																<asp:Panel runat="server" ID="pnlRecurringEndsAfterOcurrences">
 																	<asp:TextBox ID="tbxEndsAfterOcurrences" runat="server" Width="30px" Text="5" />
 																	<asp:RequiredFieldValidator ID="rfvEndsAfterOcurrences" runat="server" ControlToValidate="tbxEndsAfterOcurrences" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Occurrences required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
 																	<asp:CompareValidator ID="cvEndsAfterOcurrences" runat="server" ControlToValidate="tbxEndsAfterOcurrences" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-																	<asp:RegularExpressionValidator ID="revEndsAfterOcurrences" runat="server" ErrorMessage="Only positive numbers. Zero is not allowed." ValidationExpression="^[1-9]([0-9]+)?" ControlToValidate="tbxEndsAfterOcurrences" Display="Dynamic" ValidationGroup="vgEditArticle" SetFocusOnError="True" ForeColor="Red" />
+																	<asp:RegularExpressionValidator ID="revEndsAfterOcurrences" runat="server" ErrorMessage="Only positive numbers. Zero is not allowed." ValidationExpression="^[1-9]([0-9]+)?" ControlToValidate="tbxEndsAfterOcurrences" Display="Dynamic" ValidationGroup="vgEditArticle"
+																		SetFocusOnError="True" ForeColor="Red" />
 																</asp:Panel>
 																<asp:Panel runat="server" ID="pnlRecurringEndByDate" Visible="false">
 																	<asp:TextBox ID="tbxRecurringEndByDate" runat="server" CssClass="text_generic center" ValidationGroup="vgEditArticle" Width="90px" />

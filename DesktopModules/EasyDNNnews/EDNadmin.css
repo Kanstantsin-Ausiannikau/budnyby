@@ -1972,6 +1972,11 @@
 #EDNadmin .main_content .section_box .content.document_upload .grid_view_table td.language .language_selection_container span .ui-dropdownchecklist-text {
   font: 11px/11px Arial;
 }
+#EDNadmin .main_content .section_box .content.document_upload .grid_view_table td.language .language_selection_container span .ui-dropdownchecklist-text .empty {
+  font: 11px/11px Arial;
+  color: #888888;
+  font-style: italic;
+}
 #EDNadmin .main_content .section_box .content.document_upload .grid_view_table td.show {
   vertical-align: top;
   padding: 11px 0 0 17px;
@@ -2215,6 +2220,11 @@
 }
 #EDNadmin .main_content .section_box .content.links_manager .grid_view_table td.language .language_selection_container span .ui-dropdownchecklist-text {
   font: 11px/11px Arial;
+}
+#EDNadmin .main_content .section_box .content.links_manager .grid_view_table td.language .language_selection_container span .ui-dropdownchecklist-text .empty {
+  font: 11px/11px Arial;
+  color: #888888;
+  font-style: italic;
 }
 #EDNadmin .main_content .section_box .content.links_manager .grid_view_table td.target {
   vertical-align: top;
