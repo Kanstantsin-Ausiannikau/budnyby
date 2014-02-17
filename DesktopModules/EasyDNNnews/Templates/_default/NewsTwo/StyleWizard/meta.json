@@ -3970,37 +3970,60 @@
 			"advancedSearchForm": {
 				"name": "Advanced Search Form",
 				"properties": {
-					"searchCheckBoxesAndRadioButtons": {
+					"checkBoxes": {
 						"type": "background",
-						"name": "Checkboxes and Radio Buttons Background",
+						"name": "Checkboxes",
 						"subCollection": "search",
 						"states": [
 							{
 								"id": "default",
 								"selectors": [
-									" .edncf_AdvancedSearch .edncf_container .edncf_RadioButtonList label:before",
 									" .edncf_AdvancedSearch .edncf_container .edncf_CheckBoxList label:before",
 									" .edncf_AdvancedSearch .edncf_container .edncf_CheckBox label:before"
 								],
 								"name": "Normal",
 								"forbidden": [
-									"image",
 									"repeat",
-									"position",
 									"attachment"
 								]
 							},
 							{
 								"id": "selected",
 								"selectors": [
-									" .edncf_AdvancedSearch .edncf_container .edncf_RadioButtonList .edncf_RadioButtonGroup .edncf_RadioButton input[type=\"radio\"]:checked + label:before",
 									" .edncf_AdvancedSearch .edncf_container .edncf_CheckBox input[type=\"checkbox\"]:checked + label:before"
 								],
 								"name": "Selected",
 								"forbidden": [
-									"image",
 									"repeat",
-									"position",
+									"attachment"
+								]
+							}
+						]
+					},
+					"radioButtons": {
+						"type": "background",
+						"name": "Radio Buttons",
+						"subCollection": "search",
+						"states": [
+							{
+								"id": "default",
+								"selectors": [
+									" .edncf_AdvancedSearch .edncf_container .edncf_RadioButtonList label:before"
+								],
+								"name": "Normal",
+								"forbidden": [
+									"repeat",
+									"attachment"
+								]
+							},
+							{
+								"id": "selected",
+								"selectors": [
+									" .edncf_AdvancedSearch .edncf_container .edncf_RadioButtonList .edncf_RadioButtonGroup .edncf_RadioButton input[type=\"radio\"]:checked + label:before"
+								],
+								"name": "Selected",
+								"forbidden": [
+									"repeat",
 									"attachment"
 								]
 							}
@@ -4874,15 +4897,68 @@
 			},
 			"articleDetailsCustomFields": {
 				"name": "Custom fields",
+				"show": [
+					"newsDetailsDefault",
+					"newsDetailsCatalogDefault"
+				],
 				"properties": {
+					"border": {
+						"type": "border",
+						"name": "Border",
+						"subCollection": "news",
+						"states": [
+							{
+								"id": "default",
+								"selectors": [
+									" .EDN_cf_all_fields_container"
+								],
+								"name": "Normal"
+							}
+						]
+					},
+					"background": {
+						"type": "background",
+						"name": "Background",
+						"subCollection": "news",
+						"states": [
+							{
+								"id": "default",
+								"selectors": [
+									" .EDN_cf_all_fields_container"
+								],
+								"name": "Normal",
+								"forbidden": [
+									"attachment"
+								]
+							}
+						]
+					},
+					"text": {
+						"type": "text",
+						"name": "Text",
+						"subCollection": "news",
+						"states": [
+							{
+								"id": "default",
+								"selectors": [
+									" .EDN_cf_all_fields_container > table tr td"
+								],
+								"name": "Normal",
+								"forbidden": [
+									"size",
+									"style",
+									"weight",
+									"lineHeight",
+									"transform",
+									"decorations"
+								]
+							}
+						]
+					},
 					"checkboxBackground": {
 						"type": "background",
 						"name": "Checkbox background",
 						"subCollection": "news",
-						"show": [
-							"newsDetailsDefault",
-							"newsDetailsCatalogDefault"
-						],
 						"states": [
 							{
 								"id": "default",
@@ -4891,10 +4967,8 @@
 								],
 								"name": "Normal",
 								"forbidden": [
-									"image",
-									"repeat",
 									"attachment",
-									"position"
+									"repeat"
 								]
 							},
 							{
@@ -4904,10 +4978,8 @@
 								],
 								"name": "Selected",
 								"forbidden": [
-									"image",
-									"repeat",
 									"attachment",
-									"position"
+									"repeat"
 								]
 							}
 						]

@@ -1043,15 +1043,23 @@
 	font-size: 20px;
 }
 
-.eds_news_NewsOne.eds_style_predefined_red.eds_subCollection_news.eds_templateGroup_newsDetailsDefault .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_icon,
-.eds_news_NewsOne.eds_style_predefined_red.eds_subCollection_news.eds_templateGroup_newsDetailsCatalog .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_icon
+.eds_news_NewsOne.eds_style_predefined_red.eds_subCollection_news .EDN_cf_all_fields_container > table tr td
+{
+	background-color: #E0DEDE;
+}
+
+.eds_news_NewsOne.eds_style_predefined_red.eds_subCollection_news .EDN_cf_all_fields_container > table tr:nth-child(2n) td
+{
+	background-color: #EBEBEB;
+}
+
+.eds_news_NewsOne.eds_style_predefined_red.eds_subCollection_news .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_icon
 {
 	background-image: url("../images/articleDetailsCustomFields/checkbox/predefined/cf-checkbox.png");
 	background-position: 0px -18px;
 }
 
-.eds_news_NewsOne.eds_style_predefined_red.eds_subCollection_news.eds_templateGroup_newsDetailsDefault .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_checked .EDN_cf_checkbox_icon,
-.eds_news_NewsOne.eds_style_predefined_red.eds_subCollection_news.eds_templateGroup_newsDetailsCatalog .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_checked .EDN_cf_checkbox_icon
+.eds_news_NewsOne.eds_style_predefined_red.eds_subCollection_news .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_checked .EDN_cf_checkbox_icon
 {
 	background-image: url("../images/articleDetailsCustomFields/checkbox/predefined/cf-checkbox.png");
 	background-position: 0px 0px;

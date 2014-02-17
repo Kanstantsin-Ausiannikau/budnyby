@@ -124,10 +124,10 @@
     <value>Please edit and save settings.</value>
   </data>
   <data name="Search.Text" xml:space="preserve">
-    <value>Поиск</value>
+    <value>Search</value>
   </data>
   <data name="EditSettings.Text" xml:space="preserve">
-    <value>Редактировать настройки</value>
+    <value>Edit Settings</value>
   </data>
   <data name="infoImportWhereToOpen.Text" xml:space="preserve">
     <value>Note: You have imported the settings. Please check which instance will open details.</value>
@@ -136,7 +136,7 @@
     <value>Where to open links not set. Page or news module doesn't exist. Please edit settings.</value>
   </data>
   <data name="AdvancedSearchHeader.Text" xml:space="preserve">
-    <value>Расширенный поиск</value>
+    <value>Advanced search</value>
   </data>
   <data name="lblDisplayHeader.HelpText" xml:space="preserve">
     <value>Displays header text from resource file (AdvancedSearchHeader.Text).</value>
@@ -145,12 +145,12 @@
     <value>Display header:</value>
   </data>
   <data name="liAdvancedSearch.Text" xml:space="preserve">
-    <value>Расширенный поиск</value>
+    <value>Advanced search</value>
   </data>
   <data name="liSimpleSearch.Text" xml:space="preserve">
-    <value>Простой поиск</value>
+    <value>Simple search</value>
   </data>
   <data name="SearchBoxPlaceholder.Text" xml:space="preserve">
-    <value>Поиск</value>
+    <value>Search</value>
   </data>
 </root>

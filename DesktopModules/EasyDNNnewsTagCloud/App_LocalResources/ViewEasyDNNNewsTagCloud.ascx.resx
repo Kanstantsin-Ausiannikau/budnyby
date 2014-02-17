@@ -127,7 +127,7 @@
     <value>Tag cloud settings</value>
   </data>
   <data name="Tags.Text" xml:space="preserve">
-    <value>Тэги</value>
+    <value>Tags</value>
   </data>
   <data name="NoTagsToDisplay.Text" xml:space="preserve">
     <value />

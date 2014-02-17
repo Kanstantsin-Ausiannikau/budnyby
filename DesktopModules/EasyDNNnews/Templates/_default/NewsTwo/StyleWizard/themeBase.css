@@ -275,6 +275,8 @@
   left: 0;
   background-color: #b5b5b5;
   margin: 2px 0 0;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 .eds_news__-ThemeName-_.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_RadioButtonList .edncf_RadioButtonListName {
   font-weight: bold;
@@ -298,7 +300,7 @@
 }
 .eds_news__-ThemeName-_.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_RadioButtonList .edncf_RadioButtonGroup .edncf_RadioButton input[type="radio"]:checked + label:before {
   content: "";
-  background: #72a819 url("_-StyleAssetsClientRoot-_common/radio-button-checked.png") no-repeat center center;
+  background: #72a819 url("_-StyleAssetsClientRoot-_images/advancedSearchForm/radioButtons/predefined/checked.png") no-repeat center center;
 }
 .eds_news__-ThemeName-_.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_CheckBoxList .edncf_CheckBoxListName {
   font-weight: bold;
@@ -317,7 +319,7 @@
 }
 .eds_news__-ThemeName-_.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_CheckBox input[type="checkbox"]:checked + label:before {
   content: "";
-  background: url("_-StyleAssetsClientRoot-_common/cf-checkbox.png") no-repeat center center #72a819;
+  background: url("_-StyleAssetsClientRoot-_images/advancedSearchForm/checkBoxes/predefined/cf-checkbox.png") no-repeat center center #72a819;
 }
 .eds_news__-ThemeName-_.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_CheckBox .edncf_ltIE input[type="checkbox"],
 .eds_news__-ThemeName-_.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_CheckBoxList .edncf_CheckBoxListGroup .edncf_ltIE .edncf_CheckBox input[type="checkbox"] {
@@ -1851,7 +1853,7 @@
   margin: 3px 4px 0 0;
 }
 .eds_news__-ThemeName-_.eds_subCollection_news .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_checked .EDN_cf_checkbox_icon {
-  background: #72a819 url(common/cf-checkbox.png) no-repeat center center;
+  background: #72a819 url("_-StyleAssetsClientRoot-_images/articleDetailsCustomFields/checkboxBackground/predefined/cf-checkbox.png") no-repeat center center;
 }
 .eds_news__-ThemeName-_.eds_subCollection_news .ednMoreArticlesTriggerWrapper {
   margin: 15px 0;

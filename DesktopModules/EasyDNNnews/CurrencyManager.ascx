@@ -1,8 +1,7 @@
 ﻿<%@ control language="C#" autoeventwireup="true" inherits="EasyDNNSolutions.Modules.EasyDNNNews.CurrencyManager, App_Web_currencymanager.ascx.d988a5ac" %>
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/LabelControl.ascx" %>
 <style type="text/css">
-	.centerInfos
-	{
+	.centerInfos {
 		width: 100%;
 		margin-left: auto;
 		margin-right: auto;
@@ -26,18 +25,21 @@
 			<li class="power_off">
 				<asp:LinkButton ID="lbPowerOff" runat="server" ToolTip="Close" OnClick="lbPowerOff_Click"><img src="<%=ModulePath %>images/icons/power_off.png" alt="" /></asp:LinkButton></li>
 		</ul>
-		<h1>
-			Currency manager</h1>
+		<h1>Currency manager</h1>
 	</div>
 	<div class="main_content dashboard customfields">
 		<ul class="links">
 			<li>
-				<asp:HyperLink runat="server" ID="lblCustomFields" class="icon customfileds" resourcekey="lblCustomFields" Text="Add/Edit Custom Fields" /></li>
+				<asp:HyperLink runat="server" ID="lblCustomFieldsAdd" class="icon customfiledsadd" resourcekey="lblCustomFieldsAdd" Text="Add Custom Fields" /></li>
+			<li>
+				<asp:HyperLink runat="server" ID="lblCustomFieldsEdit" class="icon customfileds" resourcekey="lblCustomFieldsEdit" Text="Edit Custom Fields" />
+			</li>
 			<li>
 				<asp:HyperLink runat="server" ID="lblCustomFieldsTemplates" class="icon customfields_group" resourcekey="lblCustomFieldsTemplates" Text="Manage Custom Fields Groups" /></li>
 			<li class="activelink">
 				<asp:HyperLink runat="server" ID="lblCurrencyManager" class="icon customfields_currency" resourcekey="lblCurrencyManager" Text="Currency Setup" /></li>
-			</li>
+			<li>
+				<asp:HyperLink runat="server" ID="lblImportExport" class="icon customfields_export" resourcekey="lblImportExport" Text="Import/Export" /></li>
 		</ul>
 	</div>
 	<div class="main_content">
@@ -54,15 +56,14 @@
 				<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblMoneyType" runat="server" Text="Base currency on portal:" ControlName="ddlBaseCurrency" HelpText="Base currency on portal, all other currencies ar calculated from base." ResourceKey="lblMoneyType" HelpKey="lblMoneyType.HelpText" />
+							<dnn:Label ID="lblMoneyType" runat="server" Text="Base currency:" ControlName="ddlBaseCurrency" HelpText="Base currency is the main currency across the portal. All other currencies are calculated from the base currency, according to the portal's exchange rate." ResourceKey="lblMoneyType" HelpKey="lblMoneyType.HelpText" />
 						</td>
 						<td class="right">
 							<asp:DropDownList ID="ddlBaseCurrency" runat="server" AutoPostBack="false" Enabled="false" EnableViewState="true" />
 						</td>
 					</tr>
 					<tr>
-						<td>
-						</td>
+						<td></td>
 						<td>
 							<asp:Button ID="btnAddCurrencyToPortal" runat="server" Text="Add" Enabled="false" OnClick="btnAddCurrencyToPortal_Click" ResourceKey="btnAddCurrencyToPortal" />
 							<asp:LinkButton ID="lblResetCurency" runat="server" ForeColor="#CC0000" OnClientClick="return confirm('Are you sure you want to delete base curreny and ALL Values?');" OnClick="lblResetCurency_Click" Text="Reset base currency and delete Exchange rate list" ResourceKey="lblResetCurency" />
@@ -87,7 +88,7 @@
 				<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblAddCurrencyToList" runat="server" Text="Currency:" ControlName="ddlAddCurrencyToList" HelpText="Add currency to list." ResourceKey="lblAddCurrencyToList" HelpKey="lblAddCurrencyToList.HelpText" />
+							<dnn:Label ID="lblAddCurrencyToList" runat="server" Text="Currency:" ControlName="ddlAddCurrencyToList" HelpText="Select the currency you wish to add to your exchange rate list. The selected currency's value will be calculated according to the portal's Exchange rate." ResourceKey="lblAddCurrencyToList" HelpKey="lblAddCurrencyToList.HelpText" />
 						</td>
 						<td class="right">
 							<asp:DropDownList ID="ddlAddCurrencyToList" runat="server" Width="200px" AutoPostBack="true" Enabled="true" EnableViewState="true" OnSelectedIndexChanged="ddlAddCurrencyToList_SelectedIndexChanged" />
@@ -95,7 +96,7 @@
 					</tr>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblExchangeRate" runat="server" Text="Exchange rate:" ControlName="tbxExchangeRate" HelpText="Exchange rate (6 Decimal places)." ResourceKey="lblExchangeRate" HelpKey="lblExchangeRate.HelpText" />
+							<dnn:Label ID="lblExchangeRate" runat="server" Text="Exchange rate:" ControlName="tbxExchangeRate" HelpText="Enter selected currency's exchange rate against the base currency. For example, if USD is your base currency, and EUR is the currency you enter the exchange rate for, the current exchange rate will be approximately 1.36." ResourceKey="lblExchangeRate" HelpKey="lblExchangeRate.HelpText" />
 						</td>
 						<td class="right">
 							<asp:TextBox ID="tbxExchangeRate" runat="server" Width="150px" EnableViewState="true" />
@@ -103,7 +104,7 @@
 					</tr>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblUnit" runat="server" Text="Unit:" ControlName="tbxUnit" HelpText="Unit of issue." ResourceKey="lblUnit" HelpKey="lblUnit.HelpText" />
+							<dnn:Label ID="lblUnit" runat="server" Text="Units:" ControlName="tbxUnit" HelpText="Enter the number of units of the currency you are using to calculate the exchange rate of the base currency for." ResourceKey="lblUnit" HelpKey="lblUnit.HelpText" />
 						</td>
 						<td class="right">
 							<asp:TextBox ID="tbxUnit" runat="server" Width="150px" EnableViewState="true" Text="1" />
@@ -111,15 +112,14 @@
 					</tr>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblMainDisplayFormat" runat="server" Text="Display Format:" ControlName="ddlMainDisplayFormat" HelpText="Display format." ResourceKey="lblMainDisplayFormat" HelpKey="lblMainDisplayFormat.HelpText" />
+							<dnn:Label ID="lblMainDisplayFormat" runat="server" Text="Currency and display format:" ControlName="ddlMainDisplayFormat" HelpText="Select currency and display format." ResourceKey="lblMainDisplayFormat" HelpKey="lblMainDisplayFormat.HelpText" />
 						</td>
 						<td class="right">
 							<asp:DropDownList ID="ddlMainDisplayFormat" runat="server" Width="200px" AutoPostBack="false" Enabled="true" EnableViewState="true" />
 						</td>
 					</tr>
 					<tr>
-						<td class="left">
-						</td>
+						<td class="left"></td>
 						<td class="right">
 							<asp:Button ID="btnAddToExchangeRateList" runat="server" Text="Add to list" OnClick="btnAddToExchangeRateList_Click" ResourceKey="btnAddToExchangeRateList" />
 						</td>
@@ -200,7 +200,7 @@
 				<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblEnabledLocales" runat="server" Text="Enabled locales:" ControlName="ddlEnabledLocales" HelpText="Enabled locales on portal, to add go to HOST languages to add or ADMIN language to enable/disable." ResourceKey="lblEnabledLocales" HelpKey="lblEnabledLocales.HelpText" />
+							<dnn:Label ID="lblEnabledLocales" runat="server" Text="Available languages:" ControlName="ddlEnabledLocales" HelpText="Select one of the added languages on the portal you wish to ascribe a currency for." ResourceKey="lblEnabledLocales" HelpKey="lblEnabledLocales.HelpText" />
 						</td>
 						<td class="right">
 							<asp:DropDownList ID="ddlEnabledLocales" runat="server" Width="200px" Enabled="true" EnableViewState="true" />
@@ -208,7 +208,7 @@
 					</tr>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblCurrencyExchange" runat="server" Text="Currency and display format:" ControlName="ddlCurrencyExchangeList" HelpText="Currency in exchange list." ResourceKey="lblCurrencyExchange" HelpKey="lblCurrencyExchange.HelpText" />
+							<dnn:Label ID="lblCurrencyExchange" runat="server" Text="Currency and display format:" ControlName="ddlCurrencyExchangeList" HelpText="Select currency you wish to ascribe to the selected language. Then select the format of currency display. Click on Assign language to currency." ResourceKey="lblCurrencyExchange" HelpKey="lblCurrencyExchange.HelpText" />
 						</td>
 						<td class="right">
 							<asp:DropDownList ID="ddlCurrencyExchangeList" runat="server" Width="200px" AutoPostBack="True" Enabled="true" EnableViewState="true" OnSelectedIndexChanged="ddlCurrencyExchangeList_SelectedIndexChanged" />
@@ -216,10 +216,9 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="left">
-						</td>
+						<td class="left"></td>
 						<td class="right">
-							<asp:Button ID="btnAsignLocaleTo" runat="server" Text="Asign language to currency" OnClick="btnAsignLocaleTo_Click" ResourceKey="btnAsignLocaleTo"/>
+							<asp:Button ID="btnAsignLocaleTo" runat="server" Text="Asign language to currency" OnClick="btnAsignLocaleTo_Click" ResourceKey="btnAsignLocaleTo" />
 						</td>
 					</tr>
 				</table>

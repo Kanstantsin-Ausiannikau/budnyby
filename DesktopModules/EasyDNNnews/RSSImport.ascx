@@ -144,8 +144,8 @@
 												<td>
 													<asp:TextBox ID="tbFeedURL" runat="server" Width="350px" CssClass="text" ValidationGroup="vgRSSImport"></asp:TextBox>
 													<asp:RequiredFieldValidator ID="rfvFeedURL" runat="server" ControlToValidate="tbFeedURL" ErrorMessage="Please enter feed URL." ValidationGroup="vgRSSImport" Display="Dynamic" resourcekey="rfvFeedURLResource1.ErrorMessage"></asp:RequiredFieldValidator>
-													<asp:RegularExpressionValidator ID="revFeedURL" runat="server" ControlToValidate="tbFeedURL" Display="Dynamic" ErrorMessage="Please enter valid URL." ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?" ValidationGroup="vgRSSImport"
-														resourcekey="revFeedURLResource1.ErrorMessage"></asp:RegularExpressionValidator>
+													<asp:RegularExpressionValidator ID="revFeedURL" runat="server" ControlToValidate="tbFeedURL" Display="Dynamic" ErrorMessage="Please enter valid URL." ValidationExpression="http(s)?://([\w-])+[\w-]+(/[\w- ./?%&amp;=]*)?" ValidationGroup="vgRSSImport"
+														resourcekey="revFeedURLResource1.ErrorMessage" Enabled="False"></asp:RegularExpressionValidator>
 												</td>
 											</tr>
 											<tr>
@@ -198,7 +198,7 @@
 													<dnn:Label ID="lblLimitSummaryCharImport" runat="server" Text="Limit number of characters imported into summary:" HelpText="Limit number of characters imported into summary. Enter 0 for no limit."></dnn:Label>
 												</td>
 												<td>
-													<asp:TextBox ID="tbLimitImportIntoSummary" runat="server" CssClass="text" Width="50px">500</asp:TextBox>
+													<asp:TextBox ID="tbLimitImportIntoSummary" runat="server" CssClass="text" Width="50px">0</asp:TextBox>
 													<asp:RequiredFieldValidator ID="rfvLimitContent0" runat="server" ControlToValidate="tbLimitImportIntoSummary" Display="Dynamic" ErrorMessage="Please enter article limit number." resourcekey="rfvLimitContentResource1.ErrorMessage" ValidationGroup="vgRSSImport"></asp:RequiredFieldValidator>
 													<asp:CompareValidator ID="cvLimitNumberOfArticles0" runat="server" ControlToValidate="tbLimitImportIntoSummary" Display="Dynamic" ErrorMessage="Please enter number. " Operator="DataTypeCheck" resourcekey="cvLimitNumberOfArticlesResource1.ErrorMessage"
 														SetFocusOnError="True" Type="Integer" ValidationGroup="vgRSSImport"></asp:CompareValidator>
@@ -221,7 +221,7 @@
 														<asp:ListItem resourcekey="liStandard" Value="Standard">Standard</asp:ListItem>
 														<asp:ListItem resourcekey="liYouTube" Value="YouTube">YouTube feed</asp:ListItem>
 														<asp:ListItem resourcekey="liVimeo" Value="Vimeo">Vimeo feed</asp:ListItem>
-														<asp:ListItem resourcekey="liiCalendar" Value="iCalendar">iCalndar Import</asp:ListItem>
+														<asp:ListItem resourcekey="liiCalendar" Value="iCalendar">iCalendar Import</asp:ListItem>
 													</asp:DropDownList>
 												</td>
 											</tr>

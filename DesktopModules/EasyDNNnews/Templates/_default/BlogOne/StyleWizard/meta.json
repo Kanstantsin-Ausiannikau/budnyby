@@ -261,7 +261,8 @@
 					{
 						"id": "default",
 						"selectors": [
-							" .article .content"
+							" .article .content",
+							" .article .content p"
 						],
 						"name": "Normal",
 						"forbidden": [
@@ -3745,19 +3746,46 @@
 			},
 			"articleDetailsCustomFields": {
 				"name": "Custom fields",
+				"show": [
+					"newsDetailsArticleDefault",
+					"newsDetailsArticleDefaultSimple",
+					"newsDetailsArticleAboveTitle",
+					"newsDetailsArticleGalleryAboveTitleSimple",
+					"newsDetailsCatalogDefault",
+					"newsDetailsCatalogDefaultSimple"
+				],
 				"properties": {
+					"background": {
+						"type": "background",
+						"name": "Background",
+						"subCollection": "news",
+						"states": [
+							{
+								"id": "default",
+								"selectors": [
+									" .EDN_cf_all_fields_container > table tr td"
+								],
+								"name": "Odd",
+								"forbidden": [
+									"attachment"
+								]
+							},
+							{
+								"id": "even",
+								"selectors": [
+									" .EDN_cf_all_fields_container > table tr:nth-child(2n) td"
+								],
+								"name": "Even",
+								"forbidden": [
+									"attachment"
+								]
+							}
+						]
+					},
 					"checkboxBackground": {
 						"type": "background",
 						"name": "Checkbox",
 						"subCollection": "news",
-						"show": [
-							"newsDetailsArticleDefault",
-							"newsDetailsArticleDefaultSimple",
-							"newsDetailsArticleAboveTitle",
-							"newsDetailsArticleGalleryAboveTitleSimple",
-							"newsDetailsCatalogDefault",
-							"newsDetailsCatalogDefaultSimple"
-						],
 						"states": [
 							{
 								"id": "default",
@@ -3779,6 +3807,34 @@
 								"forbidden": [
 									"repeat",
 									"attachment"
+								]
+							}
+						]
+					},
+					"text": {
+						"type": "text",
+						"name": "Text",
+						"subCollection": "news",
+						"states": [
+							{
+								"id": "default",
+								"selectors": [
+									" .EDN_cf_all_fields_container > table tr td",
+									" .EDN_cf_all_fields_container > table tr td p"
+								],
+								"name": "Normal",
+								"forbidden": [
+									"size",
+									"style",
+									"weight",
+									"lineHeight",
+									"transform",
+									"decorations"
+								],
+								"important": [
+									"fontFamily",
+									"color",
+									"shadows"
 								]
 							}
 						]

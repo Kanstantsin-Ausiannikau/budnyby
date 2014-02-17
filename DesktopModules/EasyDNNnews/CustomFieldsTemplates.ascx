@@ -33,11 +33,18 @@
 	<div class="main_content dashboard customfields">
 		<ul class="links">
 			<li>
-				<asp:HyperLink runat="server" ID="lblCustomFields" class="icon customfileds" resourcekey="lblCustomFields" Text="Add/Edit Custom Fields" /></li>
-			<li class="activelink">
-				<asp:HyperLink runat="server" ID="lblCustomFieldsTemplates" class="icon customfields_group" resourcekey="lblCustomFieldsTemplates" Text="Manage Custom Fields Groups" /></li>
+				<asp:HyperLink runat="server" ID="lblCustomFieldsAdd" class="icon customfiledsadd" resourcekey="lblCustomFieldsAdd" Text="Add Custom Fields" /></li>
+			<li>
+				<asp:HyperLink runat="server" ID="lblCustomFieldsEdit" class="icon customfileds" resourcekey="lblCustomFieldsEdit" Text="Edit Custom Fields" />
+			</li>
+			<li<%=mainTopNavigationActiveClassAddEdit %>>
+				<asp:HyperLink runat="server" ID="lblCustomFieldsTemplates" class="icon customfields_group" resourcekey="lblCustomFieldsTemplates" Text="Manage Custom Fields Groups" />
+			</li>
 			<li>
 				<asp:HyperLink runat="server" ID="lblCurrencyManager" class="icon customfields_currency" resourcekey="lblCurrencyManager" Text="Currency Setup" /></li>
+			<li<%=mainTopNavigationActiveClassImportExport %>>
+				<asp:HyperLink runat="server" ID="lblImportExport" class="icon customfields_export" resourcekey="lblImportExport" Text="Import/Export" />
+			</li>
 		</ul>
 	</div>
 	<div class="main_content">
@@ -51,7 +58,7 @@
 				<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblcfTemplateName" runat="server" Text="Name:" ControlName="tbxcfTemplateName" HelpText="Name of group." ResourceKey="lblcfTemplateName" HelpKey="lblcfTemplateName.HelpText" />
+							<dnn:Label ID="lblcfTemplateName" runat="server" Text="Custom field group:" ControlName="tbxcfTemplateName" HelpText="Enter the name of the custom field group you wish to create." ResourceKey="lblcfTemplateName" HelpKey="lblcfTemplateName.HelpText" />
 						</td>
 						<td class="right">
 							<asp:TextBox ID="tbxcfTemplateName" runat="server" CausesValidation="True" ValidationGroup="vgSaveFieldTemplate" Style="width: 200px" />
@@ -60,7 +67,7 @@
 					</tr>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblcfTemplateDescription" runat="server" Text="Description:" ControlName="tbxcfTemplateDescription" HelpText="Description of group." ResourceKey="lblcfTemplateDescription" HelpKey="lblcfTemplateDescription.HelpText" />
+							<dnn:Label ID="lblcfTemplateDescription" runat="server" Text="Description:" ControlName="tbxcfTemplateDescription" HelpText="Enter the description of the custom field group you wish to create." ResourceKey="lblcfTemplateDescription" HelpKey="lblcfTemplateDescription.HelpText" />
 						</td>
 						<td class="right">
 							<asp:TextBox ID="tbxcfTemplateDescription" runat="server" Style="width: 200px" />
@@ -93,6 +100,77 @@
 					<asp:Button ID="btnUpdateField" runat="server" Text="Update Group" ValidationGroup="vgSaveFieldTemplate" Visible="false" OnClick="btnUpdateField_Click" resourcekey="btnUpdateField" />
 					<asp:Button ID="btnCancel" runat="server" Text="Close" Visible="false" OnClick="btnCancel_Click" resourcekey="btnCancel" />
 				</div>
+			</asp:Panel>
+			<asp:Panel ID="pnlImportExport" runat="server" Visible="false" CssClass="settings_category_container">
+				<div class="category_toggle">
+					<h2><%=titleCFImport %>
+					</h2>
+				</div>
+				<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
+					<tr>
+						<td class="left">
+							<dnn:Label ID="lblSelectImportFile" runat="server" ControlName="ddlImportCustomFieldsGroup" Text="Upload new import file:" HelpText="Select the custom fields group import file that you want to upload." ResourceKey="lblSelectImportFile" HelpKey="lblSelectImportFile.HelpText" />
+						</td>
+						<td class="right">
+							<asp:DropDownList ID="ddlImportCustomFieldsGroup" runat="server"></asp:DropDownList>
+							<asp:Button ID="btnImportfromXML" runat="server" OnClick="btnImportfromXML_Click" Text="Import" resourcekey="btnImportfromXML" />
+							<asp:Button ID="btnExportDownload" runat="server" Text="Download" OnClick="btnExportDownload_Click" resourcekey="btnExportDownload" />
+							<asp:Button ID="btnDeleteCFXMLFile" runat="server" Text="Delete" OnClick="btnDeleteCFXMLFile_Click" resourcekey="btnDeleteCFXMLFile" />
+						</td>
+					</tr>
+					<tr>
+						<td class="left">
+							<dnn:Label ID="lblImportFileUpload" runat="server" Text="Upload new import file:" HelpText="Select the custom fields group import file that you want to upload." ResourceKey="lblImportFileUpload" HelpKey="lblImportFileUpload.HelpText" />
+						</td>
+						<td class="right">
+							<asp:FileUpload ID="fuCFXMLfile" runat="server" />&nbsp;<asp:Button ID="btnUploadCFXMLData" runat="server" Text="Upload" OnClick="btnUploadCFXMLData_Click" resourcekey="btnUploadCFXMLData" /></td>
+					</tr>
+				</table>
+				<div class="category_toggle">
+					<h2><%=titleCFExport %>
+					</h2>
+				</div>
+				<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
+					<tr>
+						<td class="left">
+							<dnn:Label ID="lblSelectCFGroup" runat="server" ControlName="ddlExportCF" Text="Custom fields group:" HelpText="Select the custom fields group that you want to export.  " ResourceKey="lblSelectCFGroup" HelpKey="lblSelectCFGroup.HelpText" />
+						</td>
+						<td class="right">
+							<asp:DropDownList ID="ddlExportCF" runat="server"></asp:DropDownList>
+						</td>
+					</tr>
+					<tr>
+						<td class="left">
+							<dnn:Label ID="lblExportFileName" runat="server" Text="File name:" HelpText="Enter an export file name." ResourceKey="lblExportFileName" HelpKey="lblExportFileName.HelpText" />
+						</td>
+						<td class="right">
+							<asp:TextBox ID="tbxExportFileName" runat="server" />
+							<asp:RequiredFieldValidator ID="rfExportFileName" ValidationGroup="vgExportCF" ControlToValidate="tbxExportFileName" runat="server" ErrorMessage="File name required." Display="Dynamic" resourcekey="rfExportFileName.ErrorMessage" />
+						</td>
+					</tr>
+					<tr>
+						<td class="left">
+							<dnn:Label ID="lblExportGroupName" runat="server" Text="New group name:" HelpText="If the group name is not specifed then as the group name will be used the name of the group we are exporting." ResourceKey="lblExportGroupName" HelpKey="lblExportGroupName.HelpText" />
+						</td>
+						<td class="right">
+							<asp:TextBox ID="tbxExportGroupName" runat="server" />
+						</td>
+					</tr>
+					<tr>
+						<td class="left">
+							<dnn:Label ID="lblExportPrefix" runat="server" Text="Prefix:" HelpText="Enter a prefix that will be added to token ID. Optionaly you can add a prefix to token IDs. This can be usefull if you will import a group of custom fields on the portal where the custom field with the same token ID already exsist." ResourceKey="lblExportPrefix" HelpKey="lblExportPrefix.HelpText" />
+						</td>
+						<td class="right">
+							<asp:TextBox ID="tbxExportPrefix" runat="server" /></td>
+					</tr>
+					<tr>
+						<td class="left">&nbsp;</td>
+						<td class="right">
+							<asp:Button ID="btnExportToXML" runat="server" OnClick="btnExportToXML_Click" Text="Export" ValidationGroup="vgExportCF" CausesValidation="true" resourcekey="btnExportToXML" />
+						</td>
+					</tr>
+				</table>
+				<asp:Label ID="lblLinkToExportedFile" runat="server" EnableViewState="false" />
 			</asp:Panel>
 			<asp:Panel ID="pnlMainSelect" runat="server" Visible="true" CssClass="settings_category_container">
 				<div class="category_toggle">
@@ -188,7 +266,7 @@
 				</table>
 				<asp:Panel ID="pnlFieldsList" class="module_settings" runat="server">
 					<div>
-						<asp:Label ID="lblCustomFieldsList" runat="server" EnableViewState="False" Text="List of all custom fields on portal" ResourceKey="lblCustomFieldsList" CssClass="msgCFgroup" />
+						<asp:Label ID="lblCustomFieldsList" runat="server" EnableViewState="False" Text="Available custom fields for adding to a group." ResourceKey="lblCustomFieldsList" CssClass="msgCFgroup" />
 					</div>
 					<div style="text-align: center; padding-top: 10px; padding-bottom: 10px;">
 						<asp:Label ID="lblCustomFieldsListInfo" runat="server" EnableViewState="False" Visible="false" />
@@ -227,7 +305,7 @@
 				</asp:Panel>
 				<asp:Panel ID="pnlTemplateFieldsList" class="module_settings" runat="server">
 					<div>
-						<asp:Label ID="lblTemplateFieldsList" runat="server" EnableViewState="False" Text="Added Fields to selected group" ResourceKey="lblTemplateFieldsList" CssClass="msgCFgroup" />
+						<asp:Label ID="lblTemplateFieldsList" runat="server" EnableViewState="False" Text="Present custom fields in this group." ResourceKey="lblTemplateFieldsList" CssClass="msgCFgroup" />
 					</div>
 					<asp:ObjectDataSource ID="odsTemplateCustomFields" runat="server" SelectMethod="GetCustomFieldsOfTemplate" TypeName="EasyDNNSolutions.Modules.EasyDNNNews.CustomFieldsDB">
 						<SelectParameters>
@@ -284,6 +362,7 @@
 					</asp:GridView>
 				</asp:Panel>
 			</asp:Panel>
+			<asp:Label ID="lblMainInfoMsg" runat="server" EnableViewState="false" />
 		</asp:Panel>
 	</div>
 </div>

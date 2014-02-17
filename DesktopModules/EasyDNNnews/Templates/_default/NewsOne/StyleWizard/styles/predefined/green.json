@@ -3478,6 +3478,78 @@
       },
       "articleDetailsCustomFields": {
         "properties": {
+          "background": {
+            "default": {
+              "disabled": [
+                "image",
+                "position",
+                "repeat"
+              ],
+              "values": {
+                "color": "#E0DEDE",
+                "image": {},
+                "position": {
+                  "horizontal": {
+                    "value": 0,
+                    "unit": "%"
+                  },
+                  "vertical": {
+                    "value": 0,
+                    "unit": "%"
+                  }
+                },
+                "repeat": "repeat"
+              }
+            },
+            "even": {
+              "disabled": [
+                "image",
+                "position",
+                "repeat"
+              ],
+              "values": {
+                "color": "#EBEBEB",
+                "image": {},
+                "position": {
+                  "horizontal": {
+                    "value": 0,
+                    "unit": "%"
+                  },
+                  "vertical": {
+                    "value": 0,
+                    "unit": "%"
+                  }
+                },
+                "repeat": "repeat"
+              }
+            }
+          },
+          "border": {
+            "default": {
+              "disabled": [
+                "topSide",
+                "bottomSide"
+              ],
+              "values": {
+                "top": {
+                  "width": {
+                    "value": 2,
+                    "unit": "px"
+                  },
+                  "style": "solid",
+                  "color": "#fff"
+                },
+                "bottom": {
+                  "width": {
+                    "value": 2,
+                    "unit": "px"
+                  },
+                  "style": "solid",
+                  "color": "#fff"
+                }
+              }
+            }
+          },
           "checkbox": {
             "default": {
               "disabled": [
@@ -3522,6 +3594,23 @@
                     "value": 0,
                     "unit": "px"
                   }
+                }
+              }
+            }
+          },
+          "text": {
+            "default": {
+              "disabled": [
+                "fontFamily",
+                "color",
+                "shadows"
+               ],
+              "values": {
+                "fontFamily": "Arial",
+                "color": "#404040",
+                "shadows": {
+                  "show": false,
+                  "list": []
                 }
               }
             }

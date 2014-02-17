@@ -2810,13 +2810,12 @@
           "dateText": {
             "default": {
               "disabled": [
-                "size",
                 "weight"
               ],
               "values": {
                 "color": "#cc0000",
                 "size": {
-                  "value": 11,
+                  "value": 0,
                   "unit": "px"
                 },
                 "style": "italic",

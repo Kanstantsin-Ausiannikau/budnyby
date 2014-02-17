@@ -97,8 +97,8 @@ Disallow: /Activity-Feed/userId/	# Do not index user profiles
 Crawl-delay: 5
 
 User-agent: Googlebot
-Disallow: /*/ctl/		# Googlebot permits *
-Disallow: /admin/
+
+Disallow: /admin/		# Googlebot permits *
 Disallow: /App_Browsers/
 Disallow: /App_Code/
 Disallow: /App_Data/

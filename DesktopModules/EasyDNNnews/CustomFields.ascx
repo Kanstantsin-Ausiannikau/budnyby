@@ -31,12 +31,17 @@
 	</div>
 	<div class="main_content dashboard customfields">
 		<ul class="links">
-			<li class="activelink">
-				<asp:HyperLink runat="server" ID="lblCustomFields" class="icon customfileds" resourcekey="lblCustomFields" Text="Add/Edit Custom Fields" /></li>
+			<li<%=mainTopNavigationActiveClassAdd %>>
+				<asp:HyperLink runat="server" ID="lblCustomFieldsAdd" class="icon customfiledsadd" resourcekey="lblCustomFieldsAdd" Text="Add Custom Fields" /></li>
+			<li<%=mainTopNavigationActiveClassEdit %>>
+				<asp:HyperLink runat="server" ID="lblCustomFieldsEdit" class="icon customfileds" resourcekey="lblCustomFieldsEdit" Text="Edit Custom Fields" />
+			</li>
 			<li>
 				<asp:HyperLink runat="server" ID="lblCustomFieldsTemplates" class="icon customfields_group" resourcekey="lblCustomFieldsTemplates" Text="Manage Custom Fields Groups" /></li>
 			<li>
 				<asp:HyperLink runat="server" ID="lblCurrencyManager" class="icon customfields_currency" resourcekey="lblCurrencyManager" Text="Currency Setup" /></li>
+			<li>
+				<asp:HyperLink runat="server" ID="lblImportExport" class="icon customfields_export" resourcekey="lblImportExport" Text="Import/Export" /></li>
 		</ul>
 	</div>
 	<div class="main_content main_content gridview_content_manager article_manager">
@@ -50,7 +55,7 @@
 				<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblFieldType" runat="server" Text="Field type:" ControlName="ddlFieldType" HelpText="Field type." ResourceKey="lblFieldType" HelpKey="lblFieldType.HelpText" />
+							<dnn:Label ID="lblFieldType" runat="server" Text="Field type:" ControlName="ddlFieldType" HelpText="Select the custom field type you wish to add. Possible choices include TextBox, CheckBox and MultiControls." ResourceKey="lblFieldType" HelpKey="lblFieldType.HelpText" />
 						</td>
 						<td class="right">
 							<asp:DropDownList ID="ddlFieldType" runat="server" Width="200px" OnSelectedIndexChanged="ddlFieldType_SelectedIndexChanged" AutoPostBack="True">
@@ -68,17 +73,26 @@
 					<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 						<tr class="second">
 							<td class="left">
-								<dnn:Label ID="lblDataType" runat="server" Text="TextBox data type:" ControlName="ddlTextBoxType" HelpText="TextBox data type." ResourceKey="lblDataType" HelpKey="lblDataType.HelpText" />
+								<dnn:Label ID="lblDataType" runat="server" Text="TextBox data type:" ControlName="ddlTextBoxType" HelpText="Select TextBox data type.
+
+
+Text – Only used for plain text.
+RichText (HTML) –  Used for rich text or HTML.
+Integer – Used for integer numbers.
+Decimal – Used for decimal numbers.
+
+Money – This type of data is used for entering monetary values (prices). Prior to creating this type of field, it is necessary to set the base currency in Currency setup interface."
+									ResourceKey="lblDataType" HelpKey="lblDataType.HelpText" />
 							</td>
 							<td class="right">
 								<asp:DropDownList ID="ddlTextBoxType" runat="server" Width="200px" AutoPostBack="True" OnSelectedIndexChanged="ddlDataType_SelectedIndexChanged">
 									<asp:ListItem Value="0" ResourceKey="liSelect" Text="Select" Selected="True" />
 									<asp:ListItem Value="1" ResourceKey="liText" Text="Text" />
-									<asp:ListItem Value="2" ResourceKey="liRichText" Text="Rich Text (HTML)" />
+									<asp:ListItem Value="2" ResourceKey="liRichText" Text="RichText (HTML)" />
 									<asp:ListItem Value="3" ResourceKey="liInteger" Text="Integer" />
 									<asp:ListItem Value="4" ResourceKey="liDecimal" Text="Decimal" />
 									<asp:ListItem Value="5" ResourceKey="liMoney" Text="Money" />
-									<%--								<asp:ListItem Value="6" Text="Email"></asp:ListItem>
+									<%--<asp:ListItem Value="6" Text="Email"></asp:ListItem>
 									<asp:ListItem Value="7" Text="Color Picker"></asp:ListItem>
 									<asp:ListItem Value="8" Text="Password"></asp:ListItem>
 									<asp:ListItem Value="9" Text="Date time picker"></asp:ListItem>--%>
@@ -92,7 +106,7 @@
 					<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 						<tr class="second">
 							<td class="left">
-								<dnn:Label ID="lblMultiControlType" runat="server" Text="Multi control type:" ControlName="ddlMultiControlType" HelpText="Multi control type." ResourceKey="lblMultiControlType" HelpKey="lblMultiControlType.HelpText" />
+								<dnn:Label ID="lblMultiControlType" runat="server" Text="Multi-control type:" ControlName="ddlMultiControlType" HelpText="Select the desired type of multi-control." ResourceKey="lblMultiControlType" HelpKey="lblMultiControlType.HelpText" />
 							</td>
 							<td class="right">
 								<asp:DropDownList ID="ddlMultiControlType" runat="server" Width="200px" AutoPostBack="True" OnSelectedIndexChanged="ddlMultiControlType_SelectedIndexChanged">
@@ -192,7 +206,7 @@
 					<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 						<tr>
 							<td class="left">
-								<dnn:Label ID="lblCustomFieldName" runat="server" Text="Name:" ControlName="tbxCustomFieldName" HelpText="Name of custom field." ResourceKey="lblCustomFieldName" HelpKey="lblCustomFieldName.HelpText" />
+								<dnn:Label ID="lblCustomFieldName" runat="server" Text="Custom field name:" ControlName="tbxCustomFieldName" HelpText="Enter a name for the custom field you wish to create." ResourceKey="lblCustomFieldName" HelpKey="lblCustomFieldName.HelpText" />
 							</td>
 							<td class="right">
 								<asp:TextBox ID="tbxCustomFieldName" runat="server" Width="200px" CausesValidation="True" MaxLength="300" ValidationGroup="vgSaveField" />
@@ -201,7 +215,7 @@
 						</tr>
 						<tr class="second">
 							<td class="left">
-								<dnn:Label ID="lblToken" runat="server" Text="Token ID:" ControlName="tbxToken" HelpText="Unique token identifier, use of token identifier in template like [EDNcf:TokenID]." ResourceKey="lblToken" HelpKey="lblToken.HelpText" />
+								<dnn:Label ID="lblToken" runat="server" Text="Token ID:" ControlName="tbxToken" HelpText="Enter token ID. Token ID is a unique token identifier. It can be used in HTML templates. If the entered value for a token ID is name, for example, then its token will be [EDNcf:name]. Note: tokens are case sensitive. A token ID must be unique for each custom field, so you can check its availability by clicking on Check availability button, to ensure you're not using the same token for another custom field." ResourceKey="lblToken" HelpKey="lblToken.HelpText" />
 							</td>
 							<td class="right">
 								<asp:TextBox ID="tbxToken" runat="server" Width="200px" CausesValidation="True" MaxLength="250" ValidationGroup="vgSaveField" />
@@ -216,7 +230,7 @@
 						<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 							<tr>
 								<td class="left">
-									<dnn:Label ID="lblDefaultValue" runat="server" Text="Default value:" ControlName="tbxDefaultValue" HelpText="Default value of feild." ResourceKey="lblDefaultValue" HelpKey="lblDefaultValue.HelpText" />
+									<dnn:Label ID="lblDefaultValue" runat="server" Text="Default token value:" ControlName="tbxDefaultValue" HelpText="Here you can add default value of a particular token. When adding articles, this value will have already been added to the field, though it can be changed." ResourceKey="lblDefaultValue" HelpKey="lblDefaultValue.HelpText" />
 								</td>
 								<td class="right">
 									<asp:TextBox ID="tbxDefaultValue" runat="server" Width="200px" />
@@ -250,7 +264,7 @@
 						<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 							<tr>
 								<td>
-									<dnn:Label ID="lblRichTextBoxDefault" runat="server" Text="Default value:" ControlName="rtbDefault" HelpText="Default value of feild." ResourceKey="lblRichTextBoxDefault" HelpKey="lblRichTextBoxDefault.HelpText" />
+									<dnn:Label ID="lblRichTextBoxDefault" runat="server" Text="Default token value:" ControlName="rtbDefault" HelpText="Here you can add default value of a particular token. When adding articles, this value will have already been added to the field, though it can be changed." ResourceKey="lblRichTextBoxDefault" HelpKey="lblRichTextBoxDefault.HelpText" />
 									<dnn:TextEditor ID="rtbDefault" runat="server" Height="500" Width="700" />
 								</td>
 							</tr>
@@ -260,7 +274,7 @@
 						<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 							<tr class="second">
 								<td class="left">
-									<dnn:Label ID="lblDefaultCheckBox" runat="server" Text="Default value:" ControlName="tbxDefaultValue" HelpText="Default value of field." ResourceKey="lblDefaultCheckBox" HelpKey="lblDefaultCheckBox.HelpText" />
+									<dnn:Label ID="lblDefaultCheckBox" runat="server" Text="Default token value:" ControlName="tbxDefaultValue" HelpText="Here you can add default value of a particular token. When adding articles, this value will have already been added to the field, though it can be changed." ResourceKey="lblDefaultCheckBox" HelpKey="lblDefaultCheckBox.HelpText" />
 								</td>
 								<td class="right">
 									<asp:CheckBox ID="cbDefaultValue" runat="server" Checked="false" />
@@ -290,7 +304,7 @@
 							<table class="settings_table customfileds" cellpadding="0" cellspacing="0" runat="server" id="tblSelectParentChildeControlType">
 								<tr>
 									<td class="left">
-										<dnn:Label ID="lblIsParentOrChilde" runat="server" Text="Elements type:" ControlName="rblIsParentOrChilde" HelpText="Select a type of element. The normal elements are not related to other fields. The related elements are related to other custom field element (E.g. a car model is related to a car maker. In this example the car maker is a normal element and the car model is a related element)." ResourceKey="lblIsParentOrChilde" HelpKey="lblIsParentOrChilde.HelpText" />
+										<dnn:Label ID="lblIsParentOrChilde" runat="server" Text="Element type:" ControlName="rblIsParentOrChilde" HelpText="Select the desired element type. Normal elements are not linked with other custom fields. Related elements are linked to other custom fields, such as their elements. An example: we have created a drop-down list Car maker with elements Audi, BMW, Mercedes. Then we created another drop-down list, Car model. In the latter drop-down list we can create related elements linked with elements from the Car maker drop-down list. Audi's models A4, A5, A6, A7, A8 that we create as related elements will be linked with the corresponding Audi element from the Car model drop-down list." ResourceKey="lblIsParentOrChilde" HelpKey="lblIsParentOrChilde.HelpText" />
 									</td>
 									<td class="right">
 										<asp:RadioButtonList ID="rblIsParentOrChilde" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblIsParentOrChilde_SelectedIndexChanged" AutoPostBack="True">
@@ -500,7 +514,7 @@
 							<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 								<tr class="second">
 									<td class="left">
-										<dnn:Label ID="lblMultiControlElementText" runat="server" Text="Element:" ControlName="tbxMultiControlElementText" HelpText="Enter element text value." ResourceKey="lblMultiControlElementText" HelpKey="lblMultiControlElementText.HelpText" />
+										<dnn:Label ID="lblMultiControlElementText" runat="server" Text="Element:" ControlName="tbxMultiControlElementText" HelpText="Enter element drop-down lists and click on the Create element button." ResourceKey="lblMultiControlElementText" HelpKey="lblMultiControlElementText.HelpText" />
 									</td>
 									<td class="right">
 										<asp:TextBox ID="tbxMultiControlElementText" runat="server" Width="350px" />
@@ -513,7 +527,7 @@
 								<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 									<tr>
 										<td class="left">
-											<dnn:Label ID="lblDropDownListDefault" runat="server" Text="Default value:" ControlName="tbxDefaultValue" HelpText="Default value of feild." ResourceKey="lblDropDownListDefault" HelpKey="lblDropDownListDefault.HelpText" />
+											<dnn:Label ID="lblDropDownListDefault" runat="server" Text="Default value:" ControlName="tbxDefaultValue" HelpText="Select the element to be chosen by default." ResourceKey="lblDropDownListDefault" HelpKey="lblDropDownListDefault.HelpText" />
 										</td>
 										<td class="right">
 											<asp:DropDownList ID="ddlDropDownListDefault" runat="server" />
@@ -648,7 +662,7 @@
 					<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 						<tr class="second">
 							<td class="left">
-								<dnn:Label ID="lblLabelVisible" runat="server" Text="Show label:" ControlName="cbLabelVisible" HelpText="Is label visible." ResourceKey="lblLabelVisible" HelpKey="lblLabelVisible.HelpText" />
+								<dnn:Label ID="lblLabelVisible" runat="server" Text="Show label:" ControlName="cbLabelVisible" HelpText="If this option is checked, the label will be shown in the article's display." ResourceKey="lblLabelVisible" HelpKey="lblLabelVisible.HelpText" />
 							</td>
 							<td class="right">
 								<asp:CheckBox ID="cbLabelVisible" runat="server" Checked="true" />
@@ -656,7 +670,7 @@
 						</tr>
 						<tr>
 							<td class="left">
-								<dnn:Label ID="lblLabelOfTheFeild" runat="server" Text="Field label:" ControlName="tbxLabelOfTheFeild" HelpText="Field label." ResourceKey="lblLabelOfTheFeild" HelpKey="lblLabelOfTheFeild.HelpText" />
+								<dnn:Label ID="lblLabelOfTheFeild" runat="server" Text="Field label:" ControlName="tbxLabelOfTheFeild" HelpText="Enter custom field label." ResourceKey="lblLabelOfTheFeild" HelpKey="lblLabelOfTheFeild.HelpText" />
 							</td>
 							<td class="right">
 								<asp:TextBox ID="tbxLabelOfTheFeild" runat="server" Width="350px" />
@@ -664,7 +678,7 @@
 						</tr>
 						<tr class="second">
 							<td class="left">
-								<dnn:Label ID="lblLabelHelp" runat="server" Text="Field help text:" ControlName="tbxLabelHelp" HelpText="Field help text." ResourceKey="tbxLabelHelp" HelpKey="tbxLabelHelp.HelpText" />
+								<dnn:Label ID="lblLabelHelp" runat="server" Text="Field tooltip:" ControlName="tbxLabelHelp" HelpText="Enter custom field tooltip. Tooltip will be displayed when adding articles, and its purpose is to display help text to authors when they fill in custom fields. Tooltips will be displayed when the mouse is positioned above '!' sign." ResourceKey="tbxLabelHelp" HelpKey="tbxLabelHelp.HelpText" />
 							</td>
 							<td class="right">
 								<asp:TextBox ID="tbxLabelHelp" runat="server" Width="350px" />
@@ -751,7 +765,7 @@
 					<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 						<tr>
 							<td class="left">
-								<dnn:Label ID="lblRequired" runat="server" Text="Field required?" ControlName="cbRequired" HelpText="Is field required." ResourceKey="lblRequired" HelpKey="lblRequired.HelpText" />
+								<dnn:Label ID="lblRequired" runat="server" Text="Field is required:" ControlName="cbRequired" HelpText="A field can be either required or optional. If this option is checked, the field becomes required and it needs to be added, or else the article can't be saved." ResourceKey="lblRequired" HelpKey="lblRequired.HelpText" />
 							</td>
 							<td class="right">
 								<asp:CheckBox ID="cbRequired" runat="server" Checked="false" />
@@ -771,7 +785,7 @@
 						</tr>
 						<tr>
 							<td class="left">
-								<dnn:Label ID="lblRequiredErrorMsg" runat="server" Text="Error message:" ControlName="tbxRequiredErrorMsg" HelpText="Error massage when error ocures." ResourceKey="lblRequiredErrorMsg" HelpKey="lblRequiredErrorMsg.HelpText" />
+								<dnn:Label ID="lblRequiredErrorMsg" runat="server" Text="Error message:" ControlName="tbxRequiredErrorMsg" HelpText="Enter message text to be displayed in case that a field is required, but hasn't been filled in." ResourceKey="lblRequiredErrorMsg" HelpKey="lblRequiredErrorMsg.HelpText" />
 							</td>
 							<td class="right">
 								<asp:TextBox ID="tbxRequiredErrorMsg" runat="server" Width="350px" />
@@ -885,7 +899,7 @@
 					<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 						<tr>
 							<td class="left">
-								<dnn:Label ID="lblIsPublished" runat="server" Text="Active:" ControlName="cbPublished" HelpText="If custom field is active or not." ResourceKey="lblIsPublished" HelpKey="lblIsPublished.HelpText" />
+								<dnn:Label ID="lblIsPublished" runat="server" Text="Field is active:" ControlName="cbPublished" HelpText="If a field is active, values can be entered into it. It is not possible to enter values into inactive fields." ResourceKey="lblIsPublished" HelpKey="lblIsPublished.HelpText" />
 							</td>
 							<td class="right">
 								<asp:CheckBox ID="cbIsPublished" runat="server" Checked="true" />
@@ -893,7 +907,7 @@
 						</tr>
 						<tr>
 							<td class="left">
-								<dnn:Label ID="lblIsHidden" runat="server" Text="Hide field:" ControlName="cbIsHidden" HelpText="The custom field data can be added, but is not visible in the view of articles. (eg. Real estate - number of contract)." ResourceKey="lblIsHidden" HelpKey="lblIsHidden.HelpText" />
+								<dnn:Label ID="lblIsHidden" runat="server" Text="Field is hidden:" ControlName="cbIsHidden" HelpText="Hidden fields are not displayed in articles, but they can be added by authors. Hidden fields are normally used for information important to authors, but not meant to be publicized." ResourceKey="lblIsHidden" HelpKey="lblIsHidden.HelpText" />
 							</td>
 							<td class="right">
 								<asp:CheckBox ID="cbIsHidden" runat="server" Checked="false" />
@@ -926,7 +940,7 @@
 						<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
 							<tr>
 								<td class="left">
-									<dnn:Label ID="lblIsSearchable" runat="server" Text="Is searchable?" ControlName="cbIsSearchable" HelpText="Is field searchable. If is, then it can show up in search module when template group is selected." />
+									<dnn:Label ID="lblIsSearchable" runat="server" Text="Field is searchable:" ControlName="cbIsSearchable" HelpText="If this option is checked, the field is searchable in Advanced search mode of EasyDNNnews search module." />
 								</td>
 								<td class="right">
 									<asp:CheckBox ID="cbIsSearchable" runat="server" Checked="false" OnCheckedChanged="cbIsSearchable_CheckedChanged" AutoPostBack="true" />
@@ -963,7 +977,6 @@
 								</tr>
 							</table>
 							<asp:Panel ID="pnlRangeSearchFromToAutomatic" runat="server" Visible="true" CssClass="settings_category_container">
-						
 							</asp:Panel>
 							<asp:Panel ID="pnlRangeSearchFromToManual" runat="server" Visible="false" CssClass="settings_category_container">
 								<table class="settings_table customfileds" cellpadding="0" cellspacing="0">
@@ -989,7 +1002,7 @@
 					<asp:Label ID="lblSaveInfo" runat="server" EnableViewState="False" />
 					<asp:Button ID="btnSaveField" runat="server" Text="Create Field" OnClick="btnSaveField_Click" ValidationGroup="vgSaveField" ResourceKey="btnSaveField" />
 					<asp:Button ID="btnUpdateField" runat="server" Text="Update Field" ValidationGroup="vgSaveField" Visible="false" OnClick="btnUpdateField_Click" ResourceKey="btnUpdateField" />
-					<asp:HyperLink ID="btnCancel" runat="server" Text="Close" Visible="false" ResourceKey="btnCancel" />
+					<asp:Button ID="btnCancel" runat="server" Text="Close" Visible="false" OnClick="btnCancel_Click" ResourceKey="btnCancel" />
 					<asp:Button ID="btnClose" runat="server" Text="Cancel" OnClick="btnCancel_Click" ResourceKey="btnClose" />
 					<!-- bifsi exit gumb -->
 				</div>

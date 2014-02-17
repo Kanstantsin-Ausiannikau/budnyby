@@ -436,7 +436,7 @@
     <value>Article URL</value>
   </data>
   <data name="lblCategorySelectError.Text" xml:space="preserve">
-    <value>Please select a category</value>
+    <value>Please select category.</value>
   </data>
   <data name="lblMetaDescription.HelpText" xml:space="preserve">
     <value>Enter text for &lt;meta&gt; description tag of HTML document. Metadata will not be displayed on the page.</value>

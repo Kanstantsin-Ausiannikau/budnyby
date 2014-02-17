@@ -3460,15 +3460,60 @@
 			},
 			"articleDetailsCustomFields": {
 				"name": "Custom fields",
+				"show": [
+					"newsDetailsDefault",
+					"newsDetailsCatalog"
+				],
 				"properties": {
+					"background": {
+						"type": "background",
+						"name": "Background",
+						"subCollection": "news",
+						"states": [
+							{
+								"id": "default",
+								"selectors": [
+									" .EDN_cf_all_fields_container > table tr td"
+								],
+								"name": "Odd",
+								"forbidden": [
+									"attachment"
+								]
+							},
+							{
+								"id": "even",
+								"selectors": [
+									" .EDN_cf_all_fields_container > table tr:nth-child(2n) td"
+								],
+								"name": "Even",
+								"forbidden": [
+									"attachment"
+								]
+							}
+						]
+					},
+					"border": {
+						"type": "border",
+						"name": "Border (Space)",
+						"subCollection": "news",
+						"states": [
+							{
+								"id": "default",
+								"selectors": [
+									" .EDN_cf_all_fields_container > table tr"
+								],
+								"name": "Normal",
+								"forbidden": [
+									"rightSide",
+									"leftSide"
+								]
+							}
+						]
+					},
 					"checkbox": {
 						"type": "background",
 						"name": "Checkbox background",
 						"subCollection": "news",
-						"show": [
-							"newsDetailsDefault",
-							"newsDetailsCatalog"
-						],
 						"states": [
 							{
 								"id": "default",
@@ -3490,6 +3535,34 @@
 								"forbidden": [
 									"repeat",
 									"attachment"
+								]
+							}
+						]
+					},
+					"text": {
+						"type": "text",
+						"name": "Text",
+						"subCollection": "news",
+						"states": [
+							{
+								"id": "default",
+								"selectors": [
+									" .EDN_cf_all_fields_container > table tr td",
+									" .EDN_cf_all_fields_container > table tr td p"
+								],
+								"name": "Normal",
+								"forbidden": [
+									"size",
+									"style",
+									"weight",
+									"lineHeight",
+									"transform",
+									"decorations"
+								],
+								"important": [
+									"fontFamily",
+									"color",
+									"shadows"
 								]
 							}
 						]

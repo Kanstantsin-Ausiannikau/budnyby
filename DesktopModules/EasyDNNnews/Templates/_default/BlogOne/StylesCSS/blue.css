@@ -124,7 +124,8 @@
 	font-size: 11px;
 }
 
-.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news .article .content
+.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news .article .content,
+.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news .article .content p
 {
 	font-family: "Verdana";
 	color: #363636;
@@ -547,7 +548,7 @@
 .eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news.eds_templateGroup_newsDetailsArticleGalleryAboveTitleSimple .article.standalone .author_group_profile
 {
 	background-color: #f4f4f4;
-	border-width: 3px;
+	border-width: 1px;
 	border-style: solid;
 	border-color: #ffffff;
 }
@@ -1293,23 +1294,23 @@
 	font-size: 14px;
 }
 
-.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news.eds_templateGroup_newsDetailsArticleDefault .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_icon,
-.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news.eds_templateGroup_newsDetailsArticleDefaultSimple .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_icon,
-.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news.eds_templateGroup_newsDetailsArticleAboveTitle .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_icon,
-.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news.eds_templateGroup_newsDetailsArticleGalleryAboveTitleSimple .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_icon,
-.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news.eds_templateGroup_newsDetailsCatalogDefault .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_icon,
-.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news.eds_templateGroup_newsDetailsCatalogDefaultSimple .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_icon
+.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news .EDN_cf_all_fields_container > table tr td
+{
+	background-color: #E0DEDE;
+}
+
+.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news .EDN_cf_all_fields_container > table tr:nth-child(2n) td
+{
+	background-color: #EBEBEB;
+}
+
+.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_icon
 {
 	background-image: url("../images/articleDetailsCustomFields/checkboxBackground/predefined/cf-checkbox-blue.png");
 	background-position: 0px 0px;
 }
 
-.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news.eds_templateGroup_newsDetailsArticleDefault .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_checked .EDN_cf_checkbox_icon,
-.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news.eds_templateGroup_newsDetailsArticleDefaultSimple .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_checked .EDN_cf_checkbox_icon,
-.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news.eds_templateGroup_newsDetailsArticleAboveTitle .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_checked .EDN_cf_checkbox_icon,
-.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news.eds_templateGroup_newsDetailsArticleGalleryAboveTitleSimple .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_checked .EDN_cf_checkbox_icon,
-.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news.eds_templateGroup_newsDetailsCatalogDefault .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_checked .EDN_cf_checkbox_icon,
-.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news.eds_templateGroup_newsDetailsCatalogDefaultSimple .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_checked .EDN_cf_checkbox_icon
+.eds_news_BlogOne.eds_style_predefined_blue.eds_subCollection_news .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_checked .EDN_cf_checkbox_icon
 {
 	background-image: url("../images/articleDetailsCustomFields/checkboxBackground/predefined/cf-checkbox-blue.png");
 	background-position: 0px -22px;

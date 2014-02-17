@@ -13,39 +13,39 @@
 			var e = document.getElementById(ControlClientID);
 			var ParentElementID = e.options[e.selectedIndex].value;
 			var hfValue = document.getElementById('<%=hfParenSelectedValue.ClientID%>').value;
-		if (hfValue.length != 0) {
-			var indexOd = hfValue.indexOf(ControlClientID + ';')
-			if (indexOd != -1){
-				var pocetak = hfValue.substring(indexOd + ControlClientID.length + 1); // cut
-				var indexOdBroja = pocetak.indexOf('|');
-				var kraj = pocetak.substring(0, indexOdBroja);
-				hfValue = hfValue.replace(ControlClientID + ';' + kraj + '|', ''); // remove existing value
-			}
-			document.getElementById('<%=hfParenSelectedValue.ClientID%>').value = hfValue + ControlClientID + ';' + ParentElementID + '|';
-				document.getElementById('<%=hfLastSelectedIndexChanged.ClientID%>').value = cfid;
-			}
-			else {
-				document.getElementById('<%=hfParenSelectedValue.ClientID%>').value = ControlClientID + ';' + ParentElementID + '|';
-				document.getElementById('<%=hfLastSelectedIndexChanged.ClientID%>').value = cfid;
-			}
+			if (hfValue.length != 0) {
+				var indexOd = hfValue.indexOf(ControlClientID + ';')
+				if (indexOd != -1){
+					var pocetak = hfValue.substring(indexOd + ControlClientID.length + 1); // cut
+					var indexOdBroja = pocetak.indexOf('|');
+					var kraj = pocetak.substring(0, indexOdBroja);
+					hfValue = hfValue.replace(ControlClientID + ';' + kraj + '|', ''); // remove existing value
+				}
+				document.getElementById('<%=hfParenSelectedValue.ClientID%>').value = hfValue + ControlClientID + ';' + ParentElementID + '|';
+			document.getElementById('<%=hfLastSelectedIndexChanged.ClientID%>').value = cfid;
+		}
+		else {
+			document.getElementById('<%=hfParenSelectedValue.ClientID%>').value = ControlClientID + ';' + ParentElementID + '|';
+			document.getElementById('<%=hfLastSelectedIndexChanged.ClientID%>').value = cfid;
 		}
 	}
+}
 
-	function cblOnSelectedIndexChange(ControlClientID, cfid) {
-		if (document.getElementById('<%=hfParenSelectedValue.ClientID%>') != null) {
-		var chkBox = document.getElementById(ControlClientID);
-		var options = chkBox.getElementsByTagName('input');
-		var checkedValues = '';
-		for (var i = 0; i < options.length; i++)
-		{
-			if(options[i].checked)
+function cblOnSelectedIndexChange(ControlClientID, cfid) {
+	if (document.getElementById('<%=hfParenSelectedValue.ClientID%>') != null) {
+			var chkBox = document.getElementById(ControlClientID);
+			var options = chkBox.getElementsByTagName('input');
+			var checkedValues = '';
+			for (var i = 0; i < options.length; i++)
 			{
-				checkedValues += options[i].value + ',';
+				if(options[i].checked)
+				{
+					checkedValues += options[i].value + ',';
+				}
 			}
-		}
-		if(checkedValues.length > 0){
-			checkedValues = checkedValues.substring(0, checkedValues.length - 1);
-			var hfValue = document.getElementById('<%=hfParenSelectedValue.ClientID%>').value;
+			if(checkedValues.length > 0){
+				checkedValues = checkedValues.substring(0, checkedValues.length - 1);
+				var hfValue = document.getElementById('<%=hfParenSelectedValue.ClientID%>').value;
 			if (hfValue.length != 0) {
 				var indexOd = hfValue.indexOf(ControlClientID + ';')
 				if (indexOd != -1){
@@ -520,6 +520,16 @@ function initializeUploadify (inputId, galleryId) {
 
 
 	eds1_8(function ($) {
+		$('#EDNadmin').on('click', '.save_buttons', function () {
+			var $this = $(this);
+
+			if ($this.data('clicked'))
+				return false;
+
+			if (typeof(Page_ClientValidate) == 'function' && Page_ClientValidate('vgAddArticle') == true)
+				$this.data('clicked', true);
+		});
+
 		$('#<%=lbSocialSecurityGroups.ClientID %>').dropdownchecklist({
 			forceMultiple: true,
 			minWidth: 106,
@@ -1279,16 +1289,14 @@ function initializeUploadify (inputId, galleryId) {
 																<td class="header_field action">
 																	<%=ActionText %>
 																</td>
-																<td class="header_field image">
-																</td>
+																<td class="header_field image"></td>
 																<td class="header_field title">
 																	<%=Title%>
 																</td>
 																<td class="header_field description">
 																	<%=Description%>
 																</td>
-																<td class="header_field">
-																</td>
+																<td class="header_field"></td>
 															</tr>
 														</table>
 													</HeaderTemplate>
@@ -1373,8 +1381,7 @@ function initializeUploadify (inputId, galleryId) {
 									<asp:HiddenField ID="hfGalID" runat="server" />
 									<asp:HiddenField ID="hfCatID" runat="server" />
 									<asp:HiddenField ID="hfSharedGalID" runat="server" />
-									<asp:HiddenField ID="hfArtImageSet" runat="server" />
-									<asp:HiddenField ID="hfSelectedMediaID" runat="server" Value="0" />
+									<asp:HiddenField ID="hfMainArticlePictureID" runat="server" Value="0" />
 									<asp:HiddenField ID="curentActiveGalleryId" runat="server" Value="1" />
 								</div>
 							</div>
@@ -1956,8 +1963,7 @@ function initializeUploadify (inputId, galleryId) {
 														</td>
 													</tr>
 													<tr>
-														<td class="left">
-														</td>
+														<td class="left"></td>
 														<td class="right">
 															<asp:Panel runat="server" ID="pnlDailyRecurringEvent" Visible="false">
 																<asp:Label ID="lblRecurringEvery" resourcekey="lblRecurringEvery" runat="server" Text="Every:" />
@@ -2325,7 +2331,7 @@ function initializeUploadify (inputId, galleryId) {
 						</asp:UpdatePanel>
 					</asp:Panel>
 					<div class="main_action_buttons">
-						<div id="pnlSocialSharing" class="social_sharing_box" runat="server" visible="false" style="display: none; bottom: 70px;">
+						<div id="pnlSocialSharing" class="social_sharing_box" runat="server" visible="false" style="display: none;">
 							<p id="lblSocialSharingTitle" runat="server" style="font-weight: bold;">
 								<span style="color: red;">
 									<%=Post%></span>
@@ -2340,7 +2346,7 @@ function initializeUploadify (inputId, galleryId) {
 								<asp:DropDownList ID="ddlPostToTwitter" runat="server" CssClass="custom_drop_down_style" />
 							</p>
 						</div>
-						<div id="pnlSocialSecurity" class="social_sharing_box" runat="server" visible="true" style="right: 255px; bottom: 70px; opacity: 100;">
+						<div id="pnlSocialSecurity" class="social_sharing_box" runat="server" visible="true" style="right: 255px; opacity: 100;">
 							<p id="lblSocialSecurityTitle" runat="server" style="font-weight: bold;">
 								<%=Social%><span style="color: red;"><%=security %></span>
 							</p>
@@ -2357,20 +2363,20 @@ function initializeUploadify (inputId, galleryId) {
 									<asp:CheckBox ID="cbPostToJournal" runat="server" /><asp:Label ID="lblPostToJournal" resourcekey="lblPostToJournal" runat="server" Text="Post to Journal" /></span>
 							</p>
 						</div>
-						<asp:Label ID="lblMainEditMessage" runat="server" />
 						<asp:RadioButtonList ID="rblDraftPublish" runat="server" CssClass="checkbox_list" RepeatDirection="Horizontal" Style="margin: 0 0 0 40px; height: 27px;">
 							<asp:ListItem Selected="True" Value="Draft" resourcekey="liDraftArticle" Text="Draft Article" />
 							<asp:ListItem Value="Publish" resourcekey="liPublishArticle" Text="Publish Article" />
 						</asp:RadioButtonList>
 						<asp:Label ID="lblApprovingMessage" resourcekey="lblApprovingMessage" runat="server" Text="Your article needs to be approved. It will not be visible until it is approved." Font-Size="Small" Style="display: none" />
 						<div class="button_list center w_565">
-							<asp:LinkButton ID="btnAddNewArticle" runat="server" OnClick="btnAddNewArticle_Click" Text="Save article" ValidationGroup="vgAddArticle" CssClass="main_action_button w140 red" resourcekey="btnAddNewArticle" />
-							<asp:LinkButton ID="btnAddAndClose" runat="server" OnClick="btnAddAndClose_Click" Text="Save and close" ValidationGroup="vgAddArticle" CssClass="main_action_button w140 orange" resourcekey="btnAddAndClose" />
-							<asp:LinkButton ID="btnAddAndView" runat="server" OnClick="btnAddAndView_Click" Text="Save and view" ValidationGroup="vgAddArticle" CssClass="main_action_button w140 yellow" resourcekey="btnAddAndView" />
+							<asp:LinkButton ID="btnAddNewArticle" runat="server" OnClick="btnAddNewArticle_Click" Text="Save article" ValidationGroup="vgAddArticle" CssClass="main_action_button w140 red save_buttons" resourcekey="btnAddNewArticle" />
+							<asp:LinkButton ID="btnAddAndClose" runat="server" OnClick="btnAddAndClose_Click" Text="Save and close" ValidationGroup="vgAddArticle" CssClass="main_action_button w140 orange save_buttons" resourcekey="btnAddAndClose" />
+							<asp:LinkButton ID="btnAddAndView" runat="server" OnClick="btnAddAndView_Click" Text="Save and view" ValidationGroup="vgAddArticle" CssClass="main_action_button w140 yellow save_buttons" resourcekey="btnAddAndView" />
 							<asp:LinkButton ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="" UseSubmitBehavior="false" CssClass="main_action_button w100 grey" resourcekey="btnCancel"></asp:LinkButton>
 						</div>
 						<div style="clear: both;">
 						</div>
+						<asp:Label ID="lblMainEditMessage" runat="server" />
 					</div>
 				</asp:Panel>
 			</div>

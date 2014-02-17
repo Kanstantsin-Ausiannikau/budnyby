@@ -1,4 +1,4 @@
-<%@ Control language="vb" AutoEventWireup="false" Explicit="True" Inherits="DotNetNuke.UI.Skins.Skin" %>
+﻿<%@ Control language="vb" AutoEventWireup="false" Explicit="True" Inherits="DotNetNuke.UI.Skins.Skin" %>
 <%@ Register TagPrefix="dnn" TagName="MENU" src="~/DesktopModules/DDRMenu/Menu.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="STYLES" Src="~/Admin/Skins/Styles.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="LOGIN" Src="~/Admin/Skins/Login.ascx" %>
@@ -36,6 +36,34 @@ VK.Widgets.Group("vk_groups", {mode: 0, width: "200", height: "400", color1: 'FF
 				<script type="text/javascript">
 				VK.Widgets.Like("vk_like", {type: "button", height: 24});
 				</script>
+
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter23923300 = new Ya.Metrika({id:23923300,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/23923300" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 
 
 <div class="EasyDNNSkin_NewsTwo">
@@ -84,8 +112,9 @@ VK.Widgets.Group("vk_groups", {mode: 0, width: "200", height: "400", color1: 'FF
 	</div>
 </div>
 <div class="NewsTwoFooter">
-	<p class="copyright"><dnn:COPYRIGHT ID="dnnCopyright" runat="server" /></p>
-	<p class="terms"><dnn:TERMS ID="dnnTerms" runat="server" />  |  <dnn:PRIVACY ID="dnnPrivacy" runat="server" /></p>
+<!--	<p class="copyright"><dnn:COPYRIGHT ID="dnnCopyright" runat="server" /></p> -->
+	<p class="copyright">Copyright 2013 - 2014 by Budny.by. Копирование и цитирование авторских материалов сайта разрешено при активной гиперссылке на источник</p>
+<!--	<p class="terms"><dnn:TERMS ID="dnnTerms" runat="server" />  |  <dnn:PRIVACY ID="dnnPrivacy" runat="server" /></p>-->
 </div>
 </div>
 </div>

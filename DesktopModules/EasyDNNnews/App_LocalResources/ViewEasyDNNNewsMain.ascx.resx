@@ -118,106 +118,106 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddContent.Action" xml:space="preserve">
-    <value>Добавить новую статью</value>
+    <value>Add new article</value>
   </data>
   <data name="btnAddComentResource.Text" xml:space="preserve">
-    <value>ДОбавить комментарий</value>
+    <value>Add Comment</value>
   </data>
   <data name="btnRateResource.Text" xml:space="preserve">
-    <value>Рейтинг</value>
+    <value>Rate</value>
   </data>
   <data name="CategoryEditor" xml:space="preserve">
-    <value>Редактор категорий</value>
+    <value>Category Editor</value>
   </data>
   <data name="ModuleHelp.Text" xml:space="preserve">
-    <value>&lt;P&gt;A EasyDNNNews module</value>
+    <value>A EasyDNNNews module</value>
   </data>
   <data name="Read.Text" xml:space="preserve">
-    <value>Читать далее</value>
+    <value>Read more</value>
   </data>
   <data name="First.Text" xml:space="preserve">
-    <value>Первое</value>
+    <value>First</value>
   </data>
   <data name="Last.Text" xml:space="preserve">
-    <value>Последнее</value>
+    <value>Last</value>
   </data>
   <data name="Next.Text" xml:space="preserve">
-    <value>Следующее</value>
+    <value>Next</value>
   </data>
   <data name="Previous.Text" xml:space="preserve">
-    <value>Предыдущее</value>
+    <value>Previous</value>
   </data>
   <data name="PaidContent.Text" xml:space="preserve">
-    <value>&lt;BR /&gt;&lt;B&gt;Эта часть статьи доступна только для зарегистрированных пользователей.&lt;/B&gt;</value>
+    <value>&lt;BR /&gt;&lt;B&gt;This part of content is only for users with paid subscriptin.&lt;/B&gt;</value>
   </data>
   <data name="SendEmail.Text" xml:space="preserve">
-    <value>Отправить e-mail другу</value>
+    <value>Send e-mail to your frend</value>
   </data>
   <data name="ArticleNumberOfComments.Text" xml:space="preserve">
-    <value>{0} комментариев статьи "{1}"</value>
+    <value>{0} comments on article "{1}"</value>
   </data>
   <data name="AricleRating.Text" xml:space="preserve">
-    <value>Рейтинг статьи</value>
+    <value>Article rating</value>
   </data>
   <data name="NoRating.Text" xml:space="preserve">
-    <value>Нет</value>
+    <value>No rating</value>
   </data>
   <data name="Related Articles.Text" xml:space="preserve">
-    <value>Связанные статьи</value>
+    <value>Related articles</value>
   </data>
   <data name="RateThisAricle.Text" xml:space="preserve">
-    <value>Оценить статью:</value>
+    <value>Rate this article:</value>
   </data>
   <data name="ContactAuthorMessageSent.Text" xml:space="preserve">
-    <value>Сообщение отправлено.</value>
+    <value>Message sent.</value>
   </data>
   <data name="ContactAuthor.Text" xml:space="preserve">
-    <value>Связаться с автором</value>
+    <value>Contact author</value>
   </data>
   <data name="ContactGroup.Text" xml:space="preserve">
-    <value>Связаться с группой</value>
+    <value>Contact group</value>
   </data>
   <data name="EmailSubject.Text" xml:space="preserve">
-    <value>Тема</value>
+    <value>Subject</value>
   </data>
   <data name="YourEmail.Text" xml:space="preserve">
-    <value>Ваш email</value>
+    <value>Your email</value>
   </data>
   <data name="YourName.Text" xml:space="preserve">
-    <value>Ваше имя</value>
+    <value>Your name</value>
   </data>
   <data name="EnterMessage.Text" xml:space="preserve">
-    <value>Введите сообщение ...</value>
+    <value>Enter your message ...</value>
   </data>
   <data name="Send.Text" xml:space="preserve">
-    <value>Отправить</value>
+    <value>Send</value>
   </data>
   <data name="EnterSubject.Text" xml:space="preserve">
-    <value>Пожалуйста введите тему</value>
+    <value>Please enter a subject</value>
   </data>
   <data name="EnterValidEmail.Text" xml:space="preserve">
-    <value>Пажалуйста введите правильный email адрес.</value>
+    <value>Please enter a valid email address.</value>
   </data>
   <data name="EnterYourEmail.Text" xml:space="preserve">
-    <value>Пожалуйста введите email.</value>
+    <value>Please enter your email.</value>
   </data>
   <data name="EnterYourName.Text" xml:space="preserve">
-    <value>Пожалуйста введите имя.</value>
+    <value>Please enter your name.</value>
   </data>
   <data name="AddArticle.Text" xml:space="preserve">
-    <value>Добавить статью</value>
+    <value>Add Article</value>
   </data>
   <data name="ArticleManager.Text" xml:space="preserve">
-    <value>Редактор статей</value>
+    <value>Article Manager</value>
   </data>
   <data name="CategoryEditor.Text" xml:space="preserve">
-    <value>Редактор категорий</value>
+    <value>Category Editor</value>
   </data>
   <data name="Dashboard.Text" xml:space="preserve">
-    <value>Панель управления</value>
+    <value>Dashboard</value>
   </data>
   <data name="Edit Settings.Text" xml:space="preserve">
-    <value>Редактировать настройки</value>
+    <value>Edit Settings</value>
   </data>
   <data name="InfiniteButtonAction.Text" xml:space="preserve">
     <value>Load next {1} article(s) ({0} left)</value>
@@ -226,6 +226,6 @@
     <value>Load last {0} article(s)</value>
   </data>
   <data name="InfiniteButtonLoadingOverlay.Text" xml:space="preserve">
-    <value>Загрузка...</value>
+    <value>Loading...</value>
   </data>
 </root>

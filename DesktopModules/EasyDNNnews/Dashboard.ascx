@@ -1,5 +1,4 @@
 ﻿<%@ control language="C#" autoeventwireup="true" inherits="EasyDNNSolutions.Modules.EasyDNNNews.Dashboard, App_Web_dashboard.ascx.d988a5ac" %>
-<%@ Register TagPrefix="dnnCTRL" Assembly="DotNetNuke" Namespace="DotNetNuke.UI.WebControls" %>
 <div id="EDNadmin">
 	<div class="module_action_title_box">
 		<ul class="module_navigation_menu">

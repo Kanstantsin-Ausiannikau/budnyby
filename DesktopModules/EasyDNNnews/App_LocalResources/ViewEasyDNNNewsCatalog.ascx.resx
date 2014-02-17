@@ -118,162 +118,162 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddContent.Action" xml:space="preserve">
-    <value>Добавить новую статью</value>
+    <value>Add new article</value>
   </data>
   <data name="btnAddComentResource.Text" xml:space="preserve">
-    <value>Добавить комментарий</value>
+    <value>Add Comment</value>
   </data>
   <data name="btnRateResource.Text" xml:space="preserve">
-    <value>Рейтинг</value>
+    <value>Rate</value>
   </data>
   <data name="CategoryEditor" xml:space="preserve">
-    <value>Редактор категорий</value>
+    <value>Category Editor</value>
   </data>
   <data name="ModuleHelp.Text" xml:space="preserve">
-    <value>&lt;P&gt;A EasyDNNNews module</value>
+    <value>A EasyDNNNews module</value>
   </data>
   <data name="Read.Text" xml:space="preserve">
-    <value>Читать далее</value>
+    <value>Read more</value>
   </data>
   <data name="First.Text" xml:space="preserve">
-    <value>Первое</value>
+    <value>First</value>
   </data>
   <data name="Last.Text" xml:space="preserve">
-    <value>Последнее</value>
+    <value>Last</value>
   </data>
   <data name="Next.Text" xml:space="preserve">
-    <value>Следующее</value>
+    <value>Next</value>
   </data>
   <data name="Previous.Text" xml:space="preserve">
-    <value>Предыдущее</value>
+    <value>Previous</value>
   </data>
   <data name="PaidContent.Text" xml:space="preserve">
-    <value>&lt;BR /&gt;&lt;B&gt;Эта часть статьи доступна только для зарегистрированных пользователей.&lt;/B&gt;</value>
+    <value>&lt;BR /&gt;&lt;B&gt;This part of content is only for users with paid subscriptin.&lt;/B&gt;</value>
   </data>
   <data name="SendEmail.Text" xml:space="preserve">
-    <value>Отправить e-mail другу</value>
+    <value>Send e-mail to your frend</value>
   </data>
   <data name="ArticleNumberOfComments.Text" xml:space="preserve">
-    <value>{0} комментариев статьи "{1}"</value>
+    <value>{0} comments on article "{1}"</value>
   </data>
   <data name="AricleRating.Text" xml:space="preserve">
-    <value>Рейтинг статьи</value>
+    <value>Article rating</value>
   </data>
   <data name="NoRating.Text" xml:space="preserve">
-    <value>Нет</value>
+    <value>No rating</value>
   </data>
   <data name="Related Articles.Text" xml:space="preserve">
-    <value>Связанные статьи</value>
+    <value>Related articles</value>
   </data>
   <data name="LinkToOriginalArticle.Text" xml:space="preserve">
-    <value>Линк на оригинальную статью</value>
+    <value>Link to original article</value>
   </data>
   <data name="FullBioLink.Text" xml:space="preserve">
-    <value>Полная биография</value>
+    <value>Full biography</value>
   </data>
   <data name="FullBioTitle.Text" xml:space="preserve">
-    <value>Полная биография</value>
+    <value>Full biography</value>
   </data>
   <data name="LeaveAComment.Text" xml:space="preserve">
-    <value>Оставьте комментарий</value>
+    <value>Leave a comment</value>
   </data>
   <data name="ContactAuthor.Text" xml:space="preserve">
-    <value>Связаться с автором</value>
+    <value>Contact author</value>
   </data>
   <data name="Author.Text" xml:space="preserve">
-    <value>Автор</value>
+    <value>Author</value>
   </data>
   <data name="Categories.Text" xml:space="preserve">
-    <value>Категории</value>
+    <value>Categories</value>
   </data>
   <data name="Comments.Text" xml:space="preserve">
-    <value>Комментарии</value>
+    <value>Comments</value>
   </data>
   <data name="Numberofviews.Text" xml:space="preserve">
-    <value>Просмотров</value>
+    <value>Number of views</value>
   </data>
   <data name="Otherpostsby.Text" xml:space="preserve">
-    <value>Другие посты</value>
+    <value>Other posts by</value>
   </data>
   <data name="Publishedon.Text" xml:space="preserve">
-    <value>Опубликовано</value>
+    <value>Published on</value>
   </data>
   <data name="Tags.Text" xml:space="preserve">
-    <value>Тэги</value>
+    <value>Tags</value>
   </data>
   <data name="CommentText.Text" xml:space="preserve">
-    <value>Комментарий:</value>
+    <value>Comment:</value>
   </data>
   <data name="AddComment.Text" xml:space="preserve">
-    <value>Добавить комментарий</value>
+    <value>Add comment</value>
   </data>
   <data name="ReplyTo.Text" xml:space="preserve">
-    <value>Ответить на</value>
+    <value>Reply to</value>
   </data>
   <data name="lbAboutMe.Text" xml:space="preserve">
-    <value>Обо мне</value>
+    <value>About Me</value>
   </data>
   <data name="lbAddArticles.Text" xml:space="preserve">
-    <value>Добавить статью</value>
+    <value>Add article</value>
   </data>
   <data name="lbApproveComments.Text" xml:space="preserve">
-    <value>Одобрить комментарий</value>
+    <value>Approve comment</value>
   </data>
   <data name="lbApproveRoles.Text" xml:space="preserve">
-    <value>Одобрить статьи</value>
+    <value>Approve articles</value>
   </data>
   <data name="lbArticleEditor.Text" xml:space="preserve">
-    <value>Редактор статей</value>
+    <value>Article manager</value>
   </data>
   <data name="lbCategoryEdit.Text" xml:space="preserve">
-    <value>Редактор категорий</value>
+    <value>Category editor</value>
   </data>
   <data name="lbDashboard.Text" xml:space="preserve">
-    <value>Панель управления</value>
+    <value>Dashboard</value>
   </data>
   <data name="lbDBSettings.Text" xml:space="preserve">
-    <value>Настройки</value>
+    <value>Settings</value>
   </data>
   <data name="Eventdate.Text" xml:space="preserve">
-    <value>Дата события</value>
+    <value>Event date</value>
   </data>
   <data name="EditArticle.Text" xml:space="preserve">
-    <value>Редактировать статью</value>
+    <value>Edit article</value>
   </data>
   <data name="Approve.Text" xml:space="preserve">
-    <value>Одобрить</value>
+    <value>Approve</value>
   </data>
   <data name="Publish.Text" xml:space="preserve">
-    <value>Опубликовано</value>
+    <value>Publish</value>
   </data>
   <data name="NoArticleOrPermission.Text" xml:space="preserve">
-    <value>Статьи не существует или запрещен просмотр.</value>
+    <value>Article does not exist or Permission Denied.</value>
   </data>
   <data name="RSSLinkText.Text" xml:space="preserve">
     <value>RSS</value>
   </data>
   <data name="EventLocation.Text" xml:space="preserve">
-    <value>Место проведения</value>
+    <value>Event Location</value>
   </data>
   <data name="lblAddCommentEmailError.Text" xml:space="preserve">
-    <value>Пожалуйста введите email адрес.</value>
+    <value>Please enter a email address.</value>
   </data>
   <data name="lblAddCommentEmailValid.Text" xml:space="preserve">
-    <value>Пожалуйста введите правильный email адрес.</value>
+    <value>Please enter a valid email address.</value>
   </data>
   <data name="lblAddCommentError.Text" xml:space="preserve">
-    <value>Пожалуйста введите комментарий.</value>
+    <value>Please enter comment.</value>
   </data>
   <data name="lblAddCommentNameError.Text" xml:space="preserve">
-    <value>Пожалуйста введите имя.</value>
+    <value>Please enter a name.</value>
   </data>
   <data name="ExportEvent.Text" xml:space="preserve">
-    <value>Экспорт события</value>
+    <value>Export event</value>
   </data>
   <data name="Posted.Text" xml:space="preserve">
-    <value>Опубликовано</value>
+    <value>Posted</value>
   </data>
   <data name="NumberOfSearchResult.Text" xml:space="preserve">
-    <value>&lt;p&gt;Количество найденных результатов: ({0})&lt;/p&gt;</value>
+    <value>&lt;p&gt;Number of search result: ({0})&lt;/p&gt;</value>
   </data>
 </root>

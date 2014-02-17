@@ -634,7 +634,7 @@
 				<table class="settings_table" cellpadding="0" cellspacing="0">
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblSelectArticleView" runat="server" Text="Select article display type:" HelpText="Select article display type." HelpKey="lblSelectArticleView.HelpText" ResourceKey="lblSelectArticleView" />
+							<dnn:Label ID="lblSelectArticleView" runat="server" Text="Article display mode:" HelpText="Select the type of article display. Article mode displays articles in a classic list of articles, whereas Catalog mode combines the display of categories and articles. Catalog type is commonly used for product catalogs." HelpKey="lblSelectArticleView.HelpText" ResourceKey="lblSelectArticleView" />
 						</td>
 						<td class="right">
 							<asp:DropDownList ID="ddlSelectArticleDisplayView" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlSelectArticleDisplayView_SelectedIndexChanged">
@@ -645,7 +645,7 @@
 					</tr>
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblNumberOfPosts" runat="server" Text="Number of articles per page:" HelpText="Number of articles per page." HelpKey="lblNumberOfPosts.HelpText" ResourceKey="lblNumberOfPosts" />
+							<dnn:Label ID="lblNumberOfPosts" runat="server" Text="Number of articles per page:" HelpText="Set the number of articles displayed per individual page." HelpKey="lblNumberOfPosts.HelpText" ResourceKey="lblNumberOfPosts" />
 						</td>
 						<td class="right">
 							<asp:TextBox ID="tbNumberOfPosts" runat="server" Width="70px" Text="5" />
@@ -654,7 +654,7 @@
 					</tr>
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblRenderAsTable" runat="server" Text="Display article layout as HTML table:" HelpText="Display article layout as HTML table." HelpKey="lblRenderAsTable.HelpText" ResourceKey="lblRenderAsTable" />
+							<dnn:Label ID="lblRenderAsTable" runat="server" Text="Display article layout as HTML table:" HelpText="If this option is not checked, articles are displayed in a list. If the option is checked, articles are displayed in an HTML table. In this case, it is possible to set the number of columns and their width. Note: to display articles in multiple columns it is also possible to use the more advanced Multi-article template." HelpKey="lblRenderAsTable.HelpText" ResourceKey="lblRenderAsTable" />
 						</td>
 						<td class="right">
 							<asp:CheckBox ID="cbDispalayAsTable" Checked="false" runat="server" AutoPostBack="true" OnCheckedChanged="cbDispalayAsTable_CheckedChanged" />
@@ -676,7 +676,7 @@
 					</tr>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblNumberOfPostsToDisplay" runat="server" Text="Total number of articles to display:" HelpText="Total number of articles to display (0-display all posts)." HelpKey="lblNumberOfPostsToDisplay.HelpText" ResourceKey="lblNumberOfPostsToDisplay" />
+							<dnn:Label ID="lblNumberOfPostsToDisplay" runat="server" Text="Total number of articles:" HelpText="Set the total number of articles to be displayed in the current instance. If the set value is 0, all the articles matching display criteria will be displayed." HelpKey="lblNumberOfPostsToDisplay.HelpText" ResourceKey="lblNumberOfPostsToDisplay" />
 						</td>
 						<td class="right">
 							<asp:TextBox ID="tbTotalNumberOfPosts" runat="server" Width="70px" Text="0" />
@@ -685,7 +685,7 @@
 					</tr>
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblOpenInAnotherModule" runat="server" Text="Select module instance in which to open details of articles:" HelpText="Select module instance in which to open details of articles:" HelpKey="lblOpenInAnotherModule.HelpText" ResourceKey="lblOpenInAnotherModule" />
+							<dnn:Label ID="lblOpenInAnotherModule" runat="server" Text="Select instance of news module where articles will be opened:" HelpText="Article's details can be opened in the current instance of the module, or else another instance of the module can be selected." HelpKey="lblOpenInAnotherModule.HelpText" ResourceKey="lblOpenInAnotherModule" />
 						</td>
 						<td class="right">
 							<asp:DropDownList ID="ddlOpenDetails" runat="server">
@@ -698,7 +698,7 @@
 				<table class="settings_table" cellpadding="0" cellspacing="0">
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblShowArticlePaging" runat="server" Text="Enable pagination:" HelpText="Show article paging." HelpKey="lblShowArticlePaging.HelpText" ResourceKey="lblShowArticlePaging" />
+							<dnn:Label ID="lblShowArticlePaging" runat="server" Text="Enable pagination:" HelpText="Check this option if you wish to enable using pagination." HelpKey="lblShowArticlePaging.HelpText" ResourceKey="lblShowArticlePaging" />
 						</td>
 						<td class="right">
 							<asp:CheckBox ID="cbShowPaging" runat="server" Checked="True" AutoPostBack="true" OnCheckedChanged="cbShowPaging_CheckedChanged" />
@@ -709,19 +709,19 @@
 					<table class="settings_table" cellpadding="0" cellspacing="0">
 						<tr>
 							<td class="left">
-								<dnn:Label ID="lblPaginationType" runat="server" Text="Type:" HelpText="Select the pagination type." HelpKey="lblPaginationType.HelpText" ResourceKey="lblPaginationType" />
+								<dnn:Label ID="lblPaginationType" runat="server" Text="Type:" HelpText="Choose your pagination type. Classical pagination shares the list of articles into multiple pages for 'paged' navigation. Infinite scroll pagination with Load more button loads a set of articles, which requires each new set of articles to be clicked on via Load more button at the bottom of the page. Infinite scroll pagination with automatic article loading automatically loads a new set of articles when the user scrolls down to the bottom of the page." HelpKey="lblPaginationType.HelpText" ResourceKey="lblPaginationType" />
 							</td>
 							<td class="right">
 								<asp:RadioButtonList ID="rblPaginationType" runat="server" AutoPostBack="false" OnSelectedIndexChanged="rblPaginationType_SelectedIndexChanged">
-									<asp:ListItem Text="Normal pagination" Value="0" Selected="True" ResourceKey="rblPaginationTypeNormal" />
-									<asp:ListItem Text="Infinite via button" Value="1" ResourceKey="rblPaginationTypeButton" />
-									<asp:ListItem Text="Infinite via button and scrolling" Value="2" ResourceKey="rblPaginationTypeButtonAndScroll" />
+									<asp:ListItem Text="Classical pagination" Value="0" Selected="True" ResourceKey="rblPaginationTypeNormal" />
+									<asp:ListItem Text="Infinite scroll pagination with Load more button" Value="1" ResourceKey="rblPaginationTypeButton" />
+									<asp:ListItem Text="Infinite scroll pagination with automatic article loading " Value="2" ResourceKey="rblPaginationTypeButtonAndScroll" />
 								</asp:RadioButtonList>
 							</td>
 						</tr>
 						<tr runat="server" id="rowNormalPaginationOptions" class="second">
 							<td class="left">
-								<dnn:Label ID="lblNumberOfPager" runat="server" Text="Number of pager links:" HelpText="Number of pager links:" HelpKey="lblNumberOfPager.HelpText" ResourceKey="lblNumberOfPager" />
+								<dnn:Label ID="lblNumberOfPager" runat="server" Text="Number of links in pagination:" HelpText="Set how many links (1, 2, 3, 4...) will be displayed in pagination between previous and next." HelpKey="lblNumberOfPager.HelpText" ResourceKey="lblNumberOfPager" />
 							</td>
 							<td class="right">
 								<asp:TextBox ID="tbNumberOfPagerLinks" runat="server" Width="70px" ValidationGroup="vgSettings">10</asp:TextBox>
@@ -736,7 +736,10 @@
 					<table class="settings_table" cellpadding="0" cellspacing="0">
 						<tr>
 							<td class="left">
-								<dnn:Label ID="lblHideUnlocalizedItems" runat="server" Text="Don't show unlocalized items:" HelpText="Articles, events that are unlocalized won't show when localization selected." HelpKey="lblHideUnlocalizedItems.HelpText" ResourceKey="lblHideUnlocalizedItems" />
+								<dnn:Label ID="lblHideUnlocalizedItems" runat="server" Text="Do not show articles if they do not have content for selected language:" HelpText="If this option is checked, articles will not be displayed in the language that translation has not been added for. Example: There is a DNN site with three languages: English (default), German and Italian. The article in English has been added its Italian translation. When we select German, the list of articles in German will not feature the article to which its German translation hasn't been added. Only those articles that have been translated to German will be featured. If this option hasn't been switched on, and there is no translation for a certain language, the article will be displayed in its default language.
+Note: Articles are always added in their default language, but displaying articles in their default language can also be switched off. This can be done in Add/edit form, that is, in the article's localization interface it is necessary to choose 'Do not show article in default language'.
+"
+									HelpKey="lblHideUnlocalizedItems.HelpText" ResourceKey="lblHideUnlocalizedItems" />
 							</td>
 							<td class="right">
 								<asp:CheckBox ID="cbHideUnlocalizedItems" runat="server" />
@@ -749,7 +752,7 @@
 				<table class="settings_table" cellpadding="0" cellspacing="0">
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblDynamicModuleConatinerTitle" runat="server" Text="Dynamically create module container title:" HelpText="Dynamically create module container title based on the content. For example if module is listing articles from selected category module container title will be that category name."
+							<dnn:Label ID="lblDynamicModuleConatinerTitle" runat="server" Text="Dynamically create module container title:" HelpText="If this option is checked, the container title is created according to the selected category, tag, author, or searched term."
 								HelpKey="lblDynamicModuleConatinerTitle.HelpText" ResourceKey="lblDynamicModuleConatinerTitle" />
 						</td>
 						<td class="right">
@@ -770,13 +773,13 @@
 					3
 				</p>
 				<h2>
-					<%=Multimodulearticledisplay%></h2>
+					<%=Advanceddisplaysettings%></h2>
 			</div>
 			<asp:Panel ID="pnlAdvancedArticleSettingsSourceTable" runat="server" CssClass="category_content">
 				<table cellpadding="0" cellspacing="0" class="settings_table">
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblNumberOfPostsToDisplayLab" runat="server" HelpText="Number of starting article:" Text="Number of starting article." HelpKey="lblNumberOfPostsToDisplayLab.HelpText" ResourceKey="lblNumberOfPostsToDisplayLab" />
+							<dnn:Label ID="lblNumberOfPostsToDisplayLab" runat="server" Text="Starting article's number." HelpText="Enter the number of the article that tops the list. Default value is 1, which means that listing begins with the first article present. If value is 5, that means that listing will start with the fifth article from the list, whereas articles above will not be listed. The list of articles can be managed in Settings at 4. Filter articles." HelpKey="lblNumberOfPostsToDisplayLab.HelpText" ResourceKey="lblNumberOfPostsToDisplayLab" />
 						</td>
 						<td class="right">
 							<asp:TextBox ID="tbStartingArticleNumber" runat="server" Text="1" Width="70px" />
@@ -785,7 +788,7 @@
 					</tr>
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblGlobalQuery" runat="server" HelpText="This module receives global query string that may be set in another article." Text="Receive global query string:" HelpKey="lblGlobalQuery.HelpText" ResourceKey="lblGlobalQuery" />
+							<dnn:Label ID="lblGlobalQuery" runat="server" Text="Enable opening article links from another instance:" HelpText="This option allows the instance of the news module to open article links (categories, tags and authors) from another instance." HelpKey="lblGlobalQuery.HelpText" ResourceKey="lblGlobalQuery" />
 						</td>
 						<td class="right">
 							<asp:CheckBox ID="cbAllModules" runat="server" />
@@ -793,7 +796,7 @@
 					</tr>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblOpenInaPage" runat="server" HelpText="Open category, subcategory and tag links in a new page." Text="Open article links in another page." HelpKey="lblOpenInaPage.HelpText" ResourceKey="lblOpenInaPage" />
+							<dnn:Label ID="lblOpenInaPage" runat="server" Text="Open article links in another page:" HelpText="Upon clicking on links within an article (categories, tags and authors), links will be opened by default in the same instance that the article is displayed or opened in. By using this option you can set the links to be opened at another page where the news module is present. In that news module, the option 'Open article links in another instance' should be switched on." HelpKey="lblOpenInaPage.HelpText" ResourceKey="lblOpenInaPage" />
 						</td>
 						<td class="right">
 							<asp:DropDownList ID="ddlOpenDetailsPage" runat="server" />
@@ -801,7 +804,7 @@
 					</tr>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblPassCategoryID" runat="server" HelpText="If received pass CategoryID query string value." Text="Pass CategoryID query string:" HelpKey="lblPassCategoryID.HelpText" ResourceKey="lblPassCategoryID" />
+							<dnn:Label ID="lblPassCategoryID" runat="server" Text="Pass CategoryID query string in article link:" HelpText="If this option is switched on, CategoryID parameter is forwarded in the article's link. This allows for the satellite modules to receive information regarding the article's category. It is used with Category menu module, Tag Cloud module, Search module (Advanced search) and EasyDNNrotator module." HelpKey="lblPassCategoryID.HelpText" ResourceKey="lblPassCategoryID" />
 						</td>
 						<td class="right">
 							<asp:CheckBox ID="cbPassCategoryID" runat="server" />
@@ -809,7 +812,7 @@
 					</tr>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblOpenCategoryFirstArticle" runat="server" HelpText="Open category first article if CategoryID query string exists." Text="Open category first article:" HelpKey="lblOpenCategoryFirstArticle.HelpText" ResourceKey="lblOpenCategoryFirstArticle" />
+							<dnn:Label ID="lblOpenCategoryFirstArticle" runat="server" Text="Open first article in category:" HelpText="If this option is selected, details from the first article in the category are opened, if the link contains a CategoryID parameter." HelpKey="lblOpenCategoryFirstArticle.HelpText" ResourceKey="lblOpenCategoryFirstArticle" />
 						</td>
 						<td class="right">
 							<asp:CheckBox ID="cbOpenCategoryFirstArticle" runat="server" AutoPostBack="true" OnCheckedChanged="cbOpenCategoryFirstArticle_CheckedChanged" />
@@ -817,7 +820,7 @@
 					</tr>
 					<tr id="trOpenCategoryFirstArticleIfMorethanOne" runat="server" visible="False">
 						<td class="left" runat="server">
-							<dnn:Label ID="lblOpenFirstKatMOreThanOne" runat="server" HelpText="Open category first article if there is only one article in the category." Text="Open category first article if there is only one article:" HelpKey="lblOpenFirstKatMOreThanOne.HelpText"
+							<dnn:Label ID="lblOpenFirstKatMOreThanOne" runat="server" Text="Open first article in category if there is only one article:" HelpText="If this option is selected, details from the first article in the category are opened, if it is the only article in the category and the link contains a CategoryID parameter. If there are multiple articles in the category, the list of articles will be displayed." HelpKey="lblOpenFirstKatMOreThanOne.HelpText"
 								ResourceKey="lblOpenFirstKatMOreThanOne.Text" />
 						</td>
 						<td class="right" runat="server">
@@ -826,7 +829,7 @@
 					</tr>
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblOpenFirstArticleByDate" runat="server" HelpText="Open first article by date if ArtDate query string exists." Text="Open first article by date:" HelpKey="lblOpenFirstArticleByDate.HelpText" ResourceKey="lblOpenFirstArticleByDate" />
+							<dnn:Label ID="lblOpenFirstArticleByDate" runat="server" Text="Open first article by date:" HelpText="If this option is selected, details from the first article in the category are opened if the link contains a Date parameter." HelpKey="lblOpenFirstArticleByDate.HelpText" ResourceKey="lblOpenFirstArticleByDate" />
 						</td>
 						<td class="right">
 							<asp:CheckBox ID="cbOpenFirstArticleByDate" runat="server" AutoPostBack="true" OnCheckedChanged="cbOpenFirstArticleByDate_CheckedChanged" resourcekey="cbOpenFirstArticleByDateResource1" />
@@ -834,7 +837,7 @@
 					</tr>
 					<tr id="trOpenFirstArticleByDateIfMorethanOne" runat="server" visible="False" class="second">
 						<td class="left" runat="server">
-							<dnn:Label ID="lblOpenFirstByDateMorethanone" runat="server" HelpText="Open first article by date if there is only one article." Text="Open first article by date if there is only one article:" HelpKey="lblOpenFirstByDateMorethanone.HelpText" ResourceKey="lblOpenFirstByDateMorethanone" />
+							<dnn:Label ID="lblOpenFirstByDateMorethanone" runat="server" Text="Open first article by date if there is only one article:" HelpText="If this option is selected, details from the first article in the category are opened, provided it is the only article of that date and if the link contains a Date parameter. In case there are multiple articles of the same date, the list of articles will be displayed." HelpKey="lblOpenFirstByDateMorethanone.HelpText" ResourceKey="lblOpenFirstByDateMorethanone" />
 						</td>
 						<td class="right" runat="server">
 							<asp:CheckBox ID="cbOpenFirstArticleByDateIfMorethanOne" runat="server" />
@@ -842,7 +845,7 @@
 					</tr>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblOpenFirstArticle" runat="server" HelpText="Open first article:" Text="Open first article:" HelpKey="lblOpenFirstArticle.HelpText" ResourceKey="lblOpenFirstArticle" />
+							<dnn:Label ID="lblOpenFirstArticle" runat="server" Text="Open first article:" HelpText="If this option is switched on, the first article's details will be opened." HelpKey="lblOpenFirstArticle.HelpText" ResourceKey="lblOpenFirstArticle" />
 						</td>
 						<td class="right">
 							<asp:CheckBox ID="cbOpenFirstArticle" runat="server" />
@@ -850,7 +853,7 @@
 					</tr>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblUserIDInLink" runat="server" HelpText="This will show userid of the article author as query string in article link." Text="Show userid querystring in article link:" HelpKey="UserIDInLink.HelpText" ResourceKey="UserIDInLink" />
+							<dnn:Label ID="lblUserIDInLink" runat="server" Text="Pass userID querystring in article link:" HelpText="If this option is switched on, the userID parameter will be forwarded in the article's link. This option is used within a DNN user profile to display the user's articles." HelpKey="UserIDInLink.HelpText" ResourceKey="UserIDInLink" />
 						</td>
 						<td class="right">
 							<asp:CheckBox ID="cbUserIDInLink" runat="server" />
@@ -1460,7 +1463,7 @@
 								<table cellpadding="0" cellspacing="0" class="settings_table">
 									<tr>
 										<td class="left">
-											<dnn:Label ID="lblEnableGalleryIntegration" runat="server" HelpText="Enable gallery integration:" Text="Enable gallery integration:" HelpKey="lblEnableGalleryIntegration.HelpText" ResourceKey="lblEnableGalleryIntegration" />
+											<dnn:Label ID="lblEnableGalleryIntegration" runat="server" HelpText="If this option is selected, EasyDNNgallery is integrated with EasyDNNnews module." Text="Enable EasyDNNgallery integration:" HelpKey="lblEnableGalleryIntegration.HelpText" ResourceKey="lblEnableGalleryIntegration" />
 										</td>
 										<td class="right">
 											<asp:CheckBox ID="cbEnableGalleryIntegraton" runat="server" Checked="True" />
@@ -1468,7 +1471,7 @@
 									</tr>
 									<tr class="second">
 										<td class="left">
-											<dnn:Label ID="lblUseGalleryDefault" runat="server" HelpText="Force default settings on all articles:" Text="Force default settings on all articles:" HelpKey="lblUseGalleryDefault.HelpText" ResourceKey="lblUseGalleryDefault" />
+											<dnn:Label ID="lblUseGalleryDefault" runat="server" HelpText="If this option is selected, settings determined here, in the module's settings, will be applied across all articles. If this option is not selected, it is possible to select a different type of gallery while adding each individual article." Text="Force default settings on all articles:" HelpKey="lblUseGalleryDefault.HelpText" ResourceKey="lblUseGalleryDefault" />
 										</td>
 										<td class="right">
 											<asp:CheckBox ID="cbUseGalleryDefaultSettings" runat="server" />
@@ -1476,7 +1479,7 @@
 									</tr>
 									<tr>
 										<td class="left">
-											<dnn:Label ID="lblGalleryDisplayType" runat="server" HelpText="Gallery display type:" Text="Gallery display type:" HelpKey="lblGalleryDisplayType.HelpText" ResourceKey="lblGalleryDisplayType" />
+											<dnn:Label ID="lblGalleryDisplayType" runat="server" HelpText="Select one of the offered gallery types. The selected gallery type will be displayed in the articles." Text="Gallery display type:" HelpKey="lblGalleryDisplayType.HelpText" ResourceKey="lblGalleryDisplayType" />
 										</td>
 										<td class="right">
 											<asp:DropDownList ID="ddlGalleryDisplayType" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlGalleryDisplayType_SelectedIndexChanged">
@@ -1488,7 +1491,7 @@
 									</tr>
 									<tr class="second">
 										<td class="left">
-											<dnn:Label ID="lblGalleryPosition" runat="server" HelpText="Gallery position:" Text="Gallery position:" HelpKey="lblGalleryPosition.HelpText" ResourceKey="lblGalleryPosition" />
+											<dnn:Label ID="lblGalleryPosition" runat="server" HelpText="Select the gallery position in relation to article content. Bottom position means that the gallery will be displayed below article content, whereas Top position means that the gallery will be displayed above article content." Text="Gallery position:" HelpKey="lblGalleryPosition.HelpText" ResourceKey="lblGalleryPosition" />
 										</td>
 										<td class="right">
 											<asp:DropDownList ID="ddlGalleryPosition" runat="server">
@@ -1499,7 +1502,7 @@
 									</tr>
 									<tr class="second">
 										<td class="left">
-											<dnn:Label ID="lblFixedResponsiveLayout" runat="server" HelpText="Fixed or responsive layout:" Text="Fixed or responsive layout:" HelpKey="lblFixedResponsiveLayout.HelpText" ResourceKey="lblFixedResponsiveLayout" />
+											<dnn:Label ID="lblFixedResponsiveLayout" runat="server" HelpText="Choose between fixed and responsive layout. Your choice depends on whether your DNN skin is responsive or not." Text="Fixed or Responsive layout:" HelpKey="lblFixedResponsiveLayout.HelpText" ResourceKey="lblFixedResponsiveLayout" />
 										</td>
 										<td class="right">
 											<asp:RadioButtonList ID="rblFixedResponsiveLayoutTypeSelect" runat="server" AutoPostBack="true" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblFixedResponsiveLayoutTypeSelect_SelectedIndexChanged">
@@ -1513,7 +1516,7 @@
 									<table cellpadding="0" cellspacing="0" class="settings_table">
 										<tr>
 											<td class="left">
-												<dnn:Label ID="lblGalleryWidth" runat="server" HelpText="Gallery width:" Text="Gallery width:" HelpKey="lblGalleryWidth.HelpText" ResourceKey="lblGalleryWidth" Visible="True" />
+												<dnn:Label ID="lblGalleryWidth" runat="server" HelpText="Set the width of your galleries in pixels." Text="Gallery width:" HelpKey="lblGalleryWidth.HelpText" ResourceKey="lblGalleryWidth" Visible="True" />
 											</td>
 											<td class="right">
 												<asp:TextBox ID="tbxGalleryWidth" runat="server" Width="50px" resourcekey="tbxGalleryWidthResource1">620</asp:TextBox>
@@ -1540,7 +1543,7 @@
 										</tr>
 										<tr class="second">
 											<td class="left">
-												<dnn:Label ID="lblGalleryHeight" runat="server" HelpText="Gallery height:" Text="Gallery height:" HelpKey="lblGalleryHeight.HelpText" ResourceKey="lblGalleryHeight" />
+												<dnn:Label ID="lblGalleryHeight" runat="server" HelpText="Set the height of your galleries in pixels." Text="Gallery height:" HelpKey="lblGalleryHeight.HelpText" ResourceKey="lblGalleryHeight" />
 											</td>
 											<td class="right">
 												<asp:TextBox ID="tbxGalleryHeight" runat="server" Width="50px" resourcekey="tbxGalleryHeightResource1">500</asp:TextBox>
@@ -1552,7 +1555,7 @@
 										</tr>
 										<tr class="second">
 											<td class="left">
-												<dnn:Label ID="lblChameleonResizeMethod" runat="server" HelpText="Select resize method to use when generating thumbnails for imaes." Text="Thumbnail creation resize method:" HelpKey="lblLightboxGalleryResizeMethod.HelpText" ResourceKey="lblLightboxGalleryResizeMethod" />
+												<dnn:Label ID="lblChameleonResizeMethod" runat="server" HelpText="Choose a method of resizing images. Resize and crop � crops the image to set value. The rest of the image will be cut off. Proportional resize � resizes the image within set values of width and height. In this case parts of the image will not be cut off. Resize and crop horizontal, proportionally resize vertical images - this method combines the previous two methods, depending on the images format. Images formatted horizontally will be resized to set value, with the rest being cut off, whereas vertically formatted images will be resized according to set values of width and height." Text="Image resize method:" HelpKey="lblLightboxGalleryResizeMethod.HelpText" ResourceKey="lblLightboxGalleryResizeMethod" />
 											</td>
 											<td class="right">
 												<asp:RadioButtonList ID="rblChameleonResizeMethod" runat="server" AutoPostBack="True" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblChameleonResizeMethod_SelectedIndexChanged">
@@ -1564,7 +1567,7 @@
 										</tr>
 										<tr>
 											<td class="left">
-												<dnn:Label ID="lblChameleonLayout" runat="server" HelpText="Gallery layout." Text="Layout:" HelpKey="lblChameleonLayout.HelpText" ResourceKey="lblChameleonLayout" />
+												<dnn:Label ID="lblChameleonLayout" runat="server" HelpText="Select a predefined gallery layout." Text="Layout:" HelpKey="lblChameleonLayout.HelpText" ResourceKey="lblChameleonLayout" />
 											</td>
 											<td class="right">
 												<asp:DropDownList ID="ddlChameleonLayout" runat="server" />
@@ -1572,7 +1575,7 @@
 										</tr>
 										<tr>
 											<td class="left">
-												<dnn:Label ID="lblChameleonLayoutTheme" runat="server" HelpText="Chameleon theme:" Text="Chameleon theme:" HelpKey="lblChameleonLayoutTheme.HelpText" ResourceKey="lblChameleonLayoutTheme" />
+												<dnn:Label ID="lblChameleonLayoutTheme" runat="server" HelpText="Select a predefined gallery theme." Text="Theme:" HelpKey="lblChameleonLayoutTheme.HelpText" ResourceKey="lblChameleonLayoutTheme" />
 											</td>
 											<td class="right">
 												<asp:DropDownList ID="ddlChameleonGalleryThemeSelect" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlChameleonGalleryThemeSelect_SelectedIndexChanged" />
@@ -1580,7 +1583,7 @@
 										</tr>
 										<tr>
 											<td class="left">
-												<dnn:Label ID="lblChameleonLayoutThemeStyle" runat="server" HelpText="Chameleon theme style:" Text="Chameleon theme style:" HelpKey="lblChameleonLayoutThemeStyle.HelpText" ResourceKey="lblChameleonLayoutThemeStyle" />
+												<dnn:Label ID="lblChameleonLayoutThemeStyle" runat="server" HelpText="Select a predefined gallery style." Text="Style:" HelpKey="lblChameleonLayoutThemeStyle.HelpText" ResourceKey="lblChameleonLayoutThemeStyle" />
 											</td>
 											<td class="right">
 												<asp:DropDownList ID="ddlChameleonGalleryThemeSelectStyling" runat="server" DataTextField="Text" DataValueField="Value" />
@@ -1710,7 +1713,7 @@
 									</tr>
 									<tr>
 										<td class="left">
-											<dnn:Label ID="lblUserCanSeeOnlyHisGalleries" runat="server" HelpText="User can see only their own galleries that they have created:" Text="User can see only their own galleries:" HelpKey="lblUserCanSeeOnlyHisGalleries.HelpText" ResourceKey="lblUserCanSeeOnlyHisGalleries.Text" />
+											<dnn:Label ID="lblUserCanSeeOnlyHisGalleries" runat="server" HelpText="If this option is selected, users can only manage those galleries they have added to articles. Other users' galleries are not available to them." Text="Users can only manage their own galleries" HelpKey="lblUserCanSeeOnlyHisGalleries.HelpText" ResourceKey="lblUserCanSeeOnlyHisGalleries.Text" />
 										</td>
 										<td class="right">
 											<asp:CheckBox ID="cbUserCanSeeOnlyTheirGalleries" runat="server" />
@@ -1718,7 +1721,7 @@
 									</tr>
 									<tr class="second">
 										<td class="left">
-											<dnn:Label ID="lblUserCanSeeOnlyHisImages" runat="server" HelpText="User can see only their own images in shared gallery:" Text="User can see only their own images:" HelpKey="lblUserCanSeeOnlyHisImages.HelpText" ResourceKey="lblUserCanSeeOnlyHisImages" />
+											<dnn:Label ID="lblUserCanSeeOnlyHisImages" runat="server" HelpText="If this option is selected, users can only manage those images in a Shared gallery they have added. Other users' images are not available to them." Text="Users can only manage their own images:" HelpKey="lblUserCanSeeOnlyHisImages.HelpText" ResourceKey="lblUserCanSeeOnlyHisImages" />
 										</td>
 										<td class="right">
 											<asp:CheckBox ID="cbUserCanOnlySeeTheirOwnImages" runat="server" />
@@ -1911,6 +1914,26 @@
 								<asp:ListItem Value="1" resourcekey="liEventsAddEditFormDefault1" Text="User can disable adding article as event" />
 								<asp:ListItem Value="2" resourcekey="liEventsAddEditFormDefault2" Text="User can't disable adding article as event" />
 							</asp:RadioButtonList>
+						</td>
+					</tr>
+				</table>
+				<h3 class="subsections">
+					<%=subSectionGalleryAndMainArticleImage%></h3>
+				<table cellpadding="0" cellspacing="0" class="settings_table">
+					<tr>
+						<td class="left">
+							<dnn:Label ID="lblAutomaticallySetMainArticleImage" runat="server" ControlName="cbAutomaticallySetMainArticleImage" HelpText="Automatically set main article image after upload of images." Text="Automatically set main article image after upload of images:" HelpKey="lblAutomaticallySetMainArticleImage.HelpText" ResourceKey="lblAutomaticallySetMainArticleImage" />
+						</td>
+						<td class="right">
+							<asp:CheckBox ID="cbAutomaticallySetMainArticleImage" runat="server" />
+						</td>
+					</tr>
+					<tr>
+						<td class="left">
+							<dnn:Label ID="lblAutomaticallyDisplayGalleryInArticle" runat="server" ControlName="cbAutomaticallyDisplayGalleryInArticle" HelpText="Automatically display gallery in article after upload of images." Text="Automatically display gallery in article after upload of images:" HelpKey="lblAutomaticallyDisplayGalleryInArticle.HelpText" ResourceKey="lblAutomaticallyDisplayGalleryInArticle" />
+						</td>
+						<td class="right">
+							<asp:CheckBox ID="cbAutomaticallyDisplayGalleryInArticle" runat="server" />
 						</td>
 					</tr>
 				</table>
@@ -2257,14 +2280,14 @@
 					<tr class="second">
 						<td class="left">
 							<dnn:Label ID="lblRSSNumberOfCharactersInRSS" runat="server" ControlName="tbRSSNumberOfCharactersInRSS" HelpKey="lblRSSNumberOfCharactersInRSS.HelpText" HelpText="Number of character to show in RSS feed description:" ResourceKey="lblRSSNumberOfCharactersInRSS"
-								Text="Number of character to show in RSS feed description:" />
+								Text="Number of character to show in RSS feed description (0 - unlimited):" />
 						</td>
 						<td class="right">
 							<asp:TextBox ID="tbRSSNumberOfCharactersInRSS" runat="server" Width="30px">200</asp:TextBox>
 							<asp:RequiredFieldValidator ID="rfvRSSNumberOfCharacters" runat="server" ControlToValidate="tbRSSNumberOfCharactersInRSS" Display="Dynamic" ErrorMessage="This filed is required." resourcekey="rfvRSSNumberOfCharacters.ErrorMessage" SetFocusOnError="True"
 								ValidationGroup="vgSettings" />
-							<asp:RangeValidator ID="rvRSSNumberOfCharacters" runat="server" ControlToValidate="tbRSSNumberOfCharactersInRSS" Display="Dynamic" ErrorMessage="Enter value between 1-4000." MaximumValue="4000" MinimumValue="1" resourcekey="rvRSSNumberOfCharacters.ErrorMessage"
-								SetFocusOnError="True" Type="Integer" ValidationGroup="vgSettings" />
+							<asp:CompareValidator ID="cvRSSNumberOfCharactersInRSS" runat="server" ControlToValidate="tbRSSNumberOfCharactersInRSS" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" resourcekey="cvLightBoxGalleryNumberOfItems0Resource1.ErrorMessage"
+								Type="Integer" ValidationGroup="vgSettings" />
 						</td>
 					</tr>
 					<tr class="second">
@@ -2285,6 +2308,14 @@
 								<asp:ListItem resourcekey="liArticleSummary" Value="summary">Article summary</asp:ListItem>
 								<asp:ListItem resourcekey="liNothing" Value="nothing">Nothing</asp:ListItem>
 							</asp:RadioButtonList>
+						</td>
+					</tr>
+					<tr class="second">
+						<td class="left">
+							<dnn:Label ID="lblStripRSSHtml" runat="server" ControlName="cbStripRSSHtml" HelpText="Strip Html from content when crating RSS:" Text="Strip Html from content when crating RSS:" />
+						</td>
+						<td class="right">
+							<asp:CheckBox ID="cbStripRSSHtml" runat="server" Checked="True" />
 						</td>
 					</tr>
 					<tr>
@@ -2787,19 +2818,27 @@
 				<table class="settings_table" cellpadding="0" cellspacing="0">
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblCFUserSelectionType" runat="server" ControlName="rblCFUserSelectionType" Text="Adding data to custom fields:" HelpText="Custom fields behavior in add/edit control." HelpKey="lblCFUserSelectionType.HelpText" ResourceKey="lblCFUserSelectionType" />
+							<dnn:Label ID="lblCFUserSelectionType" runat="server" ControlName="rblCFUserSelectionType" Text="Adding data to custom fields:" HelpText="Set the range of custom fields management given to authors of articles when adding or editing an article.
+
+Author can enable custom fields within an article. If this option is selected, author can enable custom fields within an article when adding or editing it. Custom fields are not switched on by default when adding or editing an article, but they can be switched on by author.
+
+Author can disable custom fields within an article. If this option is selected, author can disable custom fields within an article. Custom fields are switched on by default when adding or editing an article, but they can be switched off by author.
+
+Author can't disable custom fields within an article. If this option is selected, author can't disable custom fields within an article. Custom fields are switched on by default within an article, and author can't switch them off when adding it.
+"
+								HelpKey="lblCFUserSelectionType.HelpText" ResourceKey="lblCFUserSelectionType" />
 						</td>
 						<td class="right">
 							<asp:RadioButtonList ID="rblCFUserSelectionType" runat="server" RepeatDirection="Vertical" CellPadding="0" CellSpacing="0">
-								<asp:ListItem Value="0" resourcekey="liCFUserSelectionType0" Text="User can enable adding data to custom fields" Selected="True" />
-								<asp:ListItem Value="1" resourcekey="liCFUserSelectionType1" Text="User can disable adding data to custom fields" />
-								<asp:ListItem Value="2" resourcekey="liCFUserSelectionType2" Text="User can't disable adding data to custom fields" />
+								<asp:ListItem Value="0" resourcekey="liCFUserSelectionType0" Text="Author can enable custom fields within an article" Selected="True" />
+								<asp:ListItem Value="1" resourcekey="liCFUserSelectionType1" Text="Author can disable custom fields within an article" />
+								<asp:ListItem Value="2" resourcekey="liCFUserSelectionType2" Text="Author can't disable custom fields within an article" />
 							</asp:RadioButtonList>
 						</td>
 					</tr>
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblCFSelectedGroup" runat="server" ControlName="ddlCFSelectedGroup" Text="Select default Custom field group:" HelpText="Here you can select the Custom fields group where data will be added." HelpKey="lblCFSelectedGroup.HelpText" ResourceKey="lblCFSelectedGroup" />
+							<dnn:Label ID="lblCFSelectedGroup" runat="server" ControlName="ddlCFSelectedGroup" Text="Default custom fields group:" HelpText="Select the default custom fields group. The selected group's fields will be displayed by default when adding or editing articles. If Enable selecting custom fields group is switched off when adding or editing articles, it will only be possible to add data to one single group selected here. If no group has been selected, the default value will be 'Default � first group by position'. What this refers to is the group's position in Custom fields group manager." HelpKey="lblCFSelectedGroup.HelpText" ResourceKey="lblCFSelectedGroup" />
 						</td>
 						<td class="right">
 							<asp:DropDownList ID="ddlCFSelectedGroup" runat="server" />
@@ -2807,7 +2846,7 @@
 					</tr>
 					<tr>
 						<td class="left">
-							<dnn:Label ID="lblCFEnableGroupSelection" runat="server" ControlName="cbCFEnableGroupSelection" Text="Select Custom field group in add or edit form:" HelpText="Possibility to select Custom field group in Add or edit form." HelpKey="lblCFEnableGroupSelection.HelpText"
+							<dnn:Label ID="lblCFEnableGroupSelection" runat="server" ControlName="cbCFEnableGroupSelection" Text="Enable selecting custom fields group:" HelpText="If this option is selected, authors will be enabled to select their own custom fields group when adding and editing articles." HelpKey="lblCFEnableGroupSelection.HelpText"
 								ResourceKey="lblCFEnableGroupSelection" />
 						</td>
 						<td class="right">
@@ -2816,7 +2855,7 @@
 					</tr>
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblCFShowOnlyFilledItems" runat="server" ControlName="cbCFShowOnlyFilledItems" Text="Display only custom fileds that have filled in value:" HelpText="Display only custom fileds that have filled in value when using [EDNcf:ShowAll] token." />
+							<dnn:Label ID="lblCFShowOnlyFilledItems" runat="server" ControlName="cbCFShowOnlyFilledItems" Text="Enable selecting custom fields group:" HelpText="This option relates to articles display. If this option is selected, only fields containing value at the moment of adding articles will be listed. If this option is not enabled, fields without added articles will also be displayed." HelpKey="lblCFShowOnlyFilledItems.HelpText" ResourceKey="lblCFShowOnlyFilledItems" />
 						</td>
 						<td class="right">
 							<asp:CheckBox ID="cbCFShowOnlyFilledItems" runat="server" Checked="false" />

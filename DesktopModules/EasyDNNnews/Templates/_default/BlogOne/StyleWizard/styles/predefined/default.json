@@ -1464,7 +1464,7 @@
             "default": {
               "values": {
                 "width": {
-                  "value": 3,
+                  "value": 1,
                   "unit": "px"
                 },
                 "style": "solid",
@@ -3934,6 +3934,52 @@
       },
       "articleDetailsCustomFields": {
         "properties": {
+          "background": {
+            "default": {
+              "disabled": [
+                "image",
+                "position",
+                "repeat"
+              ],
+              "values": {
+                "color": "#E0DEDE",
+                "image": {},
+                "position": {
+                  "horizontal": {
+                    "value": 0,
+                    "unit": "%"
+                  },
+                  "vertical": {
+                    "value": 0,
+                    "unit": "%"
+                  }
+                },
+                "repeat": "repeat"
+              }
+            },
+            "even": {
+              "disabled": [
+                "image",
+                "position",
+                "repeat"
+              ],
+              "values": {
+                "color": "#EBEBEB",
+                "image": {},
+                "position": {
+                  "horizontal": {
+                    "value": 0,
+                    "unit": "%"
+                  },
+                  "vertical": {
+                    "value": 0,
+                    "unit": "%"
+                  }
+                },
+                "repeat": "repeat"
+              }
+            }
+          },
           "checkboxBackground": {
             "default": {
               "disabled": [
@@ -3978,6 +4024,23 @@
                     "value": -22,
                     "unit": "px"
                   }
+                }
+              }
+            }
+          },
+          "text": {
+            "default": {
+              "disabled": [
+                "fontFamily",
+                "color",
+                "shadows"
+               ],
+              "values": {
+                "fontFamily": "Verdana",
+                "color": "#404040",
+                "shadows": {
+                  "show": false,
+                  "list": []
                 }
               }
             }

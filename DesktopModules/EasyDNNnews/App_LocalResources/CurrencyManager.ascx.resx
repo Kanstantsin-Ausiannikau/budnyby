@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnAddCurrencyToPortal.Text" xml:space="preserve">
     <value>Add</value>
@@ -136,13 +136,13 @@
     <value>Currency has been set successfully.</value>
   </data>
   <data name="lblAddCurrencyToList.HelpText" xml:space="preserve">
-    <value>Select a currency.</value>
+    <value>Select the currency you wish to add to your exchange rate list. The selected currency's value will be calculated according to the portal's Exchange rate.</value>
   </data>
   <data name="lblAddCurrencyToList.Text" xml:space="preserve">
     <value>Currency:</value>
   </data>
   <data name="lblCurrencyExchange.HelpText" xml:space="preserve">
-    <value>Currency in exchange list.</value>
+    <value>Select currency you wish to ascribe to the selected language. Then select the format of currency display. Click on Assign language to currency.</value>
   </data>
   <data name="lblCurrencyExchange.Text" xml:space="preserve">
     <value>Currency and display format:</value>
@@ -150,32 +150,38 @@
   <data name="lblCurrencyManager.Text" xml:space="preserve">
     <value>Currency Setup</value>
   </data>
-  <data name="lblCustomFields.Text" xml:space="preserve">
-    <value>Add/Edit Custom Fields</value>
+  <data name="lblCustomFieldsAdd.Text" xml:space="preserve">
+    <value>Add Custom Fields</value>
+  </data>
+  <data name="lblCustomFieldsEdit.Text" xml:space="preserve">
+    <value>Edit Custom Fields</value>
   </data>
   <data name="lblCustomFieldsTemplates.Text" xml:space="preserve">
     <value>Manage Custom Fields Groups</value>
   </data>
   <data name="lblEnabledLocales.HelpText" xml:space="preserve">
-    <value>Select an enabled language on the portal to which you want to assign a currency from the exchange list.</value>
+    <value>Select one of the added languages on the portal you wish to ascribe a currency for.</value>
   </data>
   <data name="lblEnabledLocales.Text" xml:space="preserve">
-    <value>Enabled languages:</value>
+    <value>Available languages:</value>
   </data>
   <data name="lblExchangeRate.HelpText" xml:space="preserve">
-    <value>Enter the exchange rate for this currency (up to 6 decimal places).</value>
+    <value>Enter selected currency's exchange rate against the base currency. For example, if USD is your base currency, and EUR is the currency you enter the exchange rate for, the current exchange rate will be approximately 1.36.</value>
   </data>
   <data name="lblExchangeRate.Text" xml:space="preserve">
     <value>Exchange rate:</value>
   </data>
+  <data name="lblImportExport.Text" xml:space="preserve">
+    <value>Import/Export</value>
+  </data>
   <data name="lblMainDisplayFormat.HelpText" xml:space="preserve">
-    <value>Select a currency and display format for this language.</value>
+    <value>Select currency and display format.</value>
   </data>
   <data name="lblMainDisplayFormat.Text" xml:space="preserve">
     <value>Currency and display format:</value>
   </data>
   <data name="lblMoneyType.HelpText" xml:space="preserve">
-    <value>Select the base currency for this portal. All other currencies on the portal are calculated from the base currency according to the portal exchange list.</value>
+    <value>Base currency is the main currency across the portal. All other currencies are calculated from the base currency, according to the portal's exchange rate.</value>
   </data>
   <data name="lblMoneyType.Text" xml:space="preserve">
     <value>Base currency:</value>
@@ -184,7 +190,7 @@
     <value>Reset base currency and delete Exchange rate list</value>
   </data>
   <data name="lblUnit.HelpText" xml:space="preserve">
-    <value>Enter the number of units for this currency.</value>
+    <value>Enter the number of units of the currency you are using to calculate the exchange rate of the base currency for.</value>
   </data>
   <data name="lblUnit.Text" xml:space="preserve">
     <value>Units:</value>

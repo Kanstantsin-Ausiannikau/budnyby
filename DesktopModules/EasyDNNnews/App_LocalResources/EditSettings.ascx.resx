@@ -217,16 +217,16 @@
     <value>Add user by username:</value>
   </data>
   <data name="lbManualySelectCategories0Resource1.Text" xml:space="preserve">
-    <value>Select categories</value>
+    <value>Click to select categories</value>
   </data>
   <data name="lbManualySelectCategoriesResource1.Text" xml:space="preserve">
-    <value>Select categories</value>
+    <value>Click to select categories</value>
   </data>
   <data name="lbRoleManualySelectCategoriesToAddResource1.Text" xml:space="preserve">
-    <value>Select categories</value>
+    <value>Click to select categories</value>
   </data>
   <data name="lbUserManualySelectCategoriesResource1.Text" xml:space="preserve">
-    <value>Select categories</value>
+    <value>Click to select categories</value>
   </data>
   <data name="lbUsernameAddResource1.Text" xml:space="preserve">
     <value>Add</value>
@@ -706,10 +706,10 @@
     <value>Skip Navigation Links.</value>
   </data>
   <data name="lblNumberOfPager.HelpText" xml:space="preserve">
-    <value>Number of pager links:</value>
+    <value>Set how many links (1, 2, 3, 4...) will be displayed in pagination between previous and next.</value>
   </data>
   <data name="lblNumberOfPager.Text" xml:space="preserve">
-    <value>Number of pager links:</value>
+    <value>Number of links in pagination:</value>
   </data>
   <data name="lblNumberOfPostColumns.HelpText" xml:space="preserve">
     <value>Number of article columns:</value>
@@ -718,37 +718,37 @@
     <value>Number of article columns:</value>
   </data>
   <data name="lblNumberOfPosts.HelpText" xml:space="preserve">
-    <value>Number of articles per page.</value>
+    <value>Set the number of articles displayed per individual page.</value>
   </data>
   <data name="lblNumberOfPosts.Text" xml:space="preserve">
     <value>Number of articles per page:</value>
   </data>
   <data name="lblNumberOfPostsToDisplay.HelpText" xml:space="preserve">
-    <value>Total number of articles to display (0-display all posts).</value>
+    <value>Set the total number of articles to be displayed in the current instance. If the set value is 0, all the articles matching display criteria will be displayed.</value>
   </data>
   <data name="lblNumberOfPostsToDisplay.Text" xml:space="preserve">
-    <value>Total number of articles to display:</value>
+    <value>Total number of articles:</value>
   </data>
   <data name="lblOpenInAnotherModule.HelpText" xml:space="preserve">
-    <value>Select module instance in which to open details of articles.</value>
+    <value>Article's details can be opened in the current instance of the module, or else another instance of the module can be selected.</value>
   </data>
   <data name="lblOpenInAnotherModule.Text" xml:space="preserve">
-    <value>Select module instance in which to open details of articles:</value>
+    <value>Select instance of news module where articles will be opened:</value>
   </data>
   <data name="lblRenderAsTable.HelpText" xml:space="preserve">
-    <value>Display article layout as HTML table.</value>
+    <value>If this option is not checked, articles are displayed in a list. If the option is checked, articles are displayed in an HTML table. In this case, it is possible to set the number of columns and their width. Note: to display articles in multiple columns it is also possible to use the more advanced Multi-article template.</value>
   </data>
   <data name="lblRenderAsTable.Text" xml:space="preserve">
     <value>Display article layout as HTML table:</value>
   </data>
   <data name="lblSelectArticleView.HelpText" xml:space="preserve">
-    <value>Select article display type.</value>
+    <value>Select the type of article display. Article mode displays articles in a classic list of articles, whereas Catalog mode combines the display of categories and articles. Catalog type is commonly used for product catalogs.</value>
   </data>
   <data name="lblSelectArticleView.Text" xml:space="preserve">
-    <value>Select article display type:</value>
+    <value>Article display mode:</value>
   </data>
   <data name="lblShowArticlePaging.HelpText" xml:space="preserve">
-    <value>This feature allows users to view older articles by clicking "next" and "previous" page links.</value>
+    <value>Check this option if you wish to enable using pagination.</value>
   </data>
   <data name="lblShowArticlePaging.Text" xml:space="preserve">
     <value>Enable pagination:</value>
@@ -814,28 +814,28 @@
     <value>Categories to display:</value>
   </data>
   <data name="lblChameleonLayout.HelpText" xml:space="preserve">
-    <value>Gallery layout.</value>
+    <value>Select a predefined gallery layout.</value>
   </data>
   <data name="lblChameleonLayout.Text" xml:space="preserve">
     <value>Layout:</value>
   </data>
   <data name="lblChameleonLayoutTheme.HelpText" xml:space="preserve">
-    <value>Chameleon theme:</value>
+    <value>Select a predefined gallery theme.</value>
   </data>
   <data name="lblChameleonLayoutTheme.Text" xml:space="preserve">
-    <value>Chameleon theme:</value>
+    <value>Theme:</value>
   </data>
   <data name="lblChameleonLayoutThemeStyle.HelpText" xml:space="preserve">
-    <value>Chameleon theme style:</value>
+    <value>Select a predefined gallery style.</value>
   </data>
   <data name="lblChameleonLayoutThemeStyle.Text" xml:space="preserve">
-    <value>Chameleon theme style:</value>
+    <value>Style:</value>
   </data>
   <data name="lblEnableGalleryIntegration.HelpText" xml:space="preserve">
-    <value>Enable gallery integration:</value>
+    <value>If this option is selected, EasyDNNgallery is integrated with EasyDNNnews module.</value>
   </data>
   <data name="lblEnableGalleryIntegration.Text" xml:space="preserve">
-    <value>Enable gallery integration:</value>
+    <value>Enable EasyDNNgallery integration:</value>
   </data>
   <data name="lblFilterPostsbyAuthor.HelpText" xml:space="preserve">
     <value>This option allows for the articles written by selected authors to be displayed. If you uncheck 'Display all authors', you will be enabled to choose authors whose articles will be displayed.</value>
@@ -844,13 +844,13 @@
     <value>Authors to display:</value>
   </data>
   <data name="lblGalleryDisplayType.HelpText" xml:space="preserve">
-    <value>Gallery display type:</value>
+    <value>Select one of the offered gallery types. The selected gallery type will be displayed in the articles.</value>
   </data>
   <data name="lblGalleryDisplayType.Text" xml:space="preserve">
     <value>Gallery display type:</value>
   </data>
   <data name="lblGalleryHeight.HelpText" xml:space="preserve">
-    <value>Gallery height:</value>
+    <value>Set the height of your galleries in pixels.</value>
   </data>
   <data name="lblGalleryHeight.Text" xml:space="preserve">
     <value>Gallery height:</value>
@@ -868,7 +868,7 @@
     <value>Number of columns:</value>
   </data>
   <data name="lblGalleryPosition.HelpText" xml:space="preserve">
-    <value>Gallery position:</value>
+    <value>Select the gallery position in relation to article content. Bottom position means that the gallery will be displayed below article content, whereas Top position means that the gallery will be displayed above article content.</value>
   </data>
   <data name="lblGalleryPosition.Text" xml:space="preserve">
     <value>Gallery position:</value>
@@ -892,7 +892,7 @@
     <value>Gallery thumb width:</value>
   </data>
   <data name="lblGalleryWidth.HelpText" xml:space="preserve">
-    <value>Gallery width:</value>
+    <value>Set the width of your galleries in pixels.</value>
   </data>
   <data name="lblGalleryWidth.Text" xml:space="preserve">
     <value>Gallery width:</value>
@@ -931,7 +931,7 @@
     <value>This module receives global query string that may be set in another article.</value>
   </data>
   <data name="lblGlobalQuery.Text" xml:space="preserve">
-    <value>Receive global query string:</value>
+    <value>Enable opening article links from another instance:</value>
   </data>
   <data name="lblImageReize.HelpText" xml:space="preserve">
     <value>Resize image on upload</value>
@@ -993,53 +993,53 @@
   <data name="lblModuleToCat.Text" xml:space="preserve">
     <value>Display articles only from this category:</value>
   </data>
-  <data name="lblNumberOfPostsToDisplayLab.Help" xml:space="preserve">
-    <value>Number of starting article:</value>
+  <data name="lblNumberOfPostsToDisplayLab.Text" xml:space="preserve">
+    <value>Starting article's number:</value>
   </data>
   <data name="lblNumberOfPostsToDisplayLab.HelpText" xml:space="preserve">
-    <value>Number of starting article.</value>
+    <value>Enter the number of the article that tops the list. Default value is 1, which means that listing begins with the first article present. If value is 5, that means that listing will start with the fifth article from the list, whereas articles above will not be listed. The list of articles can be managed in Settings at 4. Filter articles.</value>
   </data>
   <data name="lblOpenCategoryFirstArticle.HelpText" xml:space="preserve">
-    <value>Open category first article if CategoryID query string exists.</value>
+    <value>If this option is selected, details from the first article in the category are opened, if the link contains a CategoryID parameter.</value>
   </data>
   <data name="lblOpenCategoryFirstArticle.Text" xml:space="preserve">
-    <value>Open category first article:</value>
+    <value>Open first article in category:</value>
   </data>
   <data name="lblOpenFirstArticle.HelpText" xml:space="preserve">
-    <value>Open first article:</value>
+    <value>If this option is switched on, the first article's details will be opened.</value>
   </data>
   <data name="lblOpenFirstArticle.Text" xml:space="preserve">
     <value>Open first article:</value>
   </data>
   <data name="lblOpenFirstArticleByDate.HelpText" xml:space="preserve">
-    <value>Open first article by date if ArtDate query string exists.</value>
+    <value>If this option is selected, details from the first article in the category are opened if the link contains a Date parameter.</value>
   </data>
   <data name="lblOpenFirstArticleByDate.Text" xml:space="preserve">
     <value>Open first article by date:</value>
   </data>
   <data name="lblOpenFirstByDateMorethanone.HelpText" xml:space="preserve">
-    <value>Open first article by date if there is only one article.</value>
+    <value>If this option is selected, details from the first article in the category are opened, provided it is the only article of that date and if the link contains a Date parameter. In case there are multiple articles of the same date, the list of articles will be displayed.</value>
   </data>
   <data name="lblOpenFirstByDateMorethanone.Text" xml:space="preserve">
     <value>Open first article by date if there is only one article:</value>
   </data>
   <data name="lblOpenFirstKatMOreThanOne.HelpText" xml:space="preserve">
-    <value>Open category first article if there is only one article in the category.</value>
+    <value>If this option is selected, details from the first article in the category are opened, if it is the only article in the category and the link contains a CategoryID parameter. If there are multiple articles in the category, the list of articles will be displayed.</value>
   </data>
   <data name="lblOpenFirstKatMOreThanOne.Text" xml:space="preserve">
-    <value>Open category first article if there is only one article:</value>
+    <value>Open first article in category if there is only one article:</value>
   </data>
   <data name="lblOpenInaPage.HelpText" xml:space="preserve">
-    <value>Open category, subcategory and tag links in a new page.</value>
+    <value>Upon clicking on links within an article (categories, tags and authors), links will be opened by default in the same instance that the article is displayed or opened in. By using this option you can set the links to be opened at another page where the news module is present. In that news module, the option "Open article links in another instance" should be switched on.</value>
   </data>
   <data name="lblOpenInaPage.Text" xml:space="preserve">
-    <value>Open article links in another page.</value>
+    <value>Open article links in another page:</value>
   </data>
   <data name="lblPassCategoryID.HelpText" xml:space="preserve">
-    <value>If received pass CategoryID query string value.</value>
+    <value>If this option is switched on, CategoryID parameter is forwarded in the article's link. This allows for the satellite modules to receive information regarding the article's category. It is used with Category menu module, Tag Cloud module, Search module (Advanced search) and EasyDNNrotator module.</value>
   </data>
   <data name="lblPassCategoryID.Text" xml:space="preserve">
-    <value>Pass CategoryID query string:</value>
+    <value>Pass CategoryID query string in article link:</value>
   </data>
   <data name="lblPostOrder.HelpText" xml:space="preserve">
     <value>This option allows for the choice of criteria to determine the order of articles, including Descending and Ascending.</value>
@@ -1135,22 +1135,22 @@
     <value>Insert image width:</value>
   </data>
   <data name="lblUseGalleryDefault.HelpText" xml:space="preserve">
-    <value>Force default settings on all articles:</value>
+    <value>If this option is selected, settings determined here, in the module's settings, will be applied across all articles. If this option is not selected, it is possible to select a different type of gallery while adding each individual article.</value>
   </data>
   <data name="lblUseGalleryDefault.Text" xml:space="preserve">
     <value>Force default settings on all articles:</value>
   </data>
   <data name="lblUserCanSeeOnlyHisGalleries.HelpText" xml:space="preserve">
-    <value>User can see only their own galleries:</value>
+    <value>If this option is selected, users can only manage those galleries they have added to articles. Other users' galleries are not available to them.</value>
   </data>
   <data name="lblUserCanSeeOnlyHisGalleries.Text" xml:space="preserve">
-    <value>User can see only their own galleries that they have created:</value>
+    <value>Users can only manage their own galleries:</value>
   </data>
   <data name="lblUserCanSeeOnlyHisImages.HelpText" xml:space="preserve">
-    <value>User can see only their own images in shared gallery:</value>
+    <value>If this option is selected, users can only manage those images in a Shared gallery they have added. Other users' images are not available to them.</value>
   </data>
   <data name="lblUserCanSeeOnlyHisImages.Text" xml:space="preserve">
-    <value>User can see only their own images:</value>
+    <value>Users can only manage their own images:</value>
   </data>
   <data name="lblAddCharacter.HelpText" xml:space="preserve">
     <value>Add character to list:</value>
@@ -1265,7 +1265,7 @@
     <value>Facebook USER ID:</value>
   </data>
   <data name="lblGOogleAPIKey.HelpText" xml:space="preserve">
-    <value>Google Maps Api key:</value>
+    <value>This option allows the instance of the news module to open article links (categories, tags and authors) from another instance.</value>
   </data>
   <data name="lblGOogleAPIKey.Text" xml:space="preserve">
     <value>Google Maps Api key:</value>
@@ -1444,8 +1444,8 @@
   <data name="Maindisplay.Text" xml:space="preserve">
     <value>Main display settings</value>
   </data>
-  <data name="Multimodulearticledisplay.Text" xml:space="preserve">
-    <value>Multi module article display</value>
+  <data name="Advanceddisplaysettings.Text" xml:space="preserve">
+    <value>Advanced display settings</value>
   </data>
   <data name="Paidcontent.Text" xml:space="preserve">
     <value>Paid content</value>
@@ -1484,10 +1484,10 @@
     <value>Please select at least one category.</value>
   </data>
   <data name="lblFixedResponsiveLayout.HelpText" xml:space="preserve">
-    <value>Fixed or responsive layout:</value>
+    <value>Choose between fixed and responsive layout. Your choice depends on whether your DNN skin is responsive or not.</value>
   </data>
   <data name="lblFixedResponsiveLayout.Text" xml:space="preserve">
-    <value>Fixed or responsive layout:</value>
+    <value>Fixed or Responsive layout:</value>
   </data>
   <data name="liFixed.Text" xml:space="preserve">
     <value>Fixed Layout</value>
@@ -1502,7 +1502,7 @@
     <value>Number of articles to show in RSS feed:</value>
   </data>
   <data name="lblRSSNumberOfCharactersInRSS.HelpText" xml:space="preserve">
-    <value>Number of character to show in RSS feed description:</value>
+    <value>Number of character to show in RSS feed description (0 - unlimited):</value>
   </data>
   <data name="lblRSSNumberOfCharactersInRSS.Text" xml:space="preserve">
     <value>Number of character to show in RSS feed description:</value>
@@ -1730,10 +1730,10 @@
     <value>Nothing</value>
   </data>
   <data name="UserIDInLink.HelpText" xml:space="preserve">
-    <value>This will show userid of the article author as query string in article link.</value>
+    <value>If this option is switched on, the userID parameter will be forwarded in the article's link. This option is used within a DNN user profile to display the user's articles.</value>
   </data>
   <data name="UserIDInLink.Text" xml:space="preserve">
-    <value>Show userid querystring in article link:</value>
+    <value>Pass userID querystring in article link:</value>
   </data>
   <data name="AllTags.Text" xml:space="preserve">
     <value>ALL TAGS</value>
@@ -1775,7 +1775,7 @@
     <value>Select category:</value>
   </data>
   <data name="lblDynamicModuleConatinerTitle.HelpText" xml:space="preserve">
-    <value>Dynamically create module container title based on the content. For example if module is listing articles from selected category module container title will be that category name.</value>
+    <value>If this option is checked, the container title is created according to the selected category, tag, author, or searched term.</value>
   </data>
   <data name="lblDynamicModuleConatinerTitle.Text" xml:space="preserve">
     <value>Dynamically create module container title:</value>
@@ -1787,8 +1787,8 @@
     <value>Filter articles by tags:</value>
   </data>
   <data name="lblHideUnlocalizedItems.HelpText" xml:space="preserve">
-    <value>Articles that do not have content for selected language won't be shown. For example on the sites with three different languages: English (default), German and Italian. Article is localized to Italian language. When selecting German language article won’t be visible because there is no localization. Article will only be shown on Italian and English language which is default. 
-Hint: You can also turn off displaying languages on the default language. For articles that you do not want to show on the default language you need to go to Edit article &gt; Content localization and Turn on option “Do not show articles on the default language”.</value>
+    <value>If this option is checked, articles will not be displayed in the language that translation has not been added for. Example: There is a DNN site with three languages: English (default), German and Italian. The article in English has been added its Italian translation. When we select German, the list of articles in German will not feature the article to which its German translation hasn't been added. Only those articles that have been translated to German will be featured. If this option hasn't been switched on, and there is no translation for a certain language, the article will be displayed in its default language.
+Note: Articles are always added in their default language, but displaying articles in their default language can also be switched off. This can be done in Add/edit form, that is, in the article's localization interface it is necessary to choose "Do not show article in default language".</value>
   </data>
   <data name="lblHideUnlocalizedItems.Text" xml:space="preserve">
     <value>Do not show articles if they do not have content for selected language:</value>
@@ -1836,7 +1836,7 @@ Hint: You can also turn off displaying languages on the default language. For ar
     <value>Advanced settings</value>
   </data>
   <data name="AllowComments.Text" xml:space="preserve">
-    <value>Allow Comments</value>
+    <value>Allow comments</value>
   </data>
   <data name="Article.Text" xml:space="preserve">
     <value>Article</value>
@@ -1851,7 +1851,7 @@ Hint: You can also turn off displaying languages on the default language. For ar
     <value>Custom</value>
   </data>
   <data name="DetailType.Text" xml:space="preserve">
-    <value>Detail Type</value>
+    <value>Detail type</value>
   </data>
   <data name="Documentsupload.Text" xml:space="preserve">
     <value>Documents upload</value>
@@ -1896,7 +1896,7 @@ Hint: You can also turn off displaying languages on the default language. For ar
     <value>Shared</value>
   </data>
   <data name="SubTitle.Text" xml:space="preserve">
-    <value>SubTitle</value>
+    <value>Subtitle</value>
   </data>
   <data name="Summary.Text" xml:space="preserve">
     <value>Summary</value>
@@ -1950,19 +1950,25 @@ Hint: You can also turn off displaying languages on the default language. For ar
     <value>Image token</value>
   </data>
   <data name="lblCFEnableGroupSelection.HelpText" xml:space="preserve">
-    <value>Possibility to select Custom field group in Add or edit form.</value>
+    <value>If this option is selected, authors will be enabled to select their own custom fields group when adding and editing articles.</value>
   </data>
   <data name="lblCFEnableGroupSelection.Text" xml:space="preserve">
-    <value>Select Custom field group in add or edit form:</value>
+    <value>Enable selecting custom fields group:</value>
   </data>
   <data name="lblCFSelectedGroup.HelpText" xml:space="preserve">
-    <value>Here you can select the Custom fields group where data will be added.</value>
+    <value>Select the default custom fields group. The selected group's fields will be displayed by default when adding or editing articles. If Enable selecting custom fields group is switched off when adding or editing articles, it will only be possible to add data to one single group selected here. If no group has been selected, the default value will be "Default – first group by position". What this refers to is the group's position in Custom fields group manager.</value>
   </data>
   <data name="lblCFSelectedGroup.Text" xml:space="preserve">
-    <value>Select default Custom field group:</value>
+    <value>Default custom fields group:</value>
   </data>
   <data name="lblCFUserSelectionType.HelpText" xml:space="preserve">
-    <value>Custom fields behavior in add/edit control.</value>
+    <value>Set the range of custom fields management given to authors of articles when adding or editing an article.
+
+Author can enable custom fields within an article. If this option is selected, author can enable custom fields within an article when adding or editing it. Custom fields are not switched on by default when adding or editing an article, but they can be switched on by author.
+
+Author can disable custom fields within an article. If this option is selected, author can disable custom fields within an article. Custom fields are switched on by default when adding or editing an article, but they can be switched off by author.
+
+Author can't disable custom fields within an article. If this option is selected, author can't disable custom fields within an article. Custom fields are switched on by default within an article, and author can't switch them off when adding it.</value>
   </data>
   <data name="lblCFUserSelectionType.Text" xml:space="preserve">
     <value>Adding data to custom fields:</value>
@@ -1989,13 +1995,13 @@ Hint: You can also turn off displaying languages on the default language. For ar
     <value>Publish date:</value>
   </data>
   <data name="liCFUserSelectionType0.Text" xml:space="preserve">
-    <value>User can enable adding data to custom fields</value>
+    <value>Author can enable custom fields within an article</value>
   </data>
   <data name="liCFUserSelectionType1.Text" xml:space="preserve">
-    <value>User can disable adding data to custom fields</value>
+    <value>Author can disable custom fields within an article</value>
   </data>
   <data name="liCFUserSelectionType2.Text" xml:space="preserve">
-    <value>User can't disable adding data to custom fields</value>
+    <value>Author can't disable custom fields within an article</value>
   </data>
   <data name="liCurrentDateTime.Text" xml:space="preserve">
     <value>Current date time</value>
@@ -2052,10 +2058,13 @@ Hint: You can also turn off displaying languages on the default language. For ar
     <value>Enter value between 1-1000000.</value>
   </data>
   <data name="lblLightboxGalleryResizeMethod.HelpText" xml:space="preserve">
-    <value>Select resize method to use when generating thumbnails for images.</value>
+    <value>Choose a method of resizing images. 
+Resize and crop – crops the image to set value. The rest of the image will be cut off.
+Proportional resize – resizes the image within set values of width and height. In this case parts of the image will not be cut off.
+Resize and crop horizontal, proportionally resize vertical images - this method combines the previous two methods, depending on the images format. Images formatted horizontally will be resized to set value, with the rest being cut off, whereas vertically formatted images will be resized according to set values of width and height.</value>
   </data>
   <data name="lblLightboxGalleryResizeMethod.Text" xml:space="preserve">
-    <value>Thumbnail creation resize method:</value>
+    <value>Image resize method:</value>
   </data>
   <data name="liCrop.Text" xml:space="preserve">
     <value>Resize and crop</value>
@@ -2100,19 +2109,19 @@ Hint: You can also turn off displaying languages on the default language. For ar
     <value>User can't disable adding article as event</value>
   </data>
   <data name="lblPaginationType.HelpText" xml:space="preserve">
-    <value>Select the pagination type.</value>
+    <value>Choose your pagination type. Classical pagination shares the list of articles into multiple pages for "paged" navigation. Infinite scroll pagination with Load more button loads a set of articles, which requires each new set of articles to be clicked on via Load more button at the bottom of the page. Infinite scroll pagination with automatic article loading automatically loads a new set of articles when the user scrolls down to the bottom of the page.</value>
   </data>
   <data name="lblPaginationType.Text" xml:space="preserve">
     <value>Type:</value>
   </data>
   <data name="rblPaginationTypeButton.Text" xml:space="preserve">
-    <value>Infinite via button</value>
+    <value>Infinite scroll pagination with Load more button</value>
   </data>
   <data name="rblPaginationTypeButtonAndScroll.Text" xml:space="preserve">
-    <value>Infinite via button and scrolling</value>
+    <value>Infinite scroll pagination with automatic article loading</value>
   </data>
   <data name="rblPaginationTypeNormal.Text" xml:space="preserve">
-    <value>Normal pagination</value>
+    <value>Classical pagination</value>
   </data>
   <data name="locLinks.Text" xml:space="preserve">
     <value>Links</value>
@@ -2129,11 +2138,11 @@ Hint: You can also turn off displaying languages on the default language. For ar
   <data name="ControlTitle_editsettings.Text" xml:space="preserve">
     <value>Edit Settings</value>
   </data>
-  <data name="lblCFShowOnlyFilledItems.Help" xml:space="preserve">
-    <value>Display only custom fileds that have filled in value when using [EDNcf:ShowAll] token.</value>
+  <data name="lblCFShowOnlyFilledItems.HelpText" xml:space="preserve">
+    <value>This option relates to articles display. If this option is selected, only fields containing value at the moment of adding articles will be listed. If this option is not enabled, fields without added articles will also be displayed.</value>
   </data>
   <data name="lblCFShowOnlyFilledItems.Text" xml:space="preserve">
-    <value>Display only custom fileds that have filled in value:</value>
+    <value>Show only custom fields containing data:</value>
   </data>
   <data name="lblShowCommentsFromAllPortals.Help" xml:space="preserve">
     <value>Show comments from all portals or show comments that where added on current portal:</value>
@@ -2155,5 +2164,26 @@ Hint: You can also turn off displaying languages on the default language. For ar
   </data>
   <data name="lblSelectArticleEvents.Text" xml:space="preserve">
     <value>Display articles and events</value>
+  </data>
+  <data name="lblStripRSSHtml.Help" xml:space="preserve">
+    <value>Strip Html from article data when crating RSS.</value>
+  </data>
+  <data name="lblStripRSSHtml.Text" xml:space="preserve">
+    <value>Strip Html from article data when crating RSS:</value>
+  </data>
+  <data name="lblAutomaticallyDisplayGalleryInArticle.HelpText" xml:space="preserve">
+    <value>Automatically display gallery in article after upload of images.</value>
+  </data>
+  <data name="lblAutomaticallyDisplayGalleryInArticle.Text" xml:space="preserve">
+    <value>Automatically display gallery in article after upload of images:</value>
+  </data>
+  <data name="lblAutomaticallySetMainArticleImage.HelpText" xml:space="preserve">
+    <value>Automatically set main article image after upload of images.</value>
+  </data>
+  <data name="lblAutomaticallySetMainArticleImage.Text" xml:space="preserve">
+    <value>Automatically set main article image after upload of images:</value>
+  </data>
+  <data name="subSectionGalleryAndMainArticleImage.Text" xml:space="preserve">
+    <value>Gallery and Main article image</value>
   </data>
 </root>

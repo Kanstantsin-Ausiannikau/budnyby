@@ -4800,5 +4800,49 @@
       <path>static/fineuploader/</path>
       <name>jquery.edsFineUploader-1.2.js</name>
     </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>RSS.ascx.resx</name>
+    </file>
+    <file>
+      <path>images/icons/</path>
+      <name>dashboard_custom_fileds_add.png</name>
+    </file>
+    <file>
+      <path>images/icons/</path>
+      <name>dashboard_custom_fileds_export.png</name>
+    </file>
+    <file>
+      <path>images/</path>
+      <name>Error.png</name>
+    </file>
+    <file>
+      <path>images/</path>
+      <name>Info-message.png</name>
+    </file>
+    <file>
+      <path>images/</path>
+      <name>Valid.png</name>
+    </file>
+    <file>
+      <path>images/</path>
+      <name>Warning.png</name>
+    </file>
+    <file>
+      <path>Templates/_default/NewsTwo/images/advancedSearchForm/checkBoxes/predefined/</path>
+      <name>cf-checkbox.png</name>
+    </file>
+    <file>
+      <path>Templates/_default/NewsTwo/images/advancedSearchForm/radioButtons/predefined/</path>
+      <name>checked.png</name>
+    </file>
+    <file>
+      <path>Templates/_default/NewsTwo/images/articleDetailsCustomFields/checkboxBackground/predefined/</path>
+      <name>cf-checkbox.png</name>
+    </file>
+    <file>
+      <path />
+      <name>FileDownload.aspx</name>
+    </file>
   </files>
 </dotnetnuke>

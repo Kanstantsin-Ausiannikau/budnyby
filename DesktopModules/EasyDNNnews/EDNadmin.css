@@ -1,10 +1,35 @@
 @charset "CP852";
+#Body {
+  position: relative;
+}
+
 #EDNadmin {
   width: 800px;
   font-family: Arial, Helvetica, sans-serif;
   color: #464646;
   margin: 0 auto;
   font-size: 12px;
+  line-height: 1.5;
+}
+#EDNadmin input,
+#EDNadmin a,
+#EDNadmin p,
+#EDNadmin img,
+#EDNadmin span,
+#EDNadmin div,
+#EDNadmin li,
+#EDNadmin td,
+#EDNadmin th,
+#EDNadmin dl,
+#EDNadmin dt {
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+}
+#EDNadmin label {
+  font-weight: normal;
+}
+#EDNadmin p {
+  line-height: 1.5;
 }
 #EDNadmin .dnnLabel {
   width: inherit;
@@ -16,7 +41,7 @@
   border: none;
   box-shadow: none;
   left: 0;
-  opacity: 100;
+  opacity: 1;
   position: none;
   top: 0;
   transition: opacity 0.1s linear 0s;
@@ -245,6 +270,8 @@
 }
 #EDNadmin .collapsible_box h1.collapsible_box_title.close {
   background-image: url(images/icons/up_arrows.png);
+  float: none;
+  opacity: 1;
 }
 #EDNadmin .collapsible_box h1.collapsible_box_title:hover {
   color: #878787;
@@ -379,7 +406,7 @@
   list-style-type: none;
   display: block;
   float: left;
-  margin: 32px 20px 0 0;
+  margin: 32px 18px 0 0;
   background: url(images/dashboard_icons_bg.png) no-repeat 0 0;
 }
 #EDNadmin .main_content.dashboard ul.links li.activelink {
@@ -466,11 +493,17 @@
 #EDNadmin .main_content.dashboard ul.links li a.icon.customfileds {
   background-image: url(images/icons/dashboard_custom_fileds.png);
 }
+#EDNadmin .main_content.dashboard ul.links li a.icon.customfiledsadd {
+  background-image: url(images/icons/dashboard_custom_fileds_add.png);
+}
 #EDNadmin .main_content.dashboard ul.links li a.icon.customfields_group {
   background-image: url(images/icons/dashboard_customfields_group.png);
 }
 #EDNadmin .main_content.dashboard ul.links li a.icon.customfields_currency {
   background-image: url(images/icons/dashboard_customfields_currency.png);
+}
+#EDNadmin .main_content.dashboard ul.links li a.icon.customfields_export {
+  background-image: url(images/icons/dashboard_custom_fileds_export.png);
 }
 #EDNadmin .main_content .article_content_bottom_actions {
   text-align: right;
@@ -754,6 +787,7 @@
   margin: 2px 0 0;
   background: #f4f4f4;
   border: 1px solid #858585;
+  float: none;
 }
 #EDNadmin .main_content .grid_view_table tr .footer_actions .nomber_of_rows_selection label {
   position: relative;
@@ -1055,6 +1089,7 @@
   border: 0;
   border-top: 1px solid #f4f9fc;
   text-align: right;
+  clear: both !important;
 }
 #EDNadmin .main_content .section_box .content .section_actions_mainimage a {
   text-decoration: none;
@@ -1076,6 +1111,11 @@
 #EDNadmin .main_content .section_box .content .section_actions_mainimage a.icon.laptop {
   background: url(images/icons/laptop.png) no-repeat right 2px;
   padding: 4px 27px 4px 0;
+}
+#EDNadmin .main_content .section_box .content .section_actions_mainimage a.icon.close {
+  opacity: 1;
+  text-shadow: none;
+  float: none;
 }
 #EDNadmin .main_content .section_box .content .section_actions_mainimage .edit_fields input,
 #EDNadmin .main_content .section_box .content .section_actions_mainimage .edit_fields textarea {
@@ -3141,16 +3181,16 @@
 }
 #EDNadmin .main_content .main_action_buttons .social_sharing_box {
   position: absolute;
-  top: auto;
   left: auto;
   right: 15px;
-  bottom: 123px;
   background: url(images/post_on_social_bg.png) repeat-x #f4f4f4;
   padding: 6px 10px 5px;
   border: 1px solid #c1c1c1;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   width: 205px;
+  bottom: 100%;
+  margin-bottom: -45px;
 }
 #EDNadmin .main_content .main_action_buttons .social_sharing_box p {
   margin: 0 0 5px;
@@ -4272,6 +4312,41 @@
   opacity: 0.8;
   width: 100%;
   z-index: 999;
+}
+#EDNadmin .EDN_info,
+#EDNadmin .EDN_success,
+#EDNadmin .EDN_warning,
+#EDNadmin .EDN_error {
+  border: solid 1px;
+  background-position: 10px 5px;
+  background-repeat: no-repeat;
+  padding: 12px 12px 12px 50px;
+  margin: 10px 0;
+  display: block;
+}
+#EDNadmin .EDN_info {
+  background-image: url(images/Info-message.png);
+  border-color: #007cff;
+  background-color: #c0dcfe;
+  color: #0072cf;
+}
+#EDNadmin .EDN_success {
+  background-image: url(images/Valid.png);
+  border-color: #109300;
+  background-color: #b3f7b2;
+  color: #028800;
+}
+#EDNadmin .EDN_warning {
+  background-image: url(images/Warning.png);
+  border-color: #ffa900;
+  background-color: #fcf0bf;
+  color: #dc7a5d;
+}
+#EDNadmin .EDN_error {
+  background-image: url(images/Error.png);
+  border-color: red;
+  background-color: #ff9999;
+  color: #cf000e;
 }
 
 .permission_selection_dialog {

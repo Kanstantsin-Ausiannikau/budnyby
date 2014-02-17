@@ -236,7 +236,7 @@
 										</ProgressTemplate>
 									</asp:UpdateProgress>
 									<asp:Label ID="lblCategoryPermissionsInfo" runat="server" ForeColor="Red" Visible="false" resourcekey="lblCategoryPermissionsInfoResource1" />
-									<asp:Label ID="lblCategorySelectError" runat="server" ForeColor="Red" Text="Please select category." Visible="false" resourcekey="lblCategorySelectErrorResource1" />
+									<asp:Label ID="lblCategorySelectError" runat="server" EnableViewState="false" ForeColor="Red" Text="Please select category." Visible="false" resourcekey="lblCategorySelectErrorResource1" />
 									<p class="expand_collapse_container">
 										<asp:LinkButton ID="lblCategorySelectionExpandAll" runat="server" Text="Expand all" OnClick="lblCategorySelectionExpandAll_Click" resourcekey="lblCategorySelectionExpandAll" />
 										|
@@ -962,9 +962,8 @@
 									<asp:HiddenField ID="hfResizeWidth" runat="server" />
 									<asp:HiddenField ID="hfResize" runat="server" />
 									<asp:HiddenField ID="hfSharedGalID" runat="server" />
-									<asp:HiddenField ID="hfArtImageSet" runat="server" />
 									<asp:HiddenField ID="hfImageChanged" runat="server" Value="false" />
-									<asp:HiddenField ID="hfSelectedMediaID" runat="server" Value="0" />
+									<asp:HiddenField ID="hfMainArticlePictureID" runat="server" Value="0" />
 									<asp:HiddenField ID="curentActiveGalleryId" runat="server" Value="1" />
 								</div>
 							</div>
@@ -1607,7 +1606,7 @@
 																	<asp:TextBox ID="tbxRepeatedOnDay" runat="server" Width="30px" Text="1" />
 																	<asp:RequiredFieldValidator ID="rfvRepeatedOnDay" resourcekey="rfvRepeatedOnDay.ErrorMessage" runat="server" ControlToValidate="tbxRepeatedOnDay" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Day required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
 																	<asp:CompareValidator ID="cvtbxRepeatedOnDay" resourcekey="cvtbxRepeatedOnDay.ErrorMessage" runat="server" ControlToValidate="tbxRepeatedOnDay" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-																	<asp:RangeValidator ID="rvRepeatedOnDay" resourcekey="rvRepeatedOnDay.ErrorMessage" runat="server" MinimumValue="1" MaximumValue="31" ControlToValidate="tbxRepeatedOnDay" Display="Dynamic" ErrorMessage="Please enter number between 1-31." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																	<asp:RangeValidator ID="rvRepeatedOnDay" resourcekey="rvRepeatedOnDay.ErrorMessage" runat="server" MinimumValue="1" MaximumValue="31" ControlToValidate="tbxRepeatedOnDay" Display="Dynamic" ErrorMessage="Please enter number between 1-31." ValidationGroup="vgEditArticle" SetFocusOnError="True" Type="Integer" />
 																</asp:Panel>
 															</div>
 															<div style="margin-top: 2px">
@@ -1641,7 +1640,7 @@
 																<asp:TextBox ID="tbxYearlyDayOfMonth" runat="server" Width="30px" Text="1" />
 																<asp:RequiredFieldValidator ID="rfvDayOfMonth" resourcekey="rfvDayOfMonth.ErrorMessage" runat="server" ControlToValidate="tbxYearlyDayOfMonth" CssClass="NormalRed" Display="Dynamic" ErrorMessage="Day required." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
 																<asp:CompareValidator ID="cvDayOfMonth" resourcekey="cvDayOfMonth.ErrorMessage" runat="server" ControlToValidate="tbxYearlyDayOfMonth" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="vgEditArticle" SetFocusOnError="True" />
-																<asp:RangeValidator ID="rvDayOfMonth" resourcekey="rvDayOfMonth.ErrorMessage" runat="server" MinimumValue="1" MaximumValue="31" ControlToValidate="tbxYearlyDayOfMonth" Display="Dynamic" ErrorMessage="Please enter number between 1-31." ValidationGroup="vgEditArticle" SetFocusOnError="True" />
+																<asp:RangeValidator ID="rvDayOfMonth" resourcekey="rvDayOfMonth.ErrorMessage" runat="server" MinimumValue="1" MaximumValue="31" ControlToValidate="tbxYearlyDayOfMonth" Display="Dynamic" ErrorMessage="Please enter number between 1-31." ValidationGroup="vgEditArticle" SetFocusOnError="True" Type="Integer" />
 															</asp:Panel>
 															<asp:Panel runat="server" ID="pnlYearlyRecurringEventComplex" Visible="false">
 																<asp:DropDownList ID="ddlYearlyRepeatedOnEvery" runat="server">
@@ -1963,18 +1962,18 @@
 								<asp:CheckBox ID="cbPostToJournal" runat="server" /><asp:Label ID="lblPostToJournal" resourcekey="lblPostToJournal" runat="server" Text="Post to Journal" /></span>
 						</p>
 					</div>
-					<asp:Label ID="lblMainEditMessage" runat="server" resourcekey="lblMainEditMessageResource1" />
+
 					<asp:RadioButtonList ID="rblDraftPublish" runat="server" CssClass="checkbox_list" RepeatDirection="Horizontal" Style="margin: 0 0 0 40px">
 						<asp:ListItem Selected="True" Value="Draft" resourcekey="ListItemResource27">Draft Article</asp:ListItem>
 						<asp:ListItem Value="Publish" resourcekey="ListItemResource28">Publish Article</asp:ListItem>
 					</asp:RadioButtonList>
 					<asp:Label ID="lblApprovingMessage" runat="server" Font-Size="Small" Text="After update, article must be approved again." Style="display: none" resourcekey="lblApprovingMessageResource1" />
 					<div class="button_list center w_565">
-						<asp:LinkButton ID="btnUpdateArticle" runat="server" CssClass="main_action_button w140 red" OnClick="btnUpdateArticle_Click" Text="&lt;span&gt;Update article&lt;/span&gt;" ValidationGroup="vgEditArticle" resourcekey="btnUpdateArticleResource1">
+						<asp:LinkButton ID="btnUpdateArticle" runat="server" CssClass="main_action_button w140 red save_buttons" OnClick="btnUpdateArticle_Click" Text="&lt;span&gt;Update article&lt;/span&gt;" ValidationGroup="vgEditArticle" resourcekey="btnUpdateArticleResource1">
 						</asp:LinkButton>
-						<asp:LinkButton ID="btnUpdateClose" runat="server" CssClass="main_action_button w140 orange" OnClick="btnUpdateClose_Click" Text="&lt;span&gt;Update &amp;amp; Close&lt;/span&gt;" ValidationGroup="vgEditArticle" resourcekey="btnUpdateCloseResource1">
+						<asp:LinkButton ID="btnUpdateClose" runat="server" CssClass="main_action_button w140 orange save_buttons" OnClick="btnUpdateClose_Click" Text="&lt;span&gt;Update &amp;amp; Close&lt;/span&gt;" ValidationGroup="vgEditArticle" resourcekey="btnUpdateCloseResource1">
 						</asp:LinkButton>
-						<asp:LinkButton ID="btnGoArticle" runat="server" CssClass="main_action_button w140 yellow" OnClick="btnGoArticle_Click" Text="&lt;span&gt;Update &amp;amp; View&lt;/span&gt;" ValidationGroup="vgEditArticle" resourcekey="btnGoArticleResource1">
+						<asp:LinkButton ID="btnGoArticle" runat="server" CssClass="main_action_button w140 yellow save_buttons" OnClick="btnGoArticle_Click" Text="&lt;span&gt;Update &amp;amp; View&lt;/span&gt;" ValidationGroup="vgEditArticle" resourcekey="btnGoArticleResource1">
 						</asp:LinkButton>
 						<asp:LinkButton ID="btnCancel" runat="server" CssClass="main_action_button w100 grey" OnClick="btnCancel_Click" Text="&lt;span&gt;Cancel&lt;/span&gt;" usesubmitbehavior="false" resourcekey="btnCancelResource1" />
 					</div>
@@ -1984,6 +1983,7 @@
 					</div>
 					<div style="clear: both;">
 					</div>
+					<asp:Label ID="lblMainEditMessage" runat="server" EnableViewState="false" resourcekey="lblMainEditMessageResource1" />
 				</div>
 			</asp:Panel>
 			<asp:Literal ID="containerSocialSharingHistory" runat="server" />
@@ -2596,6 +2596,16 @@ window.edn_module_root = '<%=ModulePath%>';
 });
 
 eds1_8(function ($) {
+	$('#EDNadmin').on('click', '.save_buttons', function () {
+		var $this = $(this);
+
+		if ($this.data('clicked'))
+			return false;
+
+		if (typeof(Page_ClientValidate) == 'function' && Page_ClientValidate('vgEditArticle') == true)
+			$this.data('clicked', true);
+	});
+
 	$('#<%=lbSocialSecurityGroups.ClientID %>').dropdownchecklist({
 		forceMultiple: true,
 		minWidth: 106,

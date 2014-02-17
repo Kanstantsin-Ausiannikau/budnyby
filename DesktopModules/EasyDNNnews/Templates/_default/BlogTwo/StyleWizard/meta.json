@@ -250,6 +250,7 @@
 						"selectors": [
 							" .article.in_list.span > .content_wrapper > .content > .summary",
 							" .article.in_list.span > .content_wrapper > .content > .summary p",
+							" .article.in_list.box.big .summary",
 							" .article.details_wrapper > .details_container > .main_content",
 							" .article.details_wrapper > .details_container > .main_content p",
 							" .article.details_wrapper > .details_container > .main_content ul li",
@@ -2291,6 +2292,9 @@
 			},
 			"articleDocuments": {
 				"name": "Article Documents",
+				"hide": [
+					"newsListArticleSidebarBox"
+				],
 				"properties": {
 					"border": {
 						"type": "border",
@@ -2401,6 +2405,9 @@
 			},
 			"articleLinks": {
 				"name": "Article Links",
+				"hide": [
+					"newsListArticleSidebarBox"
+				],
 				"properties": {
 					"border": {
 						"type": "border",
@@ -2511,6 +2518,11 @@
 			},
 			"relatedArticles": {
 				"name": "Related Articles",
+				"hide": [
+					"newsListArticleSidebarBox",
+					"newsListArticleDefault",
+					"newsListArticleMulti"
+				],
 				"properties": {
 					"border": {
 						"type": "border",

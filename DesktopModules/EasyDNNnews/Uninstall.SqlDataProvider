@@ -759,9 +759,6 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[FK_{objectQualifier}EasyDNNNewsCategoryMenuImages_Modules]') AND parent_object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}EasyDNNNewsCategoryMenuImages]'))
 ALTER TABLE {databaseOwner}[{objectQualifier}EasyDNNNewsCategoryMenuImages] DROP CONSTRAINT [FK_{objectQualifier}EasyDNNNewsCategoryMenuImages_Modules]
 GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[FK_{objectQualifier}EasyDNNNewsCategoryMenuImages_EasyDNNNewsCategoryList]') AND parent_object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}EasyDNNNewsCategoryMenuImages]'))
-ALTER TABLE {databaseOwner}[{objectQualifier}EasyDNNNewsCategoryMenuImages] DROP CONSTRAINT [FK_{objectQualifier}EasyDNNNewsCategoryMenuImages_EasyDNNNewsCategoryList]
-GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[FK_{objectQualifier}EasyDNNNewsCategoryMenuImages_Modules]') AND parent_object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}EasyDNNNewsCategoryMenuImages]'))
 ALTER TABLE {databaseOwner}[{objectQualifier}EasyDNNNewsCategoryMenuImages] DROP CONSTRAINT [FK_{objectQualifier}EasyDNNNewsCategoryMenuImages_Modules]
 GO
@@ -941,12 +938,15 @@ GO
 DROP TABLE {databaseOwner}[{objectQualifier}EasyDNNNewsRolePremissionSettings]
 GO
 
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[FK_{objectQualifier}EasyDNNNewsUserPremissionsAddToCategories_EasyDNNNewsUserPremissionSettings1]') AND parent_object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}EasyDNNNewsUserPremissionsAddToCategories]'))
 ALTER TABLE {databaseOwner}[{objectQualifier}EasyDNNNewsUserPremissionsAddToCategories] DROP CONSTRAINT [FK_{objectQualifier}EasyDNNNewsUserPremissionsAddToCategories_EasyDNNNewsUserPremissionSettings1]
 GO
 DROP TABLE {databaseOwner}[{objectQualifier}EasyDNNNewsUserPremissionsAddToCategories]
 GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[FK_{objectQualifier}EasyDNNNewsUserPremissionsAddToCategories_EasyDNNNewsCategoryList]') AND parent_object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}EasyDNNNewsUserPremissionsShowCategories]'))
 ALTER TABLE {databaseOwner}[{objectQualifier}EasyDNNNewsUserPremissionsShowCategories] DROP CONSTRAINT [FK_{objectQualifier}EasyDNNNewsUserPremissionsAddToCategories_EasyDNNNewsCategoryList]
 GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[FK_{objectQualifier}EasyDNNNewsUserPremissionsAddToCategories_EasyDNNNewsUserPremissionSettings]') AND parent_object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}EasyDNNNewsUserPremissionsShowCategories]'))
 ALTER TABLE {databaseOwner}[{objectQualifier}EasyDNNNewsUserPremissionsShowCategories] DROP CONSTRAINT [FK_{objectQualifier}EasyDNNNewsUserPremissionsAddToCategories_EasyDNNNewsUserPremissionSettings]
 GO
 DROP TABLE {databaseOwner}[{objectQualifier}EasyDNNNewsUserPremissionsShowCategories]

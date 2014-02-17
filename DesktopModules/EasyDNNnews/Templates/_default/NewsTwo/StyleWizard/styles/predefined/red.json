@@ -3369,15 +3369,89 @@
       },
       "advancedSearchForm": {
         "properties": {
-          "searchCheckBoxesAndRadioButtons": {
+          "checkBoxes": {
             "default": {
+              "disabled": [
+                "image",
+                "position",
+                "repeat"
+              ],
               "values": {
-                "color": "#b5b5b5"
+                "color": "#b5b5b5",
+                "image": {},
+                "position": {
+                  "horizontal": {
+                    "value": 50,
+                    "unit": "%"
+                  },
+                  "vertical": {
+                    "value": 50,
+                    "unit": "%"
+                  }
+                }
               }
             },
             "selected": {
               "values": {
-                "color": "#e00303"
+                "color": "#e00303",
+                "image": {
+                  "completeUrl": "_-StyleAssetsClientRoot-_images/advancedSearchForm/checkBoxes/predefined/cf-checkbox.png",
+                  "file": "cf-checkbox.png",
+                  "type": "predefined"
+                },
+                "position": {
+                  "horizontal": {
+                    "value": 50,
+                    "unit": "%"
+                  },
+                  "vertical": {
+                    "value": 50,
+                    "unit": "%"
+                  }
+                }
+              }
+            }
+          },
+          "radioButtons": {
+            "default": {
+              "disabled": [
+                "image",
+                "position",
+                "repeat"
+              ],
+              "values": {
+                "color": "#b5b5b5",
+                "image": {},
+                "position": {
+                  "horizontal": {
+                    "value": 50,
+                    "unit": "%"
+                  },
+                  "vertical": {
+                    "value": 50,
+                    "unit": "%"
+                  }
+                }
+              }
+            },
+            "selected": {
+              "values": {
+                "color": "#e00303",
+                "image": {
+                  "completeUrl": "_-StyleAssetsClientRoot-_images/advancedSearchForm/radioButtons/predefined/checked.png",
+                  "file": "checked.png",
+                  "type": "predefined"
+                },
+                "position": {
+                  "horizontal": {
+                    "value": 50,
+                    "unit": "%"
+                  },
+                  "vertical": {
+                    "value": 50,
+                    "unit": "%"
+                  }
+                }
               }
             }
           },
@@ -4262,15 +4336,98 @@
       },
       "articleDetailsCustomFields": {
         "properties": {
-          "checkboxBackground": {
+          "border": {
             "default": {
               "values": {
-                "color": "#b5b5b5"
+                "width": {
+                  "value": 1,
+                  "unit": "px"
+                },
+                "style": "solid",
+                "color": "#dadada"
+              }
+            }
+          },
+          "background": {
+            "default": {
+              "disabled": [
+                "image",
+                "position",
+                "repeat"
+              ],
+              "values": {
+                "color": "#f2f2f2",
+                "image": {},
+                "position": {
+                  "horizontal": {
+                    "value": 0,
+                    "unit": "%"
+                  },
+                  "vertical": {
+                    "value": 0,
+                    "unit": "%"
+                  }
+                }
+              }
+            }
+          },
+          "text": {
+            "default": {
+              "disabled": [
+                "fontFamily",
+                "color",
+                "shadows"
+              ],
+              "values": {
+                "fontFamily": "Arial",
+                "color": "#2F2F2F",
+                "shadows": {
+                  "show": false,
+                  "list": []
+                }
+              }
+            }
+          },
+          "checkboxBackground": {
+            "default": {
+              "disabled": [
+                "image",
+                "position",
+                "repeat"
+              ],
+              "values": {
+                "color": "#b5b5b5",
+                "image": {},
+                "position": {
+                  "horizontal": {
+                    "value": 50,
+                    "unit": "%"
+                  },
+                  "vertical": {
+                    "value": 50,
+                    "unit": "%"
+                  }
+                }
               }
             },
             "selected": {
               "values": {
-                "color": "#e00303"
+                "color": "#e00303",
+                "image": {
+                  "completeUrl": "_-StyleAssetsClientRoot-_images/articleDetailsCustomFields/checkboxBackground/predefined/cf-checkbox.png",
+                  "file": "cf-checkbox.png",
+                  "type": "predefined"
+                },
+                "position": {
+                  "horizontal": {
+                    "value": 50,
+                    "unit": "%"
+                  },
+                  "vertical": {
+                    "value": 50,
+                    "unit": "%"
+                  }
+                }
               }
             }
           }

@@ -1188,17 +1188,29 @@
 	color: #cc0000;
 }
 
-.eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_RadioButtonList label:before,
 .eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_CheckBoxList label:before,
 .eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_CheckBox label:before
 {
 	background-color: #b5b5b5;
 }
 
-.eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_RadioButtonList .edncf_RadioButtonGroup .edncf_RadioButton input[type="radio"]:checked + label:before,
 .eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_CheckBox input[type="checkbox"]:checked + label:before
 {
 	background-color: #cc0000;
+	background-image: url("../images/advancedSearchForm/checkBoxes/predefined/cf-checkbox.png");
+	background-position: 50% 50%;
+}
+
+.eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_RadioButtonList label:before
+{
+	background-color: #b5b5b5;
+}
+
+.eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_RadioButtonList .edncf_RadioButtonGroup .edncf_RadioButton input[type="radio"]:checked + label:before
+{
+	background-color: #cc0000;
+	background-image: url("../images/advancedSearchForm/radioButtons/predefined/checked.png");
+	background-position: 50% 50%;
 }
 
 .eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_search .edncf_AdvancedSearch .edncf_container label,
@@ -1430,15 +1442,23 @@
 	color: #ffffff !important;
 }
 
-.eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_news.eds_templateGroup_newsDetailsDefault .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox .EDN_cf_checkbox_icon,
-.eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_news.eds_templateGroup_newsDetailsCatalogDefault .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox .EDN_cf_checkbox_icon
+.eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_news .EDN_cf_all_fields_container
+{
+	border-width: 1px;
+	border-style: solid;
+	border-color: #dadada;
+	background-color: #f2f2f2;
+}
+
+.eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_news .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox .EDN_cf_checkbox_icon
 {
 	background-color: #b5b5b5;
 }
 
-.eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_news.eds_templateGroup_newsDetailsDefault .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_checked .EDN_cf_checkbox_icon,
-.eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_news.eds_templateGroup_newsDetailsCatalogDefault .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_checked .EDN_cf_checkbox_icon
+.eds_news_NewsTwo.eds_style_predefined_grey.eds_subCollection_news .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_checked .EDN_cf_checkbox_icon
 {
 	background-color: #cc0000;
+	background-image: url("../images/articleDetailsCustomFields/checkboxBackground/predefined/cf-checkbox.png");
+	background-position: 50% 50%;
 }
 

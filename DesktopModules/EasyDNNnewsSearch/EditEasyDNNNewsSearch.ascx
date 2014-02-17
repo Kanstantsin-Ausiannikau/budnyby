@@ -211,29 +211,6 @@
 				<table id="tblSimpleSearch" runat="server" class="settings_table" cellpadding="0" cellspacing="0">
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblSearchFilterBy" runat="server" Text="Search articles and events" HelpText="This option allows for searching articles only, or events only, or both." HelpKey="lblSearchFilterBy.HelpText" ResourceKey="lblSearchFilterBy" />
-						</td>
-						<td class="right">
-							<asp:CheckBox ID="cbSearchArticles" runat="server" Text="Articles" Checked="True" />
-							<asp:CheckBox ID="cbSearchEvents" runat="server" Text="Events" Checked="True" AutoPostBack="true" OnCheckedChanged="cbSearchEvents_CheckedChanged" />
-						</td>
-					</tr>
-					<tr>
-						<td class="left">
-							<dnn:Label ID="lblShowOnlyEventsLimit" runat="server" HelpText="Set the criteria to search events whose start date has ended. The option 'Show all' will search all events, disregarding the fact that they have already ended. We can enter the number of days to be set in the past for past events in the field 'Limit to number of days in the past'. If the set value is 0, the criterion for the event's listing will be the current date. In that case, neither of the past events will be searched." Text="Searching of past events:" HelpKey="lblShowOnlyEventsLimit.HelpText" ResourceKey="lblShowOnlyEventsLimit" />
-						</td>
-						<td class="right">
-							<asp:RadioButtonList ID="rblLimitBackEvents" runat="server" Style="float: left" RepeatDirection="Horizontal">
-								<asp:ListItem Value="0" Text="ShowAll" />
-								<asp:ListItem Value="1" Text="Limit to number of days:" Selected="True" />
-							</asp:RadioButtonList>
-							<asp:TextBox Style="float: left" ID="tbPastEventLimit" runat="server" Width="25px" Text="0" />
-							<asp:RequiredFieldValidator ID="rfvPastEventLimit" runat="server" ControlToValidate="tbPastEventLimit" Display="Dynamic" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="VgSaveSetting" />
-							<asp:CompareValidator ID="cvPastEventLimit" runat="server" ControlToValidate="tbPastEventLimit" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="VgSaveSetting" />
-						</td>
-					</tr>
-					<tr class="second">
-						<td class="left">
 							<dnn:Label ID="lblSearchButtonPosition" runat="server" Text="Serach button position:" ControlName="ddlSearchPosition" HelpText="Button position." HelpKey="lblSearchButtonPosition.HelpText" ResourceKey="lblSearchButtonPosition" />
 						</td>
 						<td class="right">
@@ -346,6 +323,29 @@
 				<asp:UpdatePanel ID="upCategoriesfilter" runat="server">
 					<ContentTemplate>
 						<table class="settings_table" cellpadding="0" cellspacing="0">
+							<tr class="second">
+								<td class="left">
+									<dnn:Label ID="lblSearchFilterBy" runat="server" Text="Search articles and events" HelpText="This option allows for searching articles only, or events only, or both." HelpKey="lblSearchFilterBy.HelpText" ResourceKey="lblSearchFilterBy" />
+								</td>
+								<td class="right">
+									<asp:CheckBox ID="cbSearchArticles" runat="server" Text="Articles" Checked="True" />
+									<asp:CheckBox ID="cbSearchEvents" runat="server" Text="Events" Checked="True" AutoPostBack="true" OnCheckedChanged="cbSearchEvents_CheckedChanged" />
+								</td>
+							</tr>
+							<tr>
+								<td class="left">
+									<dnn:Label ID="lblShowOnlyEventsLimit" runat="server" HelpText="Set the criteria to search events whose start date has ended. The option 'Show all' will search all events, disregarding the fact that they have already ended. We can enter the number of days to be set in the past for past events in the field 'Limit to number of days in the past'. If the set value is 0, the criterion for the event's listing will be the current date. In that case, neither of the past events will be searched." Text="Searching of past events:" HelpKey="lblShowOnlyEventsLimit.HelpText" ResourceKey="lblShowOnlyEventsLimit" />
+								</td>
+								<td class="right">
+									<asp:RadioButtonList ID="rblLimitBackEvents" runat="server" Style="float: left" RepeatDirection="Horizontal">
+										<asp:ListItem Value="0" Text="ShowAll" />
+										<asp:ListItem Value="1" Text="Limit to number of days:" Selected="True" />
+									</asp:RadioButtonList>
+									<asp:TextBox Style="float: left" ID="tbPastEventLimit" runat="server" Width="25px" Text="0" />
+									<asp:RequiredFieldValidator ID="rfvPastEventLimit" runat="server" ControlToValidate="tbPastEventLimit" Display="Dynamic" ErrorMessage="This filed is required." SetFocusOnError="True" ValidationGroup="VgSaveSetting" />
+									<asp:CompareValidator ID="cvPastEventLimit" runat="server" ControlToValidate="tbPastEventLimit" Display="Dynamic" ErrorMessage="Please enter number only." Operator="DataTypeCheck" Type="Integer" ValidationGroup="VgSaveSetting" />
+								</td>
+							</tr>
 							<tr class="second">
 								<td class="left" style="width: 350px">
 									<dnn:Label ID="lblFilterCategories" runat="server" Text="Search all categories on portal:" HelpText="Show all categories in search menu, or filter by category." ControlName="cbFilterCategories" HelpKey="lblFilterCategories.HelpText" ResourceKey="lblFilterCategories" />
