@@ -260,7 +260,15 @@
 					</tr>
 					<tr class="second">
 						<td class="left">
-							<dnn:Label ID="lblCategoryCFGroupItems" runat="server" Text="Connect news categories to custom field groups:" HelpText="Enable connection between news category and custom field group by passing query string." HelpKey="lblCategoryCFGroupItems.HelpText" ResourceKey="lblCategoryCFGroupItems" />
+							<dnn:Label ID="lblSearchOnlySelectedCFGroup" runat="server" ControlName="cbSearchOnlySelectedCFGroup" Text="Search only articles in selected CF group:" HelpText="Only the articles in the selected Custom fields group will be searched. If this option is uncheched then all articles will be searched by the custom field, but the custom field group will not be taken into account." HelpKey="lblSearchOnlySelectedCFGroup.HelpText" ResourceKey="lblSearchOnlySelectedCFGroup" />
+						</td>
+						<td class="right">
+							<asp:CheckBox ID="cbSearchOnlySelectedCFGroup" runat="server" Checked="false" />
+						</td>
+					</tr>
+					<tr>
+						<td class="left">
+							<dnn:Label ID="lblCategoryCFGroupItems" runat="server" ControlName="cbCategoryCFGroupItems" Text="Connect news categories to custom field groups:" HelpText="Enable connection between news category and custom field group by passing query string." HelpKey="lblCategoryCFGroupItems.HelpText" ResourceKey="lblCategoryCFGroupItems" />
 						</td>
 						<td class="right">
 							<asp:CheckBox ID="cbCategoryCFGroupItems" runat="server" Checked="false" />

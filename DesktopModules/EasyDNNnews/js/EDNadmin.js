@@ -10,6 +10,8 @@ function align_fixed_table_row ($selected_row) {
 
 jQuery(document).ready(function ($) {
 	var $edn_admin = $('#EDNadmin'),
+		$body = $('body'),
+		$form = $('> form', $body),
 		$gridview_content_manager = $edn_admin.find('div.gridview_content_manager'),
 		$module_settings = $edn_admin.find('.module_settings'),
 		$first_coll_fixed_table = $module_settings.find('.first_coll_fixed_table'),
@@ -45,7 +47,6 @@ jQuery(document).ready(function ($) {
 
 		google_maps_token = function (token) {
 			var $window = $(window),
-				$body = $('body'),
 				$google_maps = $('.content_token_generator.google_maps'),
 				$dialog_wrapper = $google_maps.find('> .dialog_wrapper'),
 				$pages_container = $dialog_wrapper.find('> .pages_container'),
@@ -498,6 +499,9 @@ jQuery(document).ready(function ($) {
 					google.maps.event.addListener(location_search, 'place_changed', function() {
 						var place = location_search.getPlace();
 
+						if (!place.geometry)
+							return;
+
 						if (place.geometry.viewport)
 							window.edn_map_token_obj.fitBounds(place.geometry.viewport);
 						else {
@@ -539,7 +543,12 @@ jQuery(document).ready(function ($) {
 					if ($google_maps.data('token_area_active'))
 						reset_token_area();
 
-					$body.css('overflow', '');
+					$body.css({
+						overflow: '',
+						position: ''
+					});
+
+					$form.removeClass('removeTopMargin');
 				},
 				dimensions,
 				token_settings_dimensions,
@@ -713,7 +722,12 @@ jQuery(document).ready(function ($) {
 				update_markers_list();
 			}
 
-			$body.css('overflow', 'hidden');
+			$body.css({
+				overflow: 'hidden',
+				position: 'relative'
+			});
+
+			$form.addClass('removeTopMargin');
 
 			dialog_width = dialog_width < 500 ? 500 : dialog_width;
 			dialog_width = dialog_width > 1200 ? 1200 : dialog_width;
@@ -942,10 +956,25 @@ jQuery(document).ready(function ($) {
 				else
 					google_maps_token();
 			else {
+				$body.css({
+					overflow: 'hidden',
+					position: 'relative'
+				});
+
+				$form.addClass('removeTopMargin');
+
 				$('<div><p>To enable Google Maps integration, please set your Google API Key in the settings.</p></div>').dialog({
 					autoOpen: true,
 					resizable: false,
-					modal: true
+					modal: true,
+					close: function () {
+						$body.css({
+							overflow: '',
+							position: ''
+						});
+
+						$form.removeClass('removeTopMargin');
+					}
 				});
 			}
 
@@ -978,13 +1007,18 @@ jQuery(document).ready(function ($) {
 			var original_token = $clicked.siblings('input.token_box').val(),
 
 				$window = $(window),
-				$body = $('body'),
 				$item_token_dialog = $body.find('.content_token_generator.gallery_item'),
 				$dialog_wrapper = $item_token_dialog.find('.dialog_wrapper'),
 
 				close_dialog = function () {
 					$item_token_dialog.dialog('destroy');
-					$body.css('overflow', '');
+
+					$body.css({
+						overflow: '',
+						position: ''
+					});
+
+					$form.removeClass('removeTopMargin');
 				},
 
 				token_params,
@@ -1104,7 +1138,12 @@ jQuery(document).ready(function ($) {
 					$the_token.html(generate_token());
 				});
 
-			$body.css('overflow', 'hidden');
+			$body.css({
+				overflow: 'hidden',
+				position: 'relative'
+			});
+
+			$form.addClass('removeTopMargin');
 
 			$item_token_dialog.dialog({
 				buttons: [

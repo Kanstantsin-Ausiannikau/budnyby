@@ -338,5 +338,8 @@
   </data>
   <data name="NumberOfSearchResult.Text" xml:space="preserve">
     <value>&lt;p&gt;Number of search result: ({0})&lt;/p&gt;</value>
+    </data>
+  <data name="UpcomingEvents.Text" xml:space="preserve">
+    <value>Upcoming Events</value>
   </data>
 </root>

@@ -330,4 +330,10 @@
   <data name="lblShowOnlyEventsLimit.Text" xml:space="preserve">
     <value>Searching of past events:</value>
   </data>
+  <data name="lblSearchOnlySelectedCFGroup.HelpText" xml:space="preserve">
+    <value>Only the articles in the selected Custom fields group will be searched. If this option is uncheched then all articles will be searched by the custom field, but the custom field group will not be taken into account.</value>
+  </data>
+  <data name="lblSearchOnlySelectedCFGroup.Text" xml:space="preserve">
+    <value>Search only articles in selected CF group:</value>
+  </data>
 </root>

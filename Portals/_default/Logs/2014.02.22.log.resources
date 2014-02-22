@@ -1,0 +1,36 @@
+2014-02-22 12:08:06,965 [Home01][Thread:7][ERROR] DotNetNuke.Services.Scheduling.SchedulerClient - System.IO.FileNotFoundException: Ôאיכ 'C:\_UserContent\budny\code\budnyby1\App_Data\Search\segments_3ftw' םו םאיהום.
+Èלÿ פאיכא: "C:\_UserContent\budny\code\budnyby1\App_Data\Search\segments_3ftw"
+   ג Lucene.Net.Index.SegmentInfos.FindSegmentsFile.Run(IndexCommit commit)
+   ג Lucene.Net.Index.SegmentInfos.Read(Directory directory)
+   ג Lucene.Net.Index.IndexWriter.Init(Directory d, Analyzer a, Boolean create, IndexDeletionPolicy deletionPolicy, Int32 maxFieldLength, IndexingChain indexingChain, IndexCommit commit)
+   ג Lucene.Net.Index.IndexWriter..ctor(Directory d, Analyzer a, MaxFieldLength mfl)
+   ג DotNetNuke.Services.Search.Internals.LuceneControllerImpl.get_Writer()
+   ג DotNetNuke.Services.Search.Internals.LuceneControllerImpl.Delete(Query query)
+   ג DotNetNuke.Services.Search.Internals.InternalSearchControllerImpl.DeleteSearchDocumentsByModule(Int32 portalId, Int32 moduleId, Int32 moduleDefId)
+   ג DotNetNuke.Services.Search.SearchDataStore.StoreSearchItems(SearchItemInfoCollection searchItems)
+   ג DotNetNuke.Services.Search.SearchEngine.IndexContent(DateTime startDate)
+   ג DotNetNuke.Services.Search.SearchEngineScheduler.DoWork()
+2014-02-22 12:08:06,978 [Home01][Thread:7][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.IO.FileNotFoundException: Ôאיכ 'C:\_UserContent\budny\code\budnyby1\App_Data\Search\segments_3ftw' םו םאיהום.
+Èלÿ פאיכא: "C:\_UserContent\budny\code\budnyby1\App_Data\Search\segments_3ftw"
+   ג Lucene.Net.Index.SegmentInfos.FindSegmentsFile.Run(IndexCommit commit)
+   ג Lucene.Net.Index.SegmentInfos.Read(Directory directory)
+   ג Lucene.Net.Index.IndexWriter.Init(Directory d, Analyzer a, Boolean create, IndexDeletionPolicy deletionPolicy, Int32 maxFieldLength, IndexingChain indexingChain, IndexCommit commit)
+   ג Lucene.Net.Index.IndexWriter..ctor(Directory d, Analyzer a, MaxFieldLength mfl)
+   ג DotNetNuke.Services.Search.Internals.LuceneControllerImpl.get_Writer()
+   ג DotNetNuke.Services.Search.Internals.LuceneControllerImpl.Delete(Query query)
+   ג DotNetNuke.Services.Search.Internals.InternalSearchControllerImpl.DeleteSearchDocumentsByModule(Int32 portalId, Int32 moduleId, Int32 moduleDefId)
+   ג DotNetNuke.Services.Search.SearchDataStore.StoreSearchItems(SearchItemInfoCollection searchItems)
+   ג DotNetNuke.Services.Search.SearchEngine.IndexContent(DateTime startDate)
+   ג DotNetNuke.Services.Search.SearchEngineScheduler.DoWork()
+2014-02-22 12:08:07,331 [Home01][Thread:7][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.IO.FileNotFoundException: Ôאיכ 'C:\_UserContent\budny\code\budnyby1\App_Data\Search\segments_3ftw' םו םאיהום.
+Èלÿ פאיכא: "C:\_UserContent\budny\code\budnyby1\App_Data\Search\segments_3ftw"
+   ג Lucene.Net.Index.SegmentInfos.FindSegmentsFile.Run(IndexCommit commit)
+   ג Lucene.Net.Index.SegmentInfos.Read(Directory directory)
+   ג Lucene.Net.Index.IndexWriter.Init(Directory d, Analyzer a, Boolean create, IndexDeletionPolicy deletionPolicy, Int32 maxFieldLength, IndexingChain indexingChain, IndexCommit commit)
+   ג Lucene.Net.Index.IndexWriter..ctor(Directory d, Analyzer a, MaxFieldLength mfl)
+   ג DotNetNuke.Services.Search.Internals.LuceneControllerImpl.get_Writer()
+   ג DotNetNuke.Services.Search.Internals.LuceneControllerImpl.Delete(Query query)
+   ג DotNetNuke.Services.Search.Internals.InternalSearchControllerImpl.DeleteSearchDocumentsByModule(Int32 portalId, Int32 moduleId, Int32 moduleDefId)
+   ג DotNetNuke.Services.Search.SearchDataStore.StoreSearchItems(SearchItemInfoCollection searchItems)
+   ג DotNetNuke.Services.Search.SearchEngine.IndexContent(DateTime startDate)
+   ג DotNetNuke.Services.Search.SearchEngineScheduler.DoWork()

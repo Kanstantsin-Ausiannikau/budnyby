@@ -26,7 +26,7 @@
 							<div class="main_content gridview_content_manager tag_editor" style="padding: 0;">
 								<div class="content_wrapper">
 									<asp:GridView ID="gvAuthors" runat="server" EnableModelValidation="True" AutoGenerateColumns="False" CellPadding="0" DataSourceID="odsAuthors" OnPreRender="gvAuthors_PreRender" GridLines="None" CssClass="grid_view_table" ShowFooter="True" DataKeyNames="UserID"
-										AllowPaging="True" AllowSorting="True" OnRowCommand="gvAuthors_RowCommand" OnRowDeleted="gvAuthors_RowDeleted" OnPageIndexChanging="gvAuthors_PageIndexChanging" resourcekey="gvAuthorsResource1">
+										AllowPaging="True" AllowSorting="True" OnRowCommand="gvAuthors_RowCommand" OnRowDeleted="gvAuthors_RowDeleted" OnPageIndexChanging="gvAuthors_PageIndexChanging">
 										<AlternatingRowStyle BorderWidth="0px" CssClass="row second" />
 										<Columns>
 											<asp:TemplateField ShowHeader="False">
@@ -272,7 +272,7 @@
 						<div class="main_content gridview_content_manager tag_editor" style="padding: 0;">
 							<div class="content_wrapper">
 								<asp:GridView ID="gvProfileGropus" runat="server" EnableModelValidation="True" AutoGenerateColumns="False" CellPadding="0" DataSourceID="odsGetGroups" GridLines="None" CssClass="grid_view_table" ShowFooter="True" DataKeyNames="GroupID" AllowPaging="True"
-									AllowSorting="True" OnRowCommand="gvProfileGropus_RowCommand" OnRowDeleted="gvProfileGropus_RowDeleted" OnDataBound="gvProfileGropus_DataBound" OnPreRender="gvProfileGropus_PreRender" resourcekey="gvProfileGropusResource1">
+									AllowSorting="True" OnRowCommand="gvProfileGropus_RowCommand" OnRowDeleted="gvProfileGropus_RowDeleted" OnDataBound="gvProfileGropus_DataBound" OnPreRender="gvProfileGropus_PreRender">
 									<AlternatingRowStyle BorderWidth="0px" CssClass="row second" />
 									<Columns>
 										<asp:TemplateField ShowHeader="False">
@@ -317,10 +317,10 @@
 											<ItemTemplate>
 												<asp:Label ID="lblPosition" runat="server" Text='<%# Bind("Position") %>'></asp:Label>
 												<br />
-												<asp:ImageButton ID="imgCategoryUp" runat="server" CausesValidation="False" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="Up" ImageUrl="~/images/action_up.gif" resourcekey="imgGroupUp" Text="Up" />
+												<asp:ImageButton ID="imgCategoryUp" runat="server" CausesValidation="False" CommandArgument= '<%# Eval("GroupID")%>' CommandName="Up" ImageUrl="~/images/action_up.gif" resourcekey="imgGroupUp" Text="Up" />
 												</div>
 												<div>
-													<asp:ImageButton ID="imgCategoryDown" runat="server" CausesValidation="False" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="Down" ImageUrl="~/images/action_down.gif" resourcekey="imgGroupDown" Text="Down" />
+													<asp:ImageButton ID="imgCategoryDown" runat="server" CausesValidation="False" CommandArgument= '<%# Eval("GroupID")%>' CommandName="Down" ImageUrl="~/images/action_down.gif" resourcekey="imgGroupDown" Text="Down" />
 												</div>
 											</ItemTemplate>
 										</asp:TemplateField>
