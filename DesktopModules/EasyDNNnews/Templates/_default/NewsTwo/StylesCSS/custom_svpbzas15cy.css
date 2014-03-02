@@ -1188,19 +1188,6 @@
 	color: #cc0000;
 }
 
-.eds_news_NewsTwo.eds_style_custom_svpbzas15cy.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_RadioButtonList label:before,
-.eds_news_NewsTwo.eds_style_custom_svpbzas15cy.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_CheckBoxList label:before,
-.eds_news_NewsTwo.eds_style_custom_svpbzas15cy.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_CheckBox label:before
-{
-	background-color: #b5b5b5;
-}
-
-.eds_news_NewsTwo.eds_style_custom_svpbzas15cy.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_RadioButtonList .edncf_RadioButtonGroup .edncf_RadioButton input[type="radio"]:checked + label:before,
-.eds_news_NewsTwo.eds_style_custom_svpbzas15cy.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_CheckBox input[type="checkbox"]:checked + label:before
-{
-	background-color: #cc0000;
-}
-
 .eds_news_NewsTwo.eds_style_custom_svpbzas15cy.eds_subCollection_search .edncf_AdvancedSearch .edncf_container label,
 .eds_news_NewsTwo.eds_style_custom_svpbzas15cy.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_CheckBoxList label,
 .eds_news_NewsTwo.eds_style_custom_svpbzas15cy.eds_subCollection_search .edncf_AdvancedSearch .edncf_container .edncf_CheckBox label,
@@ -1428,17 +1415,5 @@
 {
 	text-decoration: none;
 	color: #ffffff !important;
-}
-
-.eds_news_NewsTwo.eds_style_custom_svpbzas15cy.eds_subCollection_news.eds_templateGroup_newsDetailsDefault .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox .EDN_cf_checkbox_icon,
-.eds_news_NewsTwo.eds_style_custom_svpbzas15cy.eds_subCollection_news.eds_templateGroup_newsDetailsCatalogDefault .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox .EDN_cf_checkbox_icon
-{
-	background-color: #b5b5b5;
-}
-
-.eds_news_NewsTwo.eds_style_custom_svpbzas15cy.eds_subCollection_news.eds_templateGroup_newsDetailsDefault .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_checked .EDN_cf_checkbox_icon,
-.eds_news_NewsTwo.eds_style_custom_svpbzas15cy.eds_subCollection_news.eds_templateGroup_newsDetailsCatalogDefault .EDN_cf_all_fields_container > table tr td.EDN_all_fields_table_value .EDN_cf_checkbox_checked .EDN_cf_checkbox_icon
-{
-	background-color: #cc0000;
 }
 

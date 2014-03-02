@@ -18,6 +18,7 @@
 					<OtherMonthDayStyle CssClass="day other_month" />
 					<DayStyle CssClass="day" />
 				</asp:Calendar>
+<h3><a href="../Abiturient/opendays" title="Перейти к полной версии календаря">Подробный календарь</a></h3>
 			</asp:Panel>
 		</ContentTemplate>
 	</asp:UpdatePanel>

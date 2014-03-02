@@ -21,6 +21,10 @@ time, mark, audio, video {
   font-size: 100%;
 }
 
+.calendar .archive_list span {
+display: inline-block;
+}
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;

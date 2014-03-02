@@ -130,7 +130,7 @@
     <value>Category Editor</value>
   </data>
   <data name="ModuleHelp.Text" xml:space="preserve">
-    <value>&lt;P&gt;A EasyDNNNews module</value>
+    <value>A EasyDNNNews module</value>
   </data>
   <data name="Read.Text" xml:space="preserve">
     <value>Read more</value>
@@ -244,7 +244,7 @@
     <value>Approve articles</value>
   </data>
   <data name="lbArticleEditor.Text" xml:space="preserve">
-    <value>Article editor</value>
+    <value>Article manager</value>
   </data>
   <data name="lbCategoryEdit.Text" xml:space="preserve">
     <value>Category editor</value>
@@ -338,5 +338,8 @@
   </data>
   <data name="NumberOfSearchResult.Text" xml:space="preserve">
     <value>&lt;p&gt;Number of search result: ({0})&lt;/p&gt;</value>
+    </data>
+  <data name="UpcomingEvents.Text" xml:space="preserve">
+    <value>Upcoming Events</value>
   </data>
 </root>
